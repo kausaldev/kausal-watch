@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                     fields=[
                         ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                         ('name', models.CharField(max_length=100, verbose_name='name')),
-                        ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
+                        ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.action_content.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
                         ('plan', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='actions.plan')),
                     ],
                     options={
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                         ('identifier', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name', unique_with=('type',))),
                         ('start_date', models.DateField(verbose_name='start date')),
                         ('end_date', models.DateField(verbose_name='end date')),
-                        ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
+                        ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.action_content.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
                         ('is_complete', models.BooleanField(default=False, help_text='Set if report cannot be changed anymore', verbose_name='complete')),
                         ('is_public', models.BooleanField(default=False, help_text='Set if report can be shown to the public', verbose_name='public')),
                         ('type', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='reports.reporttype')),

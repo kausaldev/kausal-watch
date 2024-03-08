@@ -606,9 +606,12 @@ class OptionalChoiceWithText(AttributeType[models.AttributeChoiceWithText]):
     ) -> list[Any]:
         if not attribute:
             return [None, None]
-        choice = next(
-            (o.data['name'] for o in related_data_objects['actions.models.attributes.AttributeTypeChoiceOption']
-             if o.data['id'] == attribute.data['choice_id']))
+        try:
+            choice = next(
+                (o.data['name'] for o in related_data_objects['actions.models.attributes.AttributeTypeChoiceOption']
+                 if o.data['id'] == attribute.data['choice_id']))
+        except StopIteration:
+            choice = None
         rich_text = attribute.data['text']
         return [choice, html_to_plaintext(rich_text)]
 

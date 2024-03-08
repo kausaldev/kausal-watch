@@ -1,14 +1,28 @@
+from typing import Any
+
 from django.utils.translation import gettext_lazy as _
 from grapple.helpers import register_streamfield_block
 from wagtail import blocks
 
 from actions.blocks.choosers import CategoryAttributeTypeChooserBlock, CategoryChooserBlock, CategoryTypeChooserBlock
 from actions.blocks.action_content import (
-    # If you're wondering about unknown import symbol errors: Some of these are defined by metaprogramming
-    ActionAsideContentBlock, ActionContactFormBlock, ActionContactPersonsBlock, ActionDescriptionBlock,
-    ActionLeadParagraphBlock, ActionLinksBlock, ActionMainContentBlock, ActionMergedActionsBlock,
-    ActionOfficialNameBlock, ActionRelatedActionsBlock, ActionRelatedIndicatorsBlock, ActionResponsiblePartiesBlock,
-    ActionScheduleBlock, ActionTasksBlock, ActionDependenciesBlock
+    ActionAsideContentBlock,
+    ActionContactFormBlock,
+    ActionMainContentBlock,
+    ActionOfficialNameBlock,
+    ActionResponsiblePartiesBlock,
+    # If you're wondering about unknown import symbol errors:
+    # The types below are defined by metaprogramming
+    ActionContactPersonsBlock, # type: ignore
+    ActionDependenciesBlock, # type: ignore
+    ActionDescriptionBlock, # type: ignore
+    ActionLeadParagraphBlock, # type: ignore
+    ActionLinksBlock, # type: ignore
+    ActionMergedActionsBlock, # type: ignore
+    ActionRelatedActionsBlock, # type: ignore
+    ActionRelatedIndicatorsBlock, # type: ignore
+    ActionScheduleBlock, # type: ignore
+    ActionTasksBlock, # type: ignore
 )
 from actions.blocks.action_dashboard import (
     IdentifierColumnBlock, NameColumnBlock, ImplementationPhaseColumnBlock, StatusColumnBlock, TasksColumnBlock,
@@ -28,7 +42,7 @@ from actions.models.category import CategoryType
 from actions.models.plan import Plan
 
 
-def get_default_action_content_blocks(plan: Plan):
+def get_default_action_content_blocks(plan: Plan) -> dict[str, Any]:
     action_ats: AttributeTypeQuerySet = AttributeType.objects.for_actions(plan)
     action_cts = plan.category_types.filter(categories__actions__isnull=False, usable_for_actions=True).distinct()
 
@@ -64,8 +78,8 @@ def get_default_action_content_blocks(plan: Plan):
     return out
 
 
-def get_default_action_filter_blocks(plan: Plan):
-    filter_blocks: list[dict] = [
+def get_default_action_filter_blocks(plan: Plan) -> dict[str, blocks.StreamValue]:
+    filter_blocks: list[dict[str, Any]] = [
         {'type': 'responsible_party', 'value': None},
         {'type': 'implementation_phase', 'value': None},
         {'type': 'schedule', 'value': None},
@@ -109,7 +123,7 @@ def get_default_action_filter_blocks(plan: Plan):
 
 
 @register_streamfield_block
-class RelatedPlanListBlock(blocks.StaticBlock):
+class RelatedPlanListBlock(blocks.StaticBlock):  # type: ignore[misc]
     class Meta:
         label = _('Related plans')
 

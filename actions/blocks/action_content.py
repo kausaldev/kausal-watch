@@ -15,12 +15,23 @@ from actions.models.attributes import AttributeType
 from actions.models.category import CategoryType
 from aplans.graphql_types import register_graphene_interface
 from aplans.utils import underscore_to_camelcase
-from reports.blocks.action_content import ReportComparisonBlock
+from reports.blocks.report_comparison_block import ReportComparisonBlock
+from reports.report_formatters import ActionReportContentField, ActionTasksFormatter
 
-# Attention: Defines several block classes via metaprogramming. See `action_attribute_blocks`. Currently:
-# ActionLeadParagraphBlock, ActionDescriptionBlock, ActionScheduleBlock, ActionLinksBlock, ActionTasksBlock,
-# ActoinMergedActionsBlock, ActionRelatedActionsBlock, ActionRelatedIndicatorsBlock, ActionContactPersonsBlock,
-# ActionResponsiblePartiesBlock, ActionDependenciesBlock
+
+# Attention: Defines several block classes via metaprogramming.
+# See `action_attribute_blocks` which should currently contain:
+#
+# ActionContactPersonsBlock
+# ActionDescriptionBlock
+# ActionLeadParagraphBlock
+# ActionLinksBlock
+# ActionMergedActionsBlock,
+# ActionRelatedActionsBlock
+# ActionRelatedIndicatorsBlock
+# ActionResponsiblePartiesBlock
+# ActionScheduleBlock
+# ActionTasksBlock
 
 
 class StaticBlockToStructBlockWorkaroundMixin:
@@ -47,6 +58,39 @@ def get_field_label(model: Type[models.Model], field_name: str) -> str | None:
 lazy_field_label = lazy(get_field_label, str)
 
 
+
+
+
+def generate_block_for_field(model: Type[models.Model], field_name: str, params: dict = {}):
+    camel_field = underscore_to_camelcase(field_name)
+    class_name = '%s%sBlock' % (model._meta.object_name, camel_field)
+
+    # Fields need to be evaluated lazily, because when this function is called,
+    # the model registry is not yet fully initialized.
+    field_label = lazy_field_label(model, field_name)
+    Meta = type(
+        'Meta',
+        (),
+        {'label': params.get('label', field_label),
+         'field_name': field_name})
+
+    superclasses = (
+        ActionListContentBlock,
+        ActionReportContentField
+    )
+    attrs = {
+        'Meta': Meta,
+        '__module__': __name__,
+        'graphql_interfaces': (FieldBlockMetaInterface, )
+    }
+    if 'report_value_formatter_class' in params:
+        attrs['report_value_formatter_class'] = params['report_value_formatter_class']
+    klass = type(class_name, superclasses, attrs)
+    globals()[class_name] = klass
+    register_streamfield_block(klass)
+    return klass
+
+
 def generate_blocks_for_fields(model: Type[models.Model], fields: list[str | Tuple[str, dict]]):
     out = {}
     for field_name in fields:
@@ -54,21 +98,7 @@ def generate_blocks_for_fields(model: Type[models.Model], fields: list[str | Tup
             field_name, params = field_name
         else:
             params = {}
-
-        camel_field = underscore_to_camelcase(field_name)
-        class_name = '%s%sBlock' % (model._meta.object_name, camel_field)
-
-        # Fields need to be evaluated lazily, because when this function is called,
-        # the model registry is not yet fully initialized.
-        field_label = lazy_field_label(model, field_name)
-        Meta = type('Meta', (), {'label': params.get('label', field_label)})
-        klass = type(class_name, (ActionListContentBlock,), {
-            'Meta': Meta,
-            '__module__': __name__,
-            'graphql_interfaces': (FieldBlockMetaInterface, )
-        })
-        register_streamfield_block(klass)
-        globals()[class_name] = klass
+        klass = generate_block_for_field(model, field_name, params)
         out[field_name] = klass
     return out
 
@@ -78,7 +108,7 @@ class FieldBlockMetaData(graphene.ObjectType):
     hidden = graphene.Boolean()
 
     @staticmethod
-    def resolve_restricted(root, *args, **kwargs):
+    def resolve_restricted(root: dict[str, bool], *args, **kwargs):
         return root['restricted']
 
     @staticmethod
@@ -259,13 +289,20 @@ action_attribute_blocks = generate_blocks_for_fields(Action, [
     'description',
     'schedule',
     'links',
-    'tasks',
+    ('tasks', {'report_value_formatter_class': ActionTasksFormatter}),
     ('merged_actions', {'label': _('Merged actions')}),
     ('related_actions', {'label': _('Related actions')}),
     ('dependencies', {'label': _('Action dependencies')}),
     'related_indicators',
     'contact_persons',
 ])
+
+
+def get_action_block_for_field(field_name):
+    global action_attribute_blocks
+    if field_name in action_attribute_blocks:
+        return action_attribute_blocks[field_name]
+    return generate_block_for_field(Action, field_name)
 
 
 action_content_extra_args = {

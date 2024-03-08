@@ -3,6 +3,8 @@ import typing
 
 if typing.TYPE_CHECKING:
     from .models import AttributePath, SerializedAttributeVersion, SerializedVersion
+    from typing import Literal, Any
+    from django.db.models import Model
 
 def get_attribute_for_type_from_related_objects(
         required_content_type_id: int,
@@ -16,6 +18,22 @@ def get_attribute_for_type_from_related_objects(
         attribute_type_id
     )
     return attribute_versions.get(required_attribute_path)
+
+
+def get_related_model_instances_for_action(
+        # TODO: this is used in formatters -- see if it needs to be refactored
+        action_id: int,
+        related_objects: dict[str, list[SerializedVersion]],
+        desired_model: type[Model] | Literal['self'] | Any | None
+):
+    model_full_path = f"{desired_model.__module__}.{desired_model.__name__}"
+    objects = related_objects.get(model_full_path)
+    if objects is None:
+        return []
+    return [
+        x for x in objects
+        if action_id == int(x.data['action_id'])
+    ]
 
 
 def group_by_model(serialized_versions: list[SerializedVersion]) -> dict[str, list[SerializedVersion]]:
