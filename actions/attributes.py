@@ -259,8 +259,8 @@ class AttributeType(ABC, Generic[T]):
         pass
 
     @classmethod
-    def from_model_instance(cls, instance: models.AttributeType) -> AttributeType[T]:
-        format_to_class: dict[models.AttributeType.AttributeFormat, type[AttributeType]] = {
+    def format_to_class(cls, format: models.AttributeType.AttributeFormat) -> type[AttributeType]:
+        mapping: dict[models.AttributeType.AttributeFormat, type[AttributeType]] = {
             models.AttributeType.AttributeFormat.ORDERED_CHOICE: OrderedChoice,
             # We reuse the ordered choice implementation and simply render differently in the UI according to format
             # TODO: combine different choice attributes under same implementation with additional metadata configuring
@@ -272,7 +272,11 @@ class AttributeType(ABC, Generic[T]):
             models.AttributeType.AttributeFormat.RICH_TEXT: RichText,
             models.AttributeType.AttributeFormat.NUMERIC: Numeric,
         }
-        attr_class = format_to_class[instance.format]
+        return mapping[format]
+
+    @classmethod
+    def from_model_instance(cls, instance: models.AttributeType) -> AttributeType[T]:
+        attr_class = cls.format_to_class(instance.format)
         return attr_class(instance)
 
     def __init__(self, instance: models.AttributeType):
