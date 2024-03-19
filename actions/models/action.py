@@ -28,6 +28,7 @@ from wagtail.models import DraftStateMixin, LockableMixin, RevisionMixin, Task, 
 from wagtail.search import index
 from wagtail.search.queryset import SearchableQuerySetMixin
 
+
 from aplans.types import UserOrAnon
 from aplans.utils import (
     IdentifierField, OrderedModel, PlanRelatedModel, generate_identifier, get_available_variants_for_language,
@@ -49,6 +50,7 @@ if typing.TYPE_CHECKING:
     from aplans.cache import WatchObjectCache
     from people.models import Person
     from .plan import Plan
+    from .action_deps import ActionDependencyRelationshipQuerySet
 
 
 logger = logging.getLogger(__name__)
@@ -376,7 +378,7 @@ class Action(  # type: ignore[django-manager-missing]
         'categories', 'indicators', 'contact_persons', 'updated_at', 'start_date', 'end_date', 'date_format', 'tasks',
         'related_actions', 'related_indicators', 'impact', 'status_updates', 'merged_with', 'merged_actions',
         'impact_groups', 'monitoring_quality_points', 'implementation_phase', 'manual_status_reason', 'links',
-        'primary_org', 'order', 'superseded_by', 'superseded_actions',
+        'primary_org', 'order', 'superseded_by', 'superseded_actions', 'dependent_relationships',
     ]
 
     # type annotations for related objects
@@ -384,6 +386,8 @@ class Action(  # type: ignore[django-manager-missing]
     merged_actions: RelatedManager[Action]
     superseded_actions: RelatedManager[Action]
     tasks: RelatedManager[ActionTask]
+    dependent_relationships: RelatedManager['ActionDependencyRelationship']
+    preceding_relationships: RelatedManager['ActionDependencyRelationship']
 
     verbose_name_partitive = pgettext_lazy('partitive', 'action')
 
@@ -819,6 +823,10 @@ class Action(  # type: ignore[django-manager-missing]
 
     def get_workflow(self):
         return self.plan.features.moderation_workflow
+
+    def get_dependency_relationships(self, user: UserOrAnon | None, plan: Plan | None) -> ActionDependencyRelationshipQuerySet:
+        from .action_deps import ActionDependencyRelationship
+        return ActionDependencyRelationship.objects.all_for_action(self).visible_for_user(user, plan)
 
 
 class ModelWithRole:

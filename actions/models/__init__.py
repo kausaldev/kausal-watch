@@ -3,6 +3,9 @@ from .action import (
     ActionStatus, ActionImplementationPhase, ActionDecisionLevel, ActionTask, ActionImpact, ActionLink,
     ActionStatusUpdate, ImpactGroupAction, RestrictedVisibilityModel, ModelWithRole
 )
+from .action_deps import (
+    ActionDependencyRole, ActionDependencyRelationship,
+)
 from .attributes import (
     AttributeType, AttributeTypeChoiceOption, AttributeCategoryChoice, AttributeChoice, AttributeChoiceWithText,
     AttributeRichText, AttributeText, AttributeNumericValue
@@ -53,5 +56,7 @@ __all__ = [
     'PlanPublicSiteViewer',
     'PublicationStatus',
     'Scenario',
-    'ModelWithRole'
+    'ModelWithRole',
+    'ActionDependencyRole',
+    'ActionDependencyRelationship',
 ]

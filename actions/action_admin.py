@@ -926,6 +926,16 @@ class ActionAdmin(AplansModelAdmin):
                     )
                 )))
 
+            if plan.action_dependency_roles.exists():
+                panels.append(CondensedInlinePanel(
+                    'dependent_relationships',
+                    panels=[
+                        FieldPanel('dependent', widget=ActionChooser),
+                        FieldPanel('preceding_role')
+                    ],
+                    heading=_('Dependent actions'),
+                ))
+
         all_tabs.append(ObjectList(panels, heading=_('Basic information')))
 
         progress_panels = list(self.progress_panels)

@@ -128,6 +128,13 @@ class PlanAdmin(AplansModelAdmin):
         ),
         FieldPanel('image'),
         FieldPanel('superseded_by', widget=PlanChooser),
+        CondensedInlinePanel(
+            'action_dependency_roles',
+            panels=[
+                FieldPanel('name'),
+            ],
+            heading=_("Action dependency roles"),
+        ),
     ]
 
     action_impact_panels = [

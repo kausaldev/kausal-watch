@@ -36,6 +36,7 @@ from actions.action_status_summary import (
     ActionStatusSummaryIdentifier, ActionTimelinessIdentifier, Sentiment as SentimentEnum, Comparison
 )
 from actions.models.action import ActionQuerySet
+from actions.models.action_deps import ActionDependencyRelationship, ActionDependencyRole
 from actions.models.attributes import ModelWithAttributes
 from orgs.models import Organization
 from users.models import User
@@ -860,6 +861,20 @@ class ActionTimelinessNode(graphene.ObjectType):
         name = 'ActionTimeliness'
 
 
+@register_django_node
+class ActionDependencyRoleNode(DjangoNode):
+    class Meta:
+        model = ActionDependencyRole
+        fields = ActionDependencyRole.public_fields
+
+
+@register_django_node
+class ActionDependencyRelationshipNode(DjangoNode):
+    class Meta:
+        model = ActionDependencyRelationship
+        fields = ActionDependencyRelationship.public_fields
+
+
 def _get_visible_action(root, field_name, user: Optional[User]):
     action_id = getattr(root, f'{field_name}_id')
     if action_id is None:
@@ -892,6 +907,9 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     status_summary = graphene.Field('actions.schema.ActionStatusSummaryNode', required=True)
     timeliness = graphene.Field('actions.schema.ActionTimelinessNode', required=True)
     color = graphene.String(required=False)
+    all_dependency_relationships = graphene.List(
+        graphene.NonNull('actions.schema.ActionDependencyRelationshipNode'), required=True
+    )
 
     class Meta:
         model = Action
@@ -1024,6 +1042,10 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     @staticmethod
     def resolve_timeliness(root: Action, info):
         return root.get_timeliness()
+
+    @staticmethod
+    def resolve_all_dependency_relationships(root: Action, info: GQLInfo):
+        return root.get_dependency_relationships(info.context.user, root.plan)
 
 
 class ActionScheduleNode(DjangoNode):
