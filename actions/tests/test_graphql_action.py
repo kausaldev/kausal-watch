@@ -282,7 +282,7 @@ def test_action_dependency_basics(graphql_client_query_data, plan, action_factor
     assert rel['preceding']['id'] == str(a2.id)
     assert rel['dependent']['id'] == str(a3.id)
 
-    relationships = data['action']['allDependencyRelations']
+    relationships = data['action']['allDependencyRelationships']
     assert len(relationships) == 3
 
     expected_ids = [(a1.id, a2.id), (a2.id, a3.id), (a3.id, None)]

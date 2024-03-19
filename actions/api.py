@@ -1008,10 +1008,9 @@ class ActionSerializer(
                 'internal_notes', 'internal_admin_notes',
             ],
             remove_fields=[
-                'impact',
-                'status_updates', 'monitoring_quality_points', 'image',
-                'tasks', 'links', 'related_indicators', 'indicators',
-                'impact_groups', 'merged_actions', 'superseded_actions',
+                'impact', 'status_updates', 'monitoring_quality_points', 'image', 'tasks', 'links',
+                'related_indicators', 'indicators', 'impact_groups', 'merged_actions', 'superseded_actions',
+                'dependent_relationships',
             ]
         )
         read_only_fields = ['plan']
