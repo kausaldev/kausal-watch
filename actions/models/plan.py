@@ -299,7 +299,7 @@ class Plan(ClusterableModel, ModelWithPrimaryLanguage):
         'action_implementation_phases', 'actions_locked', 'organization',
         'related_plans', 'theme_identifier', 'parent', 'children',
         'primary_action_classification', 'secondary_action_classification', 'superseded_by', 'superseded_plans',
-        'report_types', 'external_feedback_url'
+        'report_types', 'external_feedback_url', 'action_dependency_roles',
     ]
 
     objects = PlanQuerySet.as_manager()
