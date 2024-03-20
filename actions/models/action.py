@@ -343,6 +343,11 @@ class Action(  # type: ignore[django-manager-missing]
         'self', verbose_name=pgettext_lazy('action', 'superseded by'), blank=True, null=True, on_delete=models.SET_NULL,
         related_name='superseded_actions', help_text=_('Set if this action is superseded by another action')
     )
+    dependency_role = models.ForeignKey(
+        'ActionDependencyRole', on_delete=models.SET_NULL, null=True, blank=True, related_name='actions',
+        verbose_name=_('Role in dependencies'),
+        help_text=_('Set if this action has the same role in all its dependency relationships with other actions'),
+    )
 
     sent_notifications = GenericRelation('notifications.SentNotification', related_query_name='action')
 
@@ -378,7 +383,7 @@ class Action(  # type: ignore[django-manager-missing]
         'categories', 'indicators', 'contact_persons', 'updated_at', 'start_date', 'end_date', 'date_format', 'tasks',
         'related_actions', 'related_indicators', 'impact', 'status_updates', 'merged_with', 'merged_actions',
         'impact_groups', 'monitoring_quality_points', 'implementation_phase', 'manual_status_reason', 'links',
-        'primary_org', 'order', 'superseded_by', 'superseded_actions', 'dependent_relationships',
+        'primary_org', 'order', 'superseded_by', 'superseded_actions', 'dependent_relationships', 'dependency_role',
     ]
 
     # type annotations for related objects

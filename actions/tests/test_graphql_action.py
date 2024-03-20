@@ -225,29 +225,30 @@ def test_action_contact_person_hide_moderators(graphql_client_query_data, plan, 
 
 
 def test_action_dependency_basics(graphql_client_query_data, plan, action_factory):
-    # Create two chains
-    a1 = action_factory(plan=plan)
-    a2 = action_factory(plan=plan)
-    a3 = action_factory(plan=plan)
-
-    b1 = action_factory(plan=plan)
-    b2 = action_factory(plan=plan)
-
     r1 = ActionDependencyRole.objects.create(plan=plan, name='role1', order=0)
     r2 = ActionDependencyRole.objects.create(plan=plan, name='role2', order=1)
     r3 = ActionDependencyRole.objects.create(plan=plan, name='role3', order=2)
 
-    ActionDependencyRelationship.objects.create(preceding=a1, dependent=a2, preceding_role=r1)
-    ActionDependencyRelationship.objects.create(preceding=a2, dependent=a3, preceding_role=r2)
-    ActionDependencyRelationship.objects.create(preceding=a3, dependent=None, preceding_role=r3)
+    # Create two chains
+    a1 = action_factory(plan=plan, dependency_role=r1)
+    a2 = action_factory(plan=plan, dependency_role=r2)
+    a3 = action_factory(plan=plan, dependency_role=r3)
 
-    ActionDependencyRelationship.objects.create(preceding=b1, dependent=b2, preceding_role=r1)
-    ActionDependencyRelationship.objects.create(preceding=b2, dependent=None, preceding_role=r2)
+    b1 = action_factory(plan=plan, dependency_role=r1)
+    b2 = action_factory(plan=plan, dependency_role=r2)
+
+    ActionDependencyRelationship.objects.create(preceding=a1, dependent=a2)
+    ActionDependencyRelationship.objects.create(preceding=a2, dependent=a3)
+
+    ActionDependencyRelationship.objects.create(preceding=b1, dependent=b2)
 
     # 2. Query the graphql endpoint for action.dependent_relationships for A2
     query = '''
         query($id: ID!) {
           action(id: $id) {
+            dependencyRole {
+              id
+            }
             dependentRelationships {
               id
               preceding {
@@ -255,10 +256,6 @@ def test_action_dependency_basics(graphql_client_query_data, plan, action_factor
               }
               dependent {
                 id
-              }
-              precedingRole {
-                id
-                name
               }
             }
             allDependencyRelationships {
@@ -274,7 +271,10 @@ def test_action_dependency_basics(graphql_client_query_data, plan, action_factor
     '''
     data = graphql_client_query_data(query, variables={'id': a2.id})
 
-    # 3. Ensure preceding points to A1 and dependent to A3
+    # 3. Ensure dependency role of A2 is correct
+    assert data['action']['dependencyRole']['id'] == str(r2.id)
+
+    # 4. Ensure preceding points to A1 and dependent to A3
     relationships = data['action']['dependentRelationships']
     assert len(relationships) == 1
 
@@ -283,9 +283,9 @@ def test_action_dependency_basics(graphql_client_query_data, plan, action_factor
     assert rel['dependent']['id'] == str(a3.id)
 
     relationships = data['action']['allDependencyRelationships']
-    assert len(relationships) == 3
+    assert len(relationships) == 2
 
-    expected_ids = [(a1.id, a2.id), (a2.id, a3.id), (a3.id, None)]
+    expected_ids = [(a1.id, a2.id), (a2.id, a3.id)]
     for rel in relationships:
         d = (int(rel['preceding']['id']), int(rel['dependent']['id']) if rel['dependent'] else None)
         assert d in expected_ids

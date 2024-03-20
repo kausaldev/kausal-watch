@@ -75,21 +75,18 @@ class ActionDependencyRelationshipQuerySet(models.QuerySet['ActionDependencyRela
 
 class ActionDependencyRelationship(models.Model):
     preceding: ForeignKey['Action'] = ParentalKey(
-        'actions.Action', on_delete=models.CASCADE, related_name='dependent_relationships', verbose_name=_("Preceding action")
+        'actions.Action', on_delete=models.CASCADE, related_name='dependent_relationships',
+        verbose_name=_("Preceding action")
     )
     dependent = ForeignKey(
-        'actions.Action', on_delete=models.CASCADE, null=True, blank=True, related_name='preceding_relationships',
+        'actions.Action', on_delete=models.CASCADE, related_name='preceding_relationships',
         verbose_name=_("Dependent action")
-    )
-    preceding_role = ForeignKey(
-        ActionDependencyRole, on_delete=models.CASCADE, null=True, blank=True, related_name='actions',
-        verbose_name=_("Preceding action role")
     )
 
     objects = ActionDependencyRelationshipQuerySet.as_manager()
 
     public_fields: ClassVar = [
-        'id', 'preceding', 'dependent', 'preceding_role',
+        'id', 'preceding', 'dependent',
     ]
 
     class Meta:
@@ -166,27 +163,6 @@ class ActionDependencyRelationship(models.Model):
         if longest + 1 >= MAX_DEPENDENCY_LEVELS:
             raise ValidationError(_("Maximum dependency chain length exceeded."))
 
-    def _validate_preceding_role(self, plan: Plan):
-        # Get the first and last roles in the plan
-        first_role = ActionDependencyRole.objects.filter(plan=plan).order_by('order').first()
-        last_role = ActionDependencyRole.objects.filter(plan=plan).order_by('-order').first()
-
-        if not first_role:
-            # No roles configured for the plan.
-            return
-
-        # Check if the preceding_role is the first role in the plan
-        if self.preceding_role == first_role:
-            # Check if there are other relationships where dependent points to the preceding action
-            if ActionDependencyRelationship.objects.filter(dependent=self.preceding).exists():
-                raise ValidationError(_("The first role cannot have other relationships pointing to the preceding action."))
-
-        # Check if the preceding_role is the last role in the plan
-        if self.preceding_role == last_role:
-            # Check if the dependent action is set
-            if self.dependent is not None:
-                raise ValidationError(_("The last role must have an empty dependent action."))
-
     def clean(self):
         super().clean()
         # FIXME: Disabled validation for now since `preceding` won't be set when creating an
@@ -202,15 +178,10 @@ class ActionDependencyRelationship(models.Model):
         # if self.preceding and self.dependent and self.preceding.plan != self.dependent.plan:
         #     raise ValidationError(_("The preceding and dependent actions must belong to the same plan."))
         #
-        # # Ensure the preceding_role (if set) has the same plan
-        # if self.preceding_role and self.preceding_role.plan != plan:
-        #     raise ValidationError(_("The preceding action role must belong to the same plan as the actions."))
-        #
         # # Check for cycles in the dependency relationships
         # if self._has_cycle():
         #     raise ValidationError(_("The dependency relationships contain a cycle."))
         #
-        # self._validate_preceding_role(plan)
         # self._validate_max_chain_length()
 
     def __str__(self):

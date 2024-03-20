@@ -926,16 +926,6 @@ class ActionAdmin(AplansModelAdmin):
                     )
                 )))
 
-            if plan.action_dependency_roles.exists():
-                panels.append(CondensedInlinePanel(
-                    'dependent_relationships',
-                    panels=[
-                        FieldPanel('dependent', widget=ActionChooser),
-                        FieldPanel('preceding_role')
-                    ],
-                    heading=_('Dependent actions'),
-                ))
-
         all_tabs.append(ObjectList(panels, heading=_('Basic information')))
 
         progress_panels = list(self.progress_panels)
@@ -1001,6 +991,20 @@ class ActionAdmin(AplansModelAdmin):
                 reporting_panels.append(PlanFilteredFieldPanel('schedule'))
 
         all_tabs.append(ObjectList(reporting_panels, heading=_('Reporting')))
+
+        if is_general_admin and plan.action_dependency_roles.exists():
+            dependency_panels = [
+                CustomizableBuiltInFieldPanel('dependency_role'),
+                CondensedInlinePanel(
+                    'dependent_relationships',
+                    panels=[
+                        FieldPanel('dependent', widget=ActionChooser),
+                    ],
+                    heading=_('Dependent actions'),
+                ),
+            ]
+            all_tabs.append(ObjectList(dependency_panels, heading=_('Dependencies')))
+
 
         i18n_tabs = get_translation_tabs(instance, request, extra_panels=i18n_attribute_panels)
         all_tabs += i18n_tabs
