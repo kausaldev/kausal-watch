@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import enum as python_enum
 import functools
+import uuid
+
 import typing
 from typing import Any, ClassVar, Protocol, Sequence, Type, TypeVar, Generic
 import graphene
@@ -61,6 +63,10 @@ def resolve_i18n_field(field_name, obj, info):
 M = TypeVar('M', bound=Model)
 
 class DjangoNode(DjangoObjectType, Generic[M]):
+    @staticmethod
+    def resolve_id(root, info):
+        return getattr(root, 'pk', None) or f'unpublished-{uuid.uuid4()}'
+
     @classmethod
     def __init_subclass_with_meta__(cls, **kwargs: Any):
         if 'name' not in kwargs:

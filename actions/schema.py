@@ -423,6 +423,10 @@ class AttributeInterface(graphene.Interface):
         return root.type.identifier
 
     @staticmethod
+    def resolve_id(root, info):
+        return getattr(root, 'pk', None) or f'unpublished-{uuid.uuid4()}'
+
+    @staticmethod
     def resolve_type_(root: AttributeObject, info) -> AttributeType:
         return root.type
 
@@ -809,12 +813,6 @@ class ActionTaskNode(DjangoNode):
         model = ActionTask
 
     @staticmethod
-    def resolve_id(root: ActionTask, info):
-        if root.pk is None:
-            return f'unpublished-{uuid.uuid4()}'
-        return root.pk
-
-    @staticmethod
     @gql_optimizer.resolver_hints(
         model_field='comment',
     )
@@ -1100,12 +1098,6 @@ class ActionLinkNode(DjangoNode):
     class Meta:
         model = ActionLink
         fields = public_fields(ActionLink)
-
-    @staticmethod
-    def resolve_id(root: ActionLink, info):
-        if root.pk is None:
-            return f'unpublished-{uuid.uuid4()}'
-        return root.pk
 
     @staticmethod
     def resolve_url(root: ActionLink, info):
