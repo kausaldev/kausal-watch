@@ -8,1784 +8,2245 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-14 17:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-03-22 16:50+0000\n"
+"Last-Translator: Gabriel Siqueira <gabriel.siqueira@kausal.tech>\n"
+"Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/"
+"watch/django/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: actions/action_admin.py
 msgid "There is already an action with this identifier."
-msgstr ""
+msgstr "Já existe uma ação com esse identificador."
 
 #: actions/action_admin.py
 #, python-format
 msgid "%s is listed multiple times in the action."
-msgstr ""
+msgstr "%s é listado várias vezes na ação."
 
 #: actions/action_admin.py actions/models/action.py
 msgid "Unspecified"
-msgstr ""
+msgstr "Não especificado"
 
 #: actions/action_admin.py actions/api.py actions/blocks/action_content.py
 #: actions/blocks/action_dashboard.py
 msgid "Responsible parties"
-msgstr ""
+msgstr "Partes responsáveis"
 
 #: actions/action_admin.py actions/api.py aplans/utils.py
 #: indicators/wagtail_admin.py
 msgid "Contact persons"
-msgstr ""
+msgstr "Pessoas de contato"
 
 #: actions/action_admin.py
 #, python-format
 msgid "Mark as complete for report %s"
-msgstr ""
+msgstr "Marcar como completo para relatório %s"
 
 #: actions/action_admin.py
 #, python-format
 msgid "Mark this action as complete for the report %s"
-msgstr ""
+msgstr "Marque essa ação como concluída para o relatório %s"
 
 #: actions/action_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "Undo marking as complete for report %s"
-msgstr ""
+msgstr "Desfazer a marcação de relatório como concluído %s"
 
 #: actions/action_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "Undo marking this action as complete for the report %s"
-msgstr ""
+msgstr "Desfazer a marcação dessa ação como concluída para o relatório %s"
 
 #: actions/action_admin.py
+#, fuzzy
 msgid "Last updated"
-msgstr ""
+msgstr "Última atualização"
 
 #: actions/action_admin.py actions/blocks/action_dashboard.py
 #: actions/templates/actions/chooser_results.html admin_site/models.py
 #: admin_site/templates/admin_site/own_indicators_panel.html orgs/models.py
 #: orgs/wagtail_admin.py people/templates/people/chooser_results.html
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: actions/action_admin.py actions/category_admin.py
 #: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#, fuzzy
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: actions/action_admin.py actions/wagtail_admin.py
+#, fuzzy
 msgid "External links"
-msgstr ""
+msgstr "Links externos"
 
 #: actions/action_admin.py actions/category_admin.py actions/wagtail_admin.py
 #: indicators/wagtail_admin.py notifications/wagtail_admin.py
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Basic information"
-msgstr ""
+msgstr "Informações básicas"
 
 #: actions/action_admin.py actions/blocks/category_page_layout.py
 #: indicators/blocks.py
+#, fuzzy
 msgid "Progress"
-msgstr ""
+msgstr "Progresso"
 
 #: actions/action_admin.py
+#, fuzzy
 msgid "Internal notes"
-msgstr ""
+msgstr "Notas internas"
 
 #: actions/action_admin.py
+#, fuzzy
 msgid "Internal notes for plan administrators"
-msgstr ""
+msgstr "Notas internas para administradores de planos"
 
 #: actions/action_admin.py
+#, fuzzy
 msgid "Reporting"
-msgstr ""
+msgstr "Relatórios"
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "The %(model_name)s could not be saved as it is locked"
-msgstr ""
+msgstr "Não foi possível salvar o site %(model_name)s porque ele está bloqueado"
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' updated."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' atualizado."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' created."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' criado."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' has been scheduled for publishing."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' foi programado para publicação."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' created and scheduled for publishing."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' criado e programado para publicação."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' is live and this version has been scheduled for publishing."
 msgstr ""
+"%(model_name)s '%(object)s' está ativo e esta versão foi programada para "
+"publicação."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' updated and published."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' atualizado e publicado."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' created and published."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' criado e publicado."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' has been submitted for moderation."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' foi enviado para moderação."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' created and submitted for moderation."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' criado e enviado para moderação."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "Workflow on %(model_name)s '%(object)s' has been restarted."
-msgstr ""
+msgstr "O fluxo de trabalho em %(model_name)s '%(object)s' foi reiniciado."
 
 #: actions/action_admin_mixins.py
-#, python-format
+#, fuzzy, python-format
 msgid "Workflow on %(model_name)s '%(object)s' has been cancelled."
-msgstr ""
+msgstr "O fluxo de trabalho em %(model_name)s '%(object)s' foi cancelado."
 
 #: actions/action_admin_mixins.py
+#, fuzzy
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloqueio"
 
 #: actions/action_admin_mixins.py
+#, fuzzy
 msgid "Cancel scheduled publish"
-msgstr ""
+msgstr "Cancelar publicação programada"
 
 #: actions/action_admin_mixins.py
 #: admin_site/templates/admin_site/own_indicators_panel.html
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: actions/action_status_summary.py actions/defaults.py
+#, fuzzy
 msgid "Completed"
-msgstr ""
+msgstr "Concluído"
 
 #: actions/action_status_summary.py actions/defaults.py
+#, fuzzy
 msgid "On time"
-msgstr ""
+msgstr "Pontual"
 
 #: actions/action_status_summary.py
+#, fuzzy
 msgid "In progress"
-msgstr ""
+msgstr "Em andamento"
 
 #: actions/action_status_summary.py actions/defaults.py
+#, fuzzy
 msgid "Not started"
-msgstr ""
+msgstr "Não iniciado"
 
 #: actions/action_status_summary.py actions/defaults.py
+#, fuzzy
 msgid "Late"
-msgstr ""
+msgstr "Atrasado"
 
 #: actions/action_status_summary.py
+#, fuzzy
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancelado"
 
 #: actions/action_status_summary.py
+#, fuzzy
 msgid "Out of scope"
-msgstr ""
+msgstr "Fora do escopo"
 
 #: actions/action_status_summary.py
+#, fuzzy
 msgid "Merged"
-msgstr ""
+msgstr "Mesclado"
 
 #: actions/action_status_summary.py
+#, fuzzy
 msgid "Postponed"
-msgstr ""
+msgstr "Adiado"
 
 #: actions/action_status_summary.py reports/spreadsheets.py
+#, fuzzy
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: actions/action_status_summary.py
-#, python-format
+#, fuzzy, python-format
 msgid "Under %d days"
-msgstr ""
+msgstr "Abaixo de %d dias"
 
 #: actions/action_status_summary.py
-#, python-format
+#, fuzzy, python-format
 msgid "Over %d days"
-msgstr ""
+msgstr "Mais de %d dias"
 
 #: actions/api.py
+#, fuzzy
 msgid "Organization occurs multiple times as responsible party"
-msgstr ""
+msgstr "A organização aparece várias vezes como parte responsável"
 
 #: actions/api.py
+#, fuzzy
 msgid "Person occurs multiple times as contact person"
-msgstr ""
+msgstr "A pessoa ocorre várias vezes como pessoa de contato"
 
 #: actions/api.py
+#, fuzzy
 msgid "Identifier must be set"
-msgstr ""
+msgstr "O identificador deve ser definido"
 
 #: actions/api.py
+#, fuzzy
 msgid "Identifier already exists"
-msgstr ""
+msgstr "O identificador já existe"
 
 #: actions/api.py people/models.py
+#, fuzzy
 msgid "Person with this email already exists"
-msgstr ""
+msgstr "Já existe uma pessoa com esse e-mail"
 
 #: actions/api.py
+#, fuzzy
 msgid "Not all objects have an email address"
-msgstr ""
+msgstr "Nem todos os objetos têm um endereço de e-mail"
 
 #: actions/api.py
-#, python-format
+#, fuzzy, python-format
 msgid "Duplicate email addresses: %s"
-msgstr ""
+msgstr "Endereços de e-mail duplicados: %s"
 
 #: actions/apps.py
+#, fuzzy
 msgid "collection"
-msgstr ""
+msgstr "coleção"
 
 #: actions/apps.py
+#, fuzzy
 msgid "Resubmit for moderation"
-msgstr ""
+msgstr "Reenviar para moderação"
 
 #: actions/apps.py
+#, fuzzy
 msgid "Cancel moderation"
-msgstr ""
+msgstr "Cancelar a moderação"
 
 #: actions/apps.py actions/models/plan.py content/models.py
 #: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
 #: templates/modeladmin/edit.html
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "Object type"
-msgstr ""
+msgstr "Tipo de objeto"
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "Fields"
-msgstr ""
+msgstr "Campos"
 
 #: actions/attribute_type_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "Field for %s"
-msgstr ""
+msgstr "Campo para %s"
 
 #: actions/attribute_type_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "Fields (%(model)s)"
-msgstr ""
+msgstr "Campos (%(model)s)"
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "If format is 'Category', a category type must be set"
 msgstr ""
+"Se o formato for \"Categoria\", um tipo de categoria deverá ser definido"
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "If format is 'Numeric', a unit must be set"
-msgstr ""
+msgstr "Se o formato for \"Numérico\", uma unidade deverá ser definida"
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "This field already has values. If you want to change the format, you need to delete the existing values first."
 msgstr ""
+"Esse campo já tem valores. Se quiser alterar o formato, você precisará "
+"excluir os valores existentes primeiro."
 
 #: actions/attribute_type_admin.py
+#, fuzzy
 msgid "Choice options"
-msgstr ""
+msgstr "Opções de escolha"
 
 #: actions/attribute_type_admin.py actions/blocks/choosers.py
 #: actions/category_admin.py pages/models.py
+#, fuzzy
 msgid "Category type"
-msgstr ""
+msgstr "Tipo de categoria"
 
 #: actions/attribute_type_admin.py feedback/models.py
 #: indicators/wagtail_admin.py people/wagtail_admin.py
+#, fuzzy
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: actions/attributes.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(attribute_type)s (choice)"
-msgstr ""
+msgstr "%(attribute_type)s (escolha)"
 
 #: actions/attributes.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(attribute_type)s (text)"
-msgstr ""
+msgstr "%(attribute_type)s (texto)"
 
 #: actions/blocks/__init__.py
+#, fuzzy
 msgid "Related plans"
-msgstr ""
+msgstr "Planos relacionados"
 
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
 #: actions/blocks/choosers.py actions/blocks/filters.py
+#, fuzzy
 msgid "Field"
-msgstr ""
+msgstr "Campo"
 
 #: actions/blocks/action_content.py actions/blocks/choosers.py
 #: actions/blocks/filters.py actions/models/attributes.py pages/models.py
+#, fuzzy
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Heading to show instead of the default"
-msgstr ""
+msgstr "Título a ser exibido em vez do padrão"
 
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
+#, fuzzy
 msgid "Contact form"
-msgstr ""
+msgstr "Formulário de contato"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "What label should be used in the public UI for the official name?"
-msgstr ""
+msgstr "Qual rótulo deve ser usado na IU pública para o nome oficial?"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Field label"
-msgstr ""
+msgstr "Etiqueta do campo"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Description to show after the field content"
-msgstr ""
+msgstr "Descrição a ser exibida após o conteúdo do campo"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Caption"
-msgstr ""
+msgstr "Legenda"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Official name"
-msgstr ""
+msgstr "Nome oficial"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Help text for the field to be shown in the UI"
-msgstr ""
+msgstr "Texto de ajuda para o campo a ser mostrado na interface do usuário"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Help text"
-msgstr ""
+msgstr "Texto de ajuda"
 
 #: actions/blocks/action_content.py
-#, python-format
+#, fuzzy, python-format
 msgid "Content block: %(label)s"
-msgstr ""
+msgstr "Bloco de conteúdo: %(label)s"
 
 #: actions/blocks/action_content.py actions/models/action.py pages/models.py
+#, fuzzy
 msgid "Lead paragraph"
-msgstr ""
+msgstr "Parágrafo principal"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Merged actions"
-msgstr ""
+msgstr "Ações mescladas"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Related actions"
-msgstr ""
+msgstr "Ações relacionadas"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Full width"
-msgstr ""
+msgstr "Largura total"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Grid"
-msgstr ""
+msgstr "Grade"
 
 #: actions/blocks/action_content.py actions/blocks/category_list.py
 #: actions/blocks/category_page_layout.py pages/blocks.py
+#, fuzzy
 msgid "Heading"
-msgstr ""
+msgstr "Título"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Blocks"
-msgstr ""
+msgstr "Blocos"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Section"
-msgstr ""
+msgstr "Seção"
 
 #: actions/blocks/action_dashboard.py
+#, fuzzy
 msgid "Label"
-msgstr ""
+msgstr "Rótulo"
 
 #: actions/blocks/action_dashboard.py
+#, fuzzy
 msgid "Label for the column to be used instead of the default"
-msgstr ""
+msgstr "Rótulo da coluna a ser usado em vez do padrão"
 
 #: actions/blocks/action_dashboard.py reports/spreadsheets.py
+#, fuzzy
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 #: actions/blocks/action_dashboard.py actions/blocks/category_page_layout.py
 #: actions/blocks/filters.py reports/blocks/action_content.py
 #: reports/spreadsheets.py
+#, fuzzy
 msgid "Implementation phase"
-msgstr ""
+msgstr "Fase de implementação"
 
 #: actions/blocks/action_dashboard.py actions/blocks/category_page_layout.py
 #: actions/blocks/filters.py reports/blocks/action_content.py
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: actions/blocks/action_dashboard.py content/models.py
+#, fuzzy
 msgid "Tasks"
-msgstr ""
+msgstr "Tarefas"
 
 #: actions/blocks/action_dashboard.py actions/models/plan.py indicators/apps.py
 #: indicators/blocks.py indicators/templates/indicators/edit_values.html
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Indicators"
-msgstr ""
+msgstr "Indicadores"
 
 #: actions/blocks/action_dashboard.py
+#, fuzzy
 msgid "Updated at"
-msgstr ""
+msgstr "Atualizado em"
 
 #: actions/blocks/action_dashboard.py content/models.py
 #: indicators/wagtail_admin.py people/templates/people/chooser_results.html
+#, fuzzy
 msgid "Organization"
-msgstr ""
+msgstr "Organização"
 
 #: actions/blocks/action_dashboard.py
+#, fuzzy
 msgid "Impact"
-msgstr ""
+msgstr "Impacto"
 
 #: actions/blocks/action_list.py
+#, fuzzy
 msgid "Action highlights"
-msgstr ""
+msgstr "Destaques da ação"
 
 #: actions/blocks/action_list.py
+#, fuzzy
 msgid "Filter on category"
-msgstr ""
+msgstr "Filtrar por categoria"
 
 #: actions/blocks/action_list.py
+#, fuzzy
 msgid "Action list"
-msgstr ""
+msgstr "Lista de ações"
 
 #: actions/blocks/category_list.py pages/blocks.py reports/spreadsheets.py
+#, fuzzy
 msgid "Lead"
-msgstr ""
+msgstr "Liderança"
 
 #: actions/blocks/category_list.py actions/blocks/filters.py
+#, fuzzy
 msgid "Style"
-msgstr ""
+msgstr "Estilo"
 
 #: actions/blocks/category_list.py pages/blocks.py pages/models.py
+#, fuzzy
 msgid "Cards"
-msgstr ""
+msgstr "Cartões"
 
 #: actions/blocks/category_list.py
+#, fuzzy
 msgid "Table"
-msgstr ""
+msgstr "Tabela"
 
 #: actions/blocks/category_list.py actions/blocks/category_page_layout.py
+#, fuzzy
 msgid "Category list"
-msgstr ""
+msgstr "Lista de categorias"
 
 #: actions/blocks/category_list.py
+#, fuzzy
 msgid "Value field"
-msgstr ""
+msgstr "Campo de valor"
 
 #: actions/blocks/category_list.py
+#, fuzzy
 msgid "Category tree map"
-msgstr ""
+msgstr "Mapa da árvore de categorias"
 
 #: actions/blocks/category_page_layout.py
+#, fuzzy
 msgid "Body"
-msgstr ""
+msgstr "Corpo"
 
 #: actions/blocks/category_page_layout.py
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: actions/blocks/category_page_layout.py
+#, fuzzy
 msgid "Basis"
-msgstr ""
+msgstr "Base"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Label for 'show all'"
-msgstr ""
+msgstr "Rótulo para \"mostrar tudo"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Dropdown"
-msgstr ""
+msgstr "Menu suspenso"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Buttons"
-msgstr ""
+msgstr "Botões"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "How many levels of category hierarchy to show"
-msgstr ""
+msgstr "Quantos níveis de hierarquia de categoria devem ser exibidos"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Depth"
-msgstr ""
+msgstr "Profundidade"
 
 #: actions/blocks/filters.py
-#, python-format
+#, fuzzy, python-format
 msgid "Filter: %(filter_label)s"
-msgstr ""
+msgstr "Filtro: %(filter_label)s"
 
 #: actions/blocks/filters.py reports/blocks/action_content.py
+#, fuzzy
 msgid "Responsible party"
-msgstr ""
+msgstr "Parte responsável"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Primary organization"
-msgstr ""
+msgstr "Organização primária"
 
 #: actions/blocks/filters.py actions/templates/actions/chooser_results.html
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Plan"
-msgstr ""
+msgstr "Plano"
 
 #: actions/blocks/filters.py
+#, fuzzy
 msgid "Schedule"
-msgstr ""
+msgstr "Cronograma"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Common category type"
-msgstr ""
+msgstr "Tipo de categoria comum"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Category types"
-msgstr ""
+msgstr "Tipos de categoria"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Action and indicator categorization"
-msgstr ""
+msgstr "Categorização de ações e indicadores"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Category levels"
-msgstr ""
+msgstr "Níveis de categoria"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "There is already a category with this identifier."
-msgstr ""
+msgstr "Já existe uma categoria com esse identificador."
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Icons"
-msgstr ""
+msgstr "Ícones"
 
 #: actions/category_admin.py
+#, fuzzy
 msgid "Common category types"
-msgstr ""
+msgstr "Tipos de categorias comuns"
 
 #: actions/category_admin.py admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Common categories"
-msgstr ""
+msgstr "Categorias comuns"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose a category"
-msgstr ""
+msgstr "Escolha uma categoria"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose another category"
-msgstr ""
+msgstr "Escolha outra categoria"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose a category type"
-msgstr ""
+msgstr "Escolha um tipo de categoria"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose another category type"
-msgstr ""
+msgstr "Escolha outro tipo de categoria"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose a category level"
-msgstr ""
+msgstr "Escolha um nível de categoria"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose an action"
-msgstr ""
+msgstr "Escolha uma ação"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose another action"
-msgstr ""
+msgstr "Escolha outra ação"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose a plan"
-msgstr ""
+msgstr "Escolha um plano"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose another plan"
-msgstr ""
+msgstr "Escolha outro plano"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose a field"
-msgstr ""
+msgstr "Escolha um campo"
 
 #: actions/chooser.py
+#, fuzzy
 msgid "Choose another field"
-msgstr ""
+msgstr "Escolha outro campo"
 
 #: actions/defaults.py
+#, fuzzy
 msgid "Cancelled or postponed"
-msgstr ""
+msgstr "Cancelado ou adiado"
 
 #: actions/defaults.py
+#, fuzzy
 msgid "Planning"
-msgstr ""
+msgstr "Planejamento"
 
 #: actions/defaults.py
+#, fuzzy
 msgid "Implementation"
-msgstr ""
+msgstr "Implementação"
 
 #: actions/export.py aplans/utils.py notifications/models.py
+#, fuzzy
 msgid "identifier"
-msgstr ""
+msgstr "identificador"
 
 #: actions/export.py actions/models/action.py actions/models/attributes.py
 #: actions/models/category.py actions/models/plan.py feedback/models.py
 #: indicators/models.py orgs/models.py reports/models.py
+#, fuzzy
 msgid "name"
-msgstr ""
+msgstr "nome"
 
 #: actions/export.py actions/models/action.py
+#, fuzzy
 msgid "impact"
-msgstr ""
+msgstr "impacto"
 
 #: actions/export.py actions/models/action.py reports/spreadsheets.py
+#, fuzzy
 msgid "status"
-msgstr ""
+msgstr "status"
 
 #: actions/export.py
+#, fuzzy
 msgid "progress indicators"
-msgstr ""
+msgstr "indicadores de progresso"
 
 #: actions/export.py
+#, fuzzy
 msgid "other indicators"
-msgstr ""
+msgstr "outros indicadores"
 
 #: actions/export.py actions/models/action.py indicators/models.py
+#, fuzzy
 msgid "contact persons"
-msgstr ""
+msgstr "pessoas de contato"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Internal"
-msgstr ""
+msgstr "Interno"
 
 #: actions/models/action.py aplans/utils.py
+#, fuzzy
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "visibility"
-msgstr ""
+msgstr "visibilidade"
 
 #: actions/models/action.py actions/models/plan.py content/models.py
 #: feedback/models.py indicators/models.py notifications/models.py
 #: orgs/models.py pages/models.py
+#, fuzzy
 msgid "plan"
-msgstr ""
+msgstr "plano"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "primary organization"
-msgstr ""
+msgstr "organização principal"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "official name"
-msgstr ""
+msgstr "nome oficial"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The name as approved by an official party"
-msgstr ""
+msgstr "O nome aprovado por um partido oficial"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The identifier for this action (e.g. number)"
-msgstr ""
+msgstr "O identificador dessa ação (por exemplo, número)"
 
 #: actions/models/action.py admin_site/draftail_rich_text_area.py
 #: pages/blocks.py
+#, fuzzy
 msgid "Image"
-msgstr ""
+msgstr "Imagem"
 
 #: actions/models/action.py actions/models/plan.py indicators/models.py
 #: orgs/models.py
+#, fuzzy
 msgid "description"
-msgstr ""
+msgstr "descrição"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "What does this action involve in more detail?"
-msgstr ""
+msgstr "O que essa ação envolve em mais detalhes?"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The impact of this action"
-msgstr ""
+msgstr "O impacto dessa ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "internal priority"
-msgstr ""
+msgstr "prioridade interna"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "internal notes for plan administrators"
-msgstr ""
+msgstr "notas internas para administradores de planos"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "internal notes"
-msgstr ""
+msgstr "notas internas"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "implementation phase"
-msgstr ""
+msgstr "fase de implementação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "override status manually"
-msgstr ""
+msgstr "Substituir o status manualmente"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Set if you want to prevent the action status from being determined automatically"
 msgstr ""
+"Defina se você deseja impedir que o status da ação seja determinado "
+"automaticamente"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "specifier for status"
-msgstr ""
+msgstr "especificador de status"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Describe the reason why this action has has this status"
-msgstr ""
+msgstr "Descreva o motivo pelo qual essa ação tem esse status"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "merged with action"
-msgstr ""
+msgstr "mesclado com ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Set if this action is merged with another action"
-msgstr ""
+msgstr "Definir se essa ação for mesclada com outra ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "completion"
-msgstr ""
+msgstr "conclusão"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The completion percentage for this action"
-msgstr ""
+msgstr "A porcentagem de conclusão dessa ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "schedule"
-msgstr ""
+msgstr "cronograma"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "continuous action"
-msgstr ""
+msgstr "ação contínua"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Set if the action does not have a start or an end date"
-msgstr ""
+msgstr "Definido se a ação não tiver uma data de início ou de término"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "decision-making level"
-msgstr ""
+msgstr "nível de tomada de decisão"
 
 #: actions/models/action.py actions/models/category.py indicators/models.py
+#, fuzzy
 msgid "categories"
-msgstr ""
+msgstr "categorias"
 
 #: actions/models/action.py indicators/models.py
+#, fuzzy
 msgid "indicators"
-msgstr ""
+msgstr "indicadores"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "related actions"
-msgstr ""
+msgstr "ações relacionadas"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "responsible organizations"
-msgstr ""
+msgstr "organizações responsáveis"
 
 #: actions/models/action.py aplans/utils.py reports/spreadsheets.py
+#, fuzzy
 msgid "updated at"
-msgstr ""
+msgstr "atualizado em"
 
 #: actions/models/action.py reports/models.py
+#, fuzzy
 msgid "start date"
-msgstr ""
+msgstr "data de início"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The date when implementation of this action starts"
-msgstr ""
+msgstr "A data de início da implementação dessa ação"
 
 #: actions/models/action.py reports/models.py
+#, fuzzy
 msgid "end date"
-msgstr ""
+msgstr "data final"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The date when implementation of this action ends"
-msgstr ""
+msgstr "A data de término da implementação dessa ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Date format"
-msgstr ""
+msgstr "Formato da data"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Format of action start and end dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
+"Formato das datas de início e término da ação mostradas na UI "
+"pública.             O padrão para todas as ações pode ser especificado na "
+"página de ações."
 
 #: actions/models/action.py
+#, fuzzy
 msgctxt "action"
 msgid "superseded by"
-msgstr ""
+msgstr "substituído por"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Set if this action is superseded by another action"
-msgstr ""
+msgstr "Definir se essa ação for substituída por outra ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgctxt "partitive"
 msgid "action"
-msgstr ""
+msgstr "ação"
 
 #: actions/models/action.py feedback/models.py indicators/models.py
+#, fuzzy
 msgid "action"
-msgstr ""
+msgstr "ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "actions"
-msgstr ""
+msgstr "ações"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Can administrate all actions"
-msgstr ""
+msgstr "Pode administrar todas as ações"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Other action is merged with this one"
-msgstr ""
+msgstr "Outra ação foi mesclada com esta"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Has contact persons"
-msgstr ""
+msgstr "Tem pessoas de contato"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Active tasks"
-msgstr ""
+msgstr "Tarefas ativas"
 
 #: actions/models/action.py
-#, python-format
+#, fuzzy, python-format
 msgid "The action is already marked as complete for report %s."
-msgstr ""
+msgstr "A ação já está marcada como concluída para o relatório %s."
 
 #: actions/models/action.py
-#, python-format
+#, fuzzy, python-format
 msgid "Marked action '%(action)s' as complete for report '%(report)s'"
-msgstr ""
+msgstr "Marcou a ação '%(action)s' como concluída para o relatório '%(report)s'"
 
 #: actions/models/action.py
-#, python-format
+#, fuzzy, python-format
 msgid "Cannot undo marking action as complete as there are %s snapshots"
 msgstr ""
+"Não é possível desfazer a ação de marcação como concluída, pois há %s "
+"snapshots"
 
 #: actions/models/action.py
-#, python-format
+#, fuzzy, python-format
 msgid "Undid marking action '%(action)s' as complete for report '%(report)s'"
 msgstr ""
+"Anular a marcação da ação '%(action)s' como concluída para o relatório "
+"'%(report)s'"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Primary responsible party"
-msgstr ""
+msgstr "Parte responsável principal"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Collaborator"
-msgstr ""
+msgstr "Colaborador"
 
 #: actions/models/action.py indicators/models.py orgs/models.py
 #: people/models.py people/wagtail_admin.py
+#, fuzzy
 msgid "organization"
-msgstr ""
+msgstr "organização"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "role"
-msgstr ""
+msgstr "função"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "specifier"
-msgstr ""
+msgstr "especificador"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The responsibility domain for the organization"
-msgstr ""
+msgstr "O domínio de responsabilidade da organização"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action responsible party"
-msgstr ""
+msgstr "ação parte responsável"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action responsible parties"
-msgstr ""
+msgstr "ação partes responsáveis"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Moderator"
-msgstr ""
+msgstr "Moderador"
 
 #: actions/models/action.py actions/models/plan.py indicators/models.py
 #: orgs/models.py people/models.py
+#, fuzzy
 msgid "person"
-msgstr ""
+msgstr "pessoa"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "primary contact person"
-msgstr ""
+msgstr "pessoa de contato principal"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Is this person the primary contact person for the action?"
-msgstr ""
+msgstr "Essa pessoa é a principal pessoa de contato para a ação?"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action contact person"
-msgstr ""
+msgstr "ação pessoa de contato"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action contact persons"
-msgstr ""
+msgstr "ação pessoas de contato"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action schedule"
-msgstr ""
+msgstr "cronograma de ações"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action schedules"
-msgstr ""
+msgstr "cronogramas de ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "is completed"
-msgstr ""
+msgstr "for concluído"
 
 #: actions/models/action.py actions/models/plan.py
+#, fuzzy
 msgid "color"
-msgstr ""
+msgstr "cor"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action status"
-msgstr ""
+msgstr "status da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action statuses"
-msgstr ""
+msgstr "status da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action implementation phase"
-msgstr ""
+msgstr "fase de implementação da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action implementation phases"
-msgstr ""
+msgstr "fases de implementação da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "not started"
-msgstr ""
+msgstr "não iniciado"
 
 #: actions/models/action.py reports/spreadsheets.py
+#, fuzzy
 msgid "in progress"
-msgstr ""
+msgstr "em andamento"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "completed"
-msgstr ""
+msgstr "concluído"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "cancelled"
-msgstr ""
+msgstr "cancelada"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "state"
-msgstr ""
+msgstr "estado"
 
 #: actions/models/action.py feedback/models.py
+#, fuzzy
 msgid "comment"
-msgstr ""
+msgstr "comentário"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "due date"
-msgstr ""
+msgstr "data de vencimento"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The date by which the task should be completed (deadline)"
-msgstr ""
+msgstr "A data em que a tarefa deve ser concluída (prazo)"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Due date format"
-msgstr ""
+msgstr "Formato da data de vencimento"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Format of action task due dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
+"Formato das datas de vencimento das tarefas de ação mostradas na interface "
+"pública do usuário.             O padrão para todas as ações pode ser "
+"especificado na página de ações."
 
 #: actions/models/action.py
+#, fuzzy
 msgid "completion date"
-msgstr ""
+msgstr "data de conclusão"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "The date when the task was completed"
-msgstr ""
+msgstr "A data em que a tarefa foi concluída"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "completed by"
-msgstr ""
+msgstr "completado por"
 
 #: actions/models/action.py aplans/utils.py feedback/models.py
+#, fuzzy
 msgid "created at"
-msgstr ""
+msgstr "criado em"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "modified at"
-msgstr ""
+msgstr "modificado em"
 
 #: actions/models/action.py
+#, fuzzy
 msgctxt "partitive"
 msgid "action task"
-msgstr ""
+msgstr "tarefa de ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action task"
-msgstr ""
+msgstr "tarefa de ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action tasks"
-msgstr ""
+msgstr "tarefas de ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Non-completed tasks cannot have a completion date"
-msgstr ""
+msgstr "As tarefas não concluídas não podem ter uma data de conclusão"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Completed tasks must have a completion date"
-msgstr ""
+msgstr "As tarefas concluídas devem ter uma data de conclusão"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action impact class"
-msgstr ""
+msgstr "classe de impacto da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action impact classes"
-msgstr ""
+msgstr "aulas de impacto de ação"
 
 #: actions/models/action.py feedback/models.py indicators/models.py
 #: orgs/models.py pages/blocks.py pages/models.py
+#, fuzzy
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: actions/models/action.py pages/models.py
+#, fuzzy
 msgid "title"
-msgstr ""
+msgstr "título"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action link"
-msgstr ""
+msgstr "link de ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action links"
-msgstr ""
+msgstr "links de ação"
 
 #: actions/models/action.py indicators/models.py
+#, fuzzy
 msgid "date"
-msgstr ""
+msgstr "data"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "author"
-msgstr ""
+msgstr "autor"
 
 #: actions/models/action.py notifications/models.py
+#, fuzzy
 msgid "content"
-msgstr ""
+msgstr "conteúdo"
 
 #: actions/models/action.py aplans/utils.py people/models.py
+#, fuzzy
 msgid "created by"
-msgstr ""
+msgstr "criado por"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action status update"
-msgstr ""
+msgstr "atualização do status da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "action status updates"
-msgstr ""
+msgstr "atualizações do status da ação"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "impact group action"
-msgstr ""
+msgstr "ação do grupo impact"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "impact group actions"
-msgstr ""
+msgstr "ações do grupo de impacto"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Approve"
-msgstr ""
+msgstr "Aprovar"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Request changes"
-msgstr ""
+msgstr "Solicitar alterações"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Ordered choice"
-msgstr ""
+msgstr "Escolha do pedido"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Optional choice with optional text"
-msgstr ""
+msgstr "Escolha opcional com texto opcional"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Choice"
-msgstr ""
+msgstr "Escolha"
 
 #: actions/models/attributes.py documentation/models.py pages/models.py
+#, fuzzy
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Rich text"
-msgstr ""
+msgstr "Texto rico"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Numeric"
-msgstr ""
+msgstr "Numérico"
 
 #: actions/models/attributes.py actions/models/category.py admin_site/models.py
+#, fuzzy
 msgid "help text"
-msgstr ""
+msgstr "texto de ajuda"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Unit (only if format is numeric)"
-msgstr ""
+msgstr "Unidade (somente se o formato for numérico)"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Category type (if format is category)"
-msgstr ""
+msgstr "Tipo de categoria (se o formato for categoria)"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "If the format is \"Category\", choose which category type the field values can be chosen from"
 msgstr ""
+"Se o formato for \"Categoria\", escolha de qual tipo de categoria os valores "
+"de campo podem ser escolhidos"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "show choice names"
-msgstr ""
+msgstr "mostrar nomes de opções"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "If the format is \"ordered choice\", determines whether the choice names are displayed"
 msgstr ""
+"Se o formato for \"escolha ordenada\", determinará se os nomes das opções "
+"serão exibidos"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "has zero option"
-msgstr ""
+msgstr "tem opção zero"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "If the format is \"ordered choice\", determines whether the first option is displayed with zero bullets instead of one"
 msgstr ""
+"Se o formato for \"escolha ordenada\", determinará se a primeira opção será "
+"exibida com zero marcadores em vez de um"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "character limit for text fields"
-msgstr ""
+msgstr "limite de caracteres para campos de texto"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "show in reporting tab"
-msgstr ""
+msgstr "mostrar na guia de relatórios"
 
 #: actions/models/attributes.py admin_site/models.py
+#, fuzzy
 msgid "field"
-msgstr ""
+msgstr "campo"
 
 #: actions/models/attributes.py reports/wagtail_admin.py
+#, fuzzy
 msgid "fields"
-msgstr ""
+msgstr "campos"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "Unit must only be used for numeric fields"
-msgstr ""
+msgstr "A unidade deve ser usada somente para campos numéricos"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "If no primary language is set, there must not be other languages"
-msgstr ""
+msgstr "Se nenhum idioma principal for definido, não deve haver outros idiomas"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "This value is only allowed for action fields"
-msgstr ""
+msgstr "Esse valor só é permitido para campos de ação"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "attribute choice option"
-msgstr ""
+msgstr "atributo escolha opção"
 
 #: actions/models/attributes.py
+#, fuzzy
 msgid "attribute choice options"
-msgstr ""
+msgstr "opções de escolha de atributos"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Single"
-msgstr ""
+msgstr "Individual"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Multiple"
-msgstr ""
+msgstr "Múltiplos"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "hide category identifiers"
-msgstr ""
+msgstr "ocultar identificadores de categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Set if the categories do not have meaningful identifiers"
-msgstr ""
+msgstr "Definido se as categorias não tiverem identificadores significativos"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "lead paragraph"
-msgstr ""
+msgstr "parágrafo principal"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "usable for action categorization"
-msgstr ""
+msgstr "utilizável para categorização de ações"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "usable for indicator categorization"
-msgstr ""
+msgstr "utilizável para categorização de indicadores"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "editable for actions"
-msgstr ""
+msgstr "editável para ações"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "editable for indicators"
-msgstr ""
+msgstr "editável para indicadores"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "single or multiple selection"
-msgstr ""
+msgstr "seleção única ou múltipla"
 
 #: actions/models/category.py
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Choose \"{choice_multiple}\" only if more than one category can be selected at a time, otherwise choose \"{choice_single}\" which is the default."
 msgstr ""
+"Escolha \"{choice_multiple}\" somente se mais de uma categoria puder ser "
+"selecionada por vez; caso contrário, escolha \"{choice_single}\", que é o "
+"padrão."
 
 #: actions/models/category.py
+#, fuzzy
 msgid "has a collection"
-msgstr ""
+msgstr "tem uma coleção"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Set if this category type should have its own collection for images"
 msgstr ""
+"Defina se esse tipo de categoria deve ter sua própria coleção de imagens"
 
 #: actions/models/category.py orgs/models.py
+#, fuzzy
 msgid "primary language"
-msgstr ""
+msgstr "idioma principal"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "common category type"
-msgstr ""
+msgstr "tipo de categoria comum"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "common category types"
-msgstr ""
+msgstr "tipos de categorias comuns"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "synchronize with pages"
-msgstr ""
+msgstr "sincronizar com páginas"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Set if categories of this type should be synchronized with pages"
 msgstr ""
+"Defina se as categorias desse tipo devem ser sincronizadas com as páginas"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "category type"
-msgstr ""
+msgstr "tipo de categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "category types"
-msgstr ""
+msgstr "tipos de categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "This value is not allowed for category types"
-msgstr ""
+msgstr "Esse valor não é permitido para tipos de categoria"
 
 #: actions/models/category.py feedback/models.py notifications/models.py
+#, fuzzy
 msgid "type"
-msgstr ""
+msgstr "tipo"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "plural name"
-msgstr ""
+msgstr "nome no plural"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "category level"
-msgstr ""
+msgstr "nível de categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "category levels"
-msgstr ""
+msgstr "níveis de categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "theme color"
-msgstr ""
+msgstr "cor do tema"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Set if the category has a theme color"
-msgstr ""
+msgstr "Definir se a categoria tem uma cor de tema"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "common category"
-msgstr ""
+msgstr "categoria comum"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "common categories"
-msgstr ""
+msgstr "categorias comuns"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "parent category"
-msgstr ""
+msgstr "categoria pai"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "category"
-msgstr ""
+msgstr "categoria"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Parent forms a loop. Leave empty if top-level category."
 msgstr ""
+"O pai forma um loop. Deixar vazio se for uma categoria de nível superior."
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Parent must be of same type"
-msgstr ""
+msgstr "Os pais devem ser do mesmo tipo"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Subcategories"
-msgstr ""
+msgstr "Subcategorias"
 
 #: actions/models/category.py
+#, fuzzy
 msgid "Either SVG or image must be set"
-msgstr ""
+msgstr "O SVG ou a imagem devem ser definidos"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Do not show contact persons publicly"
-msgstr ""
+msgstr "Não mostre publicamente as pessoas de contato"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show only name, role and affiliation"
-msgstr ""
+msgstr "Mostrar apenas o nome, a função e a afiliação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show all information"
-msgstr ""
+msgstr "Mostrar todas as informações"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Allow images for actions"
-msgstr ""
+msgstr "Permitir imagens para ações"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Should custom images for individual actions be allowed"
-msgstr ""
+msgstr "Devem ser permitidas imagens personalizadas para ações individuais?"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show admin link"
-msgstr ""
+msgstr "Mostrar link de administrador"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Should the public website contain a link to the admin login?"
-msgstr ""
+msgstr "O site público deve conter um link para o login do administrador?"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Allow logging in to the public website"
-msgstr ""
+msgstr "Permitir o login no site público"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Should users be able to have authenticated sessions in the public UI?"
-msgstr ""
+msgstr "Os usuários devem poder ter sessões autenticadas na UI pública?"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Publicly visible data about contact persons"
-msgstr ""
+msgstr "Dados publicamente visíveis sobre pessoas de contato"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Choose which information about contact persons is visible in the public UI"
 msgstr ""
+"Escolha quais informações sobre as pessoas de contato são visíveis na IU "
+"pública"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Hide moderators from the contact persons"
-msgstr ""
+msgstr "Ocultar moderadores das pessoas de contato"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Should moderators be hidden from the visible contact persons in the public UI?"
 msgstr ""
+"Os moderadores devem ser ocultados das pessoas de contato visíveis na "
+"interface de usuário pública?"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Has action identifiers"
-msgstr ""
+msgstr "Possui identificadores de ação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if the plan uses meaningful action identifiers"
-msgstr ""
+msgstr "Defina se o plano usa identificadores de ação significativos"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show action identifiers"
-msgstr ""
+msgstr "Mostrar identificadores de ação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if action identifiers should be visible in the public UI"
 msgstr ""
+"Definir se os identificadores de ação devem estar visíveis na interface "
+"pública do usuário"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Action contact persons have different roles"
-msgstr ""
+msgstr "As pessoas de contato da ação têm funções diferentes"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if there are separate contact persons with publishing rights and others who can only suggest changes"
 msgstr ""
+"Defina se há pessoas de contato separadas com direitos de publicação e "
+"outras que podem apenas sugerir alterações"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Minimal statuses"
-msgstr ""
+msgstr "Status mínimos"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set to prevent showing status-specific graphs and other elements if statuses aren't systematically used in this action plan"
 msgstr ""
+"Definido para evitar a exibição de gráficos específicos de status e outros "
+"elementos se os status não forem usados sistematicamente nesse plano de ação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Has action official name field"
-msgstr ""
+msgstr "Possui campo de nome oficial da ação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if the plan uses the official name field"
-msgstr ""
+msgstr "Defina se o plano usa o campo de nome oficial"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Has action lead paragraph"
-msgstr ""
+msgstr "Tem um parágrafo de ação"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if the plan uses the lead paragraph field"
-msgstr ""
+msgstr "Defina se o plano usa o campo de parágrafo principal"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Has primary organizations for actions"
-msgstr ""
+msgstr "Tem organizações primárias para ações"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set if actions have a clear primary organization (such as multi-city plans)"
 msgstr ""
+"Definir se as ações têm uma organização primária clara (como planos para "
+"várias cidades)"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Enable site search"
-msgstr ""
+msgstr "Ativar a pesquisa no site"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Enable site-wide search functionality"
-msgstr ""
+msgstr "Habilitar a funcionalidade de pesquisa em todo o site"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Enable indicator comparison"
-msgstr ""
+msgstr "Ativar a comparação de indicadores"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set to enable comparing indicators between organizations"
-msgstr ""
+msgstr "Definido para permitir a comparação de indicadores entre organizações"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
 msgstr ""
+"Defina para ativar a funcionalidade de rascunho e revisão e escolha o fluxo "
+"de trabalho desejado para a revisão"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Display field visibility as a label in edit views"
-msgstr ""
+msgstr "Exibir a visibilidade do campo como um rótulo nas exibições de edição"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "For plans which have field-specific visibility restrictions, show to users which fields are public and which are restricted."
 msgstr ""
+"Para planos que têm restrições de visibilidade específicas de campo, mostre "
+"aos usuários quais campos são públicos e quais são restritos."
 
 #: actions/models/features.py
+#, fuzzy
 msgid "plan feature"
-msgstr ""
+msgstr "recurso de plano"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "plan features"
-msgstr ""
+msgstr "recursos do plano"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "If you leave this blank the application will use the default value"
-msgstr ""
+msgstr "Se você deixar essa opção em branco, o aplicativo usará o valor padrão"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "The official plan name in full form"
-msgstr ""
+msgstr "O nome do plano oficial em sua forma completa"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "A unique identifier for the plan used internally to distinguish between plans. This becomes part of the test site URL: https://[identifier].watch-test.kausal.tech. Use lowercase letters and dashes."
 msgstr ""
+"Um identificador exclusivo para o plano usado internamente para distinguir "
+"entre os planos. Isso se torna parte do URL do site de teste: "
+"https://[identifier].watch-test.kausal.tech. Use letras minúsculas e traços."
 
 #: actions/models/plan.py indicators/models.py
+#, fuzzy
 msgid "short name"
-msgstr ""
+msgstr "nome abreviado"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "A shorter version of the plan name"
-msgstr ""
+msgstr "Uma versão mais curta do nome do plano"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "version name"
-msgstr ""
+msgstr "nome da versão"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "If this plan has multiple versions, name of this version"
-msgstr ""
+msgstr "Se esse plano tiver várias versões, o nome dessa versão"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "published at"
-msgstr ""
+msgstr "publicado em"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "archived at"
-msgstr ""
+msgstr "arquivado em"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "site URL"
-msgstr ""
+msgstr "URL do site"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "actions locked"
-msgstr ""
+msgstr "ações bloqueadas"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Can actions be added and the official metadata edited?"
 msgstr ""
+"As ações podem ser adicionadas e os metadados oficiais podem ser editados?"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "main organization for the plan"
-msgstr ""
+msgstr "organização principal do plano"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "general administrators"
-msgstr ""
+msgstr "administradores gerais"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Persons that can modify everything related to the action plan"
-msgstr ""
+msgstr "Pessoas que podem modificar tudo relacionado ao plano de ação"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Link to accessibility statement"
-msgstr ""
+msgstr "Link para a declaração de acessibilidade"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Link to external feedback form"
-msgstr ""
+msgstr "Link para o formulário de feedback externo"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "If not empty, the system's built-in user feedback feature will be replaced by a link to an external feedback form available at this web address."
 msgstr ""
+"Se não estiver vazio, o recurso de feedback do usuário incorporado ao "
+"sistema será substituído por um link para um formulário de feedback externo "
+"disponível nesse endereço da Web."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Theme identifier"
-msgstr ""
+msgstr "Identificador de tema"
 
 #: actions/models/plan.py
+#, fuzzy
 msgctxt "plan"
 msgid "parent"
-msgstr ""
+msgstr "pai"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "The primary action classification"
-msgstr ""
+msgstr "A classificação da ação primária"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Used for primary navigation and grouping of actions"
-msgstr ""
+msgstr "Usado para navegação primária e agrupamento de ações"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "A secondary action classification"
-msgstr ""
+msgstr "Uma classificação de ação secundária"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Leave empty unless specifically required. Action filters based on this category are displayed more prominently than filters of other categories."
 msgstr ""
+"Deixe em branco, a menos que seja especificamente necessário. Os filtros de "
+"ação baseados nessa categoria são exibidos com mais destaque do que os "
+"filtros de outras categorias."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Days until actions considered stale"
-msgstr ""
+msgstr "Dias até que as ações sejam consideradas obsoletas"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Actions not updated since this many days are considered stale."
-msgstr ""
+msgstr "As ações não atualizadas há tantos dias são consideradas obsoletas."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Target interval in days to update actions"
-msgstr ""
+msgstr "Intervalo de destino em dias para atualizar as ações"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "A desirable time interval in days within which actions should be updated in the optimal case."
 msgstr ""
+"Um intervalo de tempo desejável, em dias, dentro do qual as ações devem ser "
+"atualizadas no caso ideal."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Acceptable interval in days to update actions"
-msgstr ""
+msgstr "Intervalo aceitável em dias para atualizar as ações"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "A maximum time interval in days within which actions should always be updated."
 msgstr ""
+"Um intervalo de tempo máximo em dias no qual as ações devem ser sempre "
+"atualizadas."
 
 #: actions/models/plan.py
+#, fuzzy
 msgctxt "plan"
 msgid "superseded by"
-msgstr ""
+msgstr "substituído por"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Set if this plan is superseded by another plan"
-msgstr ""
+msgstr "Definir se este plano for substituído por outro plano"
 
 #: actions/models/plan.py indicators/models.py
+#, fuzzy
 msgid "plans"
-msgstr ""
+msgstr "planos"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Primary language must not be selected"
-msgstr ""
+msgstr "O idioma principal não deve ser selecionado"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Category type must belong to plan"
-msgstr ""
+msgstr "O tipo de categoria deve pertencer ao plano"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "You must create and choose a primary category type for classifying actions"
 msgstr ""
+"Você deve criar e selecionar um tipo de categoria primária para classificar "
+"as ações"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Primary and secondary classification cannot be the same"
-msgstr ""
+msgstr "A classificação primária e secundária não pode ser a mesma"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Privacy"
-msgstr ""
+msgstr "Privacidade"
 
 #: actions/models/plan.py feedback/models.py
+#, fuzzy
 msgid "Accessibility"
-msgstr ""
+msgstr "Acessibilidade"
 
 #: actions/models/plan.py aplans/graphql_types.py
+#, fuzzy
 msgid "Published"
-msgstr ""
+msgstr "Publicado"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Unpublished"
-msgstr ""
+msgstr "Não publicado"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Scheduled"
-msgstr ""
+msgstr "Programado"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "general plan admin"
-msgstr ""
+msgstr "administração do plano geral"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "general plan admins"
-msgstr ""
+msgstr "administradores de planos gerais"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "public site viewer"
-msgstr ""
+msgstr "visualizador de sites públicos"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "public site viewers"
-msgstr ""
+msgstr "visualizadores de sites públicos"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "host name"
-msgstr ""
+msgstr "nome do host"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "The fully qualified domain name, eg. climate.cityname.gov. Leave blank if not yet known."
 msgstr ""
+"O nome de domínio totalmente qualificado, por exemplo, climate.cityname.gov. "
+"Deixe em branco se ainda não for conhecido."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "base path"
-msgstr ""
+msgstr "caminho de base"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Fill this for a multi-plan site when the plan does not live in the root of the domain."
 msgstr ""
+"Preencha isso para um site com vários planos quando o plano não estiver na "
+"raiz do domínio."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Base path must begin with a '/' and not end with '/'"
-msgstr ""
+msgstr "O caminho base deve começar com '/' e não terminar com '/'"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Immediate override of publishing status"
-msgstr ""
+msgstr "Substituição imediata do status de publicação"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Only set this if you are sure you want to override the publication time set in the plan. Be aware that this will immediately change the publication status of the plan at this domain!"
 msgstr ""
+"Defina isso somente se tiver certeza de que deseja substituir o horário de "
+"publicação definido no plano. Esteja ciente de que isso alterará "
+"imediatamente o status de publicação do plano nesse domínio!"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "The site is not public at this time."
-msgstr ""
+msgstr "O site não é público no momento."
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Hostname must be a fully qualified domain name in lower-case only"
 msgstr ""
+"O nome do host deve ser um nome de domínio totalmente qualificado somente em "
+"letras minúsculas"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "plan domain"
-msgstr ""
+msgstr "domínio do plano"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "plan domains"
-msgstr ""
+msgstr "domínios de planejamento"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "scenario"
-msgstr ""
+msgstr "cenário"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "scenarios"
-msgstr ""
+msgstr "cenários"
 
 #: actions/models/plan.py
+#, fuzzy
 msgctxt "impact group"
 msgid "parent"
-msgstr ""
+msgstr "pai"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "weight"
-msgstr ""
+msgstr "peso"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "impact group"
-msgstr ""
+msgstr "grupo de impacto"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "impact groups"
-msgstr ""
+msgstr "grupos de impacto"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "description when action fulfills criteria"
-msgstr ""
+msgstr "descrição quando a ação atende aos critérios"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "description when action doesn't fulfill criteria"
-msgstr ""
+msgstr "descrição quando a ação não atende aos critérios"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "monitoring quality point"
-msgstr ""
+msgstr "monitoramento do ponto de qualidade"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "monitoring quality points"
-msgstr ""
+msgstr "monitoramento de pontos de qualidade"
 
 #: actions/templates/site_summary/actions.html
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
 "        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
@@ -1796,1177 +2257,1489 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 msgstr[1] ""
+"\n"
+"        <span>%(n)s</span> ações ativas <span class=\"visuallyhidden\""
+">monitoradas em %(plan.name)s</span>\n"
+"    "
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "The page \"%(title)s\" has been submitted for approval to moderation stage \"%(task)s\"."
 msgstr ""
+"A página \"%(title)s\" foi enviada para aprovação no estágio de moderação \""
+"%(task)s\"."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
+#, fuzzy
 msgid "You can preview the page here:"
-msgstr ""
+msgstr "Você pode visualizar a página aqui:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
+#, fuzzy
 msgid "You can edit the page here:"
-msgstr ""
+msgstr "Você pode editar a página aqui:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "The %(model_name)s \"%(title)s\" has been withdrawn from the moderation stage \"%(task)s\". It does not require approval until it has been resubmitted for moderation again."
 msgstr ""
+"O %(model_name)s \"%(title)s\" foi retirado do estágio de moderação \"%(task)"
+"s\". Ele não precisa de aprovação até que seja reenviado para moderação "
+"novamente."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "You can preview the %(model_name)s here:"
-msgstr ""
+msgstr "Você pode visualizar o site %(model_name)s aqui:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "You can edit the %(model_name)s here:"
-msgstr ""
+msgstr "Você pode editar o site %(model_name)s aqui:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled_subject.txt
-#, python-format
+#, fuzzy, python-format
 msgid "The page \"%(title)s\" has been submitted for approval in moderation stage \"%(task)s\"."
 msgstr ""
+"A página \"%(title)s\" foi enviada para aprovação no estágio de moderação \""
+"%(task)s\"."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled_subject.txt
-#, python-format
+#, fuzzy, python-format
 msgid "The %(model_name)s \"%(title)s\" has been withdrawn from moderation."
-msgstr ""
+msgstr "O endereço %(model_name)s \"%(title)s\" foi retirado da moderação."
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Identifier already in use"
-msgstr ""
+msgstr "Identificador já em uso"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "For identifiers, use only lowercase letters from the English alphabet with dashes separating words. Numbers are allowed only in the end."
 msgstr ""
+"Para identificadores, use apenas letras minúsculas do alfabeto inglês com "
+"traços separando as palavras. Números são permitidos apenas no final."
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Plan name already in use"
-msgstr ""
+msgstr "Nome do plano já em uso"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "A plan's other language cannot be the same as its primary language"
 msgstr ""
+"O outro idioma de um plano não pode ser o mesmo que seu idioma principal"
 
 #: actions/wagtail_admin.py admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Plans"
-msgstr ""
+msgstr "Planos"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "General administrators"
-msgstr ""
+msgstr "Administradores gerais"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Only set if explicitly required by customer. Use a color key from the UI theme's graphColors, for example red070 or grey030."
 msgstr ""
+"Somente definido se explicitamente exigido pelo cliente. Use uma chave de "
+"cor do graphColors do tema da interface do usuário, por exemplo, red070 ou "
+"grey030."
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Clients"
-msgstr ""
+msgstr "Clientes"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Domains"
-msgstr ""
+msgstr "Domínios"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Action statuses"
-msgstr ""
+msgstr "Status das ações"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Action implementation phases"
-msgstr ""
+msgstr "Fases de implementação da ação"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Action impacts"
-msgstr ""
+msgstr "Impactos das ações"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Action schedules"
-msgstr ""
+msgstr "Cronogramas de ação"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Action classifications"
-msgstr ""
+msgstr "Classificações de ações"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Plan features"
-msgstr ""
+msgstr "Recursos do plano"
 
 #: actions/wagtail_admin.py
+#, fuzzy
 msgid "Plan notification settings"
-msgstr ""
+msgstr "Configurações de notificação do plano"
 
 #: admin_site/api.py
+#, fuzzy
 msgid "Invalid email address"
-msgstr ""
+msgstr "Endereço de e-mail inválido"
 
 #: admin_site/api.py
+#, fuzzy
 msgid "No user found with this email address. Ask your administrator to create an account for you."
 msgstr ""
+"Não foi encontrado nenhum usuário com esse endereço de e-mail. Peça ao seu "
+"administrador para criar uma conta para você."
 
 #: admin_site/api.py
+#, fuzzy
 msgid "You do not have access to the public site."
-msgstr ""
+msgstr "Você não tem acesso ao site público."
 
 #: admin_site/api.py
+#, fuzzy
 msgid "You do not have admin access. Your administrator may need to assign you an action or indicator, or grant you plan admin status."
 msgstr ""
+"Você não tem acesso de administrador. Seu administrador pode precisar "
+"atribuir-lhe uma ação ou código, ou conceder-lhe o status de administrador "
+"do plano."
 
 #: admin_site/api.py
+#, fuzzy
 msgid "Cannot determine authentication method. The email address domain may be unknown."
 msgstr ""
+"Não é possível determinar o método de autenticação. O domínio do endereço de "
+"e-mail pode ser desconhecido."
 
 #: admin_site/api.py
+#, fuzzy
 msgid "Password authentication is required, but the user has no password."
-msgstr ""
+msgstr "A autenticação por senha é necessária, mas o usuário não tem senha."
 
 #: admin_site/apps.py
+#, fuzzy
 msgid "History"
-msgstr ""
+msgstr "Histórico"
 
 #: admin_site/chooser.py
+#, fuzzy
 msgid "What is the part after @ in the staff email address of the organization mainly responsible for the plan?"
 msgstr ""
+"Qual é a parte depois de @ no endereço de e-mail da equipe da organização "
+"que é a principal responsável pelo plano?"
 
 #: admin_site/chooser.py
+#, fuzzy
 msgid "Choose a client"
-msgstr ""
+msgstr "Escolha um cliente"
 
 #: admin_site/chooser.py
+#, fuzzy
 msgid "Choose another client"
-msgstr ""
+msgstr "Escolha outro cliente"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Document"
-msgstr ""
+msgstr "Documento"
 
 #: admin_site/draftail_rich_text_area.py pages/blocks.py
+#, fuzzy
 msgid "Embed"
-msgstr ""
+msgstr "Incorporar"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Bold"
-msgstr ""
+msgstr "Negrito"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Italic"
-msgstr ""
+msgstr "Itálico"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Superscript"
-msgstr ""
+msgstr "Sobrescrito"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Subscript"
-msgstr ""
+msgstr "Subscrito"
 
 #: admin_site/draftail_rich_text_area.py
-#, python-format
+#, fuzzy, python-format
 msgid "Heading %(level)d"
-msgstr ""
+msgstr "Título %(level)d"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Numbered list"
-msgstr ""
+msgstr "Lista numerada"
 
 #: admin_site/draftail_rich_text_area.py
+#, fuzzy
 msgid "Bulleted list"
-msgstr ""
+msgstr "Lista com marcadores"
 
 #: admin_site/forms.py
+#, fuzzy
 msgid "Enter password"
-msgstr ""
+msgstr "Digite a senha"
 
 #: admin_site/forms.py
+#, fuzzy
 msgid "Enter your email address"
-msgstr ""
+msgstr "Digite seu endereço de e-mail"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Only allow password login"
-msgstr ""
+msgstr "Permitir apenas o login com senha"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Microsoft Azure AD"
-msgstr ""
+msgstr "Microsoft Azure AD"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Tunnistamo"
-msgstr ""
+msgstr "Tunnistamo"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "OKTA"
-msgstr ""
+msgstr "OKTA"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "ADFS OpenID Connect"
-msgstr ""
+msgstr "Conexão ADFS OpenID"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Name of the customer organization administering the plan"
-msgstr ""
+msgstr "Nome da organização do cliente que administra o plano"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "login method"
-msgstr ""
+msgstr "método de login"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "Login method that will be used for users that don't have a password set"
 msgstr ""
+"Método de login que será usado para usuários que não têm uma senha definida"
 
 #: admin_site/models.py
+#, fuzzy
 msgid "label"
-msgstr ""
+msgstr "rótulo"
 
 #: admin_site/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(field)s is not a valid field in the model '%(model)s'"
-msgstr ""
+msgstr "%(field)s não é um campo válido no modelo '%(model)s'"
 
 #: admin_site/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
-msgstr ""
+msgstr "Campo '%(field)s' no modelo '%(model)s' do plano '%(plan)s'"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
+#, fuzzy
 msgid "Own indicators"
-msgstr ""
+msgstr "Indicadores próprios"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
+#, fuzzy
 msgid "Last modified"
-msgstr ""
+msgstr "Última modificação"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
+#, fuzzy
 msgid "Last data point"
-msgstr ""
+msgstr "Último ponto de dados"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
+#, fuzzy
 msgid "Edit this indicator"
-msgstr ""
+msgstr "Editar esse indicador"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
+#, fuzzy
 msgid "Edit data"
-msgstr ""
+msgstr "Editar dados"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
-#, python-format
+#, fuzzy, python-format
 msgid "%(time_period)s ago"
-msgstr ""
+msgstr "%(time_period)s atrás"
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
-#, python-format
+#, fuzzy, python-format
 msgid " By %(filter_title)s "
-msgstr ""
+msgstr " Por %(filter_title)s "
 
 #: admin_site/templates/wagtailadmin/login.html
+#, fuzzy
 msgid "Sign in to Kausal Watch admin"
-msgstr ""
+msgstr "Entrar no Kausal Watch admin"
 
 #: admin_site/templates/wagtailadmin/login.html
+#, fuzzy
 msgid "Our apologies, the server is temporarily experiencing difficulties."
 msgstr ""
+"Nossas desculpas, o servidor está temporariamente passando por dificuldades."
 
 #: admin_site/utils.py
+#, fuzzy
 msgid "Public field"
-msgstr ""
+msgstr "Campo público"
 
 #: admin_site/utils.py
+#, fuzzy
 msgid "Non-public field"
-msgstr ""
+msgstr "Campo não público"
 
 #: admin_site/views.py
+#, fuzzy
 msgid "Your account settings have been changed successfully!"
-msgstr ""
+msgstr "As configurações de sua conta foram alteradas com sucesso!"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "View live"
-msgstr ""
+msgstr "Ver ao vivo"
 
 #: admin_site/wagtail.py
-#, python-format
+#, fuzzy, python-format
 msgid "View %s live"
-msgstr ""
+msgstr "Veja %s ao vivo"
 
 #: admin_site/wagtail.py
-#, python-format
+#, fuzzy, python-format
 msgid "Error deleting items. Try first deleting any %(name)s that are in use."
 msgstr ""
+"Erro ao excluir itens. Tente primeiro excluir qualquer %(name)s que esteja "
+"em uso."
 
 #: admin_site/wagtail.py
-#, python-format
+#, fuzzy, python-format
 msgid "In use: \"%(instance)s\"."
-msgstr ""
+msgstr "Em uso: \"%(instance)s\"."
 
 #: admin_site/wagtail.py
-#, python-format
+#, fuzzy, python-format
 msgid "%s could not be created due to errors."
-msgstr ""
+msgstr "%s não pôde ser criado devido a erros."
 
 #: admin_site/wagtail.py
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Could not remove common category type '{removed_cct}' from the plan because categories with the corresponding category type exist."
 msgstr ""
+"Não foi possível remover o tipo de categoria comum '{removed_cct}' do plano "
+"porque existem categorias com o tipo de categoria correspondente."
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "[not included]"
-msgstr ""
+msgstr "[não incluído]."
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in primary filters"
-msgstr ""
+msgstr "em filtros primários"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in main filters"
-msgstr ""
+msgstr "nos filtros principais"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in advanced filters"
-msgstr ""
+msgstr "em filtros avançados"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in main column (top)"
-msgstr ""
+msgstr "na coluna principal (parte superior)"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in main column (bottom)"
-msgstr ""
+msgstr "na coluna principal (parte inferior)"
 
 #: admin_site/wagtail.py
+#, fuzzy
 msgid "in side column"
-msgstr ""
+msgstr "na coluna lateral"
 
 #: admin_site/wagtail_hooks.py reports/apps.py reports/wagtail_admin.py
+#, fuzzy
 msgid "Reports"
-msgstr ""
+msgstr "Relatórios"
 
 #: admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Create plan"
-msgstr ""
+msgstr "Criar plano"
 
 #: admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Choose plan"
-msgstr ""
+msgstr "Selecionar plano"
 
 #: admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Email domains"
-msgstr ""
+msgstr "Domínios de e-mail"
 
 #: admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "Video tutorials"
-msgstr ""
+msgstr "Tutoriais em vídeo"
 
 #: admin_site/wagtail_hooks.py
+#, fuzzy
 msgid "https://kausal.gitbook.io/watch"
-msgstr ""
+msgstr "https://kausal.gitbook.io/watch"
 
 #: aplans/fields.py
+#, fuzzy
 msgid "Enter a valid hostname."
-msgstr ""
+msgstr "Digite um nome de host válido."
 
 #: aplans/fields.py
+#, fuzzy
 msgid "Fully qualified hostname (FQDN)"
-msgstr ""
+msgstr "Nome de host totalmente qualificado (FQDN)"
 
 #: aplans/graphql_types.py
+#, fuzzy
 msgid "Approved"
-msgstr ""
+msgstr "Aprovado"
 
 #: aplans/graphql_types.py
+#, fuzzy
 msgid "Draft"
-msgstr ""
+msgstr "Rascunho"
 
 #: aplans/middleware.py
+#, fuzzy
 msgid "Login was unsuccessful."
-msgstr ""
+msgstr "O login não foi bem-sucedido."
 
 #: aplans/rest_api.py
+#, fuzzy
 msgid "Cannot delete instance because other objects reference it."
 msgstr ""
+"Não é possível excluir a instância porque outros objetos fazem referência a "
+"ela."
 
 #: aplans/rest_api.py
-#, python-format
+#, fuzzy, python-format
 msgid "Cannot delete \"%s\" because it is connected to other objects such as plans, persons or actions."
 msgstr ""
+"Não é possível excluir \"%s\" porque ele está conectado a outros objetos, "
+"como planos, pessoas ou ações."
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Danish"
-msgstr ""
+msgstr "Dinamarquês"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "German"
-msgstr ""
+msgstr "Alemão"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "German (Switzerland)"
-msgstr ""
+msgstr "Alemão (Suíça)"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "English (United States)"
-msgstr ""
+msgstr "Inglês (Estados Unidos)"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "English (Australia)"
-msgstr ""
+msgstr "Inglês (Austrália)"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Inglês (Reino Unido)"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Spanish"
-msgstr ""
+msgstr "Espanhol"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Spanish (United States)"
-msgstr ""
+msgstr "Espanhol (Estados Unidos)"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandês"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Latvian"
-msgstr ""
+msgstr "Letão"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Swedish"
-msgstr ""
+msgstr "Sueco"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Portuguese"
-msgstr ""
+msgstr "Português"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Português (Brasil)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Day, month and year (31.12.2020)"
-msgstr ""
+msgstr "Dia, mês e ano (31.12.2020)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Month and year (12.2020)"
-msgstr ""
+msgstr "Mês e ano (12.2020)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Year (2020)"
-msgstr ""
+msgstr "Ano (2020)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "order"
-msgstr ""
+msgstr "ordem"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Authenticated users"
-msgstr ""
+msgstr "Usuários autenticados"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Contact persons with moderator permissions"
-msgstr ""
+msgstr "Pessoas de contato com permissões de moderador"
 
 #: aplans/utils.py orgs/wagtail_admin.py
+#, fuzzy
 msgid "Plan admins"
-msgstr ""
+msgstr "Administradores de planos"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Not editable"
-msgstr ""
+msgstr "Não editável"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Edit rights"
-msgstr ""
+msgstr "Direitos de edição"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Contact persons with \"moderator\" role"
-msgstr ""
+msgstr "Pessoas de contato com função de \"moderador"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Visibility"
-msgstr ""
+msgstr "Visibilidade"
 
 #: aplans/utils.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(color)s is not a CSS color (e.g., \"#112233\", \"red\" or \"rgb(0, 255, 127)\")"
 msgstr ""
+"%(color)s não é uma cor CSS (por exemplo, \"#112233\", \"red\" ou \"rgb(0, "
+"255, 127)\")"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "updated by"
-msgstr ""
+msgstr "atualizado por"
 
 #: content/apps.py
+#, fuzzy
 msgid "According to the action plan"
-msgstr ""
+msgstr "De acordo com o plano de ação"
 
 #: content/apps.py
+#, fuzzy
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 #: content/models.py feedback/models.py reports/spreadsheets.py
+#, fuzzy
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 #: content/models.py
+#, fuzzy
 msgid "Strategy"
-msgstr ""
+msgstr "Estratégia"
 
 #: content/models.py
+#, fuzzy
 msgid "Case study"
-msgstr ""
+msgstr "Estudo de caso"
 
 #: content/models.py
+#, fuzzy
 msgid "Strategies"
-msgstr ""
+msgstr "Estratégias"
 
 #: content/models.py
+#, fuzzy
 msgid "Case studies"
-msgstr ""
+msgstr "Estudos de caso"
 
 #: content/models.py
+#, fuzzy
 msgid "Task"
-msgstr ""
+msgstr "Tarefa"
 
 #: content/models.py
+#, fuzzy
 msgid "Milestone"
-msgstr ""
+msgstr "Marco"
 
 #: content/models.py
+#, fuzzy
 msgid "Milestones"
-msgstr ""
+msgstr "Marcos"
 
 #: content/models.py
+#, fuzzy
 msgid "Division"
-msgstr ""
+msgstr "Divisão"
 
 #: content/models.py orgs/apps.py orgs/wagtail_admin.py
+#, fuzzy
 msgid "Organizations"
-msgstr ""
+msgstr "Organizações"
 
 #: content/models.py
+#, fuzzy
 msgid "Divisions"
-msgstr ""
+msgstr "Divisões"
 
 #: content/models.py
+#, fuzzy
 msgid "site title"
-msgstr ""
+msgstr "título do site"
 
 #: content/models.py
+#, fuzzy
 msgid "site description"
-msgstr ""
+msgstr "Descrição do local"
 
 #: content/models.py
+#, fuzzy
 msgid "URL for the owner of the site"
-msgstr ""
+msgstr "URL do proprietário do site"
 
 #: content/models.py
+#, fuzzy
 msgid "Name of the owner of the site"
-msgstr ""
+msgstr "Nome do proprietário do site"
 
 #: content/models.py
+#, fuzzy
 msgid "official name description"
-msgstr ""
+msgstr "nome oficial descrição"
 
 #: content/models.py
+#, fuzzy
 msgid "The text to show when displaying official content"
-msgstr ""
+msgstr "O texto a ser mostrado ao exibir conteúdo oficial"
 
 #: content/models.py
+#, fuzzy
 msgid "copyright text"
-msgstr ""
+msgstr "texto de copyright"
 
 #: content/models.py
+#, fuzzy
 msgid "creative commons license"
-msgstr ""
+msgstr "licença creative commons"
 
 #: content/models.py
+#, fuzzy
 msgid "If the site is under a Creative Commons license, which CC license it is"
 msgstr ""
+"Se o site estiver sob uma licença Creative Commons, qual é a licença CC?"
 
 #: content/models.py
+#, fuzzy
 msgid "Link to GitHub repository for API"
-msgstr ""
+msgstr "Link para o repositório do GitHub para a API"
 
 #: content/models.py
+#, fuzzy
 msgid "Link to GitHub repository for UI"
-msgstr ""
+msgstr "Link para o repositório do GitHub para a interface do usuário"
 
 #: content/models.py
+#, fuzzy
 msgid "Term to use for 'action'"
-msgstr ""
+msgstr "Termo a ser usado para \"ação"
 
 #: content/models.py
+#, fuzzy
 msgid "Term to use for 'task'"
-msgstr ""
+msgstr "Termo a ser usado para \"tarefa"
 
 #: content/models.py
+#, fuzzy
 msgid "Term to use for 'organization'"
-msgstr ""
+msgstr "Termo a ser usado para \"organização"
 
 #: content/models.py
+#, fuzzy
 msgid "Sitewide announcement"
-msgstr ""
+msgstr "Anúncio em todo o site"
 
 #: content/models.py
+#, fuzzy
 msgid "A message prominently displayed in a banner at the top of every page on the public website"
 msgstr ""
+"Uma mensagem exibida com destaque em um banner na parte superior de todas as "
+"páginas do site público"
 
 #: content/models.py
+#, fuzzy
 msgid "site general content"
-msgstr ""
+msgstr "conteúdo geral do site"
 
 #: content/models.py
+#, fuzzy
 msgid "site general contents"
-msgstr ""
+msgstr "Conteúdo geral do site"
 
 #: content/wagtail_admin.py
+#, fuzzy
 msgid "Site settings"
-msgstr ""
+msgstr "Configurações do site"
 
 #: documentation/models.py
+#, fuzzy
 msgid "CSS style"
-msgstr ""
+msgstr "Estilo CSS"
 
 #: documentation/models.py
+#, fuzzy
 msgid "CSS style to be applied to the container of the body"
-msgstr ""
+msgstr "Estilo CSS a ser aplicado ao contêiner do corpo"
 
 #: documentation/models.py
+#, fuzzy
 msgid "Documentation page"
-msgstr ""
+msgstr "Página de documentação"
 
 #: documentation/models.py
+#, fuzzy
 msgid "Documentation pages"
-msgstr ""
+msgstr "Páginas de documentação"
 
 #: documents/chooser.py
+#, fuzzy
 msgid "Server Error"
-msgstr ""
+msgstr "Erro do servidor"
 
 #: documents/chooser.py
+#, fuzzy
 msgid "Report this error to your webmaster with the following information:"
-msgstr ""
+msgstr "Informe esse erro ao seu webmaster com as seguintes informações:"
 
 #: documents/models.py
+#, fuzzy
 msgid "document"
-msgstr ""
+msgstr "documento"
 
 #: documents/models.py
+#, fuzzy
 msgid "documents"
-msgstr ""
+msgstr "documentos"
 
 #: feedback/models.py orgs/models.py people/models.py users/models.py
+#, fuzzy
 msgid "email address"
-msgstr ""
+msgstr "endereço de e-mail"
 
 #: feedback/models.py
+#, fuzzy
 msgid "is processed"
-msgstr ""
+msgstr "é processado"
 
 #: feedback/models.py
+#, fuzzy
 msgid "user feedback"
-msgstr ""
+msgstr "feedback do usuário"
 
 #: feedback/models.py
+#, fuzzy
 msgid "user feedbacks"
-msgstr ""
+msgstr "feedbacks dos usuários"
 
 #: feedback/views.py
+#, fuzzy
 msgid "Mark user feedback as processed"
-msgstr ""
+msgstr "Marcar o feedback do usuário como processado"
 
 #: feedback/views.py
+#, fuzzy
 msgid "Mark user feedback as unprocessed"
-msgstr ""
+msgstr "Marcar o feedback do usuário como não processado"
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm marking %(user_feedback)s as processed"
-msgstr ""
+msgstr "Confirmar a marcação de %(user_feedback)s como processado"
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm marking %(user_feedback)s as unprocessed"
-msgstr ""
+msgstr "Confirmar a marcação do site %(user_feedback)s como não processado"
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to mark the user feedback '%(user_feedback)s' as processed?"
 msgstr ""
+"Você realmente deseja marcar o feedback do usuário '%(user_feedback)s' como "
+"processado?"
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to mark the user feedback '%(user_feedback)s' as unprocessed?"
 msgstr ""
+"Você realmente deseja marcar o feedback do usuário '%(user_feedback)s' como "
+"não processado?"
 
 #: feedback/views.py
+#, fuzzy
 msgid "The user feedback is already processed"
-msgstr ""
+msgstr "O feedback do usuário já foi processado"
 
 #: feedback/views.py
+#, fuzzy
 msgid "The user feedback is already unprocessed"
-msgstr ""
+msgstr "O feedback do usuário já não foi processado"
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "User feedback '%(user_feedback)s' has been marked as processed."
-msgstr ""
+msgstr "O feedback do usuário '%(user_feedback)s' foi marcado como processado."
 
 #: feedback/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "User feedback '%(user_feedback)s' has been marked as unprocessed."
 msgstr ""
+"O feedback do usuário '%(user_feedback)s' foi marcado como não processado."
 
 #: feedback/wagtail_admin.py
+#, fuzzy
 msgid "Mark as processed"
-msgstr ""
+msgstr "Marcar como processado"
 
 #: feedback/wagtail_admin.py
+#, fuzzy
 msgid "Mark this user feedback as processed"
-msgstr ""
+msgstr "Marcar esse feedback do usuário como processado"
 
 #: feedback/wagtail_admin.py
+#, fuzzy
 msgid "Mark as unprocessed"
-msgstr ""
+msgstr "Marcar como não processado"
 
 #: feedback/wagtail_admin.py
+#, fuzzy
 msgid "Mark this user feedback as unprocessed"
-msgstr ""
+msgstr "Marcar este feedback do usuário como não processado"
 
 #: feedback/wagtail_admin.py
+#, fuzzy
 msgid "User feedback"
-msgstr ""
+msgstr "Feedback do usuário"
 
 #: images/image_formats.py
+#, fuzzy
 msgid "Full width (zoomable)"
-msgstr ""
+msgstr "Largura total (com zoom)"
 
 #: images/models.py
+#, fuzzy
 msgid "Image byline or credits"
-msgstr ""
+msgstr "Assinatura ou créditos da imagem"
 
 #: images/models.py
+#, fuzzy
 msgid "Alt text"
-msgstr ""
+msgstr "Texto alternativo"
 
 #: images/models.py people/models.py
+#, fuzzy
 msgid "image"
-msgstr ""
+msgstr "imagem"
 
 #: images/models.py
+#, fuzzy
 msgid "images"
-msgstr ""
+msgstr "imagens"
 
 #: indicators/blocks.py
+#, fuzzy
 msgid "Indicator"
-msgstr ""
+msgstr "Indicador"
 
 #: indicators/blocks.py
+#, fuzzy
 msgid "Indicator highlights"
-msgstr ""
+msgstr "Destaques do indicador"
 
 #: indicators/blocks.py
+#, fuzzy
 msgid "Graph"
-msgstr ""
+msgstr "Gráfico"
 
 #: indicators/blocks.py
+#, fuzzy
 msgid "Animated"
-msgstr ""
+msgstr "Animado"
 
 #: indicators/blocks.py
+#, fuzzy
 msgid "Indicator showcase"
-msgstr ""
+msgstr "Vitrine de indicadores"
 
 #: indicators/chooser.py
+#, fuzzy
 msgid "Choose an indicator"
-msgstr ""
+msgstr "Escolha um indicador"
 
 #: indicators/chooser.py
+#, fuzzy
 msgid "Choose another indicator"
-msgstr ""
+msgstr "Selecionar outro indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgctxt "physical"
 msgid "quantity"
-msgstr ""
+msgstr "quantidade"
 
 #: indicators/models.py
+#, fuzzy
 msgctxt "physical"
 msgid "quantities"
-msgstr ""
+msgstr "quantidades"
 
 #: indicators/models.py
+#, fuzzy
 msgid "verbose name"
-msgstr ""
+msgstr "nome detalhado"
 
 #: indicators/models.py
+#, fuzzy
 msgid "verbose name plural"
-msgstr ""
+msgstr "plural de nomes detalhados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "unit"
-msgstr ""
+msgstr "unidade"
 
 #: indicators/models.py
+#, fuzzy
 msgid "units"
-msgstr ""
+msgstr "unidades"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dataset license"
-msgstr ""
+msgstr "licença do conjunto de dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dataset licenses"
-msgstr ""
+msgstr "licenças de conjuntos de dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "last retrieved at"
-msgstr ""
+msgstr "recuperado pela última vez em"
 
 #: indicators/models.py
+#, fuzzy
 msgid "owner"
-msgstr ""
+msgstr "proprietário"
 
 #: indicators/models.py
+#, fuzzy
 msgid "owner name"
-msgstr ""
+msgstr "nome do proprietário"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Set if owner organization is not available"
-msgstr ""
+msgstr "Definir se a organização do proprietário não estiver disponível"
 
 #: indicators/models.py
+#, fuzzy
 msgid "license"
-msgstr ""
+msgstr "licença"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dataset"
-msgstr ""
+msgstr "conjunto de dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "datasets"
-msgstr ""
+msgstr "conjuntos de dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "framework"
-msgstr ""
+msgstr "estrutura"
 
 #: indicators/models.py
+#, fuzzy
 msgid "frameworks"
-msgstr ""
+msgstr "estruturas"
 
 #: indicators/models.py
+#, fuzzy
 msgid "increases"
-msgstr ""
+msgstr "aumentos"
 
 #: indicators/models.py
+#, fuzzy
 msgid "decreases"
-msgstr ""
+msgstr "diminuições"
 
 #: indicators/models.py
+#, fuzzy
 msgid "is a part of"
-msgstr ""
+msgstr "faz parte de"
 
 #: indicators/models.py
+#, fuzzy
 msgid "effect type"
-msgstr ""
+msgstr "tipo de efeito"
 
 #: indicators/models.py
+#, fuzzy
 msgid "What type of causal effect is there between the indicators"
-msgstr ""
+msgstr "Que tipo de efeito causal existe entre os indicadores?"
 
 #: indicators/models.py
+#, fuzzy
 msgid "normalize by label"
-msgstr ""
+msgstr "normalizar por rótulo"
 
 #: indicators/models.py
+#, fuzzy
 msgid "common indicator"
-msgstr ""
+msgstr "indicador comum"
 
 #: indicators/models.py
+#, fuzzy
 msgid "common indicators"
-msgstr ""
+msgstr "indicadores comuns"
 
 #: indicators/models.py
+#, fuzzy
 msgid "causal indicator"
-msgstr ""
+msgstr "indicador causal"
 
 #: indicators/models.py
+#, fuzzy
 msgid "effect indicator"
-msgstr ""
+msgstr "indicador de efeito"
 
 #: indicators/models.py
+#, fuzzy
 msgid "related indicator"
-msgstr ""
+msgstr "indicador relacionado"
 
 #: indicators/models.py
+#, fuzzy
 msgid "related indicators"
-msgstr ""
+msgstr "indicadores relacionados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "framework indicator"
-msgstr ""
+msgstr "indicador de estrutura"
 
 #: indicators/models.py
+#, fuzzy
 msgid "framework indicators"
-msgstr ""
+msgstr "indicadores de estrutura"
 
 #: indicators/models.py
+#, fuzzy
 msgid "year"
-msgstr ""
+msgstr "ano"
 
 #: indicators/models.py
+#, fuzzy
 msgid "month"
-msgstr ""
+msgstr "mês"
 
 #: indicators/models.py
+#, fuzzy
 msgid "day"
-msgstr ""
+msgstr "dia"
 
 #: indicators/models.py
+#, fuzzy
 msgid "strategic"
-msgstr ""
+msgstr "estratégico"
 
 #: indicators/models.py
+#, fuzzy
 msgid "tactical"
-msgstr ""
+msgstr "tático"
 
 #: indicators/models.py
+#, fuzzy
 msgid "operational"
-msgstr ""
+msgstr "operacional"
 
 #: indicators/models.py
+#, fuzzy
 msgid "minimum value"
-msgstr ""
+msgstr "valor mínimo"
 
 #: indicators/models.py
+#, fuzzy
 msgid "What is the minimum value this indicator can reach? It is used in visualizations as the Y axis minimum."
 msgstr ""
+"Qual é o valor mínimo que esse indicador pode atingir? Ele é usado em "
+"visualizações como o mínimo do eixo Y."
 
 #: indicators/models.py
+#, fuzzy
 msgid "maximum value"
-msgstr ""
+msgstr "valor máximo"
 
 #: indicators/models.py
+#, fuzzy
 msgid "What is the maximum value this indicator can reach? It is used in visualizations as the Y axis maximum."
 msgstr ""
+"Qual é o valor máximo que esse indicador pode atingir? Ele é usado em "
+"visualizações como o máximo do eixo Y."
 
 #: indicators/models.py
+#, fuzzy
 msgid "time resolution"
-msgstr ""
+msgstr "resolução de tempo"
 
 #: indicators/models.py
+#, fuzzy
 msgid "updated values due at"
-msgstr ""
+msgstr "valores atualizados devidos em"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator"
-msgstr ""
+msgstr "indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Has datasets"
-msgstr ""
+msgstr "Possui conjuntos de dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Has data"
-msgstr ""
+msgstr "Possui dados"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Has a graph"
-msgstr ""
+msgstr "Tem um gráfico"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Deadlines for value updates are currently only possible for yearly indicators"
 msgstr ""
+"Atualmente, os prazos para atualizações de valores só são possíveis para "
+"indicadores anuais"
 
 #: indicators/models.py
+#, fuzzy
 msgid "There is already an indicator value for the year preceding the deadline"
-msgstr ""
+msgstr "Já existe um valor de indicador para o ano anterior ao prazo"
 
 #: indicators/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "Quantity must be the same as in common indicator (%s)"
-msgstr ""
+msgstr "A quantidade deve ser a mesma do indicador comum (%s)"
 
 #: indicators/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "Unit must be the same as in common indicator (%s)"
-msgstr ""
+msgstr "A unidade deve ser a mesma do indicador comum (%s)"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dimension"
-msgstr ""
+msgstr "dimensão"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dimensions"
-msgstr ""
+msgstr "dimensões"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dimension category"
-msgstr ""
+msgstr "categoria de dimensão"
 
 #: indicators/models.py
+#, fuzzy
 msgid "dimension categories"
-msgstr ""
+msgstr "categorias de dimensão"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator dimension"
-msgstr ""
+msgstr "dimensão do indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator dimensions"
-msgstr ""
+msgstr "dimensões do indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "common indicator dimension"
-msgstr ""
+msgstr "dimensão do indicador comum"
 
 #: indicators/models.py
+#, fuzzy
 msgid "common indicator dimensions"
-msgstr ""
+msgstr "dimensões comuns dos indicadores"
 
 #: indicators/models.py pages/models.py
+#, fuzzy
 msgid "level"
-msgstr ""
+msgstr "nível"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator levels"
-msgstr ""
+msgstr "níveis de indicadores"
 
 #: indicators/models.py
+#, fuzzy
 msgid "value"
-msgstr ""
+msgstr "valor"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator value"
-msgstr ""
+msgstr "valor do indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator values"
-msgstr ""
+msgstr "valores do indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator goal"
-msgstr ""
+msgstr "meta do indicador"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator goals"
-msgstr ""
+msgstr "metas de indicadores"
 
 #: indicators/models.py
+#, fuzzy
 msgid "high"
-msgstr ""
+msgstr "alta"
 
 #: indicators/models.py pages/blocks.py
+#, fuzzy
 msgid "medium"
-msgstr ""
+msgstr "médio"
 
 #: indicators/models.py
+#, fuzzy
 msgid "low"
-msgstr ""
+msgstr "baixo"
 
 #: indicators/models.py
+#, fuzzy
 msgid "confidence level"
-msgstr ""
+msgstr "nível de confiança"
 
 #: indicators/models.py
+#, fuzzy
 msgid "How confident we are that the causal effect is present"
-msgstr ""
+msgstr "Quão confiantes estamos de que o efeito causal está presente"
 
 #: indicators/models.py
+#, fuzzy
 msgid "What type of effect should the action cause?"
-msgstr ""
+msgstr "Que tipo de efeito a ação deve causar?"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicates action progress"
-msgstr ""
+msgstr "indica o progresso da ação"
 
 #: indicators/models.py
+#, fuzzy
 msgid "Set if the indicator should be used to determine action progress"
 msgstr ""
+"Defina se o indicador deve ser usado para determinar o progresso da ação"
 
 #: indicators/models.py
+#, fuzzy
 msgid "action indicator"
-msgstr ""
+msgstr "indicador de ação"
 
 #: indicators/models.py
+#, fuzzy
 msgid "action indicators"
-msgstr ""
+msgstr "indicadores de ação"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator contact person"
-msgstr ""
+msgstr "indicador pessoa de contato"
 
 #: indicators/models.py
+#, fuzzy
 msgid "indicator contact persons"
-msgstr ""
+msgstr "pessoas de contato do indicador"
 
 #: indicators/resources.py
+#, fuzzy
 msgid "Creating new indicators is not allowed"
-msgstr ""
+msgstr "Não é permitido criar novos indicadores"
 
 #: indicators/resources.py
+#, fuzzy
 msgid "Permission denied"
-msgstr ""
+msgstr "Permissão negada"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Home"
-msgstr ""
+msgstr "Início"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Indicator data"
-msgstr ""
+msgstr "Dados do indicador"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Observations"
-msgstr ""
+msgstr "Observações"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Goals"
-msgstr ""
+msgstr "Objetivos"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Add row"
-msgstr ""
+msgstr "Adicionar linha"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Remove row"
-msgstr ""
+msgstr "Remover linha"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Save changes"
-msgstr ""
+msgstr "Salvar alterações"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Year"
-msgstr ""
+msgstr "Ano"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Your changes have not been saved. Are you sure you want to exit?"
-msgstr ""
+msgstr "Suas alterações não foram salvas. Tem certeza de que deseja sair?"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Unable to save changes"
-msgstr ""
+msgstr "Não é possível salvar as alterações"
 
 #: indicators/templates/indicators/edit_values.html
+#, fuzzy
 msgid "Changes were saved"
-msgstr ""
+msgstr "As alterações foram salvas"
 
 #: indicators/templates/site_summary/indicators.html
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
 "        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
@@ -2977,184 +3750,266 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 msgstr[1] ""
+"\n"
+"        <span>%(total)s</span> indicadores <span class=\"visuallyhidden\""
+">monitorados em %(plan.name)s</span>\n"
+"    "
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Show indicators"
-msgstr ""
+msgstr "Mostrar indicadores"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "in active plan"
-msgstr ""
+msgstr "no plano ativo"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "not in active plan"
-msgstr ""
+msgstr "não está no plano ativo"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "all"
-msgstr ""
+msgstr "todos"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Choose a quantity"
-msgstr ""
+msgstr "Escolha uma quantidade"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Choose another quantity"
-msgstr ""
+msgstr "Escolha outra quantidade"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Edit this quantity"
-msgstr ""
+msgstr "Editar essa quantidade"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Indicator dimensions"
-msgstr ""
+msgstr "Dimensões do indicador"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Quantities"
-msgstr ""
+msgstr "Quantidades"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Units"
-msgstr ""
+msgstr "Unidades"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "[not in active plan]"
-msgstr ""
+msgstr "[não está no plano ativo]."
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Changing the organization to one with a different primary language is currently not supported"
 msgstr ""
+"No momento, não há suporte para a alteração da organização para uma com um "
+"idioma principal diferente"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Dimensions must be the same as in common indicator"
-msgstr ""
+msgstr "As dimensões devem ser as mesmas do indicador comum"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Indicator for actions"
-msgstr ""
+msgstr "Indicador para ações"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Dimensions"
-msgstr ""
+msgstr "Dimensões"
 
 #: indicators/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "If you change the dimensions of this indicator (currently %(dimensions)s), its single value will be deleted."
 msgid_plural "If you change the dimensions of this indicator (currently %(dimensions)s), all its %(num)d values will be deleted."
 msgstr[0] ""
 msgstr[1] ""
+"Se você alterar as dimensões desse indicador (atualmente %(dimensions)s), "
+"todos os seus valores %(num)d serão excluídos."
 
 #: indicators/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "This indicator is linked to a common indicator, so quantity, unit and dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; dimensions: %(dimensions)s"
 msgstr ""
+"Esse indicador está vinculado a um indicador comum, portanto, a quantidade, "
+"a unidade e as dimensões não podem ser editadas. Quantidade atual: "
+"%(quantity)s; unidade: %(unit)s; dimensões: %(dimensions)s"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Effects"
-msgstr ""
+msgstr "Efeitos"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Causes"
-msgstr ""
+msgstr "Causas"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Advanced options"
-msgstr ""
+msgstr "Opções avançadas"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Unit"
-msgstr ""
+msgstr "Unidade"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Dimensions must be the same as in all indicators linked to this one"
 msgstr ""
+"As dimensões devem ser as mesmas de todos os indicadores vinculados a este"
 
 #: indicators/wagtail_admin.py
+#, fuzzy
 msgid "Common indicators"
-msgstr ""
+msgstr "Indicadores comuns"
 
 #: indicators/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "This common indicator has indicators linked to it, so quantity, unit and dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; dimensions: %(dimensions)s"
 msgstr ""
+"Esse indicador comum tem indicadores vinculados a ele, portanto, a "
+"quantidade, a unidade e as dimensões não podem ser editadas. Quantidade "
+"atual: %(quantity)s; unidade: %(unit)s; dimensões: %(dimensions)s"
 
 #: notifications/apps.py notifications/wagtail_admin.py
+#, fuzzy
 msgid "Notifications"
-msgstr ""
+msgstr "Notificações"
 
 #: notifications/forms.py
-#, python-format
+#, fuzzy, python-format
 msgid "General notifications for action '%s'"
-msgstr ""
+msgstr "Notificações gerais para ação '%s'"
 
 #: notifications/forms.py
+#, fuzzy
 msgid "These are sent when there are news about this action such as reminders for deadlines."
 msgstr ""
+"Elas são enviadas quando há notícias sobre essa ação, como lembretes de "
+"prazos."
 
 #: notifications/forms.py
-#, python-format
+#, fuzzy, python-format
 msgid "Feedback notifications for action '%s'"
-msgstr ""
+msgstr "Notificações de feedback para ação '%s'"
 
 #: notifications/forms.py
+#, fuzzy
 msgid "These are sent when a visitor has left feedback for this action."
-msgstr ""
+msgstr "Elas são enviadas quando um visitante deixa um feedback para essa ação."
 
 #: notifications/forms.py
-#, python-format
+#, fuzzy, python-format
 msgid "Feeback notifications for plan '%s'"
-msgstr ""
+msgstr "Notificações de feeback para o plano '%s'"
 
 #: notifications/forms.py
+#, fuzzy
 msgid "These are sent when a visitor has left feedback for this plan."
 msgstr ""
+"Eles são enviados quando um visitante deixa um feedback para esse plano."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "action_not_updated"
 msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização dos detalhes da ação no "
+"plano de ação.  Você pode ver no site de acompanhamento do plano de ação o "
+"que já foi feito para promover as ações e o que foi planejado para o "
+"futuro.  Já se passaram seis meses desde a última vez que você atualizou uma "
+"ação. Atualize a ação com as informações mais recentes. Ao mesmo tempo, você "
+"pode adicionar uma tarefa futura à ação."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "not_enough_tasks"
 msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização dos detalhes da ação no "
+"plano de ação.  Você pode ver no site de acompanhamento do plano de ação o "
+"que já foi feito para promover as ações e o que foi planejado para o "
+"futuro.  Isso significa que seria preferível que cada ação tivesse pelo "
+"menos uma tarefa futura no próximo ano. Por favor, adicione tarefas para a "
+"ação que mostrem quais são as próximas etapas planejadas para a ação."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "task_due_soon"
 msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização das informações da tarefa "
+"de sua ação no plano de ação.  Há uma ação no plano de ação com um prazo se "
+"aproximando. Lembre-se de marcar a tarefa como concluída assim que ela for "
+"concluída. Após o término do prazo, a ação será marcada como atrasada. Você "
+"pode editar os detalhes da tarefa no link abaixo."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "task_late"
 msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização das informações da tarefa "
+"de sua ação no plano de ação. Há uma ação cujo prazo já passou. A ação é "
+"mostrada como atrasada até que você a marque como concluída e preencha "
+"alguns detalhes."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "updated_indicator_values_due_soon"
 msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização dos detalhes do indicador "
+"no plano de ação.  O prazo para atualizar os valores do indicador está se "
+"aproximando. Atualize o indicador com os valores mais recentes."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "updated_indicator_values_late"
 msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
 msgstr ""
+"Esse é um lembrete automático sobre a atualização dos detalhes do indicador "
+"no plano de ação.  O prazo para atualizar os valores do indicador já passou. "
+"Atualize o indicador com os valores mais recentes."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "user_feedback_received"
 msgid "A user has submitted feedback."
-msgstr ""
+msgstr "Um usuário enviou comentários."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "motivation"
 msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
 msgstr ""
+"Obrigado por manter o plano de ação atualizado. Informações atualizadas "
+"sobre as ações são essenciais para atingirmos nossas metas."
 
 #: notifications/management/commands/initialize_notifications.py
+#, fuzzy
 msgctxt "outro"
 msgid ""
 "If you are having difficulties using the action plan watch platform, please send an email to the administrators of the action plan.\n"
@@ -3164,1263 +4019,1601 @@ msgid ""
 "Kind regards,\n"
 "the action plan administrators"
 msgstr ""
+"Se estiver tendo dificuldades para usar a plataforma de observação do plano "
+"de ação, envie um e-mail para os administradores do plano de ação.\n"
+"\n"
+"Obrigado por participar da implementação do plano de ação!\n"
+"\n"
+"Atenciosamente,\n"
+"os administradores do plano de ação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Task is late"
-msgstr ""
+msgstr "A tarefa está atrasada"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Task is due soon"
-msgstr ""
+msgstr "A tarefa deve ser entregue em breve"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Action metadata has not been updated recently"
-msgstr ""
+msgstr "Os metadados da ação não foram atualizados recentemente"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Action doesn't have enough in-progress tasks"
-msgstr ""
+msgstr "A ação não tem tarefas em andamento suficientes"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Updated indicator values are late"
-msgstr ""
+msgstr "Os valores atualizados dos indicadores estão atrasados"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Updated indicator values are due soon"
-msgstr ""
+msgstr "Os valores atualizados dos indicadores devem ser entregues em breve"
 
 #: notifications/models.py
+#, fuzzy
 msgid "User feedback received"
-msgstr ""
+msgstr "Feedback do usuário recebido"
 
 #: notifications/models.py
+#, fuzzy
 msgid "notifications enabled"
-msgstr ""
+msgstr "notificações ativadas"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Should notifications be sent?"
-msgstr ""
+msgstr "As notificações devem ser enviadas?"
 
 #: notifications/models.py
+#, fuzzy
 msgid "notification sending time"
-msgstr ""
+msgstr "tempo de envio da notificação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "The local time of day when notifications are sent"
-msgstr ""
+msgstr "A hora local do dia em que as notificações são enviadas"
 
 #: notifications/models.py
+#, fuzzy
 msgctxt "partitive"
 msgid "notification settings"
-msgstr ""
+msgstr "configurações de notificação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "notification settings"
-msgstr ""
+msgstr "configurações de notificação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Set if the notification was sent to an email address instead of a person"
 msgstr ""
+"Defina se a notificação foi enviada para um endereço de e-mail em vez de uma "
+"pessoa"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Email From name"
-msgstr ""
+msgstr "Nome do remetente do e-mail"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Email From address"
-msgstr ""
+msgstr "Endereço de e-mail de"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Email Reply-To address"
-msgstr ""
+msgstr "Endereço para resposta de e-mail"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Brand dark color"
-msgstr ""
+msgstr "Marca de cor escura"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Font family"
-msgstr ""
+msgstr "Família de fontes"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Leave empty unless custom font required by customer"
-msgstr ""
+msgstr "Deixe em branco, a menos que o cliente exija uma fonte personalizada"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Font CSS style URL"
-msgstr ""
+msgstr "URL de estilo CSS da fonte"
 
 #: notifications/models.py
+#, fuzzy
 msgctxt "partitive"
 msgid "base templates"
-msgstr ""
+msgstr "modelos básicos"
 
 #: notifications/models.py
+#, fuzzy
 msgid "base template"
-msgstr ""
+msgstr "modelo básico"
 
 #: notifications/models.py
+#, fuzzy
 msgid "base templates"
-msgstr ""
+msgstr "modelos básicos"
 
 #: notifications/models.py
+#, fuzzy
 msgid "subject"
-msgstr ""
+msgstr "assunto"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Subject for email notifications"
-msgstr ""
+msgstr "Assunto para notificações por e-mail"
 
 #: notifications/models.py
+#, fuzzy
 msgid "custom email address"
-msgstr ""
+msgstr "endereço de e-mail personalizado"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Email address used when \"send to custom email address\" is checked"
 msgstr ""
+"Endereço de e-mail usado quando a opção \"enviar para endereço de e-mail "
+"personalizado\" está marcada"
 
 #: notifications/models.py
+#, fuzzy
 msgid "send to plan admins"
-msgstr ""
+msgstr "enviar para os administradores do plano"
 
 #: notifications/models.py
+#, fuzzy
 msgid "send to custom email address"
-msgstr ""
+msgstr "enviar para um endereço de e-mail personalizado"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Do not send to contact persons"
-msgstr ""
+msgstr "Não enviar para pessoas de contato"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Send to contact persons"
-msgstr ""
+msgstr "Enviar para pessoas de contato"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Send to contact persons; fallback: organization admins"
 msgstr ""
+"Enviar para pessoas de contato; fallback: administradores da organização"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Send to contact persons; fallback: organization admins, plan admins"
 msgstr ""
+"Enviar para pessoas de contato; fallback: administradores da organização, "
+"administradores do plano"
 
 #: notifications/models.py
+#, fuzzy
 msgid "send to contact persons"
-msgstr ""
+msgstr "enviar para pessoas de contato"
 
 #: notifications/models.py
+#, fuzzy
 msgid "notification template"
-msgstr ""
+msgstr "modelo de notificação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "notification templates"
-msgstr ""
+msgstr "modelos de notificação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "This can only be set if a custom email address is defined"
 msgstr ""
+"Isso só pode ser definido se um endereço de e-mail personalizado for definido"
 
 #: notifications/models.py
+#, fuzzy
 msgid "If a custom email address is defined, this must be set"
 msgstr ""
+"Se for definido um endereço de e-mail personalizado, ele deverá ser definido"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Notifications of this type cannot be sent to contact persons"
 msgstr ""
+"As notificações desse tipo não podem ser enviadas para pessoas de contato"
 
 #: notifications/models.py
+#, fuzzy
 msgid "HTML content for the block"
-msgstr ""
+msgstr "Conteúdo HTML para o bloco"
 
 #: notifications/models.py
+#, fuzzy
 msgid "template"
-msgstr ""
+msgstr "modelo"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Do not set if content block is used in multiple templates"
-msgstr ""
+msgstr "Não definir se o bloco de conteúdo for usado em vários modelos"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Introduction block"
-msgstr ""
+msgstr "Bloco de introdução"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Motivation block"
-msgstr ""
+msgstr "Bloco de motivação"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Contact information block"
-msgstr ""
+msgstr "Bloco de informações de contato"
 
 #: notifications/models.py
+#, fuzzy
 msgid "content block"
-msgstr ""
+msgstr "bloco de conteúdo"
 
 #: notifications/models.py
+#, fuzzy
 msgid "content blocks"
-msgstr ""
+msgstr "blocos de conteúdo"
 
 #: notifications/models.py
+#, fuzzy
 msgid "receive feedback notifications"
-msgstr ""
+msgstr "receber notificações de feedback"
 
 #: notifications/models.py
+#, fuzzy
 msgid "receive general action notifications"
-msgstr ""
+msgstr "receber notificações de ações gerais"
 
 #: notifications/models.py
+#, fuzzy
 msgid "receive action feedback notifications"
-msgstr ""
+msgstr "receber notificações de feedback de ações"
 
 #: notifications/wagtail_admin.py
+#, fuzzy
 msgid "Recipients"
-msgstr ""
+msgstr "Beneficiários"
 
 #: notifications/wagtail_admin.py
+#, fuzzy
 msgid "Notification types"
-msgstr ""
+msgstr "Tipos de notificação"
 
 #: notifications/wagtail_admin.py
+#, fuzzy
 msgid "Notification contents"
-msgstr ""
+msgstr "Conteúdo da notificação"
 
 #: notifications/wagtail_admin.py
+#, fuzzy
 msgid "Notification preferences"
-msgstr ""
+msgstr "Preferências de notificação"
 
 #: orgs/chooser.py
+#, fuzzy
 msgid "Choose an organization"
-msgstr ""
+msgstr "Escolha uma organização"
 
 #: orgs/chooser.py
+#, fuzzy
 msgid "Choose another organization"
-msgstr ""
+msgstr "Escolha outra organização"
 
 #: orgs/forms.py
+#, fuzzy
 msgid "A node cannot be moved under itself in the hierarchy."
-msgstr ""
+msgstr "Um nó não pode ser movido para baixo de si mesmo na hierarquia."
 
 #: orgs/models.py
+#, fuzzy
 msgctxt "node"
 msgid "Parent"
-msgstr ""
+msgstr "Pais"
 
 #: orgs/models.py
+#, fuzzy
 msgid "The time at which the resource was created"
-msgstr ""
+msgstr "A hora em que o recurso foi criado"
 
 #: orgs/models.py
+#, fuzzy
 msgid "The time at which the resource was updated"
-msgstr ""
+msgstr "A hora em que o recurso foi atualizado"
 
 #: orgs/models.py
+#, fuzzy
 msgid "organizations"
-msgstr ""
+msgstr "organizações"
 
 #: orgs/models.py
+#, fuzzy
 msgid "Classification"
-msgstr ""
+msgstr "Classificação"
 
 #: orgs/models.py
+#, fuzzy
 msgid "An organization category, e.g. committee"
-msgstr ""
+msgstr "Uma categoria de organização, por exemplo, comitê"
 
 #: orgs/models.py
+#, fuzzy
 msgid "A primary name, e.g. a legally recognized name"
-msgstr ""
+msgstr "Um nome principal, por exemplo, um nome legalmente reconhecido"
 
 #: orgs/models.py
+#, fuzzy
 msgid "Short name"
-msgstr ""
+msgstr "Nome abreviado"
 
 #: orgs/models.py
+#, fuzzy
 msgid "A simplified short version of name for the general public"
-msgstr ""
+msgstr "Uma versão curta e simplificada do nome para o público em geral"
 
 #: orgs/models.py
+#, fuzzy
 msgid "Internal abbreviation"
-msgstr ""
+msgstr "Abreviação interna"
 
 #: orgs/models.py
+#, fuzzy
 msgid "An internally used abbreviation"
-msgstr ""
+msgstr "Uma abreviação usada internamente"
 
 #: orgs/models.py
+#, fuzzy
 msgid "A distinct name for this organization (generated automatically)"
-msgstr ""
+msgstr "Um nome distinto para essa organização (gerado automaticamente)"
 
 #: orgs/models.py
+#, fuzzy
 msgid "An optional logo for this organization"
-msgstr ""
+msgstr "Um logotipo opcional para esta organização"
 
 #: orgs/models.py
+#, fuzzy
 msgid "A date of founding"
-msgstr ""
+msgstr "Uma data de fundação"
 
 #: orgs/models.py
+#, fuzzy
 msgid "A date of dissolution"
-msgstr ""
+msgstr "Uma data de dissolução"
 
 #: orgs/models.py
+#, fuzzy
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 #: orgs/models.py
+#, fuzzy
 msgid "plan admin"
-msgstr ""
+msgstr "administrador do plano"
 
 #: orgs/models.py
+#, fuzzy
 msgid "plan admins"
-msgstr ""
+msgstr "administradores de planos"
 
 #: orgs/models.py
+#, fuzzy
 msgid "metadata admin"
-msgstr ""
+msgstr "administrador de metadados"
 
 #: orgs/models.py
+#, fuzzy
 msgid "metadata admins"
-msgstr ""
+msgstr "administradores de metadados"
 
 #: orgs/views.py
+#, fuzzy
 msgid "Add organization to active plan"
-msgstr ""
+msgstr "Adicionar organização ao plano ativo"
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm including %(org)s in plan %(plan)s"
-msgstr ""
+msgstr "Confirmar a inclusão do site %(org)s no plano %(plan)s"
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm excluding %(org)s from plan %(plan)s"
-msgstr ""
+msgstr "Confirmar a exclusão do %(org)s do plano %(plan)s"
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to include the organization '%(org)s' in the plan '%(plan)s'?"
 msgstr ""
+"Você realmente deseja incluir a organização '%(org)s' no plano '%(plan)s'?"
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to exclude the organization '%(org)s' from the plan '%(plan)s'?"
 msgstr ""
+"Você realmente deseja excluir a organização '%(org)s' do plano '%(plan)s'?"
 
 #: orgs/views.py
+#, fuzzy
 msgid "The organization is already included in the plan"
-msgstr ""
+msgstr "A organização já está incluída no plano"
 
 #: orgs/views.py
+#, fuzzy
 msgid "The organization is not included in the plan"
-msgstr ""
+msgstr "A organização não está incluída no plano"
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Organization '%(org)s' has been included in plan '%(plan)s'."
-msgstr ""
+msgstr "A organização '%(org)s' foi incluída no plano '%(plan)s'."
 
 #: orgs/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Organization '%(org)s' has been excluded from plan '%(plan)s'."
-msgstr ""
+msgstr "A organização '%(org)s' foi excluída do plano '%(plan)s'."
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Add child"
-msgstr ""
+msgstr "Adicionar criança"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Add child under this node"
-msgstr ""
+msgstr "Adicionar filho sob esse nó"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Edit subtree"
-msgstr ""
+msgstr "Editar subárvore"
 
 #: orgs/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "Edit subtree rooted at this %s"
-msgstr ""
+msgstr "Editar a subárvore enraizada nesse ponto %s"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Creating organizations without a parent not allowed."
-msgstr ""
+msgstr "Não é permitido criar organizações sem um dos pais."
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Add suborganization"
-msgstr ""
+msgstr "Adicionar suborganização"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Add suborganization under this organization"
-msgstr ""
+msgstr "Adicionar suborganização a esta organização"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Include in plan"
-msgstr ""
+msgstr "Incluir no plano"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Include this organization in the active plan"
-msgstr ""
+msgstr "Incluir essa organização no plano ativo"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Exclude from plan"
-msgstr ""
+msgstr "Excluir do plano"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Exclude this organization from the active plan"
-msgstr ""
+msgstr "Excluir essa organização do plano ativo"
 
 #: orgs/wagtail_admin.py reports/blocks/action_content.py
 #: reports/spreadsheets.py
+#, fuzzy
 msgctxt "organization"
 msgid "Parent"
-msgstr ""
+msgstr "Pais"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "People who can edit plan-specific content related to this organization"
 msgstr ""
+"Pessoas que podem editar o conteúdo específico do plano relacionado a esta "
+"organização"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Metadata admins"
-msgstr ""
+msgstr "Administradores de metadados"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "People who can edit data of this organization and suborganizations but no plan-specific content"
 msgstr ""
+"Pessoas que podem editar os dados dessa organização e das suborganizações, "
+"mas não o conteúdo específico do plano"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Is in plan"
-msgstr ""
+msgstr "Está no plano"
 
 #: orgs/wagtail_admin.py
+#, fuzzy
 msgid "Permissions"
-msgstr ""
+msgstr "Permissões"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Question"
-msgstr ""
+msgstr "Pergunta"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Answer"
-msgstr ""
+msgstr "Resposta"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "small"
-msgstr ""
+msgstr "pequeno"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "large"
-msgstr ""
+msgstr "grande"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Questions & Answers"
-msgstr ""
+msgstr "Perguntas e respostas"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Big image"
-msgstr ""
+msgstr "Imagem grande"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Small image"
-msgstr ""
+msgstr "Imagem pequena"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Front page hero block"
-msgstr ""
+msgstr "Bloco de heróis da página inicial"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Page link"
-msgstr ""
+msgstr "Link da página"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Card"
-msgstr ""
+msgstr "Cartão"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Action category filter card"
-msgstr ""
+msgstr "Cartão de filtro de categoria de ação"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Action category filter cards"
-msgstr ""
+msgstr "Cartões de filtro de categoria de ação"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Accessibility statement compliance status"
-msgstr ""
+msgstr "Status de conformidade da declaração de acessibilidade"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Accessibility statement preparation information"
-msgstr ""
+msgstr "Informações sobre a preparação da declaração de acessibilidade"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Publisher name"
-msgstr ""
+msgstr "Nome da editora"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Maintenance responsibility paragraph"
-msgstr ""
+msgstr "Parágrafo de responsabilidade de manutenção"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "If this is set, it will be displayed instead of \"This service is published by [publisher]\"."
 msgstr ""
+"Se isso for definido, será exibido em vez de \"Este serviço é publicado por "
+"[editor]\"."
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Email address"
-msgstr ""
+msgstr "Endereço de e-mail"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Accessibility statement contact information"
-msgstr ""
+msgstr "Informações de contato da declaração de acessibilidade"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Accessibility statement contact form"
-msgstr ""
+msgstr "Formulário de contato da declaração de acessibilidade"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Action status pie charts"
-msgstr ""
+msgstr "Gráficos de pizza de status de ação"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Width"
-msgstr ""
+msgstr "Largura"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Maximum"
-msgstr ""
+msgstr "Máximo"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Fit to column"
-msgstr ""
+msgstr "Ajustar à coluna"
 
 #: pages/blocks.py
+#, fuzzy
 msgid "Large image"
-msgstr ""
+msgstr "Imagem grande"
 
 #: pages/models.py
+#, fuzzy
 msgid "show in footer"
-msgstr ""
+msgstr "mostrar no rodapé"
 
 #: pages/models.py
+#, fuzzy
 msgid "Should the page be shown in the footer?"
-msgstr ""
+msgstr "A página deve ser exibida no rodapé?"
 
 #: pages/models.py
+#, fuzzy
 msgid "show in additional links"
-msgstr ""
+msgstr "mostrar em links adicionais"
 
 #: pages/models.py
+#, fuzzy
 msgid "Should the page be shown in the additional links?"
-msgstr ""
+msgstr "A página deve ser exibida nos links adicionais?"
 
 #: pages/models.py
+#, fuzzy
 msgid "children use secondary navigation"
-msgstr ""
+msgstr "as crianças usam a navegação secundária"
 
 #: pages/models.py
+#, fuzzy
 msgid "Should subpages of this page use secondary navigation?"
-msgstr ""
+msgstr "As subpáginas desta página devem usar navegação secundária?"
 
 #: pages/models.py
+#, fuzzy
 msgid "Common page configuration"
-msgstr ""
+msgstr "Configuração de página comum"
 
 #: pages/models.py
+#, fuzzy
 msgid "Links to actions in specific category"
-msgstr ""
+msgstr "Links para ações em uma categoria específica"
 
 #: pages/models.py
+#, fuzzy
 msgid "Front page"
-msgstr ""
+msgstr "Página inicial"
 
 #: pages/models.py
+#, fuzzy
 msgid "Front pages"
-msgstr ""
+msgstr "Páginas iniciais"
 
 #: pages/models.py
+#, fuzzy
 msgid "Empty page"
-msgstr ""
+msgstr "Página vazia"
 
 #: pages/models.py
+#, fuzzy
 msgid "Empty pages"
-msgstr ""
+msgstr "Páginas vazias"
 
 #: pages/models.py
+#, fuzzy
 msgid "Header image"
-msgstr ""
+msgstr "Imagem do cabeçalho"
 
 #: pages/models.py
+#, fuzzy
 msgid "Image to use in the header for this page"
-msgstr ""
+msgstr "Imagem a ser usada no cabeçalho desta página"
 
 #: pages/models.py
+#, fuzzy
 msgid "Lead paragraph right under the heading"
-msgstr ""
+msgstr "Parágrafo principal logo abaixo do título"
 
 #: pages/models.py
+#, fuzzy
 msgid "Paragraph"
-msgstr ""
+msgstr "Parágrafo"
 
 #: pages/models.py
+#, fuzzy
 msgid "Content page"
-msgstr ""
+msgstr "Página de conteúdo"
 
 #: pages/models.py
+#, fuzzy
 msgid "Content pages"
-msgstr ""
+msgstr "Páginas de conteúdo"
 
 #: pages/models.py
+#, fuzzy
 msgid "Level layouts"
-msgstr ""
+msgstr "Layouts de nível"
 
 #: pages/models.py
+#, fuzzy
 msgid "Category type page"
-msgstr ""
+msgstr "Página de tipo de categoria"
 
 #: pages/models.py
+#, fuzzy
 msgid "Category type pages"
-msgstr ""
+msgstr "Páginas de tipo de categoria"
 
 #: pages/models.py
+#, fuzzy
 msgid "Small"
-msgstr ""
+msgstr "Pequeno"
 
 #: pages/models.py
+#, fuzzy
 msgid "Medium"
-msgstr ""
+msgstr "Médio"
 
 #: pages/models.py
+#, fuzzy
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 #: pages/models.py
+#, fuzzy
 msgid "layout main top"
-msgstr ""
+msgstr "layout main top"
 
 #: pages/models.py
+#, fuzzy
 msgid "layout main bottom"
-msgstr ""
+msgstr "layout do fundo principal"
 
 #: pages/models.py
+#, fuzzy
 msgid "layout aside"
-msgstr ""
+msgstr "layout à parte"
 
 #: pages/models.py
+#, fuzzy
 msgid "icon size"
-msgstr ""
+msgstr "tamanho do ícone"
 
 #: pages/models.py
+#, fuzzy
 msgid "Category page"
-msgstr ""
+msgstr "Página da categoria"
 
 #: pages/models.py
+#, fuzzy
 msgid "Category pages"
-msgstr ""
+msgstr "Páginas de categoria"
 
 #: pages/models.py
+#, fuzzy
 msgid "This category already has a page"
-msgstr ""
+msgstr "Esta categoria já tem uma página"
 
 #: pages/models.py
+#, fuzzy
 msgid "lead content"
-msgstr ""
+msgstr "conteúdo principal"
 
 #: pages/models.py
+#, fuzzy
 msgid "Dashboard"
-msgstr ""
+msgstr "Painel de controle"
 
 #: pages/models.py
+#, fuzzy
 msgid "default view"
-msgstr ""
+msgstr "visualização padrão"
 
 #: pages/models.py
+#, fuzzy
 msgid "Tab of the action list page that should be visible by default"
-msgstr ""
+msgstr "Guia da página da lista de ações que deve estar visível por padrão"
 
 #: pages/models.py
+#, fuzzy
 msgid "Subheading hierarchy depth"
-msgstr ""
+msgstr "Profundidade da hierarquia do subtítulo"
 
 #: pages/models.py
+#, fuzzy
 msgid "Depth of category hierarchy to present as subheadings starting from the root."
 msgstr ""
+"Profundidade da hierarquia de categorias a ser apresentada como subtítulos a "
+"partir da raiz."
 
 #: pages/models.py
+#, fuzzy
 msgid "Action date format"
-msgstr ""
+msgstr "Formato da data da ação"
 
 #: pages/models.py
+#, fuzzy
 msgid "Default format of action start and end dates shown in the public UI."
 msgstr ""
+"Formato padrão das datas de início e término da ação mostradas na UI pública."
 
 #: pages/models.py
+#, fuzzy
 msgid "Task due date format"
-msgstr ""
+msgstr "Formato da data de vencimento da tarefa"
 
 #: pages/models.py
+#, fuzzy
 msgid "Default format of action task due dates shown in the public UI."
 msgstr ""
+"Formato padrão das datas de vencimento das tarefas de ação exibidas na "
+"interface pública do usuário."
 
 #: pages/models.py
+#, fuzzy
 msgid "Include related plans"
-msgstr ""
+msgstr "Incluir planos relacionados"
 
 #: pages/models.py
+#, fuzzy
 msgid "Enable to make this page include actions from related plans."
-msgstr ""
+msgstr "Habilite para que essa página inclua ações de planos relacionados."
 
 #: pages/models.py
+#, fuzzy
 msgid "Primary filters"
-msgstr ""
+msgstr "Filtros primários"
 
 #: pages/models.py
+#, fuzzy
 msgid "Main filters"
-msgstr ""
+msgstr "Filtros principais"
 
 #: pages/models.py
+#, fuzzy
 msgid "Advanced filters (hidden by default)"
-msgstr ""
+msgstr "Filtros avançados (ocultos por padrão)"
 
 #: pages/models.py
+#, fuzzy
 msgid "Action list filters"
-msgstr ""
+msgstr "Filtros da lista de ações"
 
 #: pages/models.py
+#, fuzzy
 msgid "Main column (top part on mobile)"
-msgstr ""
+msgstr "Coluna principal (parte superior no celular)"
 
 #: pages/models.py
+#, fuzzy
 msgid "Main column (bottom part on mobile)"
-msgstr ""
+msgstr "Coluna principal (parte inferior no celular)"
 
 #: pages/models.py
+#, fuzzy
 msgid "Side column"
-msgstr ""
+msgstr "Coluna lateral"
 
 #: pages/models.py
+#, fuzzy
 msgid "Action details page"
-msgstr ""
+msgstr "Página de detalhes da ação"
 
 #: pages/models.py
+#, fuzzy
 msgid "Action dashboard columns"
-msgstr ""
+msgstr "Colunas do painel de ações"
 
 #: pages/models.py
+#, fuzzy
 msgid "Action list page"
-msgstr ""
+msgstr "Página da lista de ações"
 
 #: pages/models.py
+#, fuzzy
 msgid "Action list pages"
-msgstr ""
+msgstr "Páginas da lista de ações"
 
 #: pages/models.py
+#, fuzzy
 msgid "Should insight network be shown for indicators?"
-msgstr ""
+msgstr "A rede de insights deve ser mostrada para os indicadores?"
 
 #: pages/models.py
+#, fuzzy
 msgid "Display insights"
-msgstr ""
+msgstr "Exibir percepções"
 
 #: pages/models.py
+#, fuzzy
 msgid "Indicator list page"
-msgstr ""
+msgstr "Página da lista de indicadores"
 
 #: pages/models.py
+#, fuzzy
 msgid "Indicator list pages"
-msgstr ""
+msgstr "Páginas da lista de indicadores"
 
 #: pages/models.py
+#, fuzzy
 msgid "Impact group page"
-msgstr ""
+msgstr "Página do grupo de impacto"
 
 #: pages/models.py
+#, fuzzy
 msgid "Impact group pages"
-msgstr ""
+msgstr "Páginas de grupos de impacto"
 
 #: pages/models.py
+#, fuzzy
 msgid "Privacy policy page"
-msgstr ""
+msgstr "Página da política de privacidade"
 
 #: pages/models.py
+#, fuzzy
 msgid "Privacy policy pages"
-msgstr ""
+msgstr "Páginas de política de privacidade"
 
 #: pages/models.py
+#, fuzzy
 msgid "Accessibility statement page"
-msgstr ""
+msgstr "Página de declaração de acessibilidade"
 
 #: pages/models.py
+#, fuzzy
 msgid "Accessibility statement pages"
-msgstr ""
+msgstr "Páginas de declaração de acessibilidade"
 
 #: pages/models.py
+#, fuzzy
 msgid "external plan link"
-msgstr ""
+msgstr "link externo do plano"
 
 #: pages/models.py
+#, fuzzy
 msgid "external plan links"
-msgstr ""
+msgstr "links de planos externos"
 
 #: pages/wagtail_admin.py
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Mais informações"
 
 #: people/apps.py people/wagtail_admin.py
+#, fuzzy
 msgid "People"
-msgstr ""
+msgstr "Pessoas"
 
 #: people/chooser.py
+#, fuzzy
 msgid "Create new"
-msgstr ""
+msgstr "Criar novo"
 
 #: people/chooser.py
+#, fuzzy
 msgid "Choose person"
-msgstr ""
+msgstr "Escolha a pessoa"
 
 #: people/chooser.py
+#, fuzzy
 msgid "Choose a person"
-msgstr ""
+msgstr "Escolha uma pessoa"
 
 #: people/chooser.py
+#, fuzzy
 msgid "Choose another person"
-msgstr ""
+msgstr "Escolha outra pessoa"
 
 #: people/chooser.py
+#, fuzzy
 msgid "Edit this person"
-msgstr ""
+msgstr "Editar esta pessoa"
 
 #: people/models.py people/wagtail_admin.py
+#, fuzzy
 msgid "first name"
-msgstr ""
+msgstr "primeiro nome"
 
 #: people/models.py people/wagtail_admin.py
+#, fuzzy
 msgid "last name"
-msgstr ""
+msgstr "sobrenome"
 
 #: people/models.py
+#, fuzzy
 msgctxt "person's role"
 msgid "title"
-msgstr ""
+msgstr "título"
 
 #: people/models.py
+#, fuzzy
 msgid "postal address"
-msgstr ""
+msgstr "endereço postal"
 
 #: people/models.py
+#, fuzzy
 msgid "What is this person's organization"
-msgstr ""
+msgstr "Qual é a organização dessa pessoa?"
 
 #: people/models.py
+#, fuzzy
 msgid "user"
-msgstr ""
+msgstr "usuário"
 
 #: people/models.py
+#, fuzzy
 msgid "Set if the person has an user account"
-msgstr ""
+msgstr "Defina se a pessoa tem uma conta de usuário"
 
 #: people/models.py
+#, fuzzy
 msgid "participated in training"
-msgstr ""
+msgstr "participaram de treinamentos"
 
 #: people/models.py
+#, fuzzy
 msgid "Set to keep track who have attended training sessions"
 msgstr ""
+"Configurado para manter o controle de quem participou das sessões de "
+"treinamento"
 
 #: people/models.py
+#, fuzzy
 msgid "image cropping"
-msgstr ""
+msgstr "corte de imagens"
 
 #: people/models.py people/wagtail_admin.py
+#, fuzzy
 msgid "contact for actions"
-msgstr ""
+msgstr "contato para ações"
 
 #: people/models.py
+#, fuzzy
 msgid "people"
-msgstr ""
+msgstr "pessoas"
 
 #: people/override_django_translations.py
-#, python-format
+#, fuzzy, python-format
 msgid "%(model_name)s '%(object)s' deleted."
-msgstr ""
+msgstr "%(model_name)s '%(object)s' excluído."
 
 #: people/templates/people/delete.html
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm deletion of %(model_name)s"
-msgstr ""
+msgstr "Confirmar a exclusão de %(model_name)s"
 
 #: people/templates/people/delete.html
-#, python-format
+#, fuzzy, python-format
 msgid "'%(instance_name)s' is currently connected to the following items. Please verify deletion:"
 msgstr ""
+"'%(instance_name)s' está atualmente conectado aos seguintes itens. Verifique "
+"a exclusão:"
 
 #: people/templates/people/delete.html
+#, fuzzy
 msgid "Yes, delete"
-msgstr ""
+msgstr "Sim, excluir"
 
 #: people/templates/people/delete.html
+#, fuzzy
 msgid "No, don't delete"
-msgstr ""
+msgstr "Não, não exclua"
 
 #: people/views.py people/wagtail_admin.py
+#, fuzzy
 msgid "Reset password"
-msgstr ""
+msgstr "Redefinir senha"
 
 #: people/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm sending password reset link to %(person)s"
-msgstr ""
+msgstr "Confirme o envio do link de redefinição de senha para %(person)s"
 
 #: people/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to send a password reset link to %(person)s?"
 msgstr ""
+"Você realmente deseja enviar um link de redefinição de senha para %(person)s?"
 
 #: people/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "An email has been sent to %(person)s with a link to reset their password."
 msgstr ""
+"Um e-mail foi enviado para %(person)s com um link para redefinir sua senha."
 
 #: people/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "If the email does not arrive, you can send them the following link: %(url)s"
-msgstr ""
+msgstr "Se o e-mail não chegar, você pode enviar o seguinte link: %(url)s"
 
 #: people/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
 msgstr ""
+"Tome muito cuidado para que ninguém, exceto %(person)s, tenha acesso ao "
+"link. Para maior segurança, o link expirará em %(days_until_expiration)s "
+"dias."
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Is contact person"
-msgstr ""
+msgstr "É a pessoa de contato"
 
 #: people/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "For an action in %(plan)s"
-msgstr ""
+msgstr "Para uma ação em %(plan)s"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "For an action"
-msgstr ""
+msgstr "Para uma ação"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "For same actions or indicators as me"
-msgstr ""
+msgstr "Para as mesmas ações ou indicadores que eu"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "For an indicator"
-msgstr ""
+msgstr "Para um indicador"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Not a contact person"
-msgstr ""
+msgstr "Não é uma pessoa de contato"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Access to public site only"
-msgstr ""
+msgstr "Acesso somente ao site público"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Access to admin site and public site"
-msgstr ""
+msgstr "Acesso ao site de administração e ao site público"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Is plan admin"
-msgstr ""
+msgstr "O administrador do plano é"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Site access"
-msgstr ""
+msgstr "Acesso ao site"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Plan admin organizations"
-msgstr ""
+msgstr "Organizações administradoras de planos"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Deactivate"
-msgstr ""
+msgstr "Desativar"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Create a password reset link"
-msgstr ""
+msgstr "Criar um link de redefinição de senha"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "Are you sure you want to deactivate this person?"
-msgstr ""
+msgstr "Tem certeza de que deseja desativar essa pessoa?"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "This person has no access to the admin interface. This is commonly because no actions or indicators are assigned to them."
 msgstr ""
+"Essa pessoa não tem acesso à interface de administração. Isso geralmente "
+"ocorre porque nenhuma ação ou indicador foi atribuído a ela."
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "last login"
-msgstr ""
+msgstr "último login"
 
 #: people/wagtail_admin.py
+#, fuzzy
 msgid "contact for indicators"
-msgstr ""
+msgstr "contato para indicadores"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "UUID of report field"
-msgstr ""
+msgstr "UUID do campo do relatório"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "Report comparison"
-msgstr ""
+msgstr "Comparação de relatórios"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "Action field"
-msgstr ""
+msgstr "Campo de ação"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "Action category"
-msgstr ""
+msgstr "Categoria de ação"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "Level of containing organization"
-msgstr ""
+msgstr "Nível de organização de contenção"
 
 #: reports/blocks/action_content.py
+#, fuzzy
 msgid "In addition to the organization itself, an organizational unit containing the organization is included in the report. Counting from the top-level root organisation at level 1, which level in the organizational hierarchy should be used to find this containing organization? If left empty, don't add the containing organization to the report."
 msgstr ""
+"Além da própria organização, uma unidade organizacional que contém a "
+"organização está incluída no relatório. Contando a partir da organização "
+"raiz de nível superior no nível 1, qual nível na hierarquia organizacional "
+"deve ser usado para encontrar essa organização que a contém? Se estiver "
+"vazio, não adicione a organização que a contém ao relatório."
 
 #: reports/blocks/choosers.py reports/wagtail_admin.py
+#, fuzzy
 msgid "Report type"
-msgstr ""
+msgstr "Tipo de relatório"
 
 #: reports/blocks/choosers.py
+#, fuzzy
 msgid "Report type field"
-msgstr ""
+msgstr "Campo Tipo de relatório"
 
 #: reports/chooser.py
+#, fuzzy
 msgid "Choose a report type"
-msgstr ""
+msgstr "Escolha um tipo de relatório"
 
 #: reports/chooser.py
+#, fuzzy
 msgid "Choose another report type"
-msgstr ""
+msgstr "Selecionar outro tipo de relatório"
 
 #: reports/models.py
+#, fuzzy
 msgid "report type"
-msgstr ""
+msgstr "tipo de relatório"
 
 #: reports/models.py
+#, fuzzy
 msgid "report types"
-msgstr ""
+msgstr "tipos de relatório"
 
 #: reports/models.py reports/spreadsheets.py
+#, fuzzy
 msgid "complete"
-msgstr ""
+msgstr "completo"
 
 #: reports/models.py
+#, fuzzy
 msgid "Set if report cannot be changed anymore"
-msgstr ""
+msgstr "Definir se o relatório não puder mais ser alterado"
 
 #: reports/models.py
+#, fuzzy
 msgid "public"
-msgstr ""
+msgstr "público"
 
 #: reports/models.py
+#, fuzzy
 msgid "Set if report can be shown to the public"
-msgstr ""
+msgstr "Definir se o relatório pode ser exibido ao público"
 
 #: reports/models.py
+#, fuzzy
 msgid "report"
-msgstr ""
+msgstr "relatório"
 
 #: reports/models.py
+#, fuzzy
 msgid "reports"
-msgstr ""
+msgstr "relatórios"
 
 #: reports/models.py
+#, fuzzy
 msgid "The report is already marked as complete."
-msgstr ""
+msgstr "O relatório já está marcado como completo."
 
 #: reports/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "Marked report '%s' as complete"
-msgstr ""
+msgstr "Marcou o relatório '%s' como concluído"
 
 #: reports/models.py
+#, fuzzy
 msgid "The report is not marked as complete."
-msgstr ""
+msgstr "O relatório não está marcado como completo."
 
 #: reports/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "Undid marking report '%s' as complete"
-msgstr ""
+msgstr "Anular a marcação do relatório '%s' como completo"
 
 #: reports/models.py
+#, fuzzy
 msgid "action snapshot"
-msgstr ""
+msgstr "instantâneo da ação"
 
 #: reports/models.py
+#, fuzzy
 msgid "action snapshots"
-msgstr ""
+msgstr "instantâneos de ação"
 
 #: reports/spreadsheets.py
+#, fuzzy
 msgid "Exported from Kausal Watch"
-msgstr ""
+msgstr "Exportado de Kausal Watch"
 
 #: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#, fuzzy
 msgid "Marked as complete by"
-msgstr ""
+msgstr "Marcado como completo por"
 
 #: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#, fuzzy
 msgid "Marked as complete at"
-msgstr ""
+msgstr "Marcado como completo em"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to mark the report <i>%(report)s</i> as complete?"
 msgstr ""
+"Você realmente deseja marcar o relatório <i>%(report)s</i> como concluído?"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to undo marking the report <i>%(report)s</i> as complete?"
 msgstr ""
+"Você realmente deseja desfazer a marcação do relatório <i>%(report)s</i> "
+"como concluído?"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
+#, fuzzy
 msgid "This will mark the following actions as complete:"
-msgstr ""
+msgstr "Isso marcará as seguintes ações como concluídas:"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
+#, fuzzy
 msgid "This will undo marking the following actions as complete:"
-msgstr ""
+msgstr "Isso desfará a marcação das seguintes ações como concluídas:"
 
 #: reports/views.py
+#, fuzzy
 msgid "Mark action as complete"
-msgstr ""
+msgstr "Marcar a ação como concluída"
 
 #: reports/views.py
+#, fuzzy
 msgid "Undo marking action as complete"
-msgstr ""
+msgstr "Desfazer a marcação da ação como concluída"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm marking action %(action)s as complete for report %(report)s"
 msgstr ""
+"Confirmar a ação de marcação %(action)s como completa para o relatório "
+"%(report)s"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm undoing marking action %(action)s as complete for report %(report)s"
 msgstr ""
+"Confirmar a ação de desfazer a marcação %(action)s como completa para o "
+"relatório %(report)s"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to mark the action '%(action)s' as complete for the report '%(report)s'?"
 msgstr ""
+"Você realmente deseja marcar a ação '%(action)s' como concluída para o "
+"relatório '%(report)s'?"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Do you really want to undo marking the action '%(action)s' as complete for the report '%(report)s'?"
 msgstr ""
+"Você realmente deseja desfazer a marcação da ação '%(action)s' como "
+"concluída para o relatório '%(report)s'?"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Action '%(action)s' has been marked as complete for report '%(report)s'."
 msgstr ""
+"A ação '%(action)s' foi marcada como concluída para o relatório '%(report)s'."
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Action '%(action)s' is no longer marked as complete for report '%(report)s'."
 msgstr ""
+"A ação '%(action)s' não está mais marcada como concluída para o relatório "
+"'%(report)s'."
 
 #: reports/views.py
+#, fuzzy
 msgid "Mark report as complete"
-msgstr ""
+msgstr "Marcar o relatório como concluído"
 
 #: reports/views.py
+#, fuzzy
 msgid "Undo marking report as complete"
-msgstr ""
+msgstr "Desfazer a marcação do relatório como concluído"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm marking report %(report)s as complete"
-msgstr ""
+msgstr "Confirmar o relatório de marcação %(report)s como completo"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Confirm undoing marking report %(report)s as complete"
-msgstr ""
+msgstr "Confirmar a anulação do relatório de marcação %(report)s como concluído"
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Report '%(report)s' has been marked as complete."
-msgstr ""
+msgstr "O relatório '%(report)s' foi marcado como concluído."
 
 #: reports/views.py
-#, python-format
+#, fuzzy, python-format
 msgid "Report '%(report)s' is no longer marked as complete."
-msgstr ""
+msgstr "O relatório '%(report)s' não está mais marcado como completo."
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Download XLSX"
-msgstr ""
+msgstr "Baixar XLSX"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Download report as spreadsheet file"
-msgstr ""
+msgstr "Faça o download do relatório como arquivo de planilha"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Mark as complete"
-msgstr ""
+msgstr "Marcar como concluído"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Mark this report as complete"
-msgstr ""
+msgstr "Marcar este relatório como concluído"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Undo marking as complete"
-msgstr ""
+msgstr "Desfazer a marcação como concluída"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Undo marking this report as complete"
-msgstr ""
+msgstr "Desfazer a marcação deste relatório como concluído"
 
 #: reports/wagtail_admin.py
+#, fuzzy
 msgid "Report types"
-msgstr ""
+msgstr "Tipos de relatório"
 
 #: templates/aplans/confirmation.html
+#, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: templates/aplans/confirmation.html
+#, fuzzy
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
+#, fuzzy
 msgid "This page has unsaved changes."
-msgstr ""
+msgstr "Esta página tem alterações não salvas."
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
+#, fuzzy
 msgid "Saving…"
-msgstr ""
+msgstr "Salvando…"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
+#, fuzzy
 msgid "Save and continue editing"
-msgstr ""
+msgstr "Salvar e continuar editando"
 
 #: templates/modeladmin/edit.html
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Excluir"
 
 #: users/apps.py
+#, fuzzy
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
 
 #: users/models.py
+#, fuzzy
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr ""
+"Nenhuma permissão para remover o usuário pertencente a planos que você não "
+"está gerenciando."
