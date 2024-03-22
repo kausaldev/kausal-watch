@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-14 17:47+0200\n"
-"PO-Revision-Date: 2024-03-22 16:50+0000\n"
+"PO-Revision-Date: 2024-03-23 15:39+0000\n"
 "Last-Translator: Gabriel Siqueira <gabriel.siqueira@kausal.tech>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/"
 "watch/django/pt_BR/>\n"
@@ -53,17 +53,16 @@ msgid "Mark this action as complete for the report %s"
 msgstr "Marque essa ação como concluída para o relatório %s"
 
 #: actions/action_admin.py
-#, fuzzy, python-format
+#, python-format
 msgid "Undo marking as complete for report %s"
-msgstr "Desfazer a marcação de relatório como concluído %s"
+msgstr "Desfazer a marcação de relatório %s como concluído"
 
 #: actions/action_admin.py
-#, fuzzy, python-format
+#, python-format
 msgid "Undo marking this action as complete for the report %s"
 msgstr "Desfazer a marcação dessa ação como concluída para o relatório %s"
 
 #: actions/action_admin.py
-#, fuzzy
 msgid "Last updated"
 msgstr "Última atualização"
 
@@ -71,7 +70,6 @@ msgstr "Última atualização"
 #: actions/templates/actions/chooser_results.html admin_site/models.py
 #: admin_site/templates/admin_site/own_indicators_panel.html orgs/models.py
 #: orgs/wagtail_admin.py people/templates/people/chooser_results.html
-#, fuzzy
 msgid "Name"
 msgstr "Nome"
 
@@ -82,14 +80,12 @@ msgid "Categories"
 msgstr "Categorias"
 
 #: actions/action_admin.py actions/wagtail_admin.py
-#, fuzzy
 msgid "External links"
 msgstr "Links externos"
 
 #: actions/action_admin.py actions/category_admin.py actions/wagtail_admin.py
 #: indicators/wagtail_admin.py notifications/wagtail_admin.py
 #: orgs/wagtail_admin.py
-#, fuzzy
 msgid "Basic information"
 msgstr "Informações básicas"
 
