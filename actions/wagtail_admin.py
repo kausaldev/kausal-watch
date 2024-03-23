@@ -128,13 +128,6 @@ class PlanAdmin(AplansModelAdmin):
         ),
         FieldPanel('image'),
         FieldPanel('superseded_by', widget=PlanChooser),
-        CondensedInlinePanel(
-            'action_dependency_roles',
-            panels=[
-                FieldPanel('name'),
-            ],
-            heading=_("Action dependency roles"),
-        ),
     ]
 
     action_impact_panels = [
@@ -261,6 +254,13 @@ class PlanAdmin(AplansModelAdmin):
                     FieldPanel('settings_action_update_target_interval'),
                     FieldPanel('settings_action_update_acceptable_interval'),
                     FieldPanel('action_days_until_considered_stale'),
+                    CondensedInlinePanel(
+                        'action_dependency_roles',
+                        panels=[
+                            FieldPanel('name'),
+                        ],
+                        heading=_("Action dependency roles"),
+                    ),
                 ], heading=_('Action classifications')),
             )
 
