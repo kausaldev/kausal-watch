@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 17:47+0200\n"
+"POT-Creation-Date: 2024-03-23 16:05+0100\n"
 "PO-Revision-Date: 2024-01-25 11:05+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
-">\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,6 +107,16 @@ msgstr "Interna anteckningar för planadministratörer"
 msgid "Reporting"
 msgstr "Rapportering"
 
+#: actions/action_admin.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Dependent actions"
+msgstr "Senaste åtgärder"
+
+#: actions/action_admin.py
+msgid "Dependencies"
+msgstr ""
+
 #: actions/action_admin_mixins.py
 #, python-format
 msgid "The %(model_name)s could not be saved as it is locked"
@@ -135,12 +144,8 @@ msgstr "%(model_name)s '%(object)s' skapade och planerade för publicering."
 
 #: actions/action_admin_mixins.py
 #, python-format
-msgid ""
-"%(model_name)s '%(object)s' is live and this version has been scheduled for "
-"publishing."
-msgstr ""
-"%(model_name)s '%(object)s' är live och denna version har planerats för "
-"publicering."
+msgid "%(model_name)s '%(object)s' is live and this version has been scheduled for publishing."
+msgstr "%(model_name)s '%(object)s' är live och denna version har planerats för publicering."
 
 #: actions/action_admin_mixins.py
 #, python-format
@@ -310,12 +315,8 @@ msgid "If format is 'Numeric', a unit must be set"
 msgstr "Om formatet är \"Numerisk\" måste en enhet anges"
 
 #: actions/attribute_type_admin.py
-msgid ""
-"This field already has values. If you want to change the format, you need to "
-"delete the existing values first."
-msgstr ""
-"Detta fält har redan värden. Om du vill ändra formatet måste du först ta "
-"bort de befintliga värdena."
+msgid "This field already has values. If you want to change the format, you need to delete the existing values first."
+msgstr "Detta fält har redan värden. Om du vill ändra formatet måste du först ta bort de befintliga värdena."
 
 #: actions/attribute_type_admin.py
 msgid "Choice options"
@@ -365,9 +366,7 @@ msgstr "Kontaktformulär"
 
 #: actions/blocks/action_content.py
 msgid "What label should be used in the public UI for the official name?"
-msgstr ""
-"Vilken etikett ska användas i den offentliga användargränssnittet för det "
-"officiella namnet?"
+msgstr "Vilken etikett ska användas i den offentliga användargränssnittet för det officiella namnet?"
 
 #: actions/blocks/action_content.py
 msgid "Field label"
@@ -409,6 +408,12 @@ msgstr "Sammanslagna åtgärder"
 #: actions/blocks/action_content.py
 msgid "Related actions"
 msgstr "Relaterade åtgärder"
+
+#: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Action schedules"
+msgid "Action dependencies"
+msgstr "Tidsram för åtgärd"
 
 #: actions/blocks/action_content.py
 msgid "Full width"
@@ -663,9 +668,10 @@ msgstr "Genomförande"
 msgid "identifier"
 msgstr "identifierare"
 
-#: actions/export.py actions/models/action.py actions/models/attributes.py
-#: actions/models/category.py actions/models/plan.py feedback/models.py
-#: indicators/models.py orgs/models.py reports/models.py
+#: actions/export.py actions/models/action.py actions/models/action_deps.py
+#: actions/models/attributes.py actions/models/category.py
+#: actions/models/plan.py feedback/models.py indicators/models.py
+#: orgs/models.py reports/models.py
 msgid "name"
 msgstr "namn"
 
@@ -763,9 +769,7 @@ msgid "override status manually"
 msgstr "åsidosätta status manuellt"
 
 #: actions/models/action.py
-msgid ""
-"Set if you want to prevent the action status from being determined "
-"automatically"
+msgid "Set if you want to prevent the action status from being determined automatically"
 msgstr "Ställ in om du vill förhindra att åtgärdsstatus fastställs automatiskt"
 
 #: actions/models/action.py
@@ -850,9 +854,7 @@ msgid "Date format"
 msgstr "Kontaktformulär"
 
 #: actions/models/action.py
-msgid ""
-"Format of action start and end dates shown in the public UI.             The "
-"default for all actions can be specified on the actions page."
+msgid "Format of action start and end dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
 
 #: actions/models/action.py
@@ -863,6 +865,16 @@ msgstr "ersatt av"
 #: actions/models/action.py
 msgid "Set if this action is superseded by another action"
 msgstr "Ange om denna åtgärd ersätts av en annan åtgärd"
+
+#: actions/models/action.py
+msgid "Role in dependencies"
+msgstr ""
+
+#: actions/models/action.py
+#, fuzzy
+#| msgid "Set if this action is merged with another action"
+msgid "Set if this action has the same role in all its dependency relationships with other actions"
+msgstr "Ange om den här åtgärden slås samman med en annan åtgärd"
 
 #: actions/models/action.py
 msgctxt "partitive"
@@ -906,15 +918,12 @@ msgstr "Markerade åtgärd '%(action)s' som slutförd för rapport '%(report)s'"
 #: actions/models/action.py
 #, python-format
 msgid "Cannot undo marking action as complete as there are %s snapshots"
-msgstr ""
-"Kan inte ångra märkningsåtgärden som slutförd eftersom det finns %s "
-"ögonblicksbilder"
+msgstr "Kan inte ångra märkningsåtgärden som slutförd eftersom det finns %s ögonblicksbilder"
 
 #: actions/models/action.py
 #, python-format
 msgid "Undid marking action '%(action)s' as complete for report '%(report)s'"
-msgstr ""
-"Undid märkning åtgärd '%(action)s' som komplett för rapport '%(report)s'"
+msgstr "Undid märkning åtgärd '%(action)s' som komplett för rapport '%(report)s'"
 
 #: actions/models/action.py
 msgid "Primary responsible party"
@@ -1048,9 +1057,7 @@ msgid "Due date format"
 msgstr "uppdaterad kl"
 
 #: actions/models/action.py
-msgid ""
-"Format of action task due dates shown in the public UI.             The "
-"default for all actions can be specified on the actions page."
+msgid "Format of action task due dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
 
 #: actions/models/action.py
@@ -1159,6 +1166,22 @@ msgstr "Godkänn"
 msgid "Request changes"
 msgstr "Begär ändringar"
 
+#: actions/models/action_deps.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Preceding action"
+msgstr "Senaste åtgärder"
+
+#: actions/models/action_deps.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Dependent action"
+msgstr "Senaste åtgärder"
+
+#: actions/models/action_deps.py
+msgid "Maximum dependency chain length exceeded."
+msgstr ""
+
 #: actions/models/attributes.py
 msgid "Ordered choice"
 msgstr "Beställt val"
@@ -1200,21 +1223,15 @@ msgid "Category type (if format is category)"
 msgstr "Kategorityp (om formatet är en kategori)"
 
 #: actions/models/attributes.py
-msgid ""
-"If the format is \"Category\", choose which category type the field values "
-"can be chosen from"
-msgstr ""
-"Om formatet är \"Kategori\", välj vilken kategorityp fältvärdena kan väljas "
-"från"
+msgid "If the format is \"Category\", choose which category type the field values can be chosen from"
+msgstr "Om formatet är \"Kategori\", välj vilken kategorityp fältvärdena kan väljas från"
 
 #: actions/models/attributes.py
 msgid "show choice names"
 msgstr "visa valbara namn"
 
 #: actions/models/attributes.py
-msgid ""
-"If the format is \"ordered choice\", determines whether the choice names are "
-"displayed"
+msgid "If the format is \"ordered choice\", determines whether the choice names are displayed"
 msgstr "Om formatet är \"ordnat val\", avgör om namnen på valen visas"
 
 #: actions/models/attributes.py
@@ -1222,12 +1239,8 @@ msgid "has zero option"
 msgstr "har noll alternativ"
 
 #: actions/models/attributes.py
-msgid ""
-"If the format is \"ordered choice\", determines whether the first option is "
-"displayed with zero bullets instead of one"
-msgstr ""
-"Om formatet är \"ordnat val\", avgör om det första alternativet visas med "
-"noll punkter istället för en"
+msgid "If the format is \"ordered choice\", determines whether the first option is displayed with zero bullets instead of one"
+msgstr "Om formatet är \"ordnat val\", avgör om det första alternativet visas med noll punkter istället för en"
 
 #: actions/models/attributes.py
 msgid "character limit for text fields"
@@ -1307,12 +1320,8 @@ msgstr "enstaka eller flera urval"
 
 #: actions/models/category.py
 #, python-brace-format
-msgid ""
-"Choose \"{choice_multiple}\" only if more than one category can be selected "
-"at a time, otherwise choose \"{choice_single}\" which is the default."
-msgstr ""
-"Välj \"{choice_multiple}\" endast om mer än en kategori kan väljas åt "
-"gången, annars välj \"{choice_single}\" som är standard."
+msgid "Choose \"{choice_multiple}\" only if more than one category can be selected at a time, otherwise choose \"{choice_single}\" which is the default."
+msgstr "Välj \"{choice_multiple}\" endast om mer än en kategori kan väljas åt gången, annars välj \"{choice_single}\" som är standard."
 
 #: actions/models/category.py
 #, fuzzy
@@ -1451,8 +1460,7 @@ msgstr "visa administratörslänk"
 
 #: actions/models/features.py
 msgid "Should the public website contain a link to the admin login?"
-msgstr ""
-"Bör den offentliga webbplatsen innehålla en länk till admin -inloggningen?"
+msgstr "Bör den offentliga webbplatsen innehålla en länk till admin -inloggningen?"
 
 #: actions/models/features.py
 msgid "Allow logging in to the public website"
@@ -1469,11 +1477,8 @@ msgstr "kontaktpersoner"
 
 #: actions/models/features.py
 #, fuzzy
-msgid ""
-"Choose which information about contact persons is visible in the public UI"
-msgstr ""
-"Ange om kontaktpersonerna inte ska vara synliga i det offentliga "
-"användargränssnittet"
+msgid "Choose which information about contact persons is visible in the public UI"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1482,12 +1487,8 @@ msgstr "indikator kontaktpersoner"
 
 #: actions/models/features.py
 #, fuzzy
-msgid ""
-"Should moderators be hidden from the visible contact persons in the public "
-"UI?"
-msgstr ""
-"Ange om kontaktpersonerna inte ska vara synliga i det offentliga "
-"användargränssnittet"
+msgid "Should moderators be hidden from the visible contact persons in the public UI?"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: actions/models/features.py
 msgid "Has action identifiers"
@@ -1504,9 +1505,7 @@ msgstr "Visa åtgärdsidentifierare"
 #: actions/models/features.py
 #, fuzzy
 msgid "Set if action identifiers should be visible in the public UI"
-msgstr ""
-"Ange om kontaktpersonerna inte ska vara synliga i det offentliga "
-"användargränssnittet"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1514,24 +1513,16 @@ msgid "Action contact persons have different roles"
 msgstr "åtgärder kontaktpersoner"
 
 #: actions/models/features.py
-msgid ""
-"Set if there are separate contact persons with publishing rights and others "
-"who can only suggest changes"
-msgstr ""
-"Ange om det finns separata kontaktpersoner med utgivningsrätt och andra som "
-"endast kan föreslå ändringar"
+msgid "Set if there are separate contact persons with publishing rights and others who can only suggest changes"
+msgstr "Ange om det finns separata kontaktpersoner med utgivningsrätt och andra som endast kan föreslå ändringar"
 
 #: actions/models/features.py
 msgid "Minimal statuses"
 msgstr "Minimala åtgärdsstatusar"
 
 #: actions/models/features.py
-msgid ""
-"Set to prevent showing status-specific graphs and other elements if statuses "
-"aren't systematically used in this action plan"
-msgstr ""
-"Ställ in för att förhindra visning av statusspecifika grafer och andra "
-"element om statusar inte används systematiskt i denna handlingsplan"
+msgid "Set to prevent showing status-specific graphs and other elements if statuses aren't systematically used in this action plan"
+msgstr "Ställ in för att förhindra visning av statusspecifika grafer och andra element om statusar inte används systematiskt i denna handlingsplan"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1558,11 +1549,8 @@ msgid "Has primary organizations for actions"
 msgstr "huvudorganisation för planen"
 
 #: actions/models/features.py
-msgid ""
-"Set if actions have a clear primary organization (such as multi-city plans)"
-msgstr ""
-"Ange om åtgärder har en tydlig primär organisation (t.ex. planer för flera "
-"städer)"
+msgid "Set if actions have a clear primary organization (such as multi-city plans)"
+msgstr "Ange om åtgärder har en tydlig primär organisation (t.ex. planer för flera städer)"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1585,9 +1573,7 @@ msgstr "användbar för kategorisering av indikatorer"
 
 #: actions/models/features.py
 #, fuzzy
-msgid ""
-"Set to enable drafting and reviewing functionality and choose the desired "
-"workflow for reviewing"
+msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
 msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 
 #: actions/models/features.py
@@ -1595,12 +1581,8 @@ msgid "Display field visibility as a label in edit views"
 msgstr "Visa fältets synlighet som en etikett i redigeringsvyer"
 
 #: actions/models/features.py
-msgid ""
-"For plans which have field-specific visibility restrictions, show to users "
-"which fields are public and which are restricted."
-msgstr ""
-"För planer som har fältspecifika synlighetsbegränsningar, visa användarna "
-"vilka fält som är offentliga och vilka som är begränsade."
+msgid "For plans which have field-specific visibility restrictions, show to users which fields are public and which are restricted."
+msgstr "För planer som har fältspecifika synlighetsbegränsningar, visa användarna vilka fält som är offentliga och vilka som är begränsade."
 
 #: actions/models/features.py
 msgid "plan feature"
@@ -1621,14 +1603,8 @@ msgstr "Dölj officiellt namn"
 
 #: actions/models/plan.py
 #, fuzzy
-msgid ""
-"A unique identifier for the plan used internally to distinguish between "
-"plans. This becomes part of the test site URL: https://[identifier].watch-"
-"test.kausal.tech. Use lowercase letters and dashes."
-msgstr ""
-"En unik identifierare för planen som används internt för att skilja mellan "
-"olika planer. Detta blir en del av testplatsens URL: https://&lt;plan-"
-"identifier&gt;.test.kausal.tech. Använd små bokstäver och bindestreck."
+msgid "A unique identifier for the plan used internally to distinguish between plans. This becomes part of the test site URL: https://[identifier].watch-test.kausal.tech. Use lowercase letters and dashes."
+msgstr "En unik identifierare för planen som används internt för att skilja mellan olika planer. Detta blir en del av testplatsens URL: https://&lt;plan-identifier&gt;.test.kausal.tech. Använd små bokstäver och bindestreck."
 
 #: actions/models/plan.py indicators/models.py
 msgid "short name"
@@ -1691,13 +1667,8 @@ msgid "Link to external feedback form"
 msgstr "Länk till formulär för extern feedback"
 
 #: actions/models/plan.py
-msgid ""
-"If not empty, the system's built-in user feedback feature will be replaced "
-"by a link to an external feedback form available at this web address."
-msgstr ""
-"Om den inte är tom kommer systemets inbyggda funktion för användarfeedback "
-"att ersättas av en länk till ett externt feedbackformulär som finns på denna "
-"webbadress."
+msgid "If not empty, the system's built-in user feedback feature will be replaced by a link to an external feedback form available at this web address."
+msgstr "Om den inte är tom kommer systemets inbyggda funktion för användarfeedback att ersättas av en länk till ett externt feedbackformulär som finns på denna webbadress."
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1712,7 +1683,7 @@ msgstr "förälder"
 
 #: actions/models/plan.py
 #, fuzzy
-msgid "The primary action classification"
+msgid "Primary action classification"
 msgstr "Actionklassificeringar"
 
 #: actions/models/plan.py
@@ -1721,16 +1692,12 @@ msgstr "Används för primär navigering och gruppering av åtgärder"
 
 #: actions/models/plan.py
 #, fuzzy
-msgid "A secondary action classification"
+msgid "Secondary action classification"
 msgstr "Actionklassificeringar"
 
 #: actions/models/plan.py
-msgid ""
-"Leave empty unless specifically required. Action filters based on this "
-"category are displayed more prominently than filters of other categories."
-msgstr ""
-"Lämna tomt om det inte krävs specifikt. Åtgärdsfilter baserade på denna "
-"kategori visas mer framträdande än filter i andra kategorier."
+msgid "Leave empty unless specifically required. Action filters based on this category are displayed more prominently than filters of other categories."
+msgstr "Lämna tomt om det inte krävs specifikt. Åtgärdsfilter baserade på denna kategori visas mer framträdande än filter i andra kategorier."
 
 #: actions/models/plan.py
 msgid "Days until actions considered stale"
@@ -1738,32 +1705,23 @@ msgstr "Dagar tills åtgärder anses vara inaktuella"
 
 #: actions/models/plan.py
 msgid "Actions not updated since this many days are considered stale."
-msgstr ""
-"Åtgärder som inte uppdaterats sedan så många dagar anses vara inaktuella."
+msgstr "Åtgärder som inte uppdaterats sedan så många dagar anses vara inaktuella."
 
 #: actions/models/plan.py
 msgid "Target interval in days to update actions"
 msgstr "Målintervall i dagar för att uppdatera åtgärder"
 
 #: actions/models/plan.py
-msgid ""
-"A desirable time interval in days within which actions should be updated in "
-"the optimal case."
-msgstr ""
-"Ett önskvärt tidsintervall i dagar inom vilket åtgärder ska uppdateras i det "
-"optimala fallet."
+msgid "A desirable time interval in days within which actions should be updated in the optimal case."
+msgstr "Ett önskvärt tidsintervall i dagar inom vilket åtgärder ska uppdateras i det optimala fallet."
 
 #: actions/models/plan.py
 msgid "Acceptable interval in days to update actions"
 msgstr "Acceptabelt intervall i dagar för att uppdatera åtgärder"
 
 #: actions/models/plan.py
-msgid ""
-"A maximum time interval in days within which actions should always be "
-"updated."
-msgstr ""
-"Ett maximalt tidsintervall i dagar inom vilket åtgärder alltid ska "
-"uppdateras."
+msgid "A maximum time interval in days within which actions should always be updated."
+msgstr "Ett maximalt tidsintervall i dagar inom vilket åtgärder alltid ska uppdateras."
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1789,10 +1747,8 @@ msgid "Category type must belong to plan"
 msgstr "Kategorityp måste tillhöra plan"
 
 #: actions/models/plan.py
-msgid ""
-"You must create and choose a primary category type for classifying actions"
-msgstr ""
-"Du måste skapa och välja en primär kategorityp för att klassificera åtgärder"
+msgid "You must create and choose a primary category type for classifying actions"
+msgstr "Du måste skapa och välja en primär kategorityp för att klassificera åtgärder"
 
 #: actions/models/plan.py
 msgid "Primary and secondary classification cannot be the same"
@@ -1842,12 +1798,8 @@ msgid "host name"
 msgstr "värdnamn"
 
 #: actions/models/plan.py
-msgid ""
-"The fully qualified domain name, eg. climate.cityname.gov. Leave blank if "
-"not yet known."
-msgstr ""
-"Det fullständigt kvalificerade domännamnet, t.ex. climate.cityname.gov. "
-"Lämna tomt om det ännu inte är känt."
+msgid "The fully qualified domain name, eg. climate.cityname.gov. Leave blank if not yet known."
+msgstr "Det fullständigt kvalificerade domännamnet, t.ex. climate.cityname.gov. Lämna tomt om det ännu inte är känt."
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1855,12 +1807,8 @@ msgid "base path"
 msgstr "basmall"
 
 #: actions/models/plan.py
-msgid ""
-"Fill this for a multi-plan site when the plan does not live in the root of "
-"the domain."
-msgstr ""
-"Fyll i detta för en webbplats med flera planer när planen inte finns i "
-"domänens rot."
+msgid "Fill this for a multi-plan site when the plan does not live in the root of the domain."
+msgstr "Fyll i detta för en webbplats med flera planer när planen inte finns i domänens rot."
 
 #: actions/models/plan.py
 msgid "Base path must begin with a '/' and not end with '/'"
@@ -1871,14 +1819,8 @@ msgid "Immediate override of publishing status"
 msgstr "Omedelbart upphävande av publiceringsstatus"
 
 #: actions/models/plan.py
-msgid ""
-"Only set this if you are sure you want to override the publication time set "
-"in the plan. Be aware that this will immediately change the publication "
-"status of the plan at this domain!"
-msgstr ""
-"Ange endast detta om du är säker på att du vill åsidosätta den "
-"publiceringstid som anges i planen. Var medveten om att detta omedelbart "
-"kommer att ändra planens publiceringsstatus på denna domän!"
+msgid "Only set this if you are sure you want to override the publication time set in the plan. Be aware that this will immediately change the publication status of the plan at this domain!"
+msgstr "Ange endast detta om du är säker på att du vill åsidosätta den publiceringstid som anges i planen. Var medveten om att detta omedelbart kommer att ändra planens publiceringsstatus på denna domän!"
 
 #: actions/models/plan.py
 msgid "The site is not public at this time."
@@ -1886,8 +1828,7 @@ msgstr "Webbplatsen är för närvarande inte offentlig."
 
 #: actions/models/plan.py
 msgid "Hostname must be a fully qualified domain name in lower-case only"
-msgstr ""
-"Värdnamn måste endast vara ett fullständigt kvalificerat domännamn i gemener"
+msgstr "Värdnamn måste endast vara ett fullständigt kvalificerat domännamn i gemener"
 
 #: actions/models/plan.py
 msgid "plan domain"
@@ -1943,30 +1884,24 @@ msgstr "övervakning av kvalitetspunkter"
 #, fuzzy, python-format
 msgid ""
 "\n"
-"        <span>%(n)s</span> active action <span class=\"visuallyhidden"
-"\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(n)s</span> active actions <span class=\"visuallyhidden"
-"\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
 "    "
 msgstr[0] ""
 "\n"
-"         <span> %(total)s </span> åtgärd <span class=\"visuallyhidden\"> "
-"övervakad i %(plan.name)s </span>\n"
+"         <span> %(total)s </span> åtgärd <span class=\"visuallyhidden\"> övervakad i %(plan.name)s </span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"         <span> %(total)s </span> åtgärder <span class=\"visuallyhidden\"> "
-"övervakas i %(plan.name)s </span>\n"
+"         <span> %(total)s </span> åtgärder <span class=\"visuallyhidden\"> övervakas i %(plan.name)s </span>\n"
 "    "
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
 #, fuzzy, python-format
-msgid ""
-"The page \"%(title)s\" has been submitted for approval to moderation stage "
-"\"%(task)s\"."
+msgid "The page \"%(title)s\" has been submitted for approval to moderation stage \"%(task)s\"."
 msgstr "%(model_name)s '%(object)s' har skickats in för moderering."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
@@ -1979,10 +1914,7 @@ msgstr ""
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
 #, python-format
-msgid ""
-"The %(model_name)s \"%(title)s\" has been withdrawn from the moderation "
-"stage \"%(task)s\". It does not require approval until it has been "
-"resubmitted for moderation again."
+msgid "The %(model_name)s \"%(title)s\" has been withdrawn from the moderation stage \"%(task)s\". It does not require approval until it has been resubmitted for moderation again."
 msgstr ""
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
@@ -1997,9 +1929,7 @@ msgstr ""
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled_subject.txt
 #, fuzzy, python-format
-msgid ""
-"The page \"%(title)s\" has been submitted for approval in moderation stage "
-"\"%(task)s\"."
+msgid "The page \"%(title)s\" has been submitted for approval in moderation stage \"%(task)s\"."
 msgstr "%(model_name)s '%(object)s' har skickats in för moderering."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled_subject.txt
@@ -2013,12 +1943,8 @@ msgstr "Identifierare som redan används"
 
 #: actions/wagtail_admin.py
 #, fuzzy
-msgid ""
-"For identifiers, use only lowercase letters from the English alphabet with "
-"dashes separating words. Numbers are allowed only in the end."
-msgstr ""
-"För identifierare, använd endast små bokstäver från det engelska alfabetet "
-"med bindestreck som separerar ord"
+msgid "For identifiers, use only lowercase letters from the English alphabet with dashes separating words. Numbers are allowed only in the end."
+msgstr "För identifierare, använd endast små bokstäver från det engelska alfabetet med bindestreck som separerar ord"
 
 #: actions/wagtail_admin.py
 msgid "Plan name already in use"
@@ -2038,12 +1964,8 @@ msgid "General administrators"
 msgstr "allmänna administratörer"
 
 #: actions/wagtail_admin.py
-msgid ""
-"Only set if explicitly required by customer. Use a color key from the UI "
-"theme's graphColors, for example red070 or grey030."
-msgstr ""
-"Ställs endast in om kunden uttryckligen kräver det. Använd en färgnyckel "
-"från UI-temaets graphColors, till exempel red070 eller grey030."
+msgid "Only set if explicitly required by customer. Use a color key from the UI theme's graphColors, for example red070 or grey030."
+msgstr "Ställs endast in om kunden uttryckligen kräver det. Använd en färgnyckel från UI-temaets graphColors, till exempel red070 eller grey030."
 
 #: actions/wagtail_admin.py
 msgid "Clients"
@@ -2071,6 +1993,12 @@ msgid "Action schedules"
 msgstr "Tidsram för åtgärd"
 
 #: actions/wagtail_admin.py
+#, fuzzy
+#| msgid "Action schedules"
+msgid "Action dependency roles"
+msgstr "Tidsram för åtgärd"
+
+#: actions/wagtail_admin.py
 msgid "Action classifications"
 msgstr "Actionklassificeringar"
 
@@ -2090,12 +2018,8 @@ msgid "Invalid email address"
 msgstr "e-postadress"
 
 #: admin_site/api.py
-msgid ""
-"No user found with this email address. Ask your administrator to create an "
-"account for you."
-msgstr ""
-"Ingen användare hittades med den här e-postadressen. Be din administratör "
-"att skapa ett konto åt dig."
+msgid "No user found with this email address. Ask your administrator to create an account for you."
+msgstr "Ingen användare hittades med den här e-postadressen. Be din administratör att skapa ett konto åt dig."
 
 #: admin_site/api.py
 #, fuzzy
@@ -2103,20 +2027,12 @@ msgid "You do not have access to the public site."
 msgstr "Denna användare har inte tillgång till admin."
 
 #: admin_site/api.py
-msgid ""
-"You do not have admin access. Your administrator may need to assign you an "
-"action or indicator, or grant you plan admin status."
-msgstr ""
-"Du har inte administratörsåtkomst. Din administratör kan behöva tilldela dig "
-"en åtgärd eller indikator, eller ge dig status som planadministratör."
+msgid "You do not have admin access. Your administrator may need to assign you an action or indicator, or grant you plan admin status."
+msgstr "Du har inte administratörsåtkomst. Din administratör kan behöva tilldela dig en åtgärd eller indikator, eller ge dig status som planadministratör."
 
 #: admin_site/api.py
-msgid ""
-"Cannot determine authentication method. The email address domain may be "
-"unknown."
-msgstr ""
-"Kan inte fastställa autentiseringsmetod. Domänen för e-postadressen kan vara "
-"okänd."
+msgid "Cannot determine authentication method. The email address domain may be unknown."
+msgstr "Kan inte fastställa autentiseringsmetod. Domänen för e-postadressen kan vara okänd."
 
 #: admin_site/api.py
 msgid "Password authentication is required, but the user has no password."
@@ -2127,12 +2043,8 @@ msgid "History"
 msgstr "Historia"
 
 #: admin_site/chooser.py
-msgid ""
-"What is the part after @ in the staff email address of the organization "
-"mainly responsible for the plan?"
-msgstr ""
-"Vad är delen efter @ i personalens e-postadress till den organisation som "
-"huvudsakligen ansvarar för planen?"
+msgid "What is the part after @ in the staff email address of the organization mainly responsible for the plan?"
+msgstr "Vad är delen efter @ i personalens e-postadress till den organisation som huvudsakligen ansvarar för planen?"
 
 #: admin_site/chooser.py
 #, fuzzy
@@ -2232,8 +2144,7 @@ msgstr "inloggningsmetod"
 
 #: admin_site/models.py
 msgid "Login method that will be used for users that don't have a password set"
-msgstr ""
-"Inloggningsmetod som ska användas för användare som inte har ett lösenord"
+msgstr "Inloggningsmetod som ska användas för användare som inte har ett lösenord"
 
 #: admin_site/models.py
 #, fuzzy
@@ -2315,8 +2226,7 @@ msgstr "Visa %s live"
 #: admin_site/wagtail.py
 #, python-format
 msgid "Error deleting items. Try first deleting any %(name)s that are in use."
-msgstr ""
-"Fel vid radering av objekt. Försök först ta bort alla %(name)s som används."
+msgstr "Fel vid radering av objekt. Försök först ta bort alla %(name)s som används."
 
 #: admin_site/wagtail.py
 #, python-format
@@ -2330,12 +2240,8 @@ msgstr "%s kunde inte skapas på grund av fel."
 
 #: admin_site/wagtail.py
 #, python-brace-format
-msgid ""
-"Could not remove common category type '{removed_cct}' from the plan because "
-"categories with the corresponding category type exist."
-msgstr ""
-"Kunde inte ta bort den gemensamma kategoritypen '{removed_cct}' från planen "
-"eftersom kategorier med motsvarande kategorityp finns."
+msgid "Could not remove common category type '{removed_cct}' from the plan because categories with the corresponding category type exist."
+msgstr "Kunde inte ta bort den gemensamma kategoritypen '{removed_cct}' från planen eftersom kategorier med motsvarande kategorityp finns."
 
 #: admin_site/wagtail.py
 #, fuzzy
@@ -2405,7 +2311,7 @@ msgstr "Fullt kvalificerat värdnamn (FQDN)"
 msgid "Approved"
 msgstr "Godkänn"
 
-#: aplans/graphql_types.py actions/models/action.py
+#: aplans/graphql_types.py
 msgid "Draft"
 msgstr "Utkast"
 
@@ -2419,12 +2325,8 @@ msgstr "Kan inte ta bort instans eftersom andra objekt refererar till den."
 
 #: aplans/rest_api.py
 #, fuzzy, python-format
-msgid ""
-"Cannot delete \"%s\" because it is connected to other objects such as plans, "
-"persons or actions."
-msgstr ""
-"Kan inte ta bort \"%s\" eftersom det är kopplat till andra objekt som "
-"planer, personer eller åtgärder. "
+msgid "Cannot delete \"%s\" because it is connected to other objects such as plans, persons or actions."
+msgstr "Kan inte ta bort \"%s\" eftersom det är kopplat till andra objekt som planer, personer eller åtgärder. "
 
 #: aplans/settings.py
 #, fuzzy
@@ -2530,12 +2432,8 @@ msgstr "synlighet"
 
 #: aplans/utils.py
 #, python-format
-msgid ""
-"%(color)s is not a CSS color (e.g., \"#112233\", \"red\" or \"rgb(0, 255, "
-"127)\")"
-msgstr ""
-"%(color)s är inte en CSS -färg (t.ex. \"#112233\", \"röd\" eller \"rgb (0, "
-"255, 127)\")"
+msgid "%(color)s is not a CSS color (e.g., \"#112233\", \"red\" or \"rgb(0, 255, 127)\")"
+msgstr "%(color)s är inte en CSS -färg (t.ex. \"#112233\", \"röd\" eller \"rgb (0, 255, 127)\")"
 
 #: aplans/utils.py
 #, fuzzy
@@ -2634,8 +2532,7 @@ msgstr "Creative Commons-licens"
 
 #: content/models.py
 msgid "If the site is under a Creative Commons license, which CC license it is"
-msgstr ""
-"Om webbplatsen är under en Creative Commons-licens, vilken CC-licens det är"
+msgstr "Om webbplatsen är under en Creative Commons-licens, vilken CC-licens det är"
 
 #: content/models.py
 msgid "Link to GitHub repository for API"
@@ -2665,12 +2562,8 @@ msgid "Sitewide announcement"
 msgstr "Platsomfattande tillkännagivande"
 
 #: content/models.py
-msgid ""
-"A message prominently displayed in a banner at the top of every page on the "
-"public website"
-msgstr ""
-"Ett meddelande som visas tydligt i en banner högst upp på varje sida på den "
-"offentliga webbplatsen"
+msgid "A message prominently displayed in a banner at the top of every page on the public website"
+msgstr "Ett meddelande som visas tydligt i en banner högst upp på varje sida på den offentliga webbplatsen"
 
 #: content/models.py
 msgid "site general content"
@@ -2756,21 +2649,13 @@ msgstr "Bekräfta märkning av %(user_feedback)s som obearbetad"
 
 #: feedback/views.py
 #, python-format
-msgid ""
-"Do you really want to mark the user feedback '%(user_feedback)s' as "
-"processed?"
-msgstr ""
-"Vill du verkligen markera användarens feedback '%(user_feedback)s' som "
-"bearbetad?"
+msgid "Do you really want to mark the user feedback '%(user_feedback)s' as processed?"
+msgstr "Vill du verkligen markera användarens feedback '%(user_feedback)s' som bearbetad?"
 
 #: feedback/views.py
 #, python-format
-msgid ""
-"Do you really want to mark the user feedback '%(user_feedback)s' as "
-"unprocessed?"
-msgstr ""
-"Vill du verkligen markera användarens feedback '%(user_feedback)s' som "
-"obearbetad?"
+msgid "Do you really want to mark the user feedback '%(user_feedback)s' as unprocessed?"
+msgstr "Vill du verkligen markera användarens feedback '%(user_feedback)s' som obearbetad?"
 
 #: feedback/views.py
 msgid "The user feedback is already processed"
@@ -3014,24 +2899,16 @@ msgid "minimum value"
 msgstr "minimivärde"
 
 #: indicators/models.py
-msgid ""
-"What is the minimum value this indicator can reach? It is used in "
-"visualizations as the Y axis minimum."
-msgstr ""
-"Vad är det minsta värde som denna indikator kan nå? Det används i "
-"visualiseringar som Y -axelminimum."
+msgid "What is the minimum value this indicator can reach? It is used in visualizations as the Y axis minimum."
+msgstr "Vad är det minsta värde som denna indikator kan nå? Det används i visualiseringar som Y -axelminimum."
 
 #: indicators/models.py
 msgid "maximum value"
 msgstr "maximalt värde"
 
 #: indicators/models.py
-msgid ""
-"What is the maximum value this indicator can reach? It is used in "
-"visualizations as the Y axis maximum."
-msgstr ""
-"Vad är det maximala värdet som denna indikator kan nå? Det används i "
-"visualiseringar som Y -axelns maximala."
+msgid "What is the maximum value this indicator can reach? It is used in visualizations as the Y axis maximum."
+msgstr "Vad är det maximala värdet som denna indikator kan nå? Det används i visualiseringar som Y -axelns maximala."
 
 #: indicators/models.py
 msgid "time resolution"
@@ -3058,11 +2935,8 @@ msgid "Has a graph"
 msgstr "Har en graf"
 
 #: indicators/models.py
-msgid ""
-"Deadlines for value updates are currently only possible for yearly indicators"
-msgstr ""
-"Tidsfrister för värdeuppdateringar är för närvarande endast möjliga för "
-"årliga indikatorer"
+msgid "Deadlines for value updates are currently only possible for yearly indicators"
+msgstr "Tidsfrister för värdeuppdateringar är för närvarande endast möjliga för årliga indikatorer"
 
 #: indicators/models.py
 msgid "There is already an indicator value for the year preceding the deadline"
@@ -3248,23 +3122,19 @@ msgstr "Ändringar sparades"
 #, fuzzy, python-format
 msgid ""
 "\n"
-"        <span>%(total)s</span> indicator <span class=\"visuallyhidden"
-"\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(total)s</span> indicators <span class=\"visuallyhidden"
-"\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
 "    "
 msgstr[0] ""
 "\n"
-"         <span> %(total)s </span> åtgärd <span class=\"visuallyhidden\"> "
-"övervakad i %(plan.name)s </span>\n"
+"         <span> %(total)s </span> åtgärd <span class=\"visuallyhidden\"> övervakad i %(plan.name)s </span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"         <span> %(total)s </span> åtgärder <span class=\"visuallyhidden\"> "
-"övervakas i %(plan.name)s </span>\n"
+"         <span> %(total)s </span> åtgärder <span class=\"visuallyhidden\"> övervakas i %(plan.name)s </span>\n"
 "    "
 
 #: indicators/wagtail_admin.py
@@ -3315,12 +3185,8 @@ msgid "[not in active plan]"
 msgstr "[finns inte i aktiv plan]"
 
 #: indicators/wagtail_admin.py
-msgid ""
-"Changing the organization to one with a different primary language is "
-"currently not supported"
-msgstr ""
-"Att ändra organisationen till en med ett annat huvudspråk stöds för "
-"närvarande inte"
+msgid "Changing the organization to one with a different primary language is currently not supported"
+msgstr "Att ändra organisationen till en med ett annat huvudspråk stöds för närvarande inte"
 
 #: indicators/wagtail_admin.py
 msgid "Dimensions must be the same as in common indicator"
@@ -3341,29 +3207,15 @@ msgstr "mått"
 
 #: indicators/wagtail_admin.py
 #, python-format
-msgid ""
-"If you change the dimensions of this indicator (currently %(dimensions)s), "
-"its single value will be deleted."
-msgid_plural ""
-"If you change the dimensions of this indicator (currently %(dimensions)s), "
-"all its %(num)d values will be deleted."
-msgstr[0] ""
-"Om du ändrar måtten på denna indikator (för närvarande %(dimensions)s), "
-"kommer dess enskilda värde att raderas."
-msgstr[1] ""
-"Om du ändrar dimensionerna för denna indikator (för närvarande "
-"%(dimensions)s), kommer alla dess %(num)d värden att raderas."
+msgid "If you change the dimensions of this indicator (currently %(dimensions)s), its single value will be deleted."
+msgid_plural "If you change the dimensions of this indicator (currently %(dimensions)s), all its %(num)d values will be deleted."
+msgstr[0] "Om du ändrar måtten på denna indikator (för närvarande %(dimensions)s), kommer dess enskilda värde att raderas."
+msgstr[1] "Om du ändrar dimensionerna för denna indikator (för närvarande %(dimensions)s), kommer alla dess %(num)d värden att raderas."
 
 #: indicators/wagtail_admin.py
 #, python-format
-msgid ""
-"This indicator is linked to a common indicator, so quantity, unit and "
-"dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; "
-"dimensions: %(dimensions)s"
-msgstr ""
-"Denna indikator är kopplad till en gemensam indikator, så kvantitet, enhet "
-"och mått kan inte redigeras. Aktuell kvantitet: %(quantity)s; enhet: "
-"%(unit)s; dimensioner: %(dimensions)s"
+msgid "This indicator is linked to a common indicator, so quantity, unit and dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; dimensions: %(dimensions)s"
+msgstr "Denna indikator är kopplad till en gemensam indikator, så kvantitet, enhet och mått kan inte redigeras. Aktuell kvantitet: %(quantity)s; enhet: %(unit)s; dimensioner: %(dimensions)s"
 
 #: indicators/wagtail_admin.py
 msgid "Effects"
@@ -3384,9 +3236,7 @@ msgstr "Enhet"
 
 #: indicators/wagtail_admin.py
 msgid "Dimensions must be the same as in all indicators linked to this one"
-msgstr ""
-"Dimensionerna måste vara desamma som i alla indikatorer som är kopplade till "
-"denna"
+msgstr "Dimensionerna måste vara desamma som i alla indikatorer som är kopplade till denna"
 
 #: indicators/wagtail_admin.py
 #, fuzzy
@@ -3395,14 +3245,8 @@ msgstr "gemensamma indikatorer"
 
 #: indicators/wagtail_admin.py
 #, python-format
-msgid ""
-"This common indicator has indicators linked to it, so quantity, unit and "
-"dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; "
-"dimensions: %(dimensions)s"
-msgstr ""
-"Denna gemensamma indikator har indikatorer kopplade till sig, så kvantitet, "
-"enhet och mått kan inte redigeras. Aktuell kvantitet: %(quantity)s; enhet: "
-"%(unit)s; dimensioner: %(dimensions)s"
+msgid "This common indicator has indicators linked to it, so quantity, unit and dimensions cannot be edited. Current quantity: %(quantity)s; unit: %(unit)s; dimensions: %(dimensions)s"
+msgstr "Denna gemensamma indikator har indikatorer kopplade till sig, så kvantitet, enhet och mått kan inte redigeras. Aktuell kvantitet: %(quantity)s; enhet: %(unit)s; dimensioner: %(dimensions)s"
 
 #: notifications/apps.py notifications/wagtail_admin.py
 msgid "Notifications"
@@ -3414,12 +3258,8 @@ msgid "General notifications for action '%s'"
 msgstr "Allmänna meddelanden om åtgärder '%s'"
 
 #: notifications/forms.py
-msgid ""
-"These are sent when there are news about this action such as reminders for "
-"deadlines."
-msgstr ""
-"Dessa skickas när det finns nyheter om denna åtgärd, t.ex. påminnelser om "
-"tidsfrister."
+msgid "These are sent when there are news about this action such as reminders for deadlines."
+msgstr "Dessa skickas när det finns nyheter om denna åtgärd, t.ex. påminnelser om tidsfrister."
 
 #: notifications/forms.py
 #, python-format
@@ -3441,88 +3281,33 @@ msgstr "Dessa skickas när en besökare har lämnat feedback för denna plan."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "action_not_updated"
-msgid ""
-"This is an automatic reminder about updating the action details in the "
-"action plan.  You can see on the action plan watch site what has already "
-"been done to further the actions and what has been planned for the future.  "
-"It's already six months since you last updated an action. Please go and "
-"update the action with the latest information. You can add an upcoming task "
-"to the action at the same time."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i "
-"handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan "
-"har gjorts för att främja åtgärderna och vad som har planerats för "
-"framtiden.  Det har redan gått sex månader sedan du senast uppdaterade en "
-"åtgärd. Gå och uppdatera åtgärden med den senaste informationen. Du kan "
-"samtidigt lägga till en kommande uppgift till åtgärden."
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
+msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Det har redan gått sex månader sedan du senast uppdaterade en åtgärd. Gå och uppdatera åtgärden med den senaste informationen. Du kan samtidigt lägga till en kommande uppgift till åtgärden."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "not_enough_tasks"
-msgid ""
-"This is an automatic reminder about updating the action details in the "
-"action plan.  You can see on the action plan watch site what has already "
-"been done to further the actions and what has been planned for the future.  "
-"This means that it would be preferrable for each action to have at least one "
-"upcoming task within the next year. Please go and add tasks for the action "
-"which show what the next planned steps for the action are."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i "
-"handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan "
-"har gjorts för att främja åtgärderna och vad som har planerats för "
-"framtiden.  Detta innebär att det skulle vara att föredra om varje åtgärd "
-"hade minst en kommande uppgift inom det närmaste året. Var vänlig och lägg "
-"till uppgifter för åtgärden som visar vad de nästa planerade stegen för "
-"åtgärden är."
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
+msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Detta innebär att det skulle vara att föredra om varje åtgärd hade minst en kommande uppgift inom det närmaste året. Var vänlig och lägg till uppgifter för åtgärden som visar vad de nästa planerade stegen för åtgärden är."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "task_due_soon"
-msgid ""
-"This is an automatic reminder about updating the task information of your "
-"action in the action plan.  There is an action in the action plan with a "
-"deadline approaching. Please remember to mark the task as done as soon as it "
-"has been completed. After the deadline has gone, the action will be marked "
-"as late. You can edit the task details from the link below."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för "
-"din åtgärd i handlingsplanen.  Det finns en åtgärd i handlingsplanen med en "
-"deadline som närmar sig. Kom ihåg att markera uppgiften som utförd så snart "
-"den har slutförts. När tidsfristen har löpt ut kommer åtgärden att markeras "
-"som sen. Du kan redigera uppgiftsinformationen från länken nedan."
+msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
+msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i handlingsplanen.  Det finns en åtgärd i handlingsplanen med en deadline som närmar sig. Kom ihåg att markera uppgiften som utförd så snart den har slutförts. När tidsfristen har löpt ut kommer åtgärden att markeras som sen. Du kan redigera uppgiftsinformationen från länken nedan."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "task_late"
-msgid ""
-"This is an automatic reminder about updating the task information of your "
-"action in the action plan. There is an action whose deadline has passed. The "
-"action is shown to be late until you mark it as done and fill in some "
-"details."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för "
-"din åtgärd i åtgärdsplanen. Det finns en åtgärd vars deadline har passerats. "
-"Åtgärden visas som sen tills du markerar den som utförd och fyller i några "
-"detaljer."
+msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
+msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i åtgärdsplanen. Det finns en åtgärd vars deadline har passerats. Åtgärden visas som sen tills du markerar den som utförd och fyller i några detaljer."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "updated_indicator_values_due_soon"
-msgid ""
-"This is an automatic reminder about updating indicator details in the action "
-"plan.  The deadline for updating the indicator values is approaching. Please "
-"go and update the indicator with the latest values."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i "
-"handlingsplanen.  Tidsfristen för uppdatering av indikatorvärdena närmar "
-"sig. Gå och uppdatera indikatorn med de senaste värdena."
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
+msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för uppdatering av indikatorvärdena närmar sig. Gå och uppdatera indikatorn med de senaste värdena."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "updated_indicator_values_late"
-msgid ""
-"This is an automatic reminder about updating indicator details in the action "
-"plan.  The deadline for updating the indicator values has passed. Please go "
-"and update the indicator with the latest values."
-msgstr ""
-"Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i "
-"handlingsplanen.  Tidsfristen för att uppdatera indikatorvärdena har "
-"passerat. Gå och uppdatera indikatorn med de senaste värdena."
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
+msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för att uppdatera indikatorvärdena har passerat. Gå och uppdatera indikatorn med de senaste värdena."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "user_feedback_received"
@@ -3531,27 +3316,20 @@ msgstr "En användare har lämnat feedback."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "motivation"
-msgid ""
-"Thank you for keeping the action plan updated. Up-to-date information about "
-"the actions is essential for us to achieve our goals."
-msgstr ""
-"Tack för att ni håller handlingsplanen uppdaterad. Aktuell information om "
-"åtgärderna är avgörande för att vi ska kunna uppnå våra mål."
+msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
+msgstr "Tack för att ni håller handlingsplanen uppdaterad. Aktuell information om åtgärderna är avgörande för att vi ska kunna uppnå våra mål."
 
 #: notifications/management/commands/initialize_notifications.py
 msgctxt "outro"
 msgid ""
-"If you are having difficulties using the action plan watch platform, please "
-"send an email to the administrators of the action plan.\n"
+"If you are having difficulties using the action plan watch platform, please send an email to the administrators of the action plan.\n"
 "\n"
 "Thank you for taking part in implementing the action plan!\n"
 "\n"
 "Kind regards,\n"
 "the action plan administrators"
 msgstr ""
-"Om du har problem med att använda övervakningsplattformen för "
-"handlingsplanen, vänligen skicka ett e-postmeddelande till administratörerna "
-"för handlingsplanen.\n"
+"Om du har problem med att använda övervakningsplattformen för handlingsplanen, vänligen skicka ett e-postmeddelande till administratörerna för handlingsplanen.\n"
 "\n"
 "Tack för att du deltar i genomförandet av handlingsplanen!\n"
 "\n"
@@ -3616,10 +3394,8 @@ msgid "notification settings"
 msgstr "anmälningsmallar"
 
 #: notifications/models.py
-msgid ""
-"Set if the notification was sent to an email address instead of a person"
-msgstr ""
-"Ange om meddelandet skickades till en e-postadress istället för en person"
+msgid "Set if the notification was sent to an email address instead of a person"
+msgstr "Ange om meddelandet skickades till en e-postadress istället för en person"
 
 #: notifications/models.py
 msgid "Email From name"
@@ -3678,9 +3454,7 @@ msgstr "e-postadress"
 
 #: notifications/models.py
 msgid "Email address used when \"send to custom email address\" is checked"
-msgstr ""
-"E-postadress som används när \"skicka till anpassad e-postadress\" är "
-"markerad"
+msgstr "E-postadress som används när \"skicka till anpassad e-postadress\" är markerad"
 
 #: notifications/models.py
 #, fuzzy
@@ -3708,9 +3482,7 @@ msgstr "Skicka till kontaktpersoner; fallback: organisationsadministratörer"
 
 #: notifications/models.py
 msgid "Send to contact persons; fallback: organization admins, plan admins"
-msgstr ""
-"Skicka till kontaktpersoner; reserv: organisationsadministratörer, "
-"planadministratörer"
+msgstr "Skicka till kontaktpersoner; reserv: organisationsadministratörer, planadministratörer"
 
 #: notifications/models.py
 #, fuzzy
@@ -3727,8 +3499,7 @@ msgstr "anmälningsmallar"
 
 #: notifications/models.py
 msgid "This can only be set if a custom email address is defined"
-msgstr ""
-"Detta kan endast ställas in om en anpassad e-postadress har definierats"
+msgstr "Detta kan endast ställas in om en anpassad e-postadress har definierats"
 
 #: notifications/models.py
 msgid "If a custom email address is defined, this must be set"
@@ -3928,19 +3699,13 @@ msgstr "Bekräfta att %(org)s inte ingår i planen %(plan)s"
 
 #: orgs/views.py
 #, python-format
-msgid ""
-"Do you really want to include the organization '%(org)s' in the plan "
-"'%(plan)s'?"
-msgstr ""
-"Vill du verkligen inkludera organisationen '%(org)s' i planen '%(plan)s'?"
+msgid "Do you really want to include the organization '%(org)s' in the plan '%(plan)s'?"
+msgstr "Vill du verkligen inkludera organisationen '%(org)s' i planen '%(plan)s'?"
 
 #: orgs/views.py
 #, python-format
-msgid ""
-"Do you really want to exclude the organization '%(org)s' from the plan "
-"'%(plan)s'?"
-msgstr ""
-"Vill du verkligen utesluta organisationen '%(org)s' från planen '%(plan)s'?"
+msgid "Do you really want to exclude the organization '%(org)s' from the plan '%(plan)s'?"
+msgstr "Vill du verkligen utesluta organisationen '%(org)s' från planen '%(plan)s'?"
 
 #: orgs/views.py
 msgid "The organization is already included in the plan"
@@ -4013,21 +3778,15 @@ msgstr "Förälder"
 
 #: orgs/wagtail_admin.py
 msgid "People who can edit plan-specific content related to this organization"
-msgstr ""
-"Personer som kan redigera planspecifikt innehåll relaterat till denna "
-"organisation"
+msgstr "Personer som kan redigera planspecifikt innehåll relaterat till denna organisation"
 
 #: orgs/wagtail_admin.py
 msgid "Metadata admins"
 msgstr "Administratörer av metadata"
 
 #: orgs/wagtail_admin.py
-msgid ""
-"People who can edit data of this organization and suborganizations but no "
-"plan-specific content"
-msgstr ""
-"Personer som kan redigera data för denna organisation och "
-"underorganisationer men inget planspecifikt innehåll"
+msgid "People who can edit data of this organization and suborganizations but no plan-specific content"
+msgstr "Personer som kan redigera data för denna organisation och underorganisationer men inget planspecifikt innehåll"
 
 #: orgs/wagtail_admin.py
 msgid "Is in plan"
@@ -4121,12 +3880,8 @@ msgid "Maintenance responsibility paragraph"
 msgstr "Stycke om underhållsansvar"
 
 #: pages/blocks.py
-msgid ""
-"If this is set, it will be displayed instead of \"This service is published "
-"by [publisher]\"."
-msgstr ""
-"Om detta anges kommer det att visas istället för \"Denna tjänst är "
-"publicerad av [utgivare]\"."
+msgid "If this is set, it will be displayed instead of \"This service is published by [publisher]\"."
+msgstr "Om detta anges kommer det att visas istället för \"Denna tjänst är publicerad av [utgivare]\"."
 
 #: pages/blocks.py
 #, fuzzy
@@ -4319,11 +4074,8 @@ msgid "Subheading hierarchy depth"
 msgstr "Underrubrik hierarki djup"
 
 #: pages/models.py
-msgid ""
-"Depth of category hierarchy to present as subheadings starting from the root."
-msgstr ""
-"Djup i kategorihierarkin som ska presenteras som underrubriker med början "
-"från roten."
+msgid "Depth of category hierarchy to present as subheadings starting from the root."
+msgstr "Djup i kategorihierarkin som ska presenteras som underrubriker med början från roten."
 
 #: pages/models.py
 #, fuzzy
@@ -4333,9 +4085,7 @@ msgstr "gemensam indikator"
 #: pages/models.py
 #, fuzzy
 msgid "Default format of action start and end dates shown in the public UI."
-msgstr ""
-"Ange om kontaktpersonerna inte ska vara synliga i det offentliga "
-"användargränssnittet"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: pages/models.py
 msgid "Task due date format"
@@ -4344,9 +4094,7 @@ msgstr ""
 #: pages/models.py
 #, fuzzy
 msgid "Default format of action task due dates shown in the public UI."
-msgstr ""
-"Ange om kontaktpersonerna inte ska vara synliga i det offentliga "
-"användargränssnittet"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: pages/models.py
 msgid "Include related plans"
@@ -4549,12 +4297,8 @@ msgstr "Bekräfta radering av %(model_name)s"
 
 #: people/templates/people/delete.html
 #, python-format
-msgid ""
-"'%(instance_name)s' is currently connected to the following items. Please "
-"verify deletion:"
-msgstr ""
-"'%(instance_name)s' är för närvarande ansluten till följande artiklar. "
-"Vänligen verifiera raderingen:"
+msgid "'%(instance_name)s' is currently connected to the following items. Please verify deletion:"
+msgstr "'%(instance_name)s' är för närvarande ansluten till följande artiklar. Vänligen verifiera raderingen:"
 
 #: people/templates/people/delete.html
 msgid "Yes, delete"
@@ -4577,35 +4321,22 @@ msgstr "Bekräfta att %(org)s ingår i planen %(plan)s"
 #: people/views.py
 #, fuzzy, python-format
 msgid "Do you really want to send a password reset link to %(person)s?"
-msgstr ""
-"Vill du verkligen inkludera organisationen '%(org)s' i planen '%(plan)s'?"
+msgstr "Vill du verkligen inkludera organisationen '%(org)s' i planen '%(plan)s'?"
 
 #: people/views.py
 #, python-format
-msgid ""
-"An email has been sent to %(person)s with a link to reset their password."
-msgstr ""
-"Ett e-postmeddelande har skickats till %(person)s med en länk för att "
-"återställa deras lösenord."
+msgid "An email has been sent to %(person)s with a link to reset their password."
+msgstr "Ett e-postmeddelande har skickats till %(person)s med en länk för att återställa deras lösenord."
 
 #: people/views.py
 #, python-format
-msgid ""
-"If the email does not arrive, you can send them the following link: %(url)s"
-msgstr ""
-"Om e-postmeddelandet inte kommer fram kan du skicka följande länk till dem: "
-"%(url)s"
+msgid "If the email does not arrive, you can send them the following link: %(url)s"
+msgstr "Om e-postmeddelandet inte kommer fram kan du skicka följande länk till dem: %(url)s"
 
 #: people/views.py
 #, python-format
-msgid ""
-"Please take great care that nobody except %(person)s gets access to the "
-"link. For additional security, the link will expire in "
-"%(days_until_expiration)s days."
-msgstr ""
-"Vänligen se till att ingen annan än %(person)s får tillgång till länken. För "
-"ytterligare säkerhet kommer länken att upphöra att gälla om "
-"%(days_until_expiration)s dagar."
+msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
+msgstr "Vänligen se till att ingen annan än %(person)s får tillgång till länken. För ytterligare säkerhet kommer länken att upphöra att gälla om %(days_until_expiration)s dagar."
 
 #: people/wagtail_admin.py
 msgid "Is contact person"
@@ -4668,12 +4399,8 @@ msgid "Are you sure you want to deactivate this person?"
 msgstr "Är du säker på att du vill avaktivera den här personen?"
 
 #: people/wagtail_admin.py
-msgid ""
-"This person has no access to the admin interface. This is commonly because "
-"no actions or indicators are assigned to them."
-msgstr ""
-"Den här personen har ingen åtkomst till administratörsgränssnittet. Detta "
-"beror vanligtvis på att inga åtgärder eller indikatorer har tilldelats dem."
+msgid "This person has no access to the admin interface. This is commonly because no actions or indicators are assigned to them."
+msgstr "Den här personen har ingen åtkomst till administratörsgränssnittet. Detta beror vanligtvis på att inga åtgärder eller indikatorer har tilldelats dem."
 
 #: people/wagtail_admin.py
 #, fuzzy
@@ -4707,18 +4434,8 @@ msgid "Level of containing organization"
 msgstr "Nivå av innehållande organisation"
 
 #: reports/blocks/action_content.py
-msgid ""
-"In addition to the organization itself, an organizational unit containing "
-"the organization is included in the report. Counting from the top-level root "
-"organisation at level 1, which level in the organizational hierarchy should "
-"be used to find this containing organization? If left empty, don't add the "
-"containing organization to the report."
-msgstr ""
-"Förutom själva organisationen ingår en organisationsenhet som innehåller "
-"organisationen i rapporten. Räknat från den översta rotorganisationen på "
-"nivå 1, vilken nivå i organisationshierarkin ska användas för att hitta den "
-"innehållande organisationen? Om det är tomt, lägg inte till den innehållande "
-"organisationen i rapporten."
+msgid "In addition to the organization itself, an organizational unit containing the organization is included in the report. Counting from the top-level root organisation at level 1, which level in the organizational hierarchy should be used to find this containing organization? If left empty, don't add the containing organization to the report."
+msgstr "Förutom själva organisationen ingår en organisationsenhet som innehåller organisationen i rapporten. Räknat från den översta rotorganisationen på nivå 1, vilken nivå i organisationshierarkin ska användas för att hitta den innehållande organisationen? Om det är tomt, lägg inte till den innehållande organisationen i rapporten."
 
 #: reports/blocks/choosers.py reports/wagtail_admin.py
 #, fuzzy
@@ -4822,11 +4539,8 @@ msgstr "Vill du verkligen markera rapporten <i>%(report)s</i> som fullständig?"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
 #, python-format
-msgid ""
-"Do you really want to undo marking the report <i>%(report)s</i> as complete?"
-msgstr ""
-"Vill du verkligen ångra att du markerade rapporten <i>%(report)s</i> som "
-"fullständig?"
+msgid "Do you really want to undo marking the report <i>%(report)s</i> as complete?"
+msgstr "Vill du verkligen ångra att du markerade rapporten <i>%(report)s</i> som fullständig?"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
 msgid "This will mark the following actions as complete:"
@@ -4848,48 +4562,32 @@ msgstr "Ångra markering av åtgärd som slutförd"
 #: reports/views.py
 #, python-format
 msgid "Confirm marking action %(action)s as complete for report %(report)s"
-msgstr ""
-"Bekräfta märkningsåtgärden %(action)s som slutförd för rapport %(report)s"
+msgstr "Bekräfta märkningsåtgärden %(action)s som slutförd för rapport %(report)s"
 
 #: reports/views.py
 #, python-format
-msgid ""
-"Confirm undoing marking action %(action)s as complete for report %(report)s"
-msgstr ""
-"Bekräfta ångra märkningsåtgärd %(action)s som slutförd för rapport %(report)s"
+msgid "Confirm undoing marking action %(action)s as complete for report %(report)s"
+msgstr "Bekräfta ångra märkningsåtgärd %(action)s som slutförd för rapport %(report)s"
 
 #: reports/views.py
 #, python-format
-msgid ""
-"Do you really want to mark the action '%(action)s' as complete for the "
-"report '%(report)s'?"
-msgstr ""
-"Vill du verkligen markera åtgärden '%(action)s' som slutförd för rapporten "
-"'%(report)s'?"
+msgid "Do you really want to mark the action '%(action)s' as complete for the report '%(report)s'?"
+msgstr "Vill du verkligen markera åtgärden '%(action)s' som slutförd för rapporten '%(report)s'?"
 
 #: reports/views.py
 #, python-format
-msgid ""
-"Do you really want to undo marking the action '%(action)s' as complete for "
-"the report '%(report)s'?"
-msgstr ""
-"Vill du verkligen ångra att du markerade åtgärden '%(action)s' som slutförd "
-"för rapporten '%(report)s'?"
+msgid "Do you really want to undo marking the action '%(action)s' as complete for the report '%(report)s'?"
+msgstr "Vill du verkligen ångra att du markerade åtgärden '%(action)s' som slutförd för rapporten '%(report)s'?"
 
 #: reports/views.py
 #, python-format
-msgid ""
-"Action '%(action)s' has been marked as complete for report '%(report)s'."
-msgstr ""
-"Åtgärd '%(action)s' har markerats som slutförd för rapport '%(report)s'."
+msgid "Action '%(action)s' has been marked as complete for report '%(report)s'."
+msgstr "Åtgärd '%(action)s' har markerats som slutförd för rapport '%(report)s'."
 
 #: reports/views.py
 #, python-format
-msgid ""
-"Action '%(action)s' is no longer marked as complete for report '%(report)s'."
-msgstr ""
-"Åtgärden '%(action)s' är inte längre markerad som slutförd för rapporten "
-"'%(report)s'."
+msgid "Action '%(action)s' is no longer marked as complete for report '%(report)s'."
+msgstr "Åtgärden '%(action)s' är inte längre markerad som slutförd för rapporten '%(report)s'."
 
 #: reports/views.py
 msgid "Mark report as complete"
@@ -4983,19 +4681,14 @@ msgid "Users"
 msgstr "Användare"
 
 #: users/models.py
-msgid ""
-"No permission to remove the user belonging to plans you are not managing."
-msgstr ""
-"Inget tillstånd att ta bort användaren som tillhör planer som du inte "
-"hanterar."
+msgid "No permission to remove the user belonging to plans you are not managing."
+msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte hanterar."
 
-#: actions/models/features.py
-msgid "Enable moderation workflow"
-msgstr "Aktivera arbetsflöde för moderering"
+#~ msgid "Enable moderation workflow"
+#~ msgstr "Aktivera arbetsflöde för moderering"
 
-#: actions/models/features.py
-msgid "Set to enable drafting and reviewing functionality"
-msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
+#~ msgid "Set to enable drafting and reviewing functionality"
+#~ msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 
 #, fuzzy
 #~ msgid "Internal field"
@@ -5059,28 +4752,15 @@ msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 #~ msgid "Client subdomain for admin UI"
 #~ msgstr "Klientunderdomän för administratörsgränssnitt"
 
-#~ msgid ""
-#~ "A lowercase short name which becomes part of the admin UI address - for "
-#~ "example, \"sunnydale\" in sunnydale.watch.kausal.tech"
-#~ msgstr ""
-#~ "Ett kort namn med små bokstäver som blir en del av administratörens "
-#~ "användargränssnittsadress - till exempel \"sunnydale\" i sunnydale.watch."
-#~ "kausal.tech"
+#~ msgid "A lowercase short name which becomes part of the admin UI address - for example, \"sunnydale\" in sunnydale.watch.kausal.tech"
+#~ msgstr "Ett kort namn med små bokstäver som blir en del av administratörens användargränssnittsadress - till exempel \"sunnydale\" i sunnydale.watch.kausal.tech"
 
 #, fuzzy
 #~ msgid "Create a new plan"
 #~ msgstr "Skapa ny"
 
-#~ msgid ""
-#~ "This form is for super administrators for creating a completely new "
-#~ "action plan. If you are unsure about any of the technical fields near the "
-#~ "bottom, they can be left empty. Please try to follow existing conventions "
-#~ "for the plan identifier."
-#~ msgstr ""
-#~ "Detta formulär är avsett för superadministratörer som vill skapa en helt "
-#~ "ny handlingsplan. Om du är osäker på något av de tekniska fälten längst "
-#~ "ner kan de lämnas tomma. Försök att följa befintliga konventioner för "
-#~ "planidentifieraren."
+#~ msgid "This form is for super administrators for creating a completely new action plan. If you are unsure about any of the technical fields near the bottom, they can be left empty. Please try to follow existing conventions for the plan identifier."
+#~ msgstr "Detta formulär är avsett för superadministratörer som vill skapa en helt ny handlingsplan. Om du är osäker på något av de tekniska fälten längst ner kan de lämnas tomma. Försök att följa befintliga konventioner för planidentifieraren."
 
 #, fuzzy
 #~ msgid "Create"
@@ -5275,9 +4955,6 @@ msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 #~ msgid "Short description for what actions are"
 #~ msgstr "Kort beskrivning för vad åtgärder är"
 
-#~ msgid "Recent actions"
-#~ msgstr "Senaste åtgärder"
-
 #~ msgid "My actions"
 #~ msgstr "Mina åtgärder"
 
@@ -5292,8 +4969,7 @@ msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 
 #, python-format
 #~ msgid "Your %(username_field)s and password didn't match. Please try again."
-#~ msgstr ""
-#~ "Ditt %(username_field)s och lösenord matchade inte. Var god försök igen."
+#~ msgstr "Ditt %(username_field)s och lösenord matchade inte. Var god försök igen."
 
 #~ msgid "Signing in…"
 #~ msgstr "Loggar in…"

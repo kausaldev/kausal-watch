@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 17:47+0200\n"
+"POT-Creation-Date: 2024-03-23 16:05+0100\n"
 "PO-Revision-Date: 2023-12-13 16:19+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
 "Language-Team: Danish <https://weblate.kausal.tech/projects/watch/django/da/>\n"
@@ -112,6 +112,16 @@ msgstr "interne notater til planadministratorer"
 #: actions/action_admin.py
 msgid "Reporting"
 msgstr "Rapportering"
+
+#: actions/action_admin.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Dependent actions"
+msgstr "Seneste handlinger"
+
+#: actions/action_admin.py
+msgid "Dependencies"
+msgstr ""
 
 #: actions/action_admin_mixins.py
 #, python-format
@@ -444,6 +454,12 @@ msgid "Related actions"
 msgstr "relaterede handlinger"
 
 #: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Action schedules"
+msgid "Action dependencies"
+msgstr "Handlingsplaner"
+
+#: actions/blocks/action_content.py
 msgid "Full width"
 msgstr "Fuld bredde"
 
@@ -718,9 +734,10 @@ msgstr "Implementering"
 msgid "identifier"
 msgstr "identifikator"
 
-#: actions/export.py actions/models/action.py actions/models/attributes.py
-#: actions/models/category.py actions/models/plan.py feedback/models.py
-#: indicators/models.py orgs/models.py reports/models.py
+#: actions/export.py actions/models/action.py actions/models/action_deps.py
+#: actions/models/attributes.py actions/models/category.py
+#: actions/models/plan.py feedback/models.py indicators/models.py
+#: orgs/models.py reports/models.py
 msgid "name"
 msgstr "navn"
 
@@ -920,6 +937,16 @@ msgstr "afløst af"
 #: actions/models/action.py
 msgid "Set if this action is superseded by another action"
 msgstr "Indstil hvis denne handling er afløst af en anden handling"
+
+#: actions/models/action.py
+msgid "Role in dependencies"
+msgstr ""
+
+#: actions/models/action.py
+#, fuzzy
+#| msgid "Set if this action is merged with another action"
+msgid "Set if this action has the same role in all its dependency relationships with other actions"
+msgstr "Indstil hvis denne handling er sammenkoblet med en anden handling"
 
 #: actions/models/action.py
 msgctxt "partitive"
@@ -1217,6 +1244,22 @@ msgstr "Godkend"
 #| msgid "Save changes"
 msgid "Request changes"
 msgstr "Gem ændringer"
+
+#: actions/models/action_deps.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Preceding action"
+msgstr "Seneste handlinger"
+
+#: actions/models/action_deps.py
+#, fuzzy
+#| msgid "Recent actions"
+msgid "Dependent action"
+msgstr "Seneste handlinger"
+
+#: actions/models/action_deps.py
+msgid "Maximum dependency chain length exceeded."
+msgstr ""
 
 #: actions/models/attributes.py
 msgid "Ordered choice"
@@ -1725,7 +1768,9 @@ msgid "parent"
 msgstr "forælder"
 
 #: actions/models/plan.py
-msgid "The primary action classification"
+#, fuzzy
+#| msgid "The primary action classification"
+msgid "Primary action classification"
 msgstr "Den primære handlingsklassifikation"
 
 #: actions/models/plan.py
@@ -1733,7 +1778,9 @@ msgid "Used for primary navigation and grouping of actions"
 msgstr "Bruges til primær navigation og gruppering af handlinger"
 
 #: actions/models/plan.py
-msgid "A secondary action classification"
+#, fuzzy
+#| msgid "A secondary action classification"
+msgid "Secondary action classification"
 msgstr "En sekundær handlingsklassifikation"
 
 #: actions/models/plan.py
@@ -2036,6 +2083,12 @@ msgstr "Handlingsindvirkninger"
 
 #: actions/wagtail_admin.py
 msgid "Action schedules"
+msgstr "Handlingsplaner"
+
+#: actions/wagtail_admin.py
+#, fuzzy
+#| msgid "Action schedules"
+msgid "Action dependency roles"
 msgstr "Handlingsplaner"
 
 #: actions/wagtail_admin.py
@@ -5052,9 +5105,6 @@ msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke
 
 #~ msgid "has goals"
 #~ msgstr "har mål"
-
-#~ msgid "Recent actions"
-#~ msgstr "Seneste handlinger"
 
 #~ msgid "My actions"
 #~ msgstr "Mine handlinger"

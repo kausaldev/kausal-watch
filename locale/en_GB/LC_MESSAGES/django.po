@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 17:47+0200\n"
+"POT-Creation-Date: 2024-03-23 16:05+0100\n"
 "PO-Revision-Date: 2020-09-07 15:50+0000\n"
 "Last-Translator: Bernhard Bliem, 2022\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/kausal-tech/teams/113123/en_GB/)\n"
@@ -105,6 +105,14 @@ msgstr ""
 
 #: actions/action_admin.py
 msgid "Reporting"
+msgstr ""
+
+#: actions/action_admin.py
+msgid "Dependent actions"
+msgstr ""
+
+#: actions/action_admin.py
+msgid "Dependencies"
 msgstr ""
 
 #: actions/action_admin_mixins.py
@@ -400,6 +408,10 @@ msgid "Related actions"
 msgstr ""
 
 #: actions/blocks/action_content.py
+msgid "Action dependencies"
+msgstr ""
+
+#: actions/blocks/action_content.py
 msgid "Full width"
 msgstr ""
 
@@ -656,9 +668,10 @@ msgstr ""
 msgid "identifier"
 msgstr ""
 
-#: actions/export.py actions/models/action.py actions/models/attributes.py
-#: actions/models/category.py actions/models/plan.py feedback/models.py
-#: indicators/models.py orgs/models.py reports/models.py
+#: actions/export.py actions/models/action.py actions/models/action_deps.py
+#: actions/models/attributes.py actions/models/category.py
+#: actions/models/plan.py feedback/models.py indicators/models.py
+#: orgs/models.py reports/models.py
 msgid "name"
 msgstr ""
 
@@ -849,6 +862,14 @@ msgstr ""
 
 #: actions/models/action.py
 msgid "Set if this action is superseded by another action"
+msgstr ""
+
+#: actions/models/action.py
+msgid "Role in dependencies"
+msgstr ""
+
+#: actions/models/action.py
+msgid "Set if this action has the same role in all its dependency relationships with other actions"
 msgstr ""
 
 #: actions/models/action.py
@@ -1140,6 +1161,18 @@ msgstr ""
 
 #: actions/models/action.py
 msgid "Request changes"
+msgstr ""
+
+#: actions/models/action_deps.py
+msgid "Preceding action"
+msgstr ""
+
+#: actions/models/action_deps.py
+msgid "Dependent action"
+msgstr ""
+
+#: actions/models/action_deps.py
+msgid "Maximum dependency chain length exceeded."
 msgstr ""
 
 #: actions/models/attributes.py
@@ -1617,7 +1650,7 @@ msgstr ""
 #: actions/models/plan.py
 #, fuzzy
 #| msgid "primary organization"
-msgid "The primary action classification"
+msgid "Primary action classification"
 msgstr "primary organisation"
 
 #: actions/models/plan.py
@@ -1627,7 +1660,7 @@ msgstr ""
 #: actions/models/plan.py
 #, fuzzy
 #| msgid "usable for action categorization"
-msgid "A secondary action classification"
+msgid "Secondary action classification"
 msgstr "usable for action categorisation"
 
 #: actions/models/plan.py
@@ -1909,6 +1942,10 @@ msgstr ""
 
 #: actions/wagtail_admin.py
 msgid "Action schedules"
+msgstr ""
+
+#: actions/wagtail_admin.py
+msgid "Action dependency roles"
 msgstr ""
 
 #: actions/wagtail_admin.py

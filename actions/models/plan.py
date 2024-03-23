@@ -255,13 +255,13 @@ class Plan(ClusterableModel, ModelWithPrimaryLanguage):
         # null=False would be nice, but we need to avoid on_delete=CASCADE and use on_delete=SET_NULL instead
         'actions.CategoryType', blank=False, null=True, on_delete=models.SET_NULL,
         related_name='primary_classification_for_plan',
-        verbose_name=_('The primary action classification'),
+        verbose_name=_('Primary action classification'),
         help_text=_('Used for primary navigation and grouping of actions')
     )
     secondary_action_classification = models.OneToOneField(
         'actions.CategoryType', blank=True, null=True, on_delete=models.SET_NULL,
         related_name='secondary_classification_for_plan',
-        verbose_name=_('A secondary action classification'),
+        verbose_name=_('Secondary action classification'),
         help_text=(_(
             'Leave empty unless specifically required. Action filters based on this category are displayed '
             'more prominently than filters of other categories.'
