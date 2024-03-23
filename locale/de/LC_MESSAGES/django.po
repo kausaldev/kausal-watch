@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-23 16:05+0100\n"
-"PO-Revision-Date: 2024-03-14 15:57+0000\n"
-"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/"
-">\n"
+"PO-Revision-Date: 2024-03-23 18:20+0000\n"
+"Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: actions/action_admin.py
 msgid "There is already an action with this identifier."
@@ -111,13 +111,12 @@ msgid "Reporting"
 msgstr "Berichterstattung"
 
 #: actions/action_admin.py
-#, fuzzy
 msgid "Dependent actions"
-msgstr "Zusammengeführte Maßnahmen"
+msgstr "Abhängige Maßnahmen"
 
 #: actions/action_admin.py
 msgid "Dependencies"
-msgstr ""
+msgstr "Abhängigkeiten"
 
 #: actions/action_admin_mixins.py
 #, python-format
@@ -425,9 +424,8 @@ msgid "Related actions"
 msgstr "Verbundene Maßnahmen"
 
 #: actions/blocks/action_content.py
-#, fuzzy
 msgid "Action dependencies"
-msgstr "Maßnahmenzeitpläne"
+msgstr "Maßnahmenabhängigkeiten"
 
 #: actions/blocks/action_content.py
 msgid "Full width"
@@ -892,15 +890,15 @@ msgstr ""
 
 #: actions/models/action.py
 msgid "Role in dependencies"
-msgstr ""
+msgstr "Rolle in Abhängigkeiten"
 
 #: actions/models/action.py
-#, fuzzy
 msgid ""
 "Set if this action has the same role in all its dependency relationships "
 "with other actions"
 msgstr ""
-"Setzen, wenn diese Maßnahme mit einer anderen Maßnahme zusammengeführt ist"
+"Setzen, wenn diese Maßnahme in allen ihren Abhängigkeitsbeziehungen mit "
+"anderen Maßnahmen die gleiche Rolle hat"
 
 #: actions/models/action.py
 msgctxt "partitive"
@@ -1203,18 +1201,16 @@ msgid "Request changes"
 msgstr "Änderungen anfordern"
 
 #: actions/models/action_deps.py
-#, fuzzy
 msgid "Preceding action"
-msgstr "verbundene Maßnahmen"
+msgstr "Vorangehende Maßnahme"
 
 #: actions/models/action_deps.py
-#, fuzzy
 msgid "Dependent action"
-msgstr "Zusammengeführte Maßnahmen"
+msgstr "Abhängige Maßnahme"
 
 #: actions/models/action_deps.py
 msgid "Maximum dependency chain length exceeded."
-msgstr ""
+msgstr "Maximale Länge der Abhängigkeitskette überschritten."
 
 #: actions/models/attributes.py
 msgid "Ordered choice"
@@ -1748,18 +1744,16 @@ msgid "parent"
 msgstr "Übergeordneter Plan"
 
 #: actions/models/plan.py
-#, fuzzy
 msgid "Primary action classification"
-msgstr "Die primäre Maßnahmenklassifizierung"
+msgstr "Primäre Maßnahmenklassifizierung"
 
 #: actions/models/plan.py
 msgid "Used for primary navigation and grouping of actions"
 msgstr "Verwendet für primäre Navigation und Gruppieren von Maßnahmen"
 
 #: actions/models/plan.py
-#, fuzzy
 msgid "Secondary action classification"
-msgstr "Eine sekundäre Maßnahmenklassifizierung"
+msgstr "Sekundäre Maßnahmenklassifizierung"
 
 #: actions/models/plan.py
 msgid ""
@@ -2112,9 +2106,8 @@ msgid "Action schedules"
 msgstr "Maßnahmenzeitpläne"
 
 #: actions/wagtail_admin.py
-#, fuzzy
 msgid "Action dependency roles"
-msgstr "Maßnahmenzeitpläne"
+msgstr "Maßnahmenabhängigkeitsrollen"
 
 #: actions/wagtail_admin.py
 msgid "Action classifications"
