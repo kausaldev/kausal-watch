@@ -731,8 +731,8 @@ class CategoryNode(ResolveShortDescriptionFromLeadParagraphShim, AttributesMixin
     )
     def resolve_icon_svg_url(root: Category, info):
         icon = root.get_icon(get_language())
-        if icon and icon.svg:
-            return info.context.build_absolute_uri(icon.svg.file.url)
+        if icon and icon.image.filename.endswith('.svg'):
+            return info.context.build_absolute_uri(icon.image.file.url)
         return None
 
     @staticmethod
@@ -769,8 +769,8 @@ class CommonCategoryNode(ResolveShortDescriptionFromLeadParagraphShim, DjangoNod
     @staticmethod
     def resolve_icon_svg_url(root, info):
         icon = root.get_icon(get_language())
-        if icon and icon.svg:
-            return info.context.build_absolute_uri(icon.svg.file.url)
+        if icon and icon.image.filename.endswith('.svg'):
+            return info.context.build_absolute_uri(icon.image.file.url)
         return None
 
     @staticmethod
