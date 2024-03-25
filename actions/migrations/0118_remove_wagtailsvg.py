@@ -12,22 +12,22 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveConstraint(
-            model_name='categoryicon',
-            name='actions_categoryicon_svg_xor_image',
-        ),
-        migrations.RemoveConstraint(
-            model_name='commoncategoryicon',
-            name='actions_commoncategoryicon_svg_xor_image',
-        ),
-        migrations.RemoveField(
-            model_name='categoryicon',
-            name='svg',
-        ),
-        migrations.RemoveField(
-            model_name='commoncategoryicon',
-            name='svg',
-        ),
+        # migrations.RemoveConstraint(
+        #     model_name='categoryicon',
+        #     name='actions_categoryicon_svg_xor_image',
+        # ),
+        # migrations.RemoveConstraint(
+        #     model_name='commoncategoryicon',
+        #     name='actions_commoncategoryicon_svg_xor_image',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='categoryicon',
+        #     name='svg',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='commoncategoryicon',
+        #     name='svg',
+        # ),
         migrations.AlterField(
             model_name='categoryicon',
             name='image',

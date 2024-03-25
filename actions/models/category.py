@@ -20,7 +20,6 @@ from modeltrans.manager import MultilingualManager
 from modeltrans.translator import get_i18n_field
 from modeltrans.utils import get_available_languages
 from wagtail.models import Page, Collection
-from wagtailsvg.models import Svg  # type: ignore
 
 from ..attributes import AttributeFieldPanel, AttributeType
 from .attributes import AttributeType as AttributeTypeModel, ModelWithAttributes
@@ -634,26 +633,12 @@ class Category(ModelWithAttributes, CategoryBase, ClusterableModel, PlanRelatedM
 
 
 class Icon(models.Model):
-    # When subclassing, remember to set Meta.constraints = Icon.Meta.constraints
-    svg = models.ForeignKey(Svg, blank=True, null=True, on_delete=models.CASCADE, related_name='+')
-    image = models.ForeignKey('images.AplansImage', blank=True, null=True, on_delete=models.CASCADE, related_name='+')
+    image = models.ForeignKey('images.AplansImage', on_delete=models.CASCADE, related_name='+')
     language = models.CharField(max_length=20, choices=get_supported_languages(), null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def clean(self):
-        if (self.svg and self.image) or (not self.svg and not self.image):
-            error = _('Either SVG or image must be set')
-            raise ValidationError({'svg': error, 'image': error})
-
     class Meta:
         abstract = True
-        constraints = [
-            # svg XOR image must be set
-            models.CheckConstraint(
-                check=(Q(svg__isnull=True) & Q(image__isnull=False)) | (Q(svg__isnull=False) & Q(image__isnull=True)),
-                name='%(app_label)s_%(class)s_svg_xor_image'
-            ),
-        ]
 
 
 class CommonCategoryIcon(Icon):
@@ -664,7 +649,6 @@ class CommonCategoryIcon(Icon):
 
     class Meta:
         unique_together = (('common_category', 'language'),)
-        constraints = Icon.Meta.constraints
 
     def __str__(self):
         return '%s [%s]' % (self.common_category, self.language)
@@ -675,7 +659,6 @@ class CategoryIcon(Icon):
 
     class Meta:
         unique_together = (('category', 'language'),)
-        constraints = Icon.Meta.constraints
 
     def __str__(self):
         return '%s [%s]' % (self.category, self.language)

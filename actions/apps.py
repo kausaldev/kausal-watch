@@ -11,9 +11,6 @@ collections.Iterable = collections.abc.Iterable
 collections.Mapping = collections.abc.Mapping
 
 _wagtail_image_chooser_viewset_permission_policy = None
-_wagtailsvg_get_unfiltered_object_list = None
-_wagtailsvg_get_queryset = None
-_wagtailsvg_list_filter = None
 _wagtail_get_base_snippet_action_menu_items = None
 
 
@@ -40,43 +37,6 @@ class CollectionFilter(SimpleListFilter):
 def get_unfiltered_object_list(self):
     collections = _get_collections(self.request.user)
     return self.model.objects.filter(collection__in=collections)
-
-
-def get_queryset(self, request):
-    from wagtailsvg.wagtail_hooks import SvgModelAdmin
-    qs = super(SvgModelAdmin, self).get_queryset(request)
-    collections = _get_collections(request.user)
-    return qs.filter(collection__in=collections)
-
-
-def monkeypatch_svg_chooser():
-    from wagtail.admin.forms.models import WagtailAdminModelForm
-    from wagtailsvg.views import SvgModelChooserMixin
-    from wagtailsvg.models import Svg
-    from wagtailsvg.wagtail_hooks import SvgModelAdmin
-    global _wagtailsvg_get_unfiltered_object_list
-    global _wagtailsvg_get_queryset
-    global _wagtailsvg_list_filter
-
-    class SvgForm(WagtailAdminModelForm):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            collections = _get_collections(kwargs['for_user'])
-            self.fields['collection'].queryset = self.fields['collection'].queryset.filter(pk__in=collections)
-
-    if _wagtailsvg_get_unfiltered_object_list is None:
-        _wagtailsvg_get_unfiltered_object_list = SvgModelChooserMixin.get_unfiltered_object_list
-        SvgModelChooserMixin.get_unfiltered_object_list = get_unfiltered_object_list
-
-    if _wagtailsvg_get_queryset is None:
-        _wagtailsvg_get_queryset = SvgModelAdmin.get_queryset
-        SvgModelAdmin.get_queryset = get_queryset
-
-    if _wagtailsvg_list_filter is None:
-        _wagtailsvg_list_filter = SvgModelAdmin.list_filter
-        SvgModelAdmin.list_filter = (CollectionFilter,)
-
-    Svg.base_form_class = SvgForm
 
 
 def monkeypatch_image_chooser_viewset():
@@ -203,7 +163,6 @@ class ActionsConfig(AppConfig):
 
     def ready(self):
         # monkeypatch filtering of Collections
-        monkeypatch_svg_chooser()
         monkeypatch_image_chooser_viewset()
         monkeypatch_snippet_action_menu()
         import actions.signals

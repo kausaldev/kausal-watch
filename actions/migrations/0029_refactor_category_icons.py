@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('images', '0003_common_categories'),
-        ('wagtailsvg', '0004_remove_svg_edit_code'),
+        # ('wagtailsvg', '0004_remove_svg_edit_code'),
         ('actions', '0028_common_category_icon_fields'),
     ]
 
@@ -24,16 +24,16 @@ class Migration(migrations.Migration):
             name='language',
             field=models.CharField(blank=True, choices=[('fi', 'Finnish'), ('en', 'English'), ('sv', 'Swedish'), ('de', 'German')], max_length=20, null=True),
         ),
-        migrations.AddField(
-            model_name='categoryicon',
-            name='svg',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='wagtailsvg.svg'),
-        ),
-        migrations.AddField(
-            model_name='commoncategoryicon',
-            name='svg',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='wagtailsvg.svg'),
-        ),
+        # migrations.AddField(
+        #     model_name='categoryicon',
+        #     name='svg',
+        #     field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='wagtailsvg.svg'),
+        # ),
+        # migrations.AddField(
+        #     model_name='commoncategoryicon',
+        #     name='svg',
+        #     field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='wagtailsvg.svg'),
+        # ),
         migrations.AddField(
             model_name='commoncategoryicon',
             name='updated_at',
@@ -62,12 +62,12 @@ class Migration(migrations.Migration):
             model_name='categoryicon',
             name='data',
         ),
-        migrations.AddConstraint(
-            model_name='categoryicon',
-            constraint=models.CheckConstraint(check=models.Q(models.Q(('svg__isnull', True), ('image__isnull', False)), models.Q(('svg__isnull', False), ('image__isnull', True)), _connector='OR'), name='actions_categoryicon_svg_xor_image'),
-        ),
-        migrations.AddConstraint(
-            model_name='commoncategoryicon',
-            constraint=models.CheckConstraint(check=models.Q(models.Q(('svg__isnull', True), ('image__isnull', False)), models.Q(('svg__isnull', False), ('image__isnull', True)), _connector='OR'), name='actions_commoncategoryicon_svg_xor_image'),
-        ),
+        # migrations.AddConstraint(
+        #     model_name='categoryicon',
+        #     constraint=models.CheckConstraint(check=models.Q(models.Q(('svg__isnull', True), ('image__isnull', False)), models.Q(('svg__isnull', False), ('image__isnull', True)), _connector='OR'), name='actions_categoryicon_svg_xor_image'),
+        # ),
+        # migrations.AddConstraint(
+        #     model_name='commoncategoryicon',
+        #     constraint=models.CheckConstraint(check=models.Q(models.Q(('svg__isnull', True), ('image__isnull', False)), models.Q(('svg__isnull', False), ('image__isnull', True)), _connector='OR'), name='actions_commoncategoryicon_svg_xor_image'),
+        # ),
     ]

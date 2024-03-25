@@ -11,7 +11,6 @@ from wagtail_modeladmin.menus import ModelAdminMenuItem
 from wagtail_modeladmin.options import modeladmin_register
 from wagtail_modeladmin.views import DeleteView
 from wagtailorderable.modeladmin.mixins import OrderableMixin
-from wagtailsvg.edit_handlers import SvgChooserPanel
 
 from .models import Category, CategoryType, CommonCategory, CommonCategoryType
 from admin_site.wagtail import (
@@ -394,7 +393,6 @@ class CategoryAdmin(OrderableMixin, AplansModelAdmin):
             panels.append(InlinePanel('icons', heading=_("Icons"), panels=[
                 FieldPanel('language'),
                 FieldPanel('image'),
-                SvgChooserPanel('svg'),
             ]))
 
         tabs = [ObjectList(panels, heading=_('Basic information'))]
@@ -598,7 +596,6 @@ class CommonCategoryAdmin(OrderableMixin, AplansModelAdmin):
             panels.append(InlinePanel('icons', heading=_("Icons"), panels=[
                 FieldPanel('language'),
                 FieldPanel('image'),
-                SvgChooserPanel('svg'),
             ]))
 
         tabs = [ObjectList(panels, heading=_('Basic information'))]

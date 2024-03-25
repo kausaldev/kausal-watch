@@ -58,7 +58,6 @@ drf-nested-routers
 celery
 drf-spectacular
 wagtailgeowidget
-wagtailsvg
 django-countries
 tzdata
 django-storages
