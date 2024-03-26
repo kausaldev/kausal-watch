@@ -743,7 +743,8 @@ class CategoryNode(ResolveShortDescriptionFromLeadParagraphShim, AttributesMixin
     @gql_optimizer.resolver_hints(
         model_field='lead_paragraph',
         select_related=('type__plan'),
-        only=('lead_paragraph', 'i18n', 'type__plan__primary_language'),
+        only=('lead_paragraph', 'i18n', 'type__plan__primary_language',
+              'type__plan__primary_language_lowercase'),
     )
     def resolve_lead_paragraph(root: Category, info):
         return CategoryNode._resolve_field_with_fallback_to_common(root, 'lead_paragraph_i18n')
@@ -945,7 +946,7 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     @gql_optimizer.resolver_hints(
         model_field='name',
         select_related=('plan'),
-        only=('name', 'i18n', 'plan__primary_language'),
+        only=('name', 'i18n', 'plan__primary_language', 'plan__primary_language_lowercase'),
     )
     def resolve_name(root: Action, info, hyphenated=False):
         name = root.name_i18n
@@ -967,7 +968,7 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
 
     @staticmethod
     @gql_optimizer.resolver_hints(
-        model_field=('lead_paragraph', 'i18n', 'plan__primary_language'),
+        model_field=('lead_paragraph', 'i18n', 'plan__primary_language', 'plan__primary_language_lowercase'),
     )
     def resolve_lead_paragraph(root: Action, info):
         return root.lead_paragraph_i18n
