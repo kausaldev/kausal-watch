@@ -817,6 +817,7 @@ class ImpactGroupNode(DjangoNode):
 class ImpactGroupActionNode(DjangoNode):
     class Meta:
         model = ImpactGroupAction
+        fields = public_fields(ImpactGroupAction)
 
 
 class MonitoringQualityPointNode(DjangoNode):
@@ -826,11 +827,13 @@ class MonitoringQualityPointNode(DjangoNode):
 
     class Meta:
         model = MonitoringQualityPoint
+        fields = public_fields(MonitoringQualityPoint)
 
 
 class ActionTaskNode(DjangoNode):
     class Meta:
         model = ActionTask
+        fields = public_fields(ActionTask)
 
     @staticmethod
     @gql_optimizer.resolver_hints(
