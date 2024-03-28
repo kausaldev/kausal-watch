@@ -24,7 +24,7 @@ class DocumentationRootPage(Page):
 class DocumentationPage(Page):
     body = StreamField([
         ('text', blocks.RichTextBlock(label=_('Text'))),
-    ], use_json_field=True, blank=True)
+    ], blank=True)
     css_style = models.CharField(
         max_length=1000, blank=True, verbose_name=_('CSS style'),
         help_text=_('CSS style to be applied to the container of the body'),

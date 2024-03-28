@@ -265,8 +265,8 @@ class Organization(index.Indexed, Node, ModelWithPrimaryLanguage, gis_models.Mod
     public_fields = ['id', 'uuid', 'name', 'abbreviation', 'internal_abbreviation', 'parent']
 
     search_fields = [
-        index.AutocompleteField('name', partial_match=True),
-        index.AutocompleteField('abbreviation', partial_match=True),
+        index.AutocompleteField('name'),
+        index.AutocompleteField('abbreviation'),
     ]
 
     MODEL_ADMIN_CLASS = 'orgs.wagtail_admin.OrganizationAdmin'  # for AdminButtonsMixin

@@ -30,6 +30,7 @@
         $(function() {
             /* Make user confirm before leaving the editor if there are unsaved changes */
             {% trans "This page has unsaved changes." as confirmation_message %}
+            {# FIXME: enableDirtyFormCheck is deprecated #}
             enableDirtyFormCheck(
                 'div.content > form',
                 {

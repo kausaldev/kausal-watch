@@ -10,7 +10,7 @@ from wagtail.search.backends.elasticsearch7 import (
     Elasticsearch7SearchQueryCompiler, Elasticsearch7AutocompleteQueryCompiler,
     Elasticsearch7Index
 )
-from wagtail.search.backends.elasticsearch5 import (
+from wagtail.search.backends.elasticsearch7 import (
     ElasticsearchIndexRebuilder
 )
 
