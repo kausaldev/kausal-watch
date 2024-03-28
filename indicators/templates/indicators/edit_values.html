@@ -410,7 +410,7 @@
                             api.refreshCells(node);
                         });
                         saveChangesButton.addClass('disabled')
-                        addMessage('success', '{% icon name="success" class_name="messages-icon"|escape %}{% trans "Changes were saved"|escape %}');
+                        addMessage('success', '{% icon name="success" classname="messages-icon"|escape %}{% trans "Changes were saved"|escape %}');
                         const clearMessages = setTimeout(function() {
                             $('.messages').empty();
                             clearTimeout(clearMessages);

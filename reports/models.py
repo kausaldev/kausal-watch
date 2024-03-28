@@ -114,7 +114,7 @@ class NoRevisionSave(Exception):
 class ReportType(models.Model, PlanRelatedModel):
     plan = models.ForeignKey('actions.Plan', on_delete=models.CASCADE, related_name='report_types')
     name = models.CharField(max_length=100, verbose_name=_('name'))
-    fields = StreamField(block_types=ReportFieldBlock(), null=True, blank=True, use_json_field=True)
+    fields = StreamField(block_types=ReportFieldBlock(), null=True, blank=True)
 
     public_fields = [
         'id', 'plan', 'name', 'reports',
@@ -158,7 +158,7 @@ class Report(models.Model, PlanRelatedModel):
 
     # The fields are copied from the report type at the time of completion of this report. These are not currently used anywhere but we
     # might need them in the future to take care of certain edge cases wrt. schema changes
-    fields = StreamField(block_types=ReportFieldBlock(), null=True, blank=True, use_json_field=True)
+    fields = StreamField(block_types=ReportFieldBlock(), null=True, blank=True)
 
     public_fields = [
         'type', 'name', 'identifier', 'start_date', 'end_date', 'fields',
