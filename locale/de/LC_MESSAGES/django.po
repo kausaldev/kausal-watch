@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-23 16:05+0100\n"
-"PO-Revision-Date: 2024-03-23 18:20+0000\n"
+"PO-Revision-Date: 2024-04-04 18:20+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
 "\n"
@@ -167,7 +167,7 @@ msgstr "%(model_name)s '%(object)s' erstellt und veröffentlicht."
 #: actions/action_admin_mixins.py
 #, python-format
 msgid "%(model_name)s '%(object)s' has been submitted for moderation."
-msgstr "%(model_name)s%(object)s ' wurde zur Moderation eingereicht."
+msgstr "%(model_name)s '%(object)s' wurde zur Moderation eingereicht."
 
 #: actions/action_admin_mixins.py
 #, python-format
