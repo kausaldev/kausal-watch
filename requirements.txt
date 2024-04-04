@@ -426,7 +426,7 @@ wagtail==6.0.1
     #   wagtailgeowidget
 wagtail-autocomplete==0.9.0
     # via -r requirements.in
-wagtail-generic-chooser==0.5.1
+wagtail-generic-chooser==0.6.1
     # via -r requirements.in
 wagtail-grapple==0.24.0
     # via -r requirements.in
