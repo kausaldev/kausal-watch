@@ -113,3 +113,7 @@ section[role="tabpanel"] .help-block {
 .modeladmin .listing tbody tr:hover ul.actions {
   visibility: visible;
 }
+/* Fix footer in, e.g., custom React-based action index view since Wagtail upgrade */
+.footer__container--hidden {
+  display: none;
+}
