@@ -98,3 +98,13 @@ section[role="tabpanel"] .help-block {
 .w-field__help .help {
   color: var(--w-color-grey-600);
 }
+
+/* Modeladmin fixes */
+.modeladmin .listing tbody tr ul.actions {
+  visibility: hidden;
+  display: inline-block;
+  min-width: 9em;
+  white-space: normal;
+  overflow-wrap: break-word;
+  height: auto;
+}
