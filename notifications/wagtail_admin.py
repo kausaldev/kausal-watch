@@ -27,7 +27,7 @@ class BaseTemplateAdmin(AplansModelAdmin):
     add_to_settings_menu = True
     create_view_class = AplansCreateView
     edit_view_class = BaseTemplateEditView
-    menu_icon = 'warning'  # FIXME
+    menu_icon = 'fontawesome-bell'
     menu_label = _('Notifications')
 
     panels = [

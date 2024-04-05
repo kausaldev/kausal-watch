@@ -26,7 +26,7 @@ class IndicatorChooserMixin(ModelChooserMixin):
 class IndicatorChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = IndicatorChooserMixin
 
-    icon = 'user'
+    icon = 'kausal-indicator'
     model = Indicator
     page_title = _("Choose an indicator")
     per_page = 30
