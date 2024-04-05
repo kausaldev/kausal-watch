@@ -211,6 +211,7 @@ class AdminButton(graphene.ObjectType):
     classname = graphene.String(required=True)
     title = graphene.String(required=False)
     target = graphene.String(required=False)
+    icon = graphene.String(required=False)
 
 
 class WorkflowStateEnum(Enum):

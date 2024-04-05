@@ -107,4 +107,9 @@ section[role="tabpanel"] .help-block {
   white-space: normal;
   overflow-wrap: break-word;
   height: auto;
+  float: inline-start;
+}
+/* Need to repeat this here from modeladmin's CSS because our custom React-based components won't use that file */
+.modeladmin .listing tbody tr:hover ul.actions {
+  visibility: visible;
 }
