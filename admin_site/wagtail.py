@@ -238,7 +238,14 @@ class CustomizableBuiltInPlanFilteredFieldPanel(FieldPanel):  # Ugh...
 
 class AplansButtonHelper(ButtonHelper):
     request: WatchAdminRequest
-    edit_button_classnames = ['button-primary', 'icon', 'icon-edit']
+    edit_button_classnames = ['button-primary']
+
+    def edit_button(self, pk, classnames_add=None, classnames_exclude=None):
+        button = super().edit_button(pk, classnames_add, classnames_exclude)
+        return {
+            **button,
+            'icon': 'edit',
+        }
 
     def view_live_button(self, obj, classnames_add=None, classnames_exclude=None):
         if obj is None or not hasattr(obj, 'get_view_url'):
@@ -255,10 +262,11 @@ class AplansButtonHelper(ButtonHelper):
             'url': url,
             'label': _('View live'),
             'classname': self.finalise_classname(
-                classnames_add=classnames_add + ['icon', 'icon-view'],
+                classnames_add=classnames_add,
                 classnames_exclude=classnames_exclude
             ),
             'title': _('View %s live') % self.verbose_name,
+            'icon': 'view',
             'target': '_blank',
         }
 
