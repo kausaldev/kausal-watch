@@ -100,7 +100,7 @@ class PlanCreateView(AplansCreateView):
 
 class PlanAdmin(AplansModelAdmin):
     model = Plan
-    menu_icon = 'fa-briefcase'
+    menu_icon = 'kausal-plan'
     menu_label = _('Plans')
     menu_order = 500
     list_display = ('name',)
@@ -334,7 +334,6 @@ class ActivePlanAdmin(PlanAdmin):
     edit_view_class = ActivePlanEditView
     permission_helper_class = ActivePlanPermissionHelper
     menu_label = _('Plan')
-    menu_icon = 'kausal-plan'
     add_to_settings_menu = True
 
     def get_menu_item(self, order=None):
@@ -412,8 +411,6 @@ class ActivePlanFeaturesEditView(SuccessUrlEditPageMixin, EditView):
 class ActivePlanFeaturesAdmin(PlanFeaturesAdmin):
     edit_view_class = ActivePlanFeaturesEditView
     permission_helper_class = ActivePlanPermissionHelper
-    menu_label = _('Plan features')
-    menu_icon = 'circle-check'
     add_to_settings_menu = True
 
     def get_menu_item(self, order=None):
@@ -426,7 +423,7 @@ modeladmin_register(ActivePlanFeaturesAdmin)
 
 class NotificationSettingsAdmin(AplansModelAdmin):
     model = NotificationSettings
-    menu_icon = 'fa-bell'
+    menu_icon = 'fontawesome-bell'
     menu_label = _('Plan notification settings')
     menu_order = 502
 
@@ -465,7 +462,6 @@ class ActivePlanNotificationSettingsAdmin(NotificationSettingsAdmin):
     edit_view_class = ActivePlanNotificationSettingsEditView
     permission_helper_class = ActivePlanPermissionHelper
     menu_label = _('Plan notification settings')
-    menu_icon = 'warning'  # FIXME
     add_to_settings_menu = True
 
     def get_menu_item(self, order=None):

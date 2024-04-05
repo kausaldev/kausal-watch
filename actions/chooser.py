@@ -36,7 +36,7 @@ class CategoryChooserMixin(WatchModelChooserBase):
 class CategoryChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = CategoryChooserMixin
 
-    icon = 'user'
+    icon = 'kausal-category'
     model = Category
     page_title = _("Choose a category")
     per_page = 30
@@ -70,7 +70,7 @@ class CategoryTypeChooserMixin(WatchModelChooserBase):
 class CategoryTypeChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = CategoryTypeChooserMixin
 
-    icon = 'folder-open-inverse'
+    icon = 'kausal-category'
     model = CategoryType
     page_title = _("Choose a category type")
     per_page = 30
@@ -107,7 +107,7 @@ class CategoryLevelChooserMixin(ModelChooserMixin):
 class CategoryLevelChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = CategoryLevelChooserMixin
 
-    icon = 'fa-cubes'
+    icon = 'kausal-category'
     model = CategoryLevel
     page_title = _("Choose a category level")
     fields = ['order', 'name']
@@ -151,7 +151,7 @@ class ActionChooserMixin(WatchModelChooserBase):
 class ActionChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = ActionChooserMixin
 
-    icon = 'fa-cubes'
+    icon = 'kausal-action'
     model = Action
     page_title = _("Choose an action")
     per_page = 30
@@ -194,7 +194,7 @@ class PlanChooserMixin(WatchModelChooserBase):
 class PlanChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = PlanChooserMixin
 
-    icon = 'fa-cubes'
+    icon = 'kausal-plan'
     model = Plan
     page_title = _("Choose a plan")
     per_page = 30
@@ -239,7 +239,7 @@ class AttributeTypeChooserMixin(WatchModelChooserBase):
 class AttributeTypeChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = AttributeTypeChooserMixin
 
-    icon = 'folder-open-inverse'
+    icon = 'kausal-attribute'
     model = AttributeType
     page_title = _("Choose a field")
     per_page = 30

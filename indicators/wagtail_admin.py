@@ -114,7 +114,7 @@ class IndicatorPermissionHelper(PermissionHelper):
 
 
 class QuantityChooserViewSet(ModelChooserViewSet):
-    icon = 'user'
+    icon = 'kausal-dimension'  # FIXME
     model = Quantity
     page_title = _("Choose a quantity")
     per_page = 10
