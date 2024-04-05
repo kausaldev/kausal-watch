@@ -39,7 +39,7 @@ class NodeButtonHelper(ButtonHelper):
     def add_child_button(self, pk, **kwargs):
         """Build a add child button, to easily add a child under node."""
         classnames = self.prepare_classnames(
-            start=self.edit_button_classnames + ['icon', 'icon-plus'],
+            start=self.edit_button_classnames,
             add=kwargs.get('classnames_add'),
             exclude=kwargs.get('classnames_exclude')
         )
@@ -47,12 +47,13 @@ class NodeButtonHelper(ButtonHelper):
             'classname': classnames,
             'label': _("Add child"),
             'title': _("Add child under this node"),
+            'icon': 'plus',
             'url': self.url_helper.get_action_url('add_child', quote(pk)),
         }
 
     def edit_subtree_button(self, pk, **kwargs):
         classnames = self.prepare_classnames(
-            start=self.edit_button_classnames + ['icon', 'icon-edit'],
+            start=self.edit_button_classnames,
             add=kwargs.get('classnames_add'),
             exclude=kwargs.get('classnames_exclude')
         )
@@ -60,6 +61,7 @@ class NodeButtonHelper(ButtonHelper):
             'classname': classnames,
             'label': _("Edit subtree"),
             'title': _("Edit subtree rooted at this %s") % self.verbose_name,
+            'icon': 'edit',
             'url': self.url_helper.get_action_url('edit_subtree', quote(pk)),
         }
 
@@ -237,7 +239,7 @@ class OrganizationButtonHelper(NodeButtonHelper):
 
     def include_organization_in_active_plan_button(self, pk, **kwargs):
         classnames = self.prepare_classnames(
-            start=self.edit_button_classnames + ['icon', 'icon-fa-link'],
+            start=self.edit_button_classnames,
             add=kwargs.get('classnames_add'),
             exclude=kwargs.get('classnames_exclude')
         )
@@ -245,12 +247,13 @@ class OrganizationButtonHelper(NodeButtonHelper):
             'classname': classnames,
             'label': _("Include in plan"),
             'title': _("Include this organization in the active plan"),
+            'icon': 'link',
             'url': self.url_helper.get_action_url('include_organization_in_active_plan', quote(pk)),
         }
 
     def exclude_organization_from_active_plan_button(self, pk, **kwargs):
         classnames = self.prepare_classnames(
-            start=self.edit_button_classnames + ['icon', 'icon-fa-unlink'],  # icon-fa-link-slash if we used FA 6
+            start=self.edit_button_classnames,
             add=kwargs.get('classnames_add'),
             exclude=kwargs.get('classnames_exclude')
         )
@@ -258,6 +261,7 @@ class OrganizationButtonHelper(NodeButtonHelper):
             'classname': classnames,
             'label': _("Exclude from plan"),
             'title': _("Exclude this organization from the active plan"),
+            'icon': 'fontawesome-link-slash',
             'url': self.url_helper.get_action_url('exclude_organization_from_active_plan', quote(pk)),
         }
 
