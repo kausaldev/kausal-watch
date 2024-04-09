@@ -17,6 +17,8 @@ asgiref==3.8.1
     #   django
     #   django-cors-headers
     #   django-countries
+async-timeout==4.0.3
+    # via redis
 attrs==23.2.0
     # via
     #   jsonschema
@@ -57,9 +59,7 @@ coreapi==2.3.3
 coreschema==0.0.4
     # via coreapi
 coverage[toml]==7.4.4
-    # via
-    #   coverage
-    #   pytest-cov
+    # via pytest-cov
 cryptography==42.0.5
     # via
     #   -r requirements.in
@@ -73,6 +73,8 @@ defusedxml==0.8.0rc2
     #   python3-openid
     #   social-auth-core
     #   willow
+deprecated==1.2.14
+    # via redis
 diff-match-patch==20230430
     # via django-import-export
 django==5.0.4
@@ -271,6 +273,7 @@ packaging==24.0
     #   plotly
     #   pytest
     #   pytest-factoryboy
+    #   redis
 pillow==10.3.0
     # via
     #   -r requirements.in
@@ -338,7 +341,7 @@ pyyaml==6.0.1
     #   -r requirements.in
     #   drf-spectacular
     #   tablib
-redis==5.0.3
+redis==4.3.4
     # via django-redis
 referencing==0.34.0
     # via
@@ -384,9 +387,7 @@ soupsieve==2.5
 sqlparse==0.4.4
     # via django
 tablib[html,ods,xls,xlsx,yaml]==3.5.0
-    # via
-    #   django-import-export
-    #   tablib
+    # via django-import-export
 telepath==0.3.1
     # via wagtail
 tenacity==8.2.3
@@ -459,6 +460,8 @@ willow[heif]==1.8.0
     # via
     #   wagtail
     #   willow
+wrapt==1.16.0
+    # via deprecated
 xlrd==2.0.1
     # via tablib
 xlsx2csv==0.8.2
