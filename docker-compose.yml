@@ -52,7 +52,7 @@ x-django-build: &django-build
     - STATIC_ROOT
 
 x-common-runtime: &common-runtime
-  restart: 'no'
+  restart: 'unless-stopped'
 
 services:
   db:

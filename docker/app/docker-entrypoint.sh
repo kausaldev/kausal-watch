@@ -32,6 +32,7 @@ if [ "$1" = 'uwsgi' ]; then
         --buffer-size=32768 \
         --static-map /static=/srv/static \
         --static-map /media=/srv/media \
+        --master --no-orphans --harakiri 60 \
         --module aplans.wsgi
 elif [ "$1" = 'celery' ]; then
     exec celery -A aplans "$2" -l INFO
