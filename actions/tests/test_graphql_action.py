@@ -82,10 +82,10 @@ ACTION_FIELDS_WITH_ACTIONS = [
 ]
 
 
-@pytest.mark.parametrize('visibility', itertools.product(('draft', 'public'), repeat=2))
+@pytest.mark.parametrize('visibility', itertools.product(('internal', 'public'), repeat=2))
 def test_action_visibility(graphql_client_query_data, actions_with_relations_factory, visibility):
-    draft_actions, public_actions = actions_with_relations_factory(*visibility)
-    actions = draft_actions + public_actions
+    internal_actions, public_actions = actions_with_relations_factory(*visibility)
+    actions = internal_actions + public_actions
 
     graphql_action_listings = [
         graphql_client_query_data(
