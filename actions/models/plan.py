@@ -61,8 +61,8 @@ TIMEZONES = [(x, x) for x in sorted(zoneinfo.available_timezones(), key=str.lowe
 def get_plan_identifier_from_wildcard_domain(hostname: str, request: WatchRequest | None = None) -> Union[Tuple[str, str], Tuple[None, None]]:
     # Get plan identifier from hostname for development and testing
     parts = hostname.split('.', maxsplit=1)
-    req_wildcards = getattr(request, 'wildcard_domains', []) if request is not None else []
-    wildcard_domains = settings.HOSTNAME_PLAN_DOMAINS + req_wildcards
+    req_wildcards = getattr(request, 'wildcard_domains', None) or []
+    wildcard_domains = (settings.HOSTNAME_PLAN_DOMAINS or []) + req_wildcards
     if len(parts) == 2 and parts[1].lower() in wildcard_domains:
         return (parts[0], parts[1])
     else:
