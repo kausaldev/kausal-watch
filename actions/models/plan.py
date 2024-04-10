@@ -28,7 +28,7 @@ from wagtail.models import Collection, Page, Site, WorkflowTask
 from wagtail.models.i18n import Locale
 from wagtail_localize.operations import TranslationCreator  # type: ignore
 
-from aplans.types import UserOrAnon, WatchRequest
+from aplans.types import UserOrAnon, WatchAPIRequest, WatchRequest
 from aplans.utils import (
     ChoiceArrayField,
     IdentifierField,
@@ -58,10 +58,12 @@ logger = logging.getLogger(__name__)
 TIMEZONES = [(x, x) for x in sorted(zoneinfo.available_timezones(), key=str.lower)]
 
 
-def get_plan_identifier_from_wildcard_domain(hostname: str) -> Union[Tuple[str, str], Tuple[None, None]]:
+def get_plan_identifier_from_wildcard_domain(hostname: str, request: WatchRequest | None = None) -> Union[Tuple[str, str], Tuple[None, None]]:
     # Get plan identifier from hostname for development and testing
     parts = hostname.split('.', maxsplit=1)
-    if len(parts) == 2 and parts[1].lower() in settings.HOSTNAME_PLAN_DOMAINS:
+    req_wildcards = getattr(request, 'wildcard_domains', []) if request is not None else []
+    wildcard_domains = settings.HOSTNAME_PLAN_DOMAINS + req_wildcards
+    if len(parts) == 2 and parts[1].lower() in wildcard_domains:
         return (parts[0], parts[1])
     else:
         return (None, None)
@@ -80,12 +82,12 @@ def get_page_translation(page: Page, fallback=True) -> Page:
 
 
 class PlanQuerySet(models.QuerySet['Plan']):
-    def for_hostname(self, hostname):
+    def for_hostname(self, hostname, request: WatchAPIRequest | None = None):
         hostname = hostname.lower()
         plan_domains = PlanDomain.objects.filter(hostname=hostname)
         lookup = Q(id__in=plan_domains.values_list('plan'))
         # Get plan identifier from hostname for development and testing
-        identifier, _ = get_plan_identifier_from_wildcard_domain(hostname)
+        identifier, _ = get_plan_identifier_from_wildcard_domain(hostname, request=request)
         if identifier:
             lookup |= Q(identifier=identifier)
         return self.filter(lookup)

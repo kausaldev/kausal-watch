@@ -1293,7 +1293,7 @@ class Query:
 
 
     @staticmethod
-    def resolve_plan(root, info, id=None, domain=None, **kwargs):
+    def resolve_plan(root, info: GQLInfo, id=None, domain=None, **kwargs):
         if not id and not domain:
             raise GraphQLError("You must supply either id or domain as arguments to 'plan'")
 
@@ -1301,7 +1301,7 @@ class Query:
         if id:
             qs = qs.filter(identifier=id.lower())
         if domain:
-            qs = qs.for_hostname(domain.lower())
+            qs = qs.for_hostname(domain.lower(), request=info.context)
             info.context._plan_hostname = domain
 
         plan = gql_optimizer.query(qs, info).first()
@@ -1312,9 +1312,9 @@ class Query:
         return plan
 
     @staticmethod
-    def resolve_plans_for_hostname(root, info, hostname: str):
+    def resolve_plans_for_hostname(root, info: GQLInfo, hostname: str):
         info.context._plan_hostname = hostname
-        plans = Plan.objects.for_hostname(hostname.lower())
+        plans = Plan.objects.for_hostname(hostname.lower(), request=info.context)
         return list(gql_optimizer.query(plans, info))
 
     @staticmethod

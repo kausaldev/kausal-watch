@@ -34,6 +34,7 @@ class WatchAdminRequest(AuthenticatedWatchRequest):
 class WatchAPIRequest(WatchRequest):
     user: UserOrAnon
     _referer: str | None
+    wildcard_domains: list[str] | None
 
 
 T = TypeVar('T')

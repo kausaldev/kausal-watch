@@ -33,6 +33,7 @@ SUPPORTED_LANGUAGES = {x[0].lower() for x in settings.LANGUAGES}
 
 PLAN_IDENTIFIER_HEADER = 'x-cache-plan-identifier'
 PLAN_DOMAIN_HEADER = 'x-cache-plan-domain'
+WILDCARD_DOMAIN_HEADER = 'x-wildcard-domains'
 
 
 class APITokenMiddleware:
@@ -182,7 +183,7 @@ class SentryGraphQLView(GraphQLView):
             kwargs['middleware'] = middleware
         super().__init__(*args, **kwargs)
 
-    def get_cache_key(self, request, data, query, variables):
+    def get_cache_key(self, request: WatchAPIRequest, data, query, variables):
         plan_identifier = request.headers.get(PLAN_IDENTIFIER_HEADER)
         plan_domain = request.headers.get(PLAN_DOMAIN_HEADER)
         if not plan_identifier and not plan_domain:
@@ -192,7 +193,7 @@ class SentryGraphQLView(GraphQLView):
         if plan_identifier:
             qs = qs.filter(identifier=plan_identifier)
         if plan_domain:
-            qs = qs.for_hostname(plan_domain)
+            qs = qs.for_hostname(plan_domain, request=request)
         plan = qs.first()
         if plan is None:
             return None
@@ -214,6 +215,9 @@ class SentryGraphQLView(GraphQLView):
     def caching_execute_graphql_request(
             self, span, request: WatchAPIRequest, data, query, variables, operation_name, *args, **kwargs
         ) -> ExecutionResult:
+        wildcard_domains = request.headers.get(WILDCARD_DOMAIN_HEADER)
+        request.wildcard_domains = [d.lower() for d in wildcard_domains.split(',')] if wildcard_domains else None
+
         key = self.get_cache_key(request, data, query, variables)
         span.set_tag('cache_key', key)
         if key:

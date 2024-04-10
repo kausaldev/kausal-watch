@@ -377,6 +377,7 @@ CORS_ALLOW_HEADERS = list(default_cors_headers) + [
     'sentry-trace',
     'x-cache-plan-identifier',
     'x-cache-plan-domain',
+    'x-wildcard-domains',
 ]
 
 #
