@@ -1,5 +1,4 @@
 from __future__ import annotations
-import re
 import typing
 from abc import ABC, abstractmethod
 from dal import autocomplete, forward as dal_forward
@@ -7,9 +6,7 @@ from dataclasses import dataclass
 from django import forms
 from django.db.models import ForeignKey, QuerySet
 from django.contrib.contenttypes.models import ContentType
-from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
-from html import unescape
 from typing import Any, Generic, TypeVar
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
@@ -72,7 +69,9 @@ class AttributeValue(ABC):
         pass
 
     @abstractmethod
-    def __bool__(self) -> bool:
+    def should_exist_in_database(self) -> bool:
+        """If this returns true, committing an attribute will create or update an attribute model instance; otherwise,
+        committing will delete any existing attribute model instance for the respective attribute type."""
         pass
 
     def instantiate_attribute(self, type: AttributeType[T], obj: models.ModelWithAttributes) -> T:
@@ -99,7 +98,7 @@ class OrderedChoiceAttributeValue(AttributeValue):
     def attribute_model_kwargs(self) -> dict[str, Any]:
         return {'choice': self.option}
 
-    def __bool__(self):
+    def should_exist_in_database(self) -> bool:
         return self.option is not None
 
 
@@ -128,7 +127,7 @@ class CategoryChoiceAttributeValue(AttributeValue):
         # persist the categories we just set.
         return instance
 
-    def __bool__(self):
+    def should_exist_in_database(self) -> bool:
         return bool(self.categories)
 
 
@@ -157,7 +156,7 @@ class OptionalChoiceWithTextAttributeValue(AttributeValue):
     def attribute_model_kwargs(self) -> dict[str, Any]:
         return {'choice': self.option, **self.text_vals}
 
-    def __bool__(self):
+    def should_exist_in_database(self) -> bool:
         has_text_in_some_language = any(v for v in self.text_vals.values())
         return bool(self.option or has_text_in_some_language)
 
@@ -177,7 +176,7 @@ class GenericTextAttributeAttributeValue(AttributeValue):
     def attribute_model_kwargs(self) -> dict[str, Any]:
         return self.text_vals
 
-    def __bool__(self):
+    def should_exist_in_database(self) -> bool:
         has_text_in_some_language = any(v for v in self.text_vals.values())
         return has_text_in_some_language
 
@@ -188,7 +187,7 @@ class NumericAttributeValue(AttributeValue):
 
     @classmethod
     def from_serialized_value(cls, value: Any) -> NumericAttributeValue:
-        assert isinstance(value, float)
+        assert value is None or isinstance(value, float)
         return NumericAttributeValue(value=value)
 
     def serialize(self) -> Any:
@@ -197,7 +196,7 @@ class NumericAttributeValue(AttributeValue):
     def attribute_model_kwargs(self) -> dict[str, Any]:
         return {'value': self.value}
 
-    def __bool__(self):
+    def should_exist_in_database(self) -> bool:
         return self.value is not None
 
 
@@ -324,10 +323,10 @@ class AttributeType(ABC, Generic[T]):
         try:
             attribute = self.get_attributes(obj).get()
         except self.ATTRIBUTE_MODEL.DoesNotExist:
-            if attribute_value:
+            if attribute_value.should_exist_in_database():
                 self.create_attribute(obj, attribute_value)
         else:
-            if not attribute_value:
+            if not attribute_value.should_exist_in_database():
                 attribute.delete()
             else:
                 for field_name, value in attribute_value.attribute_model_kwargs().items():
