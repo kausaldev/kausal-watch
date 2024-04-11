@@ -327,7 +327,7 @@ def write_action_summaries(excel_report: ExcelReport, action_df: polars.DataFram
         ))
         row_index += 1
 
-    worksheet = excel_report.workbook.add_worksheet(_('Paginated actions'))
+    worksheet = excel_report.workbook.add_worksheet(_('Profiles'))
     worksheet.set_column(0, MAX_COLUMNS - 1, 16)
     cursor_writer = CursorWriter(
         worksheet,

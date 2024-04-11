@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 16:05+0100\n"
+"POT-Creation-Date: 2024-04-11 12:12+0300\n"
 "PO-Revision-Date: 2020-09-07 15:50+0000\n"
 "Last-Translator: Bernhard Bliem, 2022\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/kausal-tech/teams/113123/en_GB/)\n"
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Postponed"
 msgstr ""
 
-#: actions/action_status_summary.py reports/spreadsheets.py
+#: actions/action_status_summary.py reports/spreadsheets/excel_report.py
 msgid "Unknown"
 msgstr ""
 
@@ -281,7 +281,7 @@ msgid "Cancel moderation"
 msgstr ""
 
 #: actions/apps.py actions/models/plan.py content/models.py
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 #: templates/modeladmin/edit.html
 msgid "Actions"
 msgstr ""
@@ -440,13 +440,13 @@ msgstr ""
 msgid "Label for the column to be used instead of the default"
 msgstr ""
 
-#: actions/blocks/action_dashboard.py reports/spreadsheets.py
+#: actions/blocks/action_dashboard.py reports/spreadsheets/excel_report.py
 msgid "Identifier"
 msgstr ""
 
 #: actions/blocks/action_dashboard.py actions/blocks/category_page_layout.py
 #: actions/blocks/filters.py reports/blocks/action_content.py
-#: reports/spreadsheets.py
+#: reports/spreadsheets/excel_report.py
 msgid "Implementation phase"
 msgstr ""
 
@@ -490,7 +490,8 @@ msgstr ""
 msgid "Action list"
 msgstr ""
 
-#: actions/blocks/category_list.py pages/blocks.py reports/spreadsheets.py
+#: actions/blocks/category_list.py pages/blocks.py
+#: reports/spreadsheets/excel_report.py
 msgid "Lead"
 msgstr ""
 
@@ -555,7 +556,7 @@ msgstr ""
 msgid "Filter: %(filter_label)s"
 msgstr ""
 
-#: actions/blocks/filters.py reports/blocks/action_content.py
+#: actions/blocks/filters.py
 #, fuzzy
 #| msgid "responsible organizations"
 msgid "Responsible party"
@@ -574,6 +575,10 @@ msgstr ""
 
 #: actions/blocks/filters.py
 msgid "Schedule"
+msgstr ""
+
+#: actions/blocks/filters.py
+msgid "Continuous Action"
 msgstr ""
 
 #: actions/category_admin.py
@@ -679,7 +684,8 @@ msgstr ""
 msgid "impact"
 msgstr ""
 
-#: actions/export.py actions/models/action.py reports/spreadsheets.py
+#: actions/export.py actions/models/action.py
+#: reports/spreadsheets/excel_report.py
 msgid "status"
 msgstr ""
 
@@ -755,7 +761,7 @@ msgstr ""
 msgid "internal notes for plan administrators"
 msgstr ""
 
-#: actions/models/action.py
+#: actions/models/action.py indicators/models.py
 msgid "internal notes"
 msgstr ""
 
@@ -827,7 +833,8 @@ msgstr ""
 msgid "responsible organizations"
 msgstr "responsible organisations"
 
-#: actions/models/action.py aplans/utils.py reports/spreadsheets.py
+#: actions/models/action.py aplans/utils.py
+#: reports/spreadsheets/excel_report.py
 msgid "updated at"
 msgstr ""
 
@@ -921,7 +928,7 @@ msgstr ""
 msgid "Undid marking action '%(action)s' as complete for report '%(report)s'"
 msgstr ""
 
-#: actions/models/action.py
+#: actions/models/action.py reports/blocks/action_content.py
 msgid "Primary responsible party"
 msgstr ""
 
@@ -1021,7 +1028,7 @@ msgstr ""
 msgid "not started"
 msgstr ""
 
-#: actions/models/action.py reports/spreadsheets.py
+#: actions/models/action.py reports/spreadsheets/excel_report.py
 msgid "in progress"
 msgstr ""
 
@@ -1410,10 +1417,6 @@ msgstr ""
 msgid "Subcategories"
 msgstr ""
 
-#: actions/models/category.py
-msgid "Either SVG or image must be set"
-msgstr ""
-
 #: actions/models/features.py
 msgid "Do not show contact persons publicly"
 msgstr ""
@@ -1559,6 +1562,14 @@ msgid "For plans which have field-specific visibility restrictions, show to user
 msgstr ""
 
 #: actions/models/features.py
+msgid "Include action print layout in reports"
+msgstr ""
+
+#: actions/models/features.py
+msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
 msgid "plan feature"
 msgstr ""
 
@@ -1568,6 +1579,30 @@ msgstr ""
 
 #: actions/models/plan.py
 msgid "If you leave this blank the application will use the default value"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Customer use"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Sales and demos"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Internal testing, training, development or other non-public use"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Offboarding in progress"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Inactive, not in use currently"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Deprecated, should be deleted"
 msgstr ""
 
 #: actions/models/plan.py
@@ -1600,6 +1635,14 @@ msgstr ""
 
 #: actions/models/plan.py
 msgid "archived at"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Usage status"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "If unsure, use the default value representing customer use. For statistical purposes specify what the plan will be used for in order to differentiate between plans actually in use by customers and those created for some other reason."
 msgstr ""
 
 #: actions/models/plan.py
@@ -2355,7 +2398,7 @@ msgstr ""
 msgid "Contact persons with \"moderator\" role"
 msgstr ""
 
-#: aplans/utils.py
+#: aplans/utils.py reports/spreadsheets/excel_report.py
 msgid "Visibility"
 msgstr ""
 
@@ -2376,7 +2419,7 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: content/models.py feedback/models.py reports/spreadsheets.py
+#: content/models.py feedback/models.py reports/spreadsheets/excel_report.py
 msgid "Action"
 msgstr ""
 
@@ -2834,6 +2877,14 @@ msgstr ""
 
 #: indicators/models.py
 msgid "updated values due at"
+msgstr ""
+
+#: indicators/models.py
+msgid "reference"
+msgstr ""
+
+#: indicators/models.py
+msgid "What is the reference or source for this indicator?"
 msgstr ""
 
 #: indicators/models.py
@@ -3654,8 +3705,8 @@ msgstr ""
 msgid "Exclude this organization from the active plan"
 msgstr "main organisation for the plan"
 
-#: orgs/wagtail_admin.py reports/blocks/action_content.py
-#: reports/spreadsheets.py
+#: orgs/wagtail_admin.py reports/report_formatters.py
+#: reports/spreadsheets/excel_report.py
 msgctxt "organization"
 msgid "Parent"
 msgstr ""
@@ -3806,6 +3857,14 @@ msgstr ""
 
 #: pages/models.py
 msgid "Should the page be shown in the additional links?"
+msgstr ""
+
+#: pages/models.py
+msgid "show link in child plans"
+msgstr ""
+
+#: pages/models.py
+msgid "Should this additional link be displayed in child plans?"
 msgstr ""
 
 #: pages/models.py
@@ -4259,16 +4318,6 @@ msgid "contact for indicators"
 msgstr ""
 
 #: reports/blocks/action_content.py
-msgid "UUID of report field"
-msgstr ""
-
-#: reports/blocks/action_content.py
-#, fuzzy
-#| msgid "usable for indicator categorization"
-msgid "Report comparison"
-msgstr "usable for indicator categorisation"
-
-#: reports/blocks/action_content.py
 msgid "Action field"
 msgstr ""
 
@@ -4294,6 +4343,16 @@ msgstr ""
 msgid "Report type field"
 msgstr ""
 
+#: reports/blocks/report_comparison_block.py
+msgid "UUID of report field"
+msgstr ""
+
+#: reports/blocks/report_comparison_block.py
+#, fuzzy
+#| msgid "usable for indicator categorization"
+msgid "Report comparison"
+msgstr "usable for indicator categorisation"
+
 #: reports/chooser.py
 msgid "Choose a report type"
 msgstr ""
@@ -4310,7 +4369,7 @@ msgstr ""
 msgid "report types"
 msgstr ""
 
-#: reports/models.py reports/spreadsheets.py
+#: reports/models.py reports/spreadsheets/excel_report.py
 msgid "complete"
 msgstr ""
 
@@ -4360,16 +4419,24 @@ msgstr ""
 msgid "action snapshots"
 msgstr ""
 
-#: reports/spreadsheets.py
+#: reports/spreadsheets/action_print_layout.py
+msgid "Profiles"
+msgstr ""
+
+#: reports/spreadsheets/excel_report.py
 msgid "Exported from Kausal Watch"
 msgstr ""
 
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 msgid "Marked as complete by"
 msgstr ""
 
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 msgid "Marked as complete at"
+msgstr ""
+
+#: reports/spreadsheets/excel_report.py
+msgid "Summary"
 msgstr ""
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html

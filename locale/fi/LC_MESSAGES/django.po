@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-23 16:05+0100\n"
+"POT-Creation-Date: 2024-04-11 12:12+0300\n"
 "PO-Revision-Date: 2024-03-14 15:57+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/>\n"
@@ -228,7 +228,7 @@ msgstr "Yhdistetty"
 msgid "Postponed"
 msgstr "Lykätty"
 
-#: actions/action_status_summary.py reports/spreadsheets.py
+#: actions/action_status_summary.py reports/spreadsheets/excel_report.py
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -285,7 +285,7 @@ msgid "Cancel moderation"
 msgstr "Peruuta moderointi"
 
 #: actions/apps.py actions/models/plan.py content/models.py
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 #: templates/modeladmin/edit.html
 msgid "Actions"
 msgstr "Toimenpiteet"
@@ -446,13 +446,13 @@ msgstr "Selite"
 msgid "Label for the column to be used instead of the default"
 msgstr "Sarakkeen selite, jota käytetään oletusarvon sijasta"
 
-#: actions/blocks/action_dashboard.py reports/spreadsheets.py
+#: actions/blocks/action_dashboard.py reports/spreadsheets/excel_report.py
 msgid "Identifier"
 msgstr "Tunniste"
 
 #: actions/blocks/action_dashboard.py actions/blocks/category_page_layout.py
 #: actions/blocks/filters.py reports/blocks/action_content.py
-#: reports/spreadsheets.py
+#: reports/spreadsheets/excel_report.py
 msgid "Implementation phase"
 msgstr "Toteutusvaihe"
 
@@ -496,7 +496,8 @@ msgstr "Rajaa luokan mukaan"
 msgid "Action list"
 msgstr "Toimenpideluettelo"
 
-#: actions/blocks/category_list.py pages/blocks.py reports/spreadsheets.py
+#: actions/blocks/category_list.py pages/blocks.py
+#: reports/spreadsheets/excel_report.py
 msgid "Lead"
 msgstr "Johdanto"
 
@@ -563,7 +564,7 @@ msgstr "Syvyys"
 msgid "Filter: %(filter_label)s"
 msgstr "Suodatin: %(filter_label)s"
 
-#: actions/blocks/filters.py reports/blocks/action_content.py
+#: actions/blocks/filters.py
 #, fuzzy
 msgid "Responsible party"
 msgstr "vastuutaho"
@@ -582,6 +583,12 @@ msgstr "Toimenpideohjelma"
 #, fuzzy
 msgid "Schedule"
 msgstr "Julkaisu ajastettu"
+
+#: actions/blocks/filters.py
+#, fuzzy
+#| msgid "continuous action"
+msgid "Continuous Action"
+msgstr "jatkuva toimenpide"
 
 #: actions/category_admin.py
 msgid "Common category type"
@@ -687,7 +694,8 @@ msgstr "nimi"
 msgid "impact"
 msgstr "vaikuttavuus"
 
-#: actions/export.py actions/models/action.py reports/spreadsheets.py
+#: actions/export.py actions/models/action.py
+#: reports/spreadsheets/excel_report.py
 msgid "status"
 msgstr "tila"
 
@@ -763,7 +771,7 @@ msgstr "sisäinen prioriteetti"
 msgid "internal notes for plan administrators"
 msgstr "sisäiset muistiinpanot pääkäyttäjille"
 
-#: actions/models/action.py
+#: actions/models/action.py indicators/models.py
 msgid "internal notes"
 msgstr "sisäiset muistiinpanot"
 
@@ -835,7 +843,8 @@ msgstr "liittyvät toimenpiteet"
 msgid "responsible organizations"
 msgstr "vastuuorganisaatiot"
 
-#: actions/models/action.py aplans/utils.py reports/spreadsheets.py
+#: actions/models/action.py aplans/utils.py
+#: reports/spreadsheets/excel_report.py
 msgid "updated at"
 msgstr "päivitysaika"
 
@@ -932,7 +941,7 @@ msgstr "Toimenpiteen valmiiksi merkitsemistä ei voida perua koska toimenpiteest
 msgid "Undid marking action '%(action)s' as complete for report '%(report)s'"
 msgstr "Toimenpiteen '%(action)s' merkitseminen valmiiksi raporttia '%(report)s' varten peruttiin"
 
-#: actions/models/action.py
+#: actions/models/action.py reports/blocks/action_content.py
 msgid "Primary responsible party"
 msgstr "Päävastuutaho"
 
@@ -1030,7 +1039,7 @@ msgstr "toimenpiteen toteutusvaiheet"
 msgid "not started"
 msgstr "ei käynnistynyt"
 
-#: actions/models/action.py reports/spreadsheets.py
+#: actions/models/action.py reports/spreadsheets/excel_report.py
 msgid "in progress"
 msgstr "käynnissä"
 
@@ -1428,10 +1437,6 @@ msgstr "Yläluokan on oltava samaa tyyppiä"
 msgid "Subcategories"
 msgstr "Alaluokat"
 
-#: actions/models/category.py
-msgid "Either SVG or image must be set"
-msgstr "Aseta joko SVG tai kuva"
-
 #: actions/models/features.py
 msgid "Do not show contact persons publicly"
 msgstr "Älä näytä yhteyshenkilöitä julkisesti"
@@ -1576,6 +1581,14 @@ msgid "For plans which have field-specific visibility restrictions, show to user
 msgstr ""
 
 #: actions/models/features.py
+msgid "Include action print layout in reports"
+msgstr ""
+
+#: actions/models/features.py
+msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
 msgid "plan feature"
 msgstr "toimenpiteen ominaisuus"
 
@@ -1586,6 +1599,32 @@ msgstr "toimenpiteen ominaisuudet"
 #: actions/models/plan.py
 msgid "If you leave this blank the application will use the default value"
 msgstr "Jos jätät tämän tyhjäksi, käytetään oletusarvoa"
+
+#: actions/models/plan.py
+msgid "Customer use"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Sales and demos"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Internal testing, training, development or other non-public use"
+msgstr ""
+
+#: actions/models/plan.py
+#, fuzzy
+#| msgid "in progress"
+msgid "Offboarding in progress"
+msgstr "käynnissä"
+
+#: actions/models/plan.py
+msgid "Inactive, not in use currently"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Deprecated, should be deleted"
+msgstr ""
 
 #: actions/models/plan.py
 msgid "The official plan name in full form"
@@ -1619,6 +1658,16 @@ msgstr "julkaisuaika"
 #: actions/models/plan.py
 msgid "archived at"
 msgstr "arkistointiaika"
+
+#: actions/models/plan.py
+#, fuzzy
+#| msgid "status"
+msgid "Usage status"
+msgstr "tila"
+
+#: actions/models/plan.py
+msgid "If unsure, use the default value representing customer use. For statistical purposes specify what the plan will be used for in order to differentiate between plans actually in use by customers and those created for some other reason."
+msgstr ""
 
 #: actions/models/plan.py
 msgid "site URL"
@@ -2394,7 +2443,7 @@ msgstr "Muokkausoikeudet"
 msgid "Contact persons with \"moderator\" role"
 msgstr "toimenpiteen yhteyshenkilöt"
 
-#: aplans/utils.py
+#: aplans/utils.py reports/spreadsheets/excel_report.py
 #, fuzzy
 msgid "Visibility"
 msgstr "Näkyvyys"
@@ -2416,7 +2465,7 @@ msgstr "Toimenpideohjelman mukaisesti"
 msgid "Content"
 msgstr "Sisältö"
 
-#: content/models.py feedback/models.py reports/spreadsheets.py
+#: content/models.py feedback/models.py reports/spreadsheets/excel_report.py
 msgid "Action"
 msgstr "Toimenpide"
 
@@ -2880,6 +2929,14 @@ msgstr "aikaresoluutio"
 #: indicators/models.py
 msgid "updated values due at"
 msgstr "mittarin päivityksen deadline"
+
+#: indicators/models.py
+msgid "reference"
+msgstr ""
+
+#: indicators/models.py
+msgid "What is the reference or source for this indicator?"
+msgstr ""
 
 #: indicators/models.py
 msgid "indicator"
@@ -3736,8 +3793,8 @@ msgstr "Poista toimenpideohjelmasta"
 msgid "Exclude this organization from the active plan"
 msgstr "Poista tämä organisaatio aktiivisesta toimenpideohjelmasta"
 
-#: orgs/wagtail_admin.py reports/blocks/action_content.py
-#: reports/spreadsheets.py
+#: orgs/wagtail_admin.py reports/report_formatters.py
+#: reports/spreadsheets/excel_report.py
 msgctxt "organization"
 msgid "Parent"
 msgstr "Yläorganisaatio"
@@ -3900,6 +3957,16 @@ msgstr "näytä lisätietolinkeissä"
 #: pages/models.py
 msgid "Should the page be shown in the additional links?"
 msgstr "Näytetäänkö lisätietolinkeissä linkki tähän sivuun?"
+
+#: pages/models.py
+#, fuzzy
+#| msgid "show in additional links"
+msgid "show link in child plans"
+msgstr "näytä lisätietolinkeissä"
+
+#: pages/models.py
+msgid "Should this additional link be displayed in child plans?"
+msgstr ""
 
 #: pages/models.py
 msgid "children use secondary navigation"
@@ -4358,15 +4425,6 @@ msgid "contact for indicators"
 msgstr "yhteyshenkilönä mittareille"
 
 #: reports/blocks/action_content.py
-msgid "UUID of report field"
-msgstr "Raporttikentän UUID"
-
-#: reports/blocks/action_content.py
-#, fuzzy
-msgid "Report comparison"
-msgstr "Ota mittareiden vertailu käyttöön"
-
-#: reports/blocks/action_content.py
 msgid "Action field"
 msgstr "Toimenpiteen kenttä"
 
@@ -4391,6 +4449,15 @@ msgstr "Raporttityyppi"
 msgid "Report type field"
 msgstr "Raporttityyppi"
 
+#: reports/blocks/report_comparison_block.py
+msgid "UUID of report field"
+msgstr "Raporttikentän UUID"
+
+#: reports/blocks/report_comparison_block.py
+#, fuzzy
+msgid "Report comparison"
+msgstr "Ota mittareiden vertailu käyttöön"
+
 #: reports/chooser.py
 msgid "Choose a report type"
 msgstr "Valitse raporttityyppi"
@@ -4407,7 +4474,7 @@ msgstr "raportin tyyppi"
 msgid "report types"
 msgstr "raporttien tyypit"
 
-#: reports/models.py reports/spreadsheets.py
+#: reports/models.py reports/spreadsheets/excel_report.py
 msgid "complete"
 msgstr "valmis"
 
@@ -4457,17 +4524,25 @@ msgstr "toimenpiteen tallenne"
 msgid "action snapshots"
 msgstr "toimenpiteiden tallenteet"
 
-#: reports/spreadsheets.py
+#: reports/spreadsheets/action_print_layout.py
+msgid "Profiles"
+msgstr ""
+
+#: reports/spreadsheets/excel_report.py
 msgid "Exported from Kausal Watch"
 msgstr "Tallennettu Kausal Watchista"
 
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 msgid "Marked as complete by"
 msgstr "Merkinnyt valmiiksi"
 
-#: reports/spreadsheets.py reports/tests/test_excel_roundtrip.py
+#: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
 msgid "Marked as complete at"
 msgstr "Merkitty valmiiksi"
+
+#: reports/spreadsheets/excel_report.py
+msgid "Summary"
+msgstr ""
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
 #, python-format
@@ -4616,6 +4691,9 @@ msgstr "Käyttäjät"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ei oikeuksia poistaa käyttäjä joka kuuluu toimenpideohjelmiin, joita et hallinnoi."
+
+#~ msgid "Either SVG or image must be set"
+#~ msgstr "Aseta joko SVG tai kuva"
 
 #~ msgid "Enable moderation workflow"
 #~ msgstr "Ota moderointi käyttöön"
