@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100, verbose_name='name')),
-                ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
+                ('fields', wagtail.fields.StreamField([('implementation_phase', reports.blocks.action_content.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True)),
                 ('plan', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='report_types', to='actions.plan')),
             ],
             bases=(models.Model, aplans.utils.PlanRelatedModel),

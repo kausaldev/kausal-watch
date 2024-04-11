@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='report',
             name='fields',
-            field=wagtail.fields.StreamField([('implementation_phase', reports.blocks.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True),
+            field=wagtail.fields.StreamField([('implementation_phase', reports.blocks.action_content.ActionImplementationPhaseReportFieldBlock()), ('text_attribute', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(heading='Name')), ('identifier', wagtail.blocks.CharBlock(heading='Identifier'))]))], blank=True, null=True),
         ),
     ]

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import reversion
-import typing
 from autoslug.fields import AutoSlugField
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field
@@ -254,6 +253,8 @@ class Report(models.Model, PlanRelatedModel):
 
         result.actions += filter(is_action, fake_revision_versions)
         result.related = [*related_versions, *filter(lambda v: not is_action(v), fake_revision_versions)]
+        # TODO: cleaner way maybe to order by, somehow sort actions
+        result.actions = sorted(result.actions, key=lambda x: x.field_dict['order'])
         return result
 
     def mark_as_complete(self, user: User):
