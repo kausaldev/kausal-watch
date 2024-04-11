@@ -10,6 +10,7 @@ from grapple.models import GraphQLForeignKey
 from typing import Any, List, Optional, Type
 
 from actions.attributes import AttributeType
+from actions.models import Plan
 from actions.models.action import (
     Action,
     ActionTask,
@@ -72,7 +73,7 @@ class ReportFieldFormatter(ABC):
         pass
 
     @abstractmethod
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         pass
 
     @abstractmethod
@@ -107,7 +108,7 @@ class ActionSimpleFieldFormatter(ReportFieldFormatter):
             value = "\n\n".join(field.get_searchable_content(value))
         return [str(value)]
 
-    def xlsx_column_labels(self, value: dict) -> List[str]:
+    def xlsx_column_labels(self, value: dict, plan: Plan | None = None) -> List[str]:
         field_name = self.block.meta.field_name
         verbose_name = Action._meta.get_field(field_name).verbose_name
         return [str(verbose_name)]
@@ -139,7 +140,7 @@ class ActionManyToOneFieldFormatter(ReportFieldFormatter):
             value = "\n\n".join(field.get_searchable_content(value))
         return [str(value)]
 
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         field_name = self.block.meta.field_name
         field = Action._meta.get_field(field_name)
         verbose_name = field.related_model._meta.verbose_name_plural
@@ -187,6 +188,11 @@ class ActionTasksFormatter(ActionManyToOneFieldFormatter):
             value_field_type='graphene.String'
         )
 
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
+        if plan is None:
+            return super().xlsx_column_labels(value)
+        return [str(plan.general_content.get_action_task_term_display_plural())]
+
 
 class ActionAttributeTypeReportFieldFormatter(ReportFieldFormatter):
     graphql_fields = [
@@ -225,10 +231,10 @@ class ActionAttributeTypeReportFieldFormatter(ReportFieldFormatter):
             return [None] * len(labels)
         return wrapped_type.xlsx_values(attribute_record, related_objects)
 
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         """Return the label for each of this attribute type's columns."""
         wrapped_type = AttributeType.from_model_instance(value['attribute_type'])
-        return wrapped_type.xlsx_column_labels()
+        return wrapped_type.xlsx_column_labels(plan=plan)
 
     def get_xlsx_cell_format(self, block_value: dict[str, Any]) -> dict[str, str] | None:
         wrapped_type = AttributeType.from_model_instance(block_value['attribute_type'])
@@ -277,7 +283,7 @@ class ActionCategoryReportFieldFormatter(ReportFieldFormatter):
             return [None]
         return [category_names]
 
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         return [self.get_help_label(value)]
 
     def get_xlsx_cell_format(self, block_value: dict[str, Any]) -> dict[str, str] | None:
@@ -321,7 +327,7 @@ class ActionImplementationPhaseReportFieldFormatter(ReportFieldFormatter):
             return [None]
         return [str(report.plan_current_related_objects.implementation_phases.get(int(pk), f"[{_('empty')}]"))]
 
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         return [str(self.block.label).capitalize()]
 
     def get_xlsx_cell_format(self, block_value: dict[str, Any]) -> dict[str, str] | None:
@@ -347,7 +353,7 @@ class ActionStatusReportFieldFormatter(ReportFieldFormatter):
             return [None]
         return [str(report.plan_current_related_objects.statuses.get(int(pk)))]
 
-    def xlsx_column_labels(self, value) -> List[str]:
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
         return [str(self.block.label).capitalize()]
 
     def get_xlsx_cell_format(self, block_value: dict[str, Any]) -> dict[str, str] | None:
@@ -424,7 +430,7 @@ class ActionResponsiblePartyReportFieldFormatter(ReportFieldFormatter):
         parent_name = parent.name if parent else None
         return [organization.name, parent_name]
 
-    def xlsx_column_labels(self, value: dict) -> List[str]:
+    def xlsx_column_labels(self, value: dict, plan: Plan | None = None) -> List[str]:
         labels = [str(self.block.label)]
         target_depth = value.get('target_ancestor_depth')
         if target_depth is None:
@@ -469,8 +475,8 @@ class ActionReportContentField(blocks.Block):
             ) -> Optional[Any]:
         return self.report_value_formatter.extract_action_values(report, block_value, action, related_objects, attribute_versions)
 
-    def xlsx_column_labels(self, value) -> List[str]:
-        return self.report_value_formatter.xlsx_column_labels(value)
+    def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:
+        return self.report_value_formatter.xlsx_column_labels(value, plan=plan)
 
     def get_xlsx_cell_format(self, block_value: dict[str, Any]) -> dict[str, str] | None:
         return self.report_value_formatter.get_xlsx_cell_format(block_value)

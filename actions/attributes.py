@@ -326,7 +326,7 @@ class AttributeType(ABC, Generic[T]):
                     obj.draft_attributes = DraftAttributes()
                 obj.draft_attributes.update(self, value)
 
-    def xlsx_column_labels(self) -> list[str]:
+    def xlsx_column_labels(self, plan: Plan | None = None) -> list[str]:
         """Return the label for each of this attribute type's columns."""
         # Override if, e.g., a certain attribute type uses more than one column
         return [str(self.instance)]
@@ -615,7 +615,7 @@ class OptionalChoiceWithText(AttributeType[models.AttributeChoiceWithText]):
         rich_text = attribute.data['text']
         return [choice, html_to_plaintext(rich_text)]
 
-    def xlsx_column_labels(self) -> list[str]:
+    def xlsx_column_labels(self, plan: Plan | None = None) -> list[str]:
         return [
             _('%(attribute_type)s (choice)') % {'attribute_type': self.instance.name_i18n},
             _('%(attribute_type)s (text)') % {'attribute_type': self.instance.name_i18n},
@@ -766,7 +766,7 @@ class Numeric(AttributeType[models.AttributeNumericValue]):
             return None
         return NumericAttributeValue(cleaned_data[self.form_field_name])
 
-    def xlsx_column_labels(self) -> list[str]:
+    def xlsx_column_labels(self, plan: Plan | None = None) -> list[str]:
         return [f'{self.instance} [{self.instance.unit}]']
 
     def xlsx_values(

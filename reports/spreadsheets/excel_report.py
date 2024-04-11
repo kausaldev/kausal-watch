@@ -373,7 +373,7 @@ class ExcelReport:
             append_to_key(_('Identifier'), action_identifier, 'identifier')
             append_to_key(_('Action'), action_name, 'name')
             for field in self.report.type.fields:
-                labels = [label for label in field.block.xlsx_column_labels(field.value)]
+                labels = [label for label in field.block.xlsx_column_labels(field.value, plan=self.report.type.plan)]
                 values = field.block.extract_action_values(
                     self, field.value, action.data, related_objects, attribute_versions
                 )
