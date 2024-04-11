@@ -38,6 +38,13 @@ class ActionAttributeTypeReportFieldBlock(blocks.StructBlock, FieldBlockWithHelp
     def get_report_value_formatter_class(self):
         return formatters.ActionAttributeTypeReportFieldFormatter
 
+    def get_help_label(self, value):
+        if 'attribute_type' in value:
+            at = value.get('attribute_type')
+            if hasattr(at, 'name_i18n'):
+                return at.name_i18n
+        return None
+
     class Meta:
         label = _("Action field")
 
