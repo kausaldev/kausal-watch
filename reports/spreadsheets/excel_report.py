@@ -454,7 +454,7 @@ class ExcelReport:
             aggregated = self._get_aggregates(grouping, action_df)
             if aggregated is None:
                 continue
-            sheet_name = f"Summary {sheet_number}"
+            sheet_name = _("Summary") + f" {sheet_number}"
             sheet_number += 1
             worksheet = self.workbook.add_worksheet(sheet_name)
             self._write_sheet(worksheet, aggregated, small=True)
