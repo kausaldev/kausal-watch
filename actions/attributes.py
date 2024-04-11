@@ -17,27 +17,12 @@ from wagtail.rich_text import RichText as WagtailRichText
 
 import actions.models.attributes as models
 from admin_site.utils import FieldLabelRenderer
+from aplans.utils import convert_html_to_text
 
 if typing.TYPE_CHECKING:
     from actions.models import Category, Plan
     from reports.utils import SerializedAttributeVersion, SerializedVersion
     from users.models import User
-
-
-def html_to_plaintext(richtext):
-    """
-    Return a plain text version of a rich text string, suitable for search indexing;
-    like Django's strip_tags, but ensures that whitespace is left between block elements
-    so that <p>hello</p><p>world</p> gives "hello world", not "helloworld".
-    """
-    # insert space after </p>, </h1> - </h6>, </li> and </blockquote> tags
-    if richtext is None:
-        return None
-    richtext = re.sub(
-        r"(</(p|h\d|li|blockquote)>)", r"\1\n\n", richtext, flags=re.IGNORECASE
-    )
-    richtext = re.sub(r"(<(br|hr)\s*/>)", r"\1\n", richtext, flags=re.IGNORECASE)
-    return unescape(strip_tags(richtext).strip())
 
 
 class AttributeFieldPanel(FieldPanel):
@@ -613,7 +598,7 @@ class OptionalChoiceWithText(AttributeType[models.AttributeChoiceWithText]):
         except StopIteration:
             choice = None
         rich_text = attribute.data['text']
-        return [choice, html_to_plaintext(rich_text)]
+        return [choice, convert_html_to_text(rich_text)]
 
     def xlsx_column_labels(self, plan: Plan | None = None) -> list[str]:
         return [
@@ -718,7 +703,7 @@ class RichText(GenericTextAttributeType[models.AttributeRichText]):
         if not attribute:
             return [None]
         rich_text = attribute.data['text']
-        return [html_to_plaintext(rich_text)]
+        return [convert_html_to_text(rich_text)]
 
 
 class Numeric(AttributeType[models.AttributeNumericValue]):

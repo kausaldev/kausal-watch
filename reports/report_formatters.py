@@ -30,6 +30,8 @@ from orgs.models import Organization
 from reports.utils import get_attribute_for_type_from_related_objects, get_related_model_instances_for_action
 from reports.graphene_types import generate_graphene_report_value_node_class, GrapheneValueClassProperties
 
+from aplans.utils import convert_html_to_text
+
 import typing
 if typing.TYPE_CHECKING:
     from reports.spreadsheets import ExcelReport
@@ -105,7 +107,7 @@ class ActionSimpleFieldFormatter(ReportFieldFormatter):
         field = Action._meta.get_field(field_name)
         value = action.get(field_name)
         if isinstance(field, fields.RichTextField):
-            value = "\n\n".join(field.get_searchable_content(value))
+            value = convert_html_to_text(value)
         return [str(value)]
 
     def xlsx_column_labels(self, value: dict, plan: Plan | None = None) -> List[str]:
@@ -137,7 +139,7 @@ class ActionManyToOneFieldFormatter(ReportFieldFormatter):
         field = Action._meta.get_field(field_name)
         value = block_value
         if isinstance(field, fields.RichTextField):
-            value = "\n\n".join(field.get_searchable_content(value))
+            value = convert_html_to_text(value)
         return [str(value)]
 
     def xlsx_column_labels(self, value, plan: Plan | None = None) -> List[str]:

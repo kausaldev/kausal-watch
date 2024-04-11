@@ -20,6 +20,7 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import get_language, gettext_lazy as _
 from enum import Enum
+import html2text
 from modeltrans.translator import get_i18n_field
 from modeltrans.utils import get_instance_field_value
 from tinycss2.color3 import parse_color  # type: ignore
@@ -591,3 +592,21 @@ def get_available_variants_for_language(language: str):
     if len(language) != 2:
         return language
     return [lang_code for lang_code, _ in settings.LANGUAGES if lang_code[0:2] == language]
+
+
+def convert_html_to_text(html):
+    # Create an instance of the HTML2Text converter
+    converter = html2text.HTML2Text()
+
+    # Configure the converter settings
+    converter.body_width = 0  # Disable text wrapping
+    converter.single_line_break = True  # Convert single line breaks to newlines
+    converter.ul_item_mark = '-'  # Set the unordered list item marker
+
+    # Convert the HTML content to plain text
+    text = converter.handle(html)
+    text = re.sub(r'\n{3,}', '\n', text)
+    # html2text escapes markdown formatting
+    # which can't be turned off!
+    text = re.sub(r'\\-', '-', text)
+    return text
