@@ -66,7 +66,9 @@ def test_workflow_status_not_exposed_with_no_plan_access(
     action = plan_with_single_task_moderation.actions.first()
     action.draft_attributes = DraftAttributes()
     user = person.user
-    action.save_revision(user=user, submitted_for_moderation=True)
+    action.save_revision(user=user)
+    workflow = plan_with_single_task_moderation.features.moderation_workflow
+    workflow.start(action, user=user)
 
     assert plan != plan_with_single_task_moderation
     person.general_admin_plans.add(plan)

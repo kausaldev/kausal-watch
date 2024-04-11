@@ -159,6 +159,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.contrib.search_promotions',
     'wagtail',
     'wagtail_modeladmin',  # deprecated; https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/migrating_to_snippets.html
     'wagtail_localize',
