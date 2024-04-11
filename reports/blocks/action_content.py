@@ -81,6 +81,12 @@ class ActionStatusReportFieldBlock(blocks.StaticBlock, FieldBlockWithHelpPanel):
 
 @register_streamfield_block
 class ActionResponsiblePartyReportFieldBlock(blocks.StructBlock, FieldBlockWithHelpPanel):
+    '''
+    FIXME: Note that this block is currently actually exporting only the primary
+    responsible parties. That's why the label is set accordingly.
+    There should be a field to configure which role(s) should
+    be exported and that should affect the label(s)
+    '''
     target_ancestor_depth = blocks.IntegerBlock(
         label=_('Level of containing organization'),
         required=False,
@@ -98,7 +104,7 @@ class ActionResponsiblePartyReportFieldBlock(blocks.StructBlock, FieldBlockWithH
         return formatters.ActionResponsiblePartyReportFieldFormatter
 
     class Meta:
-        label = _("Responsible party")
+        label = _("Primary responsible party")
 
 
 '''
