@@ -210,6 +210,8 @@ graphql-relay==3.2.0
     #   -r requirements.in
     #   graphene
     #   graphene-django
+html2text==2024.2.26
+    # via -r requirements.in
 html5lib==1.1
     # via wagtail
 humanize==4.4.0
