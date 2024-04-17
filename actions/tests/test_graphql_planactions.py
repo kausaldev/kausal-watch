@@ -1,6 +1,6 @@
 import pytest
 
-from aplans.utils import hyphenate
+from aplans.utils import hyphenate_fi
 
 from actions.tests.factories import (
     ActionFactory, ActionScheduleFactory, ActionResponsiblePartyFactory, CategoryFactory, PlanFactory
@@ -77,7 +77,7 @@ def test_planactions(graphql_client_query_data):
         'planActions': [{
             'id': str(action.id),
             'identifier': action.identifier,
-            'name': hyphenate(action.name),
+            'name': hyphenate_fi(action.name),
             'officialName': action.official_name,
             'completion': action.completion,
             'plan': {

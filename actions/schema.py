@@ -55,7 +55,7 @@ from aplans.graphql_types import (
 )
 from aplans.graphql_errors import ErrorCode
 from aplans.types import is_authenticated
-from aplans.utils import hyphenate, public_fields
+from aplans.utils import hyphenate_fi, public_fields
 from pages import schema as pages_schema
 from pages.models import AplansPage, CategoryPage, Page, ActionListPage
 from search.backends import get_search_backend
@@ -1008,8 +1008,11 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
         name = root.name_i18n
         if name is None:
             return None
-        if hyphenated:
-            name = hyphenate(name)
+        language: str | None = get_language()
+        if language:
+            language = language.lower()
+        if hyphenated and language == 'fi':
+            name = hyphenate_fi(name)
         return name
 
     @staticmethod

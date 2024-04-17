@@ -46,7 +46,7 @@ except OSError:
 _hyphenation_cache: dict[str, str] = {}
 
 
-def hyphenate(s):
+def hyphenate_fi(s):
     if voikko_fi is None:
         return s
 
