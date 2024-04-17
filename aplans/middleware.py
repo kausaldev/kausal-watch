@@ -113,7 +113,7 @@ class PrintQueryCountMiddleware:
         query_count = len(connection.queries)
         level = 'INFO'
         if query_count >= 50:
-            level = 'WARN'
+            level = 'WARNING'
         if query_count >= 100:
             level = 'ERROR'
         logger.log(level, f"⛁ {query_count} SQL queries took {sqltime} ms")
