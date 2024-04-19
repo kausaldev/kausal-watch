@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import sys
-import importlib
-from importlib.util import find_spec
+import importlib.util
 from celery.schedules import crontab
 from typing import Literal
 
@@ -700,6 +699,11 @@ SILENCED_SYSTEM_CHECKS = [
 ]
 
 ENABLE_DEBUG_TOOLBAR = False
+
+# Show full SQL queries when running `runserver_plus` or `shell_plus` with `--print-sql`
+SHELL_PLUS_PRINT_SQL_TRUNCATE = None
+RUNSERVER_PLUS_PRINT_SQL_TRUNCATE = None
+
 
 HOSTNAME_PLAN_DOMAINS = env('HOSTNAME_PLAN_DOMAINS')
 ADMIN_WILDCARD_DOMAIN = env('ADMIN_WILDCARD_DOMAIN')
