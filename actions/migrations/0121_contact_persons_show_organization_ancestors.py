@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('actions', '0119_add_planfeatures_report_print_layout'),
+        ('actions', '0120_password_protected_plan_feature'),
     ]
 
     operations = [
