@@ -387,10 +387,6 @@ class ExcelReport:
             append_to_key(COMPLETED_BY_LABEL, completed_by or '', 'completed_by')
             append_to_key(COMPLETED_AT_LABEL, completed_at, 'completed_at')
             self.formats.set_for_label(COMPLETED_AT_LABEL, self.formats.timestamp)
-
-            if (visibility_label := action_obj.get_visibility_display()):
-                append_to_key(_('Visibility'), visibility_label, 'visibility')
-
         if data and set(data.get(COMPLETED_AT_LABEL)) == {None}:
             if COMPLETED_AT_LABEL in data:
                 del data[COMPLETED_AT_LABEL]
