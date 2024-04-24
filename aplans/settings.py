@@ -424,6 +424,7 @@ LANGUAGES = (
 LOCAL_LANGUAGE_NAMES = {
     'de-CH': "Deutsch (Schweiz)",
     'es-US': "español (Estados Unidos)",
+    'sv-FI': "svenska (Finland)",
 }
 MODELTRANS_AVAILABLE_LANGUAGES = [x[0].lower() for x in LANGUAGES]
 MODELTRANS_FALLBACK = {
