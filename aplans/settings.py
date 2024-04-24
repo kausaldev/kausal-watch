@@ -413,6 +413,7 @@ LANGUAGES = (
     ('fi', _('Finnish')),
     ('lv', _('Latvian')),
     ('sv', _('Swedish')),
+    ('sv-FI', _('Swedish (Finland)')),
     ('pt', _('Portuguese')),  # Use Brazilian Portuguese only for now
     ('pt-BR', _('Portuguese (Brazil)')),
 )
