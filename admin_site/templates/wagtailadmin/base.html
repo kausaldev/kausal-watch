@@ -1,5 +1,15 @@
 {% extends "wagtailadmin/base.html" %}
 {% load static wagtailimages_tags wagtailadmin_tags sentry %}
+{% load i18n %}
+
+
+{% block branding_title %}
+    {% if active_plan.short_name %}
+        {{ active_plan.short_name }} - {% trans "Administration" %}
+    {% else %}
+        {{ active_plan.name }} - {% trans "Administration" %}
+    {% endif %}
+{% endblock %}
 
 {% block branding_logo %}
     {% if active_client and active_client.logo %}
