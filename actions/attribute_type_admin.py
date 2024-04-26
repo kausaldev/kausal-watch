@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from django.forms import ValidationError
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import gettext_lazy as _
 from wagtail import hooks
@@ -222,6 +223,19 @@ class AttributeTypeAdmin(OrderableMixin, AplansModelAdmin):
     edit_view_class = AttributeTypeEditView
     delete_view_class = AttributeTypeDeleteView
     button_helper_class = AttributeTypeAdminButtonHelper
+
+    # Fix index_order method added by OrderableMixinMetaClass because the way Wagtail handles icons has changed and
+    # wagtailorderable hasn't accounted for this.
+    def index_order(self, obj):
+        return mark_safe(
+            '<div class="w-orderable__item__handle button button-small button--icon handle text-replace">'
+            '<svg class="icon icon-grip default" style="padding: 0px;" aria-hidden="true">'
+            '<use href="#icon-grip"></use>'
+            '</svg>'
+            '</div>'
+        )
+    index_order.admin_order_field = 'order'
+    index_order.short_description = _('Order')
 
     def get_edit_handler(self):
         request = ctx_request.get()

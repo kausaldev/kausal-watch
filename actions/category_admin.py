@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.contrib.admin import SimpleListFilter
 from django.db import transaction
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from wagtail.admin.panels import (
     FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, ObjectList,
@@ -362,6 +363,19 @@ class CategoryAdmin(OrderableMixin, AplansModelAdmin):
     button_helper_class = CategoryAdminButtonHelper
     permission_helper_class = CategoryPermissionHelper
 
+    # Fix index_order method added by OrderableMixinMetaClass because the way Wagtail handles icons has changed and
+    # wagtailorderable hasn't accounted for this.
+    def index_order(self, obj):
+        return mark_safe(
+            '<div class="w-orderable__item__handle button button-small button--icon handle text-replace">'
+            '<svg class="icon icon-grip default" style="padding: 0px;" aria-hidden="true">'
+            '<use href="#icon-grip"></use>'
+            '</svg>'
+            '</div>'
+        )
+    index_order.admin_order_field = 'order'
+    index_order.short_description = _('Order')
+
     def get_menu_item(self, order=None):
         return CategoryAdminMenuItem(self, order or self.get_menu_order())
 
@@ -580,6 +594,19 @@ class CommonCategoryAdmin(OrderableMixin, AplansModelAdmin):
     # Do we need to create a view for inspect_view?
     delete_view_class = CommonCategoryDeleteView
     button_helper_class = CommonCategoryAdminButtonHelper
+
+    # Fix index_order method added by OrderableMixinMetaClass because the way Wagtail handles icons has changed and
+    # wagtailorderable hasn't accounted for this.
+    def index_order(self, obj):
+        return mark_safe(
+            '<div class="w-orderable__item__handle button button-small button--icon handle text-replace">'
+            '<svg class="icon icon-grip default" style="padding: 0px;" aria-hidden="true">'
+            '<use href="#icon-grip"></use>'
+            '</svg>'
+            '</div>'
+        )
+    index_order.admin_order_field = 'order'
+    index_order.short_description = _('Order')
 
     def get_menu_item(self, order=None):
         return CommonCategoryAdminMenuItem(self, order or self.get_menu_order())
