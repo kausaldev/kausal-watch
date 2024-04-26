@@ -117,3 +117,7 @@ section[role="tabpanel"] .help-block {
 .footer__container--hidden {
   display: none;
 }
+/* Fix space between action buttons */
+.listing .actions > li {
+  margin: 0 0 .5em;
+}
