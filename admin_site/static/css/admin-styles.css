@@ -121,3 +121,7 @@ section[role="tabpanel"] .help-block {
 .listing .actions > li {
   margin: 0 0 .5em;
 }
+/* Fix weird inline block issues on, e.g., category list (unfiltered by category type) */
+.listing .title .title-wrapper, .listing .title h2 {
+  display: block;
+}
