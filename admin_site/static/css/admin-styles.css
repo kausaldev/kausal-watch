@@ -64,7 +64,7 @@ section[role="tabpanel"] .help-block {
   padding-left: 0;
   span.field-visibility-label.w-status--primary {
     color: var(--w-color-grey-800);
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: bold;
   }
   svg {
@@ -89,4 +89,12 @@ section[role="tabpanel"] .help-block {
 /* Wagtail notifications */
 .messages {
   z-index: 1;
+}
+
+.w-tabs__tab {
+  color: var(--w-color-grey-600);
+}
+
+.w-field__help .help {
+  color: var(--w-color-grey-600);
 }
