@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.contrib.admin import SimpleListFilter
 from django.db import transaction
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from wagtail.admin.panels import (
     FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, ObjectList,
@@ -95,7 +96,7 @@ class CategoryTypePermissionHelper(PermissionHelper):
 @modeladmin_register
 class CategoryTypeAdmin(AplansModelAdmin):
     model = CategoryType
-    menu_icon = 'kausal-categories'
+    menu_icon = 'kausal-category'
     menu_label = _('Category types')
     menu_order = 1100
     list_display = ('name',)
@@ -340,7 +341,7 @@ class CategoryPermissionHelper(PermissionHelper):
 @modeladmin_register
 class CategoryAdmin(OrderableMixin, AplansModelAdmin):
     menu_label = _('Categories')
-    menu_icon = 'kausal-categories'
+    menu_icon = 'kausal-category'
     list_display = ('__str__', 'parent', 'type')
     list_filter = (CategoryTypeFilter,)
     model = Category
@@ -361,6 +362,19 @@ class CategoryAdmin(OrderableMixin, AplansModelAdmin):
     delete_view_class = CategoryDeleteView
     button_helper_class = CategoryAdminButtonHelper
     permission_helper_class = CategoryPermissionHelper
+
+    # Fix index_order method added by OrderableMixinMetaClass because the way Wagtail handles icons has changed and
+    # wagtailorderable hasn't accounted for this.
+    def index_order(self, obj):
+        return mark_safe(
+            '<div class="w-orderable__item__handle button button-small button--icon handle text-replace">'
+            '<svg class="icon icon-grip default" style="padding: 0px;" aria-hidden="true">'
+            '<use href="#icon-grip"></use>'
+            '</svg>'
+            '</div>'
+        )
+    index_order.admin_order_field = 'order'
+    index_order.short_description = _('Order')
 
     def get_menu_item(self, order=None):
         return CategoryAdminMenuItem(self, order or self.get_menu_order())
@@ -423,7 +437,7 @@ class CommonCategoryTypePermissionHelper(PermissionHelper):
 @modeladmin_register
 class CommonCategoryTypeAdmin(AplansModelAdmin):
     model = CommonCategoryType
-    menu_icon = 'kausal-categories'
+    menu_icon = 'kausal-category'
     menu_label = _('Common category types')
     menu_order = 1101
     permission_helper_class = CommonCategoryTypePermissionHelper
@@ -561,7 +575,7 @@ class CommonCategoryEditHandler(AplansTabbedInterface):
 @modeladmin_register
 class CommonCategoryAdmin(OrderableMixin, AplansModelAdmin):
     menu_label = _('Common categories')
-    menu_icon = 'kausal-categories'  # FIXME
+    menu_icon = 'kausal-category'
     list_display = ('name', 'identifier', 'type')
     list_filter = (CommonCategoryTypeFilter,)
     model = CommonCategory
@@ -580,6 +594,19 @@ class CommonCategoryAdmin(OrderableMixin, AplansModelAdmin):
     # Do we need to create a view for inspect_view?
     delete_view_class = CommonCategoryDeleteView
     button_helper_class = CommonCategoryAdminButtonHelper
+
+    # Fix index_order method added by OrderableMixinMetaClass because the way Wagtail handles icons has changed and
+    # wagtailorderable hasn't accounted for this.
+    def index_order(self, obj):
+        return mark_safe(
+            '<div class="w-orderable__item__handle button button-small button--icon handle text-replace">'
+            '<svg class="icon icon-grip default" style="padding: 0px;" aria-hidden="true">'
+            '<use href="#icon-grip"></use>'
+            '</svg>'
+            '</div>'
+        )
+    index_order.admin_order_field = 'order'
+    index_order.short_description = _('Order')
 
     def get_menu_item(self, order=None):
         return CommonCategoryAdminMenuItem(self, order or self.get_menu_order())

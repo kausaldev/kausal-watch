@@ -135,8 +135,6 @@ INSTALLED_APPS = [
     'dal_select2',
     'dal_admin_filters',
 
-    'helusers.apps.HelusersConfig',
-    # 'helusers.apps.HelusersAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -161,6 +159,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.contrib.search_promotions',
     'wagtail',
     'wagtail_modeladmin',  # deprecated; https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/migrating_to_snippets.html
     'wagtail_localize',
@@ -241,7 +240,15 @@ TEMPLATES = [
 ]
 
 WAGTAILADMIN_STATIC_FILE_VERSION_STRINGS = False
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage',
+    },
+}
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -273,7 +280,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 AUTHENTICATION_BACKENDS = (
-    'helusers.tunnistamo_oidc.TunnistamoOIDCAuth',
     'admin_site.backends.AzureADAuth',
     'admin_site.backends.ADFSOpenIDConnectAuth',
     'django.contrib.auth.backends.ModelBackend',
@@ -343,15 +349,9 @@ SOCIAL_AUTH_PIPELINE = (
 
     # Update avatar photo from MS Graph
     'users.pipeline.update_avatar',
-
-    # Store the end session URL in the user's session data so that
-    # we can format logout links properly.
-    'helusers.pipeline.store_end_session_url',
 )
 
-HELUSERS_PASSWORD_LOGIN_DISABLED = True
-
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 #
 # REST Framework
@@ -459,8 +459,6 @@ TIME_ZONE = 'Europe/Helsinki'
 
 USE_I18N = True
 WAGTAIL_I18N_ENABLED = True
-
-USE_L10N = True
 
 USE_TZ = True
 
@@ -688,7 +686,7 @@ AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 if AWS_S3_ENDPOINT_URL:
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STORAGES['default']['BACKEND'] = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Reverse proxy stuff
 USE_X_FORWARDED_HOST = True
@@ -736,7 +734,8 @@ if os.path.exists(f):
 if not locals().get('SECRET_KEY', ''):
     secret_file = os.path.join(BASE_DIR, '.django_secret')
     try:
-        SECRET_KEY = open(secret_file).read().strip()
+        with open(secret_file) as f:
+            SECRET_KEY = f.read().strip()
     except IOError:
         import random
         system_random = random.SystemRandom()
@@ -890,7 +889,6 @@ CELERY_WORKER_SEND_TASK_EVENTS = True
 # CELERY_TASK_SEND_SENT_EVENT = True  # required only for danihodovic/celery-exporter
 
 
-WAGTAIL_MODERATION_ENABLED = True
 WAGTAIL_WORKFLOW_ENABLED = True
 WAGTAILEMBEDS_RESPONSIVE_HTML = True
 

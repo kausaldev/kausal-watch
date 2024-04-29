@@ -152,7 +152,7 @@ class PlanRootPage(AplansPage):
         ('category_tree_map', CategoryTreeMapBlock()),
         ('large_image', LargeImageBlock()),
         ('embed', AdaptiveEmbedBlock()),
-    ], use_json_field=True)
+    ])
 
     content_panels = [
         FieldPanel('body'),
@@ -206,7 +206,7 @@ class StaticPage(AplansPage):
         ('category_tree_map', CategoryTreeMapBlock()),
         ('large_image', LargeImageBlock()),
         *get_body_blocks('StaticPage')
-    ], null=True, blank=True, use_json_field=True)
+    ], null=True, blank=True)
 
     content_panels = AplansPage.content_panels + [
         FieldPanel('header_image'),
@@ -334,16 +334,13 @@ class CategoryTypePageLevelLayout(ClusterableModel):
         null=True, blank=True, verbose_name=_('level')
     )
     layout_main_top = StreamField(
-        block_types=CategoryPageMainTopBlock(), null=True, blank=True, use_json_field=True,
-        verbose_name=_('layout main top')
+        block_types=CategoryPageMainTopBlock(), null=True, blank=True, verbose_name=_('layout main top')
     )
     layout_main_bottom = StreamField(
-        block_types=CategoryPageMainBottomBlock(), null=True, blank=True, use_json_field=True,
-        verbose_name=_('layout main bottom')
+        block_types=CategoryPageMainBottomBlock(), null=True, blank=True, verbose_name=_('layout main bottom')
     )
     layout_aside = StreamField(
-        block_types=CategoryPageAsideBlock(), null=True, blank=True, use_json_field=True,
-        verbose_name=_('layout aside')
+        block_types=CategoryPageAsideBlock(), null=True, blank=True, verbose_name=_('layout aside')
     )
     icon_size = models.CharField(
         max_length=4, choices=IconSize.choices, default=IconSize.MEDIUM, verbose_name=_('icon size')
@@ -380,7 +377,7 @@ class CategoryPage(AplansPage):
         ('category_list', CategoryListBlock()),
         ('action_list', ActionListBlock()),
         ('embed', AdaptiveEmbedBlock()),
-    ], null=True, blank=True, use_json_field=True)
+    ], null=True, blank=True)
 
     content_panels = AplansPage.content_panels + [
         FieldPanel('category', widget=CategoryChooser, read_only=True),
@@ -520,15 +517,15 @@ class ActionListPage(FixedSlugPage):
         CARDS = 'cards', _('Cards')
         DASHBOARD = 'dashboard', _('Dashboard')
 
-    primary_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True, use_json_field=True)
-    main_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True, use_json_field=True)
-    advanced_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True, use_json_field=True)
+    primary_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True)
+    main_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True)
+    advanced_filters = StreamField(block_types=ActionListFilterBlock(), null=True, blank=True)
 
-    dashboard_columns = StreamField(block_types=ActionDashboardColumnBlock(), null=True, blank=True, use_json_field=True)
+    dashboard_columns = StreamField(block_types=ActionDashboardColumnBlock(), null=True, blank=True)
 
-    details_main_top = StreamField(block_types=ActionMainContentBlock(), null=True, blank=True, use_json_field=True)
-    details_main_bottom = StreamField(block_types=ActionMainContentBlock(), null=True, blank=True, use_json_field=True)
-    details_aside = StreamField(block_types=ActionAsideContentBlock(), null=True, blank=True, use_json_field=True)
+    details_main_top = StreamField(block_types=ActionMainContentBlock(), null=True, blank=True)
+    details_main_bottom = StreamField(block_types=ActionMainContentBlock(), null=True, blank=True)
+    details_aside = StreamField(block_types=ActionAsideContentBlock(), null=True, blank=True)
 
     card_icon_category_type = models.ForeignKey(
         CategoryType, on_delete=models.SET_NULL, null=True, blank=True
@@ -675,7 +672,7 @@ class PrivacyPolicyPage(FixedSlugPage):
     body = StreamField([
         ('text', blocks.RichTextBlock(label=_('Text'))),
         # TODO: What blocks do we want to offer here (cf. AccessibilityStatementPage)?
-    ], null=True, blank=True, use_json_field=True)
+    ], null=True, blank=True)
 
     class Meta:
         verbose_name = _('Privacy policy page')
@@ -693,7 +690,7 @@ class AccessibilityStatementPage(FixedSlugPage):
         ('preparation', AccessibilityStatementPreparationInformationBlock()),
         ('contact_information', AccessibilityStatementContactInformationBlock()),
         ('contact_form', AccessibilityStatementContactFormBlock()),
-    ], null=True, blank=True, use_json_field=True)
+    ], null=True, blank=True)
 
     content_panels = FixedSlugPage.content_panels + [
         FieldPanel('body'),
@@ -726,7 +723,9 @@ class PlanLink(OrderedModel):
 
     class Meta:
         ordering = ['plan', 'order']
-        index_together = (('plan', 'order'),)
+        indexes = [
+            models.Index(fields=['plan', 'order']),
+        ]
         verbose_name = _('external plan link')
         verbose_name_plural = _('external plan links')
 

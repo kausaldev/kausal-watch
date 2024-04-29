@@ -98,3 +98,30 @@ section[role="tabpanel"] .help-block {
 .w-field__help .help {
   color: var(--w-color-grey-600);
 }
+
+/* Modeladmin fixes */
+.modeladmin .listing tbody tr ul.actions {
+  visibility: hidden;
+  display: inline-block;
+  min-width: 9em;
+  white-space: normal;
+  overflow-wrap: break-word;
+  height: auto;
+  float: inline-start;
+}
+/* Need to repeat this here from modeladmin's CSS because our custom React-based components won't use that file */
+.modeladmin .listing tbody tr:hover ul.actions {
+  visibility: visible;
+}
+/* Fix footer in, e.g., custom React-based action index view since Wagtail upgrade */
+.footer__container--hidden {
+  display: none;
+}
+/* Fix space between action buttons */
+.listing .actions > li {
+  margin: 0 0 .5em;
+}
+/* Fix weird inline block issues on, e.g., category list (unfiltered by category type) */
+.listing .title .title-wrapper, .listing .title h2 {
+  display: block;
+}

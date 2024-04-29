@@ -43,7 +43,7 @@ class ClientForm(forms.ModelForm):
 class ClientChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = ClientChooserMixin
 
-    icon = 'user'
+    icon = 'globe'
     model = Client
     page_title = _("Choose a client")
     per_page = 30

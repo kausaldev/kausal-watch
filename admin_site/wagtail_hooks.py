@@ -128,8 +128,8 @@ def register_report_menu():
     return SubmenuMenuItem(
         _('Reports'),
         report_menu,
-        classnames='icon icon-doc-full',
-        order=40
+        order=40,
+        icon_name='doc-full',
     )
 
 
@@ -367,16 +367,26 @@ def add_documentation_to_help_menu(request, items: list):
 
 @hooks.register("register_icons")
 def register_icons(icons):
-    return icons + [
-        'wagtailadmin/icons/kausal-action.svg',
-        'wagtailadmin/icons/kausal-attribute.svg',
-        'wagtailadmin/icons/kausal-category.svg',
-        'wagtailadmin/icons/kausal-dimension.svg',
-        'wagtailadmin/icons/kausal-indicator.svg',
-        'wagtailadmin/icons/kausal-organization.svg',
-        'wagtailadmin/icons/kausal-plan.svg',
-        'wagtailadmin/icons/kausal-spreadsheet.svg',
+    basenames = [
+        'kausal-action',
+        'kausal-attribute',
+        'kausal-category',
+        'kausal-dimension',
+        'kausal-indicator',
+        'kausal-organization',
+        'kausal-plan',
+        'kausal-spreadsheet',
+        # Icons we copied from Font Awesome have a `fontawesome-` prefix. We also override some icons shipped with
+        # Wagtail, but they don't have a prefix even though some of them also come from Font Awesome and they don't need
+        # to be registered here.
+        # It would be tempting to use `fa-` instead of `fontawesome-`, but the modeladmin package checks in
+        # `ModelAdminMenuItem` and `GroupMenuItem` for this hard-coded prefix, and if it's there, it uses
+        # CSS-classname-based icons for the menu items. This doesn't work anymore with newer versions of Wagtail.
+        'fontawesome-bell',
+        'fontawesome-link-slash',
+        'fontawesome-rotate-left',
     ]
+    return icons + [f'wagtailadmin/icons/{basename}.svg' for basename in basenames]
 
 
 @hooks.register('insert_editor_js')

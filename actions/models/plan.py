@@ -828,7 +828,9 @@ class GeneralPlanAdmin(OrderedModel):
 
     class Meta:
         ordering = ['plan', 'order']
-        index_together = (('plan', 'order'),)
+        indexes = [
+            models.Index(fields=['plan', 'order']),
+        ]
         unique_together = (('plan', 'person',),)
         verbose_name = _('general plan admin')
         verbose_name_plural = _('general plan admins')
@@ -1031,7 +1033,7 @@ class MonitoringQualityPoint(PlanRelatedModel, OrderedModel):  # type: ignore[dj
         default_language_field='plan__primary_language_lowercase',
     )
 
-    public_fields = [
+    public_fields: typing.ClassVar = [
         'id', 'name', 'description_yes', 'description_no', 'plan', 'identifier',
     ]
 

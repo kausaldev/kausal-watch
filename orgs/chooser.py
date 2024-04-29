@@ -44,7 +44,7 @@ class OrgForm(forms.ModelForm):
 class OrganizationChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = OrganizationChooserMixin
 
-    icon = 'user'
+    icon = 'kausal-organization'
     model = Organization
     page_title = _("Choose an organization")
     per_page = 30

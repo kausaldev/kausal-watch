@@ -153,12 +153,12 @@ class Person(index.Indexed, ClusterableModel):
 
     search_fields = [
         index.FilterField('id'),
-        index.AutocompleteField('first_name', partial_match=True),
-        index.AutocompleteField('last_name', partial_match=True),
-        index.AutocompleteField('title', partial_match=True),
+        index.AutocompleteField('first_name'),
+        index.AutocompleteField('last_name'),
+        index.AutocompleteField('title'),
         index.RelatedFields('organization', [
-            index.AutocompleteField('distinct_name', partial_match=True),
-            index.AutocompleteField('abbreviation', partial_match=True),
+            index.AutocompleteField('distinct_name'),
+            index.AutocompleteField('abbreviation'),
         ]),
     ]
 

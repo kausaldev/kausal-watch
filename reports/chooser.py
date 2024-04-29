@@ -32,7 +32,7 @@ class ReportTypeChooserMixin(ModelChooserMixin):
 class ReportTypeChooserViewSet(ModelChooserViewSet):
     chooser_mixin_class = ReportTypeChooserMixin
 
-    icon = 'folder-open-inverse'
+    icon = 'doc-full'
     model = ReportType
     page_title = _("Choose a report type")
     per_page = 30

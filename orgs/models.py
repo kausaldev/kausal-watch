@@ -80,6 +80,8 @@ class OrganizationClass(models.Model):
 
     i18n = TranslationField(fields=('name',))
 
+    public_fields: typing.ClassVar = ['id', 'identifier', 'name', 'created_time', 'last_modified_time']
+
     def __str__(self):
         return self.name
 
@@ -263,8 +265,8 @@ class Organization(index.Indexed, Node, ModelWithPrimaryLanguage, gis_models.Mod
     public_fields = ['id', 'uuid', 'name', 'abbreviation', 'internal_abbreviation', 'parent']
 
     search_fields = [
-        index.AutocompleteField('name', partial_match=True),
-        index.AutocompleteField('abbreviation', partial_match=True),
+        index.AutocompleteField('name'),
+        index.AutocompleteField('abbreviation'),
     ]
 
     MODEL_ADMIN_CLASS = 'orgs.wagtail_admin.OrganizationAdmin'  # for AdminButtonsMixin

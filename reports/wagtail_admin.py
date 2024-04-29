@@ -54,9 +54,9 @@ class ReportDeleteView(ReportTypeQueryParameterMixin, DeleteView):
 
 class ReportAdminButtonHelper(ButtonHelper):
     # TODO: duplicated as AttributeTypeAdminButtonHelper
-    download_report_button_classnames = ['icon', 'icon-fa-download']
-    mark_as_complete_button_classnames = ['icon', 'icon-fa-check']
-    undo_marking_as_complete_button_classnames = ['icon', 'icon-fa-undo']
+    download_report_button_classnames = []
+    mark_as_complete_button_classnames = []
+    undo_marking_as_complete_button_classnames = []
 
     def add_button(self, *args, **kwargs):
         """
@@ -94,6 +94,7 @@ class ReportAdminButtonHelper(ButtonHelper):
             'url': self.url_helper.get_action_url('download', quote(report_pk)),
             'label': _("Download XLSX"),
             'classname': cn,
+            'icon': 'download',
             'title': _("Download report as spreadsheet file"),
         }
 
@@ -106,6 +107,7 @@ class ReportAdminButtonHelper(ButtonHelper):
             'url': self.url_helper.get_action_url('mark_report_as_complete', quote(report_pk)),
             'label': _("Mark as complete"),
             'classname': cn,
+            'icon': 'check',
             'title': _("Mark this report as complete"),
         }
 
@@ -118,6 +120,7 @@ class ReportAdminButtonHelper(ButtonHelper):
             'url': self.url_helper.get_action_url('undo_marking_report_as_complete', quote(report_pk)),
             'label': _("Undo marking as complete"),
             'classname': cn,
+            'icon': 'fontawesome-rotate-left',
             'title': _("Undo marking this report as complete"),
         }
 
