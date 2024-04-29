@@ -91,9 +91,10 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 INTERNAL_IPS = env.list('INTERNAL_IPS',
                         default=(['127.0.0.1'] if DEBUG else []))
 DATABASES = {
-    'default': env.db()
+    'default': env.db_url(engine='postgis')
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES['default']['CONN_MAX_AGE'] = 600
 
 # Set type of implicit primary keys to AutoField. In newer versions of Django it is BigAutoField by default.
 # https://docs.djangoproject.com/en/3.2/releases/3.2/#customizing-type-of-auto-created-primary-keys
