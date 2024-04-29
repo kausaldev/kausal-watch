@@ -48,7 +48,6 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 # Create python virtual env
 RUN python -m venv ${VIRTUAL_ENV}
 
-ARG EXTRA_PYPI_INDEX
 ENV XDG_CACHE_HOME=/cache
 
 COPY requirements.txt requirements-prod.txt ${app_path}/
@@ -57,9 +56,9 @@ RUN --mount=type=cache,target=${XDG_CACHE_HOME}/pip \
 
 # Install extra dependencies
 COPY requirements-kausal.txt ${app_path}/
-RUN \
-    if [ ! -z "$EXTRA_PYPI_INDEX" ] ; then \
-        pip install --extra-index-url "${EXTRA_PYPI_INDEX}" -r ${app_path}/requirements-kausal.txt ; \
+RUN --mount=type=secret,id=EXTRA_PYPI_INDEX \
+    if [ -f /run/secrets/EXTRA_PYPI_INDEX ] ; then \
+        pip install --extra-index-url "$(cat /run/secrets/EXTRA_PYPI_INDEX)" -r ${app_path}/requirements-kausal.txt ; \
     fi
 
 COPY package.json package-lock.json ${app_path}/
