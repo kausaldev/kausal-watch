@@ -4,7 +4,9 @@ set -e
 
 DB_ENDPOINT=${DB_ENDPOINT:-db:5432}
 
-if [ "$1" = 'uwsgi' -o "$1" = 'celery' -o "$1" = 'runserver' ]; then
+# Wait for the database to get ready when not running in Kubernetes.
+# In Kube, the migrations will be handled through a job.
+if [ ! -z "$KUBERNETES_SERVICE_PORT" -a "$1" = 'uwsgi' -o "$1" = 'celery' -o "$1" = 'runserver' ]; then
     /wait-for-it.sh $DB_ENDPOINT
     cd /code
     if [ "$1" = 'celery' ]; then
