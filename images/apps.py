@@ -19,6 +19,9 @@ class ImagesConfig(AppConfig):
 
         # Register feature detection library
         from willow.registry import registry
-        import rustface.willow
-
-        registry.register_plugin(rustface.willow)
+        try:
+            import rustface.willow
+        except ImportError:
+            pass
+        else:
+            registry.register_plugin(rustface.willow)
