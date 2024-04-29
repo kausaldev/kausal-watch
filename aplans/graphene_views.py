@@ -1,6 +1,7 @@
 import hashlib
 import importlib
 import json
+import os
 from loguru import logger
 
 from django.conf import settings
@@ -25,7 +26,6 @@ from aplans.types import WatchAPIRequest
 
 from .graphql_helpers import GraphQLAuthFailedError, GraphQLAuthRequiredError
 from .graphql_types import AuthenticatedUserNode, WorkflowStateEnum
-from .code_rev import REVISION
 from users.models import User
 
 
@@ -199,7 +199,7 @@ class SentryGraphQLView(GraphQLView):
             return None
 
         m = hashlib.sha1()
-        m.update(REVISION.encode('utf8'))
+        m.update(os.getenv('BUILD_ID', 'dev').encode('utf8'))
         m.update(plan.cache_invalidated_at.isoformat().encode('utf8'))
         m.update(json.dumps(variables).encode('utf8'))
         m.update(query.encode('utf8'))
