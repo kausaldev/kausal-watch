@@ -87,6 +87,7 @@ COPY . ${app_path}/
 
 COPY ./docker/app/docker-entrypoint.sh /
 COPY ./docker/app/wait-for-it.sh /
+RUN chmod a+x /docker-entrypoint.sh /wait-for-it.sh
 
 WORKDIR ${app_path}
 
