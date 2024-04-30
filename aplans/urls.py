@@ -44,6 +44,9 @@ from insight.api import all_views as insight_api_views
 from reports.autocomplete import ReportAutocomplete, ReportTypeAutocomplete, ReportTypeFieldAutocomplete
 from users.views import change_admin_plan
 
+from .views import health_view
+
+
 extensions_api_views = []
 kwe_urls = []
 if importlib.util.find_spec('kausal_watch_extensions') is not None:
@@ -126,6 +129,7 @@ urlpatterns = [
 
     path('auth/', include('social_django.urls', namespace='social')),
     path("logout/", KausalLogoutView.as_view(), name="logout"),
+    path('healthz/', csrf_exempt(health_view)),
     path('', include('admin_site.urls')),
     path('', RootRedirectView.as_view(), name='root-redirect'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
