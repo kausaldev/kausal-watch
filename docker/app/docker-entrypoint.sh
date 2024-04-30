@@ -31,6 +31,7 @@ if [ "$1" = 'uwsgi' ]; then
     exec uwsgi --http-socket :8000 --socket :8001 --processes 4 \
         --enable-threads \
         --ignore-sigpipe --ignore-write-errors --disable-write-exception \
+        --die-on-term \
         --buffer-size=32768 \
         --static-map /static=/srv/static \
         --static-map /media=/srv/media \
@@ -40,7 +41,7 @@ elif [ "$1" = 'celery' ]; then
     exec celery -A aplans "$2" -l INFO
 elif [ "$1" = 'runserver' ]; then
     cd /code
-    python manage.py runserver 0.0.0.0:8000
+    exec python manage.py runserver 0.0.0.0:8000
 fi
 
 exec "$@"
