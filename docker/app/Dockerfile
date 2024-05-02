@@ -85,8 +85,7 @@ COPY --from=builder /venv /venv
 COPY --from=builder ${app_path}/node_modules ${app_path}/node_modules
 COPY . ${app_path}/
 
-COPY ./docker/app/docker-entrypoint.sh /
-COPY ./docker/app/wait-for-it.sh /
+COPY ./docker/app/docker-entrypoint.sh ./docker/app/wait-for-it.sh ./docker/app/uwsgi.ini /
 RUN chmod a+x /docker-entrypoint.sh /wait-for-it.sh
 
 WORKDIR ${app_path}
@@ -111,6 +110,7 @@ RUN pybabel compile -D notifications -d locale
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV UWSGI_MODULE aplans.wsgi
 
 EXPOSE 8000/tcp
 ENTRYPOINT ["/bin/bash", "/docker-entrypoint.sh"]

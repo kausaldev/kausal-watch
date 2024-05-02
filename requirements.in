@@ -75,3 +75,4 @@ dnspython
 PyGithub
 django-hijack
 requests>=2.31
+logfmter

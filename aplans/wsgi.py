@@ -14,7 +14,8 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aplans.settings')
 
-application = get_wsgi_application()
+django_application = get_wsgi_application()
+
 
 def run_deployment_checks():
     from django.core import checks  # noqa
@@ -38,5 +39,17 @@ def run_deployment_checks():
 try:
     import uwsgi  # type: ignore  # noqa
     run_deployment_checks()
+    from datetime import datetime, UTC
+    from .log_handler import ISO_FORMAT
+    def set_time():
+        now = datetime.now(UTC)
+        uwsgi.set_logvar('isotime', now.strftime(ISO_FORMAT).replace('+00:00', 'Z'))
 except ImportError:
-    pass
+    def set_time():
+        pass
+
+
+def application(env, start_response):
+    ret = django_application(env, start_response)
+    set_time()
+    return ret
