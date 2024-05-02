@@ -6,6 +6,14 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
 
+  test:
+    needs: [build]
+    uses: ./.github/workflows/test.yaml
+    secrets: inherit
+    with:
+      docker_image_repo: ${{ needs.build.outputs.image }}
+      docker_image_tag: ${{ needs.build.outputs.image_tag }}
+
   # build_test_and_push:
   #   name: Build Docker images, run tests and push to Docker registry
   #   runs-on: self-hosted
