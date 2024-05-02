@@ -74,3 +74,4 @@ html2text
 PyGithub
 dnspython
 requests>=2.31
+logfmter

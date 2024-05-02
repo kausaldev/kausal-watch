@@ -24,19 +24,12 @@ if [ "$KUBERNETES_MODE" != "1" -a "$1" = 'uwsgi' -o "$1" = 'celery' -o "$1" = 'r
             /bin/bash $scr
         done
     fi
+    EXTRA_UWSGI_ARGS = "--socket :8001"
 fi
 
 if [ "$1" = 'uwsgi' ]; then
     # Log to stdout
-    exec uwsgi --http-socket :8000 --socket :8001 --processes 4 \
-        --enable-threads \
-        --ignore-sigpipe --ignore-write-errors --disable-write-exception \
-        --die-on-term \
-        --buffer-size=32768 \
-        --static-map /static=/srv/static \
-        --static-map /media=/srv/media \
-        --master --no-orphans --harakiri 60 \
-        --module aplans.wsgi
+    exec uwsgi --ini /uwsgi.ini $EXTRA_UWSGI_ARGS
 elif [ "$1" = 'celery' ]; then
     exec celery -A aplans "$2" -l INFO
 elif [ "$1" = 'runserver' ]; then

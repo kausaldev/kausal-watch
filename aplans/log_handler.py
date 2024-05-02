@@ -1,14 +1,16 @@
-from datetime import datetime
+import logging
+from datetime import datetime, UTC
+from logging import LogRecord, StreamHandler
 from pathlib import Path
-from logging import LogRecord
-from typing import Any, List, Optional, TYPE_CHECKING, Sequence, Union, Callable
-from rich.console import ConsoleRenderable
+import sys
+from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Sequence, Union
 
+from logfmter.formatter import Logfmter
+from rich.console import ConsoleRenderable
+from rich.containers import Renderables
 from rich.logging import RichHandler
 from rich.text import Text, TextType
 from rich.traceback import Traceback
-from rich.containers import Renderables
-
 
 if TYPE_CHECKING:
     from rich.console import Console, RenderableType
@@ -91,6 +93,9 @@ class LogRender:
         return Renderables([output] + renderables)  # type: ignore
 
 
+ISO_FORMAT = '%Y-%m-%dT%H:%M:%S.%fZ'
+
+
 class LogHandler(RichHandler):
     _log_render: LogRender  # type: ignore[assignment]
 
@@ -101,7 +106,7 @@ class LogHandler(RichHandler):
             show_time=lr.show_time,
             show_level=lr.show_level,
             show_path=lr.show_path,
-            time_format='%Y-%m-%d %H:%M:%S.%f',
+            time_format=ISO_FORMAT,
             omit_repeated_times=lr.omit_repeated_times,
             level_width=None,
         )
@@ -150,3 +155,48 @@ class LogHandler(RichHandler):
             link_path=record.pathname if self.enable_link_path else None,
         )
         return log_renderable
+
+
+class LogFmtFormatter(Logfmter):
+    def __init__(self):
+        keys = ['time', 'level']
+        mapping = {
+            'time': 'asctime',
+            'level': 'levelname',
+        }
+        super().__init__(keys=keys, mapping=mapping, datefmt=ISO_FORMAT)
+
+    @classmethod
+    def get_extra(cls, record: logging.LogRecord) -> dict:
+        ret = super().get_extra(record)
+        if 'taskName' in ret:
+            del ret['taskName']
+        if 'extra' in ret:
+            del ret['extra']
+        extra = getattr(record, 'extra', {})
+        for key, val in extra.items():
+            if key in ret:
+                continue
+            ret[key] = val
+        return ret
+
+    def formatTime(self, record, datefmt=None):
+        return datetime.fromtimestamp(record.created, UTC).strftime(ISO_FORMAT)
+
+
+class LogFmtHandlerError(StreamHandler):
+    def __init__(self, stream=None):
+        if stream is None:
+            stream = sys.stderr
+        super().__init__(stream)
+        self.formatter = LogFmtFormatter()
+        self.addFilter(lambda rec: rec.levelno <= logging.INFO)
+
+
+class LogFmtHandlerInfo(StreamHandler):
+    def __init__(self, stream=None):
+        if stream is None:
+            stream = sys.stdout
+        super().__init__(stream)
+        self.formatter = LogFmtFormatter()
+        self.addFilter(lambda rec: rec.levelno > logging.INFO)
