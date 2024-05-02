@@ -28,12 +28,15 @@ jobs:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_DATABASE: ${{ env.POSTGRES_DATABASE }}
 
-
     container:
       image: ${{ inputs.docker_image_repo }}:${{ inputs.docker_image_tag }}
       env:
         DATABASE_URL: postgresql://${{env.POSTGRES_USER}}:${{env.POSTGRES_PASSWORD}}@localhost:5432/${{env.POSTGRES_DATABASE}}
 
     steps:
+      - name: Run tests
+        run: python run_tests.py
+        continue-on-error: true
+
       - name: Sleep
-        run: sleep 180
+        run: sleep 600
