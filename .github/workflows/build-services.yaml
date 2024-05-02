@@ -42,10 +42,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Who am I?
-        run:
-          docker 
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
