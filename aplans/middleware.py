@@ -93,7 +93,7 @@ class RequestMiddleware:
     def __call__(self, request: WatchRequest):
         log_context = {}
         if request.session and request.session.session_key:
-            log_context['session'] = str(request.session.session_key)
+            log_context['session'] = str(request.session.session_key)[0:8]
         with set_request(request), logger.contextualize(**log_context):
             return self.get_response(request)
 

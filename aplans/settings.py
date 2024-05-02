@@ -25,6 +25,7 @@ env = environ.FileAwareEnv(
     ENV_FILE=(str, ''),
     DEBUG=(bool, False),
     DEPLOYMENT_TYPE=(str, 'development'),
+    KUBERNETES_MODE=(bool, False),
     ENABLE_WAGTAIL_STYLEGUIDE=(bool, False),
     SECRET_KEY=(str, ''),
     ALLOWED_HOSTS=(list, []),
@@ -770,13 +771,23 @@ LOG_GRAPHQL_QUERIES = env('LOG_GRAPHQL_QUERIES') and DEBUG
 # Logging
 if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
     from loguru import logger
-    from .log_handler import LogHandler
+    from .log_handler import LogHandler, LogFmtHandlerError, LogFmtHandlerInfo
+    
+    is_kube = env.bool('KUBERNETES_MODE')
 
-    logger.configure(handlers=[dict(sink=LogHandler(), format="{message}")])
+    if is_kube:
+        loguru_handlers = [dict(sink=LogFmtHandlerError(), format="{message}"), dict(sink=LogFmtHandlerInfo(), format="{message}")]
+    else:
+        loguru_handlers = [dict(sink=LogHandler(), format="{message}")]
+    logger.configure(handlers=loguru_handlers)
 
-    def level(level: Literal['DEBUG', 'INFO', 'WARNING']):
+    def level(level: Literal['DEBUG', 'INFO', 'WARNING']) -> dict[str, list[str] | bool | str]:
+        if is_kube:
+            handlers = ['logfmt-error', 'logfmt-info']
+        else:
+            handlers = ['rich' if DEBUG else 'console']
         return dict(
-            handlers=['rich' if DEBUG else 'console'],
+            handlers=handlers,
             propagate=False,
             level=level,
         )
@@ -810,6 +821,14 @@ if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
                 'class': 'aplans.log_handler.LogHandler',
                 'formatter': 'rich',
                 'log_time_format': '%Y-%m-%d %H:%M:%S.%f'
+            },
+            'logfmt-error': {
+                'level': 'DEBUG',
+                'class': 'aplans.log_handler.LogFmtHandlerError',
+            },
+            'logfmt-info': {
+                'level': 'DEBUG',
+                'class': 'aplans.log_handler.LogFmtHandlerInfo',
             },
         },
         'loggers': {
