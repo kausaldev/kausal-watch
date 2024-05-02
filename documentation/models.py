@@ -20,6 +20,11 @@ class DocumentationRootPage(Page):
     subpage_types = ['DocumentationPage']
     is_creatable = False  # Only let this be created programmatically
 
+    # Disable Wagtail's previews because our hacks make them break
+    @property
+    def preview_modes(self):
+        return []
+
 
 class DocumentationPage(Page):
     body = StreamField([
@@ -41,6 +46,11 @@ class DocumentationPage(Page):
 
     parent_page_types = [DocumentationRootPage]
     subpage_types = []
+
+    # Disable Wagtail's previews because our hacks make them break
+    @property
+    def preview_modes(self):
+        return []
 
     class Meta:
         verbose_name = _('Documentation page')

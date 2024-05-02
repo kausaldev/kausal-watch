@@ -135,6 +135,11 @@ class AplansPage(Page):
 
         return (plan.site_id, plan.site_url, self.url_path)
 
+    # Disable Wagtail's previews because our hacks make them break
+    @property
+    def preview_modes(self):
+        return []
+
 
 class PlanRootPage(AplansPage):
     body = StreamField([
