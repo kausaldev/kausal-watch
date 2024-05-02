@@ -240,6 +240,8 @@ laces==0.1.1
     # via wagtail
 libvoikko==4.3
     # via -r requirements.in
+logfmter==0.0.7
+    # via -r requirements.in
 loguru==0.7.2
     # via -r requirements.in
 lxml==5.2.1
