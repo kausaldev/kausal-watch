@@ -121,6 +121,11 @@ section[role="tabpanel"] .help-block {
 .listing .actions > li {
   margin: 0 0 .5em;
 }
+/* Fix text being cropped when action buttons have long texts */
+.actions .button {
+  height: auto; /* originally 2em */
+  min-height: 2em; /* adding this to make sure things don't change for short texts */
+}
 /* Fix weird inline block issues on, e.g., category list (unfiltered by category type) */
 .listing .title .title-wrapper, .listing .title h2 {
   display: block;
