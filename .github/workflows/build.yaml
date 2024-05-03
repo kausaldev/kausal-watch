@@ -82,6 +82,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.5.0
+
       - name: Check for deployment branch
         if: startsWith(github.ref, 'refs/heads/deployment/')
         run: |
@@ -103,7 +106,7 @@ jobs:
           images: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           tags: |
             type=raw,value=${{steps.build_meta.outputs.git_image_tag}}
-            type=raw,value=${{steps.build_meta.outputs.build_id}}
+            type=raw,value=build-${{steps.build_meta.outputs.build_id}}
             type=ref,event=pr
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value={{branch}}-latest,enable=${{steps.deployment.conclusion != 'skipped'}}
@@ -170,8 +173,19 @@ jobs:
           BUILDX_GIT_LABELS: full
 
       - name: Attest image
-        uses: github-early-access/generate-build-provenance@main
+        uses: actions/attest-build-provenance@v1
         with:
           subject-name: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           subject-digest: ${{ steps.build_push.outputs.digest }}
           push-to-registry: true
+
+      - name: Sign the images with GitHub OIDC Token
+        env:
+          DIGEST: ${{ steps.build_push.outputs.digest }}
+          TAGS: ${{ steps.docker_meta.outputs.tags }}
+        run: |
+          images=""
+          for tag in ${TAGS}; do
+            images+="${tag}@${DIGEST} "
+          done
+          cosign sign --yes ${images}
