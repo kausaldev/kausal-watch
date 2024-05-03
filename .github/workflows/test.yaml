@@ -48,8 +48,4 @@ jobs:
 
       - name: Run tests
         run: python run_tests.py
-        continue-on-error: true
         working-directory: /code
-
-      - name: Sleep
-        run: sleep 600
