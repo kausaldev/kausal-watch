@@ -67,7 +67,6 @@ jobs:
       attestations: write
       contents: read
     container:
-      # image: ghcr.io/actions/actions-runner:latest
       image: ubuntu:24.04
 
     concurrency:
@@ -83,8 +82,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.5.0
+      #- name: Install Cosign
+      #  uses: sigstore/cosign-installer@v3.5.0
 
       - name: Check for deployment branch
         if: startsWith(github.ref, 'refs/heads/deployment/')
@@ -180,13 +179,13 @@ jobs:
           subject-digest: ${{ steps.build_push.outputs.digest }}
           push-to-registry: true
 
-      - name: Sign the images with GitHub OIDC Token
-        env:
-          DIGEST: ${{ steps.build_push.outputs.digest }}
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
-        run: |
-          images=""
-          for tag in ${TAGS}; do
-            images+="${tag}@${DIGEST} "
-          done
-          cosign sign --yes ${images}
+      # - name: Sign the images with GitHub OIDC Token
+      #   env:
+      #     DIGEST: ${{ steps.build_push.outputs.digest }}
+      #     TAGS: ${{ steps.docker_meta.outputs.tags }}
+      #   run: |
+      #     images=""
+      #     for tag in ${TAGS}; do
+      #       images+="${tag}@${DIGEST} "
+      #     done
+      #     cosign sign --yes ${images}
