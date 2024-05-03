@@ -29,7 +29,7 @@ jobs:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_DATABASE: ${{ env.POSTGRES_DATABASE }}
       elasticsearch:
-        image: harbor.kausal.dev/kausal-watch-backend/elasticsearch:8
+        image: harbor.kausal.dev/kausal-watch-backend/elasticsearch:8-latest
         env:
           ELASTICSEARCH_PASSWORD: ${{ env.ELASTICSEARCH_PASSWORD }}
 
