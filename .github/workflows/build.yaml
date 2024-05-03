@@ -61,6 +61,11 @@ jobs:
   build:
     name: Build
     runs-on: self-hosted
+    permissions:
+      id-token: write
+      packages: write
+      attestations: write
+      contents: read
     container:
       image: ghcr.io/actions/actions-runner:latest
 
@@ -163,3 +168,10 @@ jobs:
           cache-to: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache,mode=max,image-manifest=true
         env:
           BUILDX_GIT_LABELS: full
+
+      - name: Attest image
+        uses: github-early-access/generate-build-provenance@main
+        with:
+          subject-name: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
+          subject-digest: ${{ steps.build_push.outputs.digest }}
+          push-to-registry: true
