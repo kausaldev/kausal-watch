@@ -8,7 +8,7 @@ FROM ${base_image} AS base
 ARG runtime_deps="libpq5 postgresql-client gettext \
     libproj25 libgdal34 libjpeg62-turbo libtiff6 libxml2 libffi8 libxslt1.1 \
     libwebp7 libvoikko1 voikko-fi curl libpcre3 \
-    libpython3.12t64 python3.12 python3.12-venv python3-pip-whl"
+    libpython3.12t64 python3.12 python3.12-venv python3-pip-whl iputils-ping inetutils-telnet"
 ARG build_time_deps="libpq-dev build-essential \
     zlib1g-dev libjpeg-dev libtiff-dev libopenjp2-7-dev libwebp-dev \
     binutils libproj-dev libgdal-dev \
