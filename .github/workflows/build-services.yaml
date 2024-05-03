@@ -29,7 +29,12 @@ jobs:
     name: Build ${{ inputs.image_repo }}
     runs-on: self-hosted
     container:
-      image: ghcr.io/actions/actions-runner:latest
+      image: harbor.kausal.dev/library/ubuntu:latest
+    permissions:
+      id-token: write
+      packages: write
+      attestations: write
+      contents: read
 
     steps:
       - name: Check out code
@@ -61,3 +66,24 @@ jobs:
             ${{ inputs.image_registry }}/${{ inputs.image_repo }}:${{ inputs.image_tag }}
         env:
           BUILDX_GIT_LABELS: full
+
+      - name: Attest image
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ${{ inputs.image_registry }}/${{ inputs.image_repo }}
+          subject-digest: ${{ steps.build_push.outputs.digest }}
+          push-to-registry: true
+
+      - name: Sign the images with GitHub OIDC Token
+        env:
+          DIGEST: ${{ steps.build_push.outputs.digest }}
+          TAGS: ${{ inputs.image_registry }}/${{ inputs.image_repo }}:${{ inputs.image_tag }}
+        run: |
+          images=""
+          for tag in ${TAGS}; do
+            tag_digest="${tag}@${DIGEST}"
+            echo $tag_digest
+            images+="${tag_digest} "
+          done
+          cosign sign --yes ${images}
+        shell: bash
