@@ -68,11 +68,6 @@ class AdminSiteConfig(AdminConfig):
             # This is never called
             _("History")
 
-        # Compatibility shim until grapple gets updated
-        from wagtail.contrib.search_promotions.models import Query
-        from wagtail.search import models
-        models.Query = Query  # type: ignore
-
 
 class AdminSiteStatic(AppConfig):
     name = 'admin_site'
