@@ -186,6 +186,9 @@ jobs:
         run: |
           images=""
           for tag in ${TAGS}; do
-            images+="${tag}@${DIGEST} "
+            tag_digest="${tag}@${DIGEST}"
+            echo $tag_digest
+            images+="${tag_digest} "
           done
           cosign sign --yes ${images}
+        shell: bash
