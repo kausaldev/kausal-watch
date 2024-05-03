@@ -67,8 +67,7 @@ jobs:
       attestations: write
       contents: read
     container:
-      # image: ghcr.io/actions/actions-runner:latest
-      image: ubuntu:24.04
+      image: harbor.kausal.dev/library/ubuntu:latest
 
     concurrency:
       group: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
@@ -83,8 +82,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.5.0
+      #- name: Install Cosign
+      #  uses: sigstore/cosign-installer@v3.5.0
 
       - name: Check for deployment branch
         if: startsWith(github.ref, 'refs/heads/deployment/')
@@ -124,7 +123,7 @@ jobs:
         with:
           driver: remote
           endpoint: tcp://buildkitd:1234
-          install: true
+          install: false
           cleanup: true
 
       - name: Check if an image for this git head already exists
@@ -168,6 +167,8 @@ jobs:
             org.opencontainers.image.version=${{ steps.build_meta.outputs.build_id }}
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
+          outputs: |
+            type=image,oci-mediatypes=true,compression=zstd,compression-level=12,force-compression=true,push=true,name=${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           cache-from: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache
           cache-to: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache,mode=max,image-manifest=true
         env:
@@ -187,6 +188,9 @@ jobs:
         run: |
           images=""
           for tag in ${TAGS}; do
-            images+="${tag}@${DIGEST} "
+            tag_digest="${tag}@${DIGEST}"
+            echo $tag_digest
+            images+="${tag_digest} "
           done
           cosign sign --yes ${images}
+        shell: bash
