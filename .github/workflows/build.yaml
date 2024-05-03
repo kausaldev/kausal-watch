@@ -98,6 +98,7 @@ jobs:
           images: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           tags: |
             type=raw,value=${{steps.build_meta.outputs.git_image_tag}}
+            type=raw,value=${{steps.build_meta.outputs.build_id}}
             type=ref,event=pr
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value={{branch}}-latest,enable=${{steps.deployment.conclusion != 'skipped'}}
