@@ -179,13 +179,13 @@ jobs:
           subject-digest: ${{ steps.build_push.outputs.digest }}
           push-to-registry: true
 
-      # - name: Sign the images with GitHub OIDC Token
-      #   env:
-      #     DIGEST: ${{ steps.build_push.outputs.digest }}
-      #     TAGS: ${{ steps.docker_meta.outputs.tags }}
-      #   run: |
-      #     images=""
-      #     for tag in ${TAGS}; do
-      #       images+="${tag}@${DIGEST} "
-      #     done
-      #     cosign sign --yes ${images}
+      - name: Sign the images with GitHub OIDC Token
+        env:
+          DIGEST: ${{ steps.build_push.outputs.digest }}
+          TAGS: ${{ steps.docker_meta.outputs.tags }}
+        run: |
+          images=""
+          for tag in ${TAGS}; do
+            images+="${tag}@${DIGEST} "
+          done
+          cosign sign --yes ${images}
