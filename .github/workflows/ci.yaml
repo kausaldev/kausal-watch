@@ -6,6 +6,10 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
 
+  #build_services:
+  #  uses: ./.github/workflows/build.yaml
+  #  secrets: inherit
+
   test:
     needs: [build]
     uses: ./.github/workflows/test.yaml
