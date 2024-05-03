@@ -67,7 +67,7 @@ jobs:
       attestations: write
       contents: read
     container:
-      image: ubuntu:24.04
+      image: harbor.kausal.dev/library/ubuntu:latest
 
     concurrency:
       group: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
@@ -123,7 +123,7 @@ jobs:
         with:
           driver: remote
           endpoint: tcp://buildkitd:1234
-          install: true
+          install: false
           cleanup: true
 
       - name: Check if an image for this git head already exists
