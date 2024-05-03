@@ -67,7 +67,8 @@ jobs:
       attestations: write
       contents: read
     container:
-      image: ghcr.io/actions/actions-runner:latest
+      # image: ghcr.io/actions/actions-runner:latest
+      image: ubuntu:24.04
 
     concurrency:
       group: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
