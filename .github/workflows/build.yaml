@@ -167,6 +167,8 @@ jobs:
             org.opencontainers.image.version=${{ steps.build_meta.outputs.build_id }}
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
+          outputs: |
+            type=image,oci-mediatypes=true,compression=zstd,compression-level=12,force-compression=true,push=true,name=${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           cache-from: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache
           cache-to: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache,mode=max,image-manifest=true
         env:
