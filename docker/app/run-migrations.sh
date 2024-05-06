@@ -11,7 +11,10 @@ function restore_from_backup() {
         return
     fi
     # Check we already have tables in the database
-    nr_tables=$(echo "select count(*) from information_schema.tables where table_schema = 'public';" | ./manage.py dbshell -- -qtAX)
+    tmpf=$(mktemp)
+    echo "select count(*) from information_schema.tables where table_schema = 'public';" | ./manage.py dbshell -- -qtAX -o $tmpf
+    nr_tables=$(cat $tmpf)
+    rm $tmpf
     if [ ! "$nr_tables" -ge 0 -o ! "$nr_tables" -lt 10 ] ; then
         echo "Invalid number of tables found in database; expecting less than 10. Not restoring."
         return
@@ -28,4 +31,3 @@ function restore_from_backup() {
 restore_from_backup
 
 exec python manage.py migrate --noinput
-
