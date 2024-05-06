@@ -41,10 +41,10 @@ jobs:
 
     steps:
       - name: Wait for DB
-        run: /wait-for-it.sh localhost:5432 -t 30
+        run: /scripts/wait-for-it.sh localhost:5432 -t 30
 
       - name: Wait for ES
-        run: /wait-for-it.sh localhost:9200 -t 30
+        run: /scripts/wait-for-it.sh localhost:9200 -t 30
 
       - name: Run tests
         run: python run_tests.py
