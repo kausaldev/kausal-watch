@@ -86,8 +86,10 @@ COPY --from=builder /venv /venv
 COPY --from=builder ${app_path}/node_modules ${app_path}/node_modules
 COPY . ${app_path}/
 
-COPY ./docker/app/docker-entrypoint.sh ./docker/app/wait-for-it.sh ./docker/app/uwsgi.ini /
-RUN chmod a+x /docker-entrypoint.sh /wait-for-it.sh
+RUN mkdir /scripts
+COPY ./docker/app/*.sh /scripts/
+COPY ./docker/app/uwsgi.ini /
+RUN chmod a+x /scripts/*.sh
 
 WORKDIR ${app_path}
 
@@ -114,4 +116,4 @@ ENV PYTHONUNBUFFERED 1
 ENV UWSGI_MODULE aplans.wsgi
 
 EXPOSE 8000/tcp
-ENTRYPOINT ["/bin/bash", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/scripts/docker-entrypoint.sh"]
