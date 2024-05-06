@@ -3,16 +3,17 @@
 set -e
 
 DB_ENDPOINT=${DB_ENDPOINT:-db:5432}
+wait_for_it=/scripts/wait-for-it.sh
 
 # Wait for the database to get ready when not running in Kubernetes.
 # In Kube, the migrations will be handled through a job.
 if [ "$KUBERNETES_MODE" != "1" -a "$1" = 'uwsgi' -o "$1" = 'celery' -o "$1" = 'runserver' ]; then
-    /wait-for-it.sh $DB_ENDPOINT
+    $wait_for_it $DB_ENDPOINT
     cd /code
     if [ "$1" = 'celery' ]; then
         # If we're in a celery container, wait for the app container
         # to start first so that migrations are run.
-        if ! /wait-for-it.sh -t 5 app:8000 ; then
+        if ! $wait_for_it -t 5 app:8000 ; then
             echo "App container didn't start, but we don't care"
         fi
     else
