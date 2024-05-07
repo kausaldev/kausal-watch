@@ -200,3 +200,21 @@ class LogFmtHandlerInfo(StreamHandler):
         super().__init__(stream)
         self.formatter = LogFmtFormatter()
         self.addFilter(lambda rec: rec.levelno > logging.INFO)
+
+
+class UwsgiReqLogHandler(StreamHandler):
+    def __init__(self, stream=None):
+        if stream is None:
+            stream = sys.stdout
+        super().__init__(stream)
+
+    def format(self, record: LogRecord) -> str:
+        s = str(record.msg).rstrip('\n')
+        return s
+
+    def emit(self, record: LogRecord) -> None:
+        # Only emit health check logs only for 5 mins after starting
+        if ' path=/healthz' in record.msg:
+            if record.relativeCreated > 5 * 60 * 1000:
+                return
+        return super().emit(record)
