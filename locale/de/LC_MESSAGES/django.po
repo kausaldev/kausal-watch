@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-11 12:12+0300\n"
-"PO-Revision-Date: 2024-04-11 09:21+0000\n"
-"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
+"PO-Revision-Date: 2024-05-07 19:58+0000\n"
+"Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
 "\n"
 "Language: de\n"
@@ -575,8 +575,6 @@ msgid "Schedule"
 msgstr "Zeitplan"
 
 #: actions/blocks/filters.py
-#, fuzzy
-#| msgid "continuous action"
 msgid "Continuous Action"
 msgstr "laufende Maßnahme"
 
@@ -1550,11 +1548,13 @@ msgstr "Bei Plänen, die feldspezifische Sichtbarkeitsbeschränkungen haben, zei
 
 #: actions/models/features.py
 msgid "Include action print layout in reports"
-msgstr ""
+msgstr "Maßnahmen-Drucklayout in Berichte einbeziehen"
 
 #: actions/models/features.py
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
 msgstr ""
+"Füge der Tabellenausgabe des Berichts ein Blatt hinzu, das alle Maßnahmen in "
+"einem für den Druck optimierten Layout enthält."
 
 #: actions/models/features.py
 msgid "plan feature"
@@ -1570,29 +1570,28 @@ msgstr "Wenn Sie dies leer lassen, verwendet die Anwendung den Standardwert"
 
 #: actions/models/plan.py
 msgid "Customer use"
-msgstr ""
+msgstr "Verwendung durch den Kunden"
 
 #: actions/models/plan.py
 msgid "Sales and demos"
-msgstr ""
+msgstr "Verkauf und Demos"
 
 #: actions/models/plan.py
 msgid "Internal testing, training, development or other non-public use"
 msgstr ""
+"Interne Tests, Schulungen, Entwicklung oder andere nicht-öffentliche Nutzung"
 
 #: actions/models/plan.py
-#, fuzzy
-#| msgid "in progress"
 msgid "Offboarding in progress"
-msgstr "im Gange"
+msgstr "Offboarding im Gange"
 
 #: actions/models/plan.py
 msgid "Inactive, not in use currently"
-msgstr ""
+msgstr "Inaktiv, derzeit nicht in Gebrauch"
 
 #: actions/models/plan.py
 msgid "Deprecated, should be deleted"
-msgstr ""
+msgstr "Veraltet, sollte gelöscht werden"
 
 #: actions/models/plan.py
 msgid "The official plan name in full form"
@@ -1627,14 +1626,17 @@ msgid "archived at"
 msgstr "archiviert am"
 
 #: actions/models/plan.py
-#, fuzzy
-#| msgid "status"
 msgid "Usage status"
-msgstr "Status"
+msgstr "Status der Nutzung"
 
 #: actions/models/plan.py
 msgid "If unsure, use the default value representing customer use. For statistical purposes specify what the plan will be used for in order to differentiate between plans actually in use by customers and those created for some other reason."
 msgstr ""
+"Wenn Sie sich nicht sicher sind, verwenden Sie den Standardwert für die "
+"Nutzung durch Kunden. Geben Sie für statistische Zwecke an, wofür der Plan "
+"verwendet wird, um zwischen Plänen, die tatsächlich von Kunden genutzt "
+"werden, und solchen, die aus einem anderen Grund erstellt wurden, zu "
+"unterscheiden."
 
 #: actions/models/plan.py
 msgid "site URL"
@@ -2866,11 +2868,11 @@ msgstr "aktualisierte Werte fällig am"
 
 #: indicators/models.py
 msgid "reference"
-msgstr ""
+msgstr "Referenz"
 
 #: indicators/models.py
 msgid "What is the reference or source for this indicator?"
-msgstr ""
+msgstr "Wie lautet die Referenz oder Quelle für diesen Indikator?"
 
 #: indicators/models.py
 msgid "indicator"
@@ -3839,14 +3841,12 @@ msgid "Should the page be shown in the additional links?"
 msgstr "Soll die Seite in den zusätzlichen Links angezeigt werden?"
 
 #: pages/models.py
-#, fuzzy
-#| msgid "show in additional links"
 msgid "show link in child plans"
-msgstr "Zeige in zusätzlichen Links"
+msgstr "Link in Unterplänen anzeigen"
 
 #: pages/models.py
 msgid "Should this additional link be displayed in child plans?"
-msgstr ""
+msgstr "Sollte dieser zusätzliche Link in Unterplänen angezeigt werden?"
 
 #: pages/models.py
 msgid "children use secondary navigation"
@@ -4410,7 +4410,7 @@ msgstr "Als abgeschlossen markiert am"
 
 #: reports/spreadsheets/excel_report.py
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
 #, python-format
