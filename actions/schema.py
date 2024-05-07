@@ -40,6 +40,7 @@ from actions.models.action import ActionQuerySet
 from actions.models.action_deps import ActionDependencyRelationship, ActionDependencyRole
 from actions.models.attributes import ModelWithAttributes
 from orgs.models import Organization
+from people.models import Person
 from users.models import User
 from aplans.graphql_helpers import AdminButtonsMixin, UpdateModelInstanceMutation
 from aplans.graphql_types import (
@@ -53,6 +54,7 @@ from aplans.graphql_types import (
     register_graphene_node,
     set_active_plan
 )
+from aplans.cache import SerializedDictWithRelatedObjectCache
 from aplans.graphql_errors import ErrorCode
 from aplans.types import is_authenticated
 from aplans.utils import hyphenate_fi, public_fields
@@ -62,6 +64,7 @@ from search.backends import get_search_backend
 
 if typing.TYPE_CHECKING:
     from actions.models.attributes import Attribute
+    from aplans.cache import PlanSpecificCache
 
 
 logger = logging.getLogger(__name__)
@@ -663,6 +666,7 @@ class AttributesMixin:
 
         attributes: list[Attribute] = []
         if root.draft_attributes:
+            cache = info.context.watch_cache.for_plan(plan)
             attribute_types = root.get_visible_attribute_types(request.user)
             for attribute_type in attribute_types:
                 try:
@@ -1093,8 +1097,13 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     def resolve_contact_persons(root: Action, info: GQLInfo, show_all_contact_persons: bool):
         plan: Plan = get_plan_from_context(info)
         user = info.context.user
-        acps = [acp for acp in root.contact_persons.all()
-                if acp.person.visible_for_user(user=user, plan=plan)]
+        acps = []
+        cache = info.context.watch_cache.for_plan(plan)
+        for acp in root.contact_persons.all():
+            person = cache.get_person(acp.person_id) or acp.person
+            if not person.visible_for_user(user=user, plan=plan):
+                continue
+            acps.append(acp)
         if plan.features.contact_persons_hide_moderators and (
             not show_all_contact_persons or not user.is_authenticated or not user.can_access_admin(plan)):
             acps = [acp for acp in acps if not acp.is_moderator()]
@@ -1164,12 +1173,26 @@ class ActionImplementationPhaseNode(DjangoNode):
 
 
 class ActionResponsiblePartyNode(DjangoNode):
+    @staticmethod
+    def resolve_organization(root: ActionResponsibleParty, info) -> Organization:
+        cache = info.context.watch_cache.for_plan_id(root.action.plan_id)
+        return cache.get_organization(root.organization_id) or root.organization
+
     class Meta:
         model = ActionResponsibleParty
         fields = public_fields(ActionResponsibleParty)
 
 
 class ActionContactPersonNode(DjangoNode):
+    @staticmethod
+    def resolve_person(root: ActionContactPerson, info) -> Person:
+        cache = info.context.watch_cache.for_plan_id(root.action.plan_id)
+        person = cache.get_person(root.person_id) or root.person
+        person_organization = cache.get_organization(person.organization_id)
+        if person_organization is not None:
+            person.organization = person_organization
+        return person
+
     class Meta:
         model = ActionContactPerson
         fields = public_fields(ActionContactPerson)
