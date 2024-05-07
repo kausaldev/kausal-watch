@@ -1193,7 +1193,8 @@ class ActionTask(ActionRelatedModelTransModelMixin, models.Model):
     verbose_name_partitive = pgettext_lazy('partitive', 'action task')
 
     public_fields: ClassVar = [
-        'id', 'action', 'name', 'state', 'comment', 'due_at', 'completed_at', 'created_at', 'modified_at',
+        'id', 'action', 'name', 'state', 'comment', 'due_at', 'date_format', 'completed_at', 'created_at',
+        'modified_at',
     ]
 
     class Meta:
