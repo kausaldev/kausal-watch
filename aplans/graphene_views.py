@@ -2,6 +2,7 @@ import hashlib
 import importlib
 import json
 import os
+from typing import Any
 from loguru import logger
 
 from django.conf import settings
@@ -171,7 +172,6 @@ def perform_auth(request):
         request.user = user
 
 
-
 class SentryGraphQLView(GraphQLView):
     graphiql_version = "2.0.7"
     graphiql_sri = "sha256-qQ6pw7LwTLC+GfzN+cJsYXfVWRKH9O5o7+5H96gTJhQ="
@@ -249,10 +249,18 @@ class SentryGraphQLView(GraphQLView):
         request._referer = self.request.META.get('HTTP_REFERER')
         transaction: sentry_tracing.Transaction | None = sentry_sdk.Hub.current.scope.transaction
 
-        log_context = {}
+        wildcard_domains = request.headers.get(WILDCARD_DOMAIN_HEADER)
+        request.wildcard_domains = [d.lower() for d in wildcard_domains.split(',')] if wildcard_domains else None
+
+        log_context: dict[str, Any] = {}
         tenant_id = request.headers.get(PLAN_IDENTIFIER_HEADER)
         if tenant_id:
             log_context['tenant'] = tenant_id
+        if operation_name:
+            log_context['graphql_operation'] = operation_name
+        if request.wildcard_domains:
+            log_context['wildcard_domains'] = request.wildcard_domains
+
         with sentry_sdk.push_scope() as scope, logger.contextualize(**log_context):
             perform_auth(request)
             self.log_request(request, query, variables, operation_name)
