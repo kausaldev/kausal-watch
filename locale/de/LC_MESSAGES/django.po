@@ -11,9 +11,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-07 22:21+0200\n"
-"PO-Revision-Date: 2024-05-07 19:58+0000\n"
+"PO-Revision-Date: 2024-05-07 20:33+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -314,8 +315,6 @@ msgid "If format is 'Numeric', a unit must be set"
 msgstr "Wenn das Format „Numerisch“ ist, muss eine Einheit eingestellt werden"
 
 #: actions/attribute_type_admin.py actions/category_admin.py
-#, fuzzy
-#| msgid "order"
 msgid "Order"
 msgstr "Sortierung"
 
@@ -1462,10 +1461,14 @@ msgstr "Wählen Sie aus, welche Informationen über Ansprechpersonen in der öff
 #: actions/models/features.py
 msgid "Show organization ancestors in contact details of contact persons"
 msgstr ""
+"Übergeordnete Organisationen in den Kontaktdetails der Ansprechpersonen "
+"anzeigen"
 
 #: actions/models/features.py
 msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
 msgstr ""
+"Soll bei der Anzeige der Kontaktdaten einer Ansprechperson die Organisation "
+"der Ansprechperson zusammen mit allen übergeordneten angezeigt werden?"
 
 #: actions/models/features.py
 msgid "Hide moderators from the contact persons"
@@ -1569,11 +1572,11 @@ msgstr "Füge der Tabellenausgabe des Berichts ein Blatt hinzu, das alle Maßnah
 
 #: actions/models/features.py
 msgid "Password protected"
-msgstr ""
+msgstr "Passwortgeschützt"
 
 #: actions/models/features.py
 msgid "Is this plan password protected?"
-msgstr ""
+msgstr "Ist dieser Plan passwortgeschützt?"
 
 #: actions/models/features.py
 msgid "plan feature"
@@ -1887,15 +1890,7 @@ msgid "monitoring quality points"
 msgstr "Überwachungsqualitätspunkte"
 
 #: actions/templates/site_summary/actions.html
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
-#| "    "
-#| msgid_plural ""
-#| "\n"
-#| "        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
-#| "    "
+#, python-format
 msgid ""
 "\n"
 "        <span>%(n)s</span> active action <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
@@ -1906,11 +1901,13 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 "\n"
-"        <span> %(n)s </span> aktive Maßnahme <span class=\"visuallyhidden\"> überwacht in %(plan.name)s </span>\n"
+"        <span> %(n)s </span> aktive Maßnahme <span class=\"w-sr-only\"> "
+"überwacht in %(plan)s </span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"        <span> %(n)s </span> aktive Maßnahmen <span class=\"visuallyhidden\"> überwacht in %(plan.name)s </span>\n"
+"        <span> %(n)s </span> aktive Maßnahmen <span class=\"w-sr-only\"> "
+"überwacht in %(plan)s </span>\n"
 "    "
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
@@ -2189,10 +2186,8 @@ msgid " By %(filter_title)s "
 msgstr " Nach %(filter_title)s "
 
 #: admin_site/templates/wagtailadmin/base.html
-#, fuzzy
-#| msgid "Can administrate all actions"
 msgid "Administration"
-msgstr "Kann alle Maßnahmen verwalten"
+msgstr "Administration"
 
 #: admin_site/templates/wagtailadmin/login.html
 msgid "Sign in to Kausal Watch admin"
@@ -2370,7 +2365,7 @@ msgstr "Schwedisch"
 
 #: aplans/settings.py
 msgid "Swedish (Finland)"
-msgstr ""
+msgstr "Schwedisch (Finnland)"
 
 #: aplans/settings.py
 msgid "Portuguese"
@@ -2434,10 +2429,8 @@ msgid "updated by"
 msgstr "aktualisiert von"
 
 #: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
 msgid "Budget dimensions"
-msgstr "Dimensionen"
+msgstr "Budget-Dimensionen"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -3062,15 +3055,7 @@ msgid "Permission denied"
 msgstr "Zugriff verweigert"
 
 #: indicators/templates/site_summary/indicators.html
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
-#| "    "
-#| msgid_plural ""
-#| "\n"
-#| "        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
-#| "    "
+#, python-format
 msgid ""
 "\n"
 "        <span>%(total)s</span> indicator <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
@@ -3081,11 +3066,13 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 "\n"
-"        <span>%(total)s</span> Indikator <span class=\"visuallyhidden\">überwacht in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> Indikator <span class=\"w-sr-only\">überwacht "
+"in %(plan)s</span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"        <span>%(total)s</span> Indikatoren <span class=\"visuallyhidden\">überwacht in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> Indikatoren <span class=\"w-sr-only\""
+">überwacht in %(plan)s</span>\n"
 "    "
 
 #: indicators/wagtail_admin.py
