@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 12:12+0300\n"
+"POT-Creation-Date: 2024-05-07 22:21+0200\n"
 "PO-Revision-Date: 2024-03-08 13:14+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
 "Language-Team: Latvian <https://weblate.kausal.tech/projects/watch/django/lv/>\n"
@@ -73,7 +73,8 @@ msgid "Name"
 msgstr "Nosaukums"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorijas"
 
@@ -285,7 +286,7 @@ msgstr "Atcelt moderēšanu"
 
 #: actions/apps.py actions/models/plan.py content/models.py
 #: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
-#: templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Actions"
 msgstr "Rīcības"
 
@@ -314,6 +315,12 @@ msgstr "Ja formāts ir \"Kategorija\", jānosaka kategorijas tips"
 #: actions/attribute_type_admin.py
 msgid "If format is 'Numeric', a unit must be set"
 msgstr "Ja formāts ir \"Ciparu\", jānosaka mērvienība"
+
+#: actions/attribute_type_admin.py actions/category_admin.py
+#, fuzzy
+#| msgid "order"
+msgid "Order"
+msgstr "pasūtījums"
 
 #: actions/attribute_type_admin.py
 msgid "This field already has values. If you want to change the format, you need to delete the existing values first."
@@ -465,8 +472,7 @@ msgid "Tasks"
 msgstr "Uzdevumi"
 
 #: actions/blocks/action_dashboard.py actions/models/plan.py indicators/apps.py
-#: indicators/blocks.py indicators/templates/indicators/edit_values.html
-#: indicators/wagtail_admin.py
+#: indicators/blocks.py indicators/wagtail_admin.py
 msgid "Indicators"
 msgstr "Rādītāji"
 
@@ -1473,6 +1479,14 @@ msgid "Choose which information about contact persons is visible in the public U
 msgstr "Izvēlieties, kura informācija par kontaktpersonām ir redzama publiskajā lietotāja saskarnē"
 
 #: actions/models/features.py
+msgid "Show organization ancestors in contact details of contact persons"
+msgstr ""
+
+#: actions/models/features.py
+msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
+msgstr ""
+
+#: actions/models/features.py
 #, fuzzy
 #| msgid "indicator contact persons"
 msgid "Hide moderators from the contact persons"
@@ -1576,6 +1590,14 @@ msgstr ""
 
 #: actions/models/features.py
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
+msgid "Password protected"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Is this plan password protected?"
 msgstr ""
 
 #: actions/models/features.py
@@ -1901,11 +1923,11 @@ msgstr "kvalitātes uzraudzības punkti"
 #, python-format
 msgid ""
 "\n"
-"        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active action <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active actions <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
@@ -2191,6 +2213,12 @@ msgstr "%(time_period)s pirms"
 msgid " By %(filter_title)s "
 msgstr " Līdz %(filter_title)s "
 
+#: admin_site/templates/wagtailadmin/base.html
+#, fuzzy
+#| msgid "Can administrate all actions"
+msgid "Administration"
+msgstr "Var pārvaldīt visas rīcības"
+
 #: admin_site/templates/wagtailadmin/login.html
 msgid "Sign in to Kausal Watch admin"
 msgstr "Pierakstīties Kausal Watch admin"
@@ -2370,6 +2398,10 @@ msgid "Swedish"
 msgstr "Zviedru"
 
 #: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
+
+#: aplans/settings.py
 msgid "Portuguese"
 msgstr "Portugāļu"
 
@@ -2417,7 +2449,7 @@ msgstr "Rediģēšanas tiesības"
 msgid "Contact persons with \"moderator\" role"
 msgstr "Kontaktpersonas ar \"moderatora\" lomu"
 
-#: aplans/utils.py reports/spreadsheets/excel_report.py
+#: aplans/utils.py
 msgid "Visibility"
 msgstr "Redzamība"
 
@@ -2429,6 +2461,12 @@ msgstr "%(color)s nav CSS krāsa (piemēram, \"#112233\", \"sarkana\" vai \"rgb(
 #: aplans/utils.py
 msgid "updated by"
 msgstr "atjaunināja"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "izmēri"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -3058,70 +3096,19 @@ msgstr "Jaunu rādītāju izveide nav atļauta"
 msgid "Permission denied"
 msgstr "Atļauja liegta"
 
-#: indicators/templates/indicators/edit_values.html
-msgid "Home"
-msgstr "Sākums"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Indicator data"
-msgstr "Indikatoru dati"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Observations"
-msgstr "Novērojumi"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Goals"
-msgstr "Mērķi"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Add row"
-msgstr "Pievienot rindu"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Remove row"
-msgstr "Noņemt rindu"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Save changes"
-msgstr "Izmaiņu saglabāšana"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Year"
-msgstr "Gads"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Date"
-msgstr "Datums"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Your changes have not been saved. Are you sure you want to exit?"
-msgstr "Jūsu izmaiņas nav saglabātas. Vai esat pārliecināts, ka vēlaties iziet?"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Unable to save changes"
-msgstr "Nav iespējams saglabāt izmaiņas"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Changes were saved"
-msgstr "Izmaiņas tika saglabātas"
-
 #: indicators/templates/site_summary/indicators.html
 #, python-format
 msgid ""
 "\n"
-"        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicator <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicators <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-"\n"
-"        <span>%(total)s</span> rādītāji <span class=\"visuallyhidden\">, ko uzrauga %(plan.name)s</span>\n"
-"    "
 
 #: indicators/wagtail_admin.py
 msgid "Show indicators"
@@ -4583,7 +4570,7 @@ msgstr "Šajā lapā ir nesaglabātas izmaiņas."
 msgid "Saving…"
 msgstr "Ietaupot…"
 
-#: templates/modeladmin/create.html templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Save"
 msgstr "Saglabāt"
 
@@ -4602,6 +4589,42 @@ msgstr "Lietotāji"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Nav atļauts noņemt lietotājus, kas pieder pie plāniem, kurus jūs neapsaimniekojat."
+
+#~ msgid "Home"
+#~ msgstr "Sākums"
+
+#~ msgid "Indicator data"
+#~ msgstr "Indikatoru dati"
+
+#~ msgid "Observations"
+#~ msgstr "Novērojumi"
+
+#~ msgid "Goals"
+#~ msgstr "Mērķi"
+
+#~ msgid "Add row"
+#~ msgstr "Pievienot rindu"
+
+#~ msgid "Remove row"
+#~ msgstr "Noņemt rindu"
+
+#~ msgid "Save changes"
+#~ msgstr "Izmaiņu saglabāšana"
+
+#~ msgid "Year"
+#~ msgstr "Gads"
+
+#~ msgid "Date"
+#~ msgstr "Datums"
+
+#~ msgid "Your changes have not been saved. Are you sure you want to exit?"
+#~ msgstr "Jūsu izmaiņas nav saglabātas. Vai esat pārliecināts, ka vēlaties iziet?"
+
+#~ msgid "Unable to save changes"
+#~ msgstr "Nav iespējams saglabāt izmaiņas"
+
+#~ msgid "Changes were saved"
+#~ msgstr "Izmaiņas tika saglabātas"
 
 #~ msgid "Either SVG or image must be set"
 #~ msgstr "Jānosaka vai nu SVG, vai attēls"

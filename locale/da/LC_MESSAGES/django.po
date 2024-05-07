@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 12:12+0300\n"
+"POT-Creation-Date: 2024-05-07 22:21+0200\n"
 "PO-Revision-Date: 2023-12-13 16:19+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
 "Language-Team: Danish <https://weblate.kausal.tech/projects/watch/django/da/>\n"
@@ -78,7 +78,8 @@ msgid "Name"
 msgstr "Navn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -309,7 +310,7 @@ msgstr "Aflyst eller udskudt"
 
 #: actions/apps.py actions/models/plan.py content/models.py
 #: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
-#: templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Actions"
 msgstr "Handlinger"
 
@@ -343,6 +344,12 @@ msgstr "Hvis formatet er \"Kategori\", skal du vælge hvilken kategoritype attri
 #: actions/attribute_type_admin.py
 msgid "If format is 'Numeric', a unit must be set"
 msgstr "Hvis formatet er 'Numerisk', skal der angives en enhed"
+
+#: actions/attribute_type_admin.py actions/category_admin.py
+#, fuzzy
+#| msgid "order"
+msgid "Order"
+msgstr "bestille"
 
 #: actions/attribute_type_admin.py
 msgid "This field already has values. If you want to change the format, you need to delete the existing values first."
@@ -510,8 +517,7 @@ msgid "Tasks"
 msgstr "Projekter"
 
 #: actions/blocks/action_dashboard.py actions/models/plan.py indicators/apps.py
-#: indicators/blocks.py indicators/templates/indicators/edit_values.html
-#: indicators/wagtail_admin.py
+#: indicators/blocks.py indicators/wagtail_admin.py
 msgid "Indicators"
 msgstr "Indikatorer"
 
@@ -1575,6 +1581,16 @@ msgstr "Indstil om kontaktpersonerne skal være synlige i den offentlige brugerg
 
 #: actions/models/features.py
 #, fuzzy
+#| msgid "Show only actions with me as a contact person"
+msgid "Show organization ancestors in contact details of contact persons"
+msgstr "Vis kun handlinger med mig som kontaktperson"
+
+#: actions/models/features.py
+msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
+msgstr ""
+
+#: actions/models/features.py
+#, fuzzy
 #| msgid "indicator contact persons"
 msgid "Hide moderators from the contact persons"
 msgstr "indikator kontaktpersoner"
@@ -1685,6 +1701,14 @@ msgstr ""
 
 #: actions/models/features.py
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
+msgid "Password protected"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Is this plan password protected?"
 msgstr ""
 
 #: actions/models/features.py
@@ -2022,11 +2046,11 @@ msgstr "overvågning af kvalitetspunkter"
 #| "    "
 msgid ""
 "\n"
-"        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active action <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active actions <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 "\n"
@@ -2343,6 +2367,12 @@ msgstr "%(time_period)s siden"
 msgid " By %(filter_title)s "
 msgstr " Af %(filter_title)s"
 
+#: admin_site/templates/wagtailadmin/base.html
+#, fuzzy
+#| msgid "Can administrate all actions"
+msgid "Administration"
+msgstr "Kan administrere alle handlinger"
+
 #: admin_site/templates/wagtailadmin/login.html
 #, fuzzy
 #| msgid "Sign in to Kausal Watch"
@@ -2530,6 +2560,10 @@ msgid "Swedish"
 msgstr "svensk"
 
 #: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
+
+#: aplans/settings.py
 msgid "Portuguese"
 msgstr ""
 
@@ -2579,7 +2613,7 @@ msgstr "Rediger rettigheder"
 msgid "Contact persons with \"moderator\" role"
 msgstr "handling kontaktpersoner"
 
-#: aplans/utils.py reports/spreadsheets/excel_report.py
+#: aplans/utils.py
 #, fuzzy
 #| msgid "Accessibility"
 msgid "Visibility"
@@ -2593,6 +2627,12 @@ msgstr "%(color)s er ikke en CSS-farve (f.eks. \"#112233\", \"rød\" eller \"rgb
 #: aplans/utils.py
 msgid "updated by"
 msgstr "opdateret af"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "dimensioner"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -3234,54 +3274,6 @@ msgstr "Det er ikke tilladt at oprette nye indikatorer"
 msgid "Permission denied"
 msgstr "Adgang nægtet"
 
-#: indicators/templates/indicators/edit_values.html
-msgid "Home"
-msgstr "Hjem"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Indicator data"
-msgstr "Indikatordata"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Observations"
-msgstr "Observationer"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Goals"
-msgstr "Mål"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Add row"
-msgstr "Tilføj række"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Remove row"
-msgstr "Fjern række"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Save changes"
-msgstr "Gem ændringer"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Year"
-msgstr "År"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Date"
-msgstr "Dato"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Your changes have not been saved. Are you sure you want to exit?"
-msgstr "Dine ændringer er ikke blevet gemt. Er du sikker på, at du vil afslutte?"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Unable to save changes"
-msgstr "Ændringerne kunne ikke gemmes"
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Changes were saved"
-msgstr "Ændringer blev gemt"
-
 #: indicators/templates/site_summary/indicators.html
 #, fuzzy, python-format
 #| msgid ""
@@ -3294,11 +3286,11 @@ msgstr "Ændringer blev gemt"
 #| "    "
 msgid ""
 "\n"
-"        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicator <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicators <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 "\n"
@@ -4918,7 +4910,7 @@ msgstr "Denne side har ikke-gemte ændringer."
 msgid "Saving…"
 msgstr "Gemmer…"
 
-#: templates/modeladmin/create.html templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Save"
 msgstr "Gemme"
 
@@ -4937,6 +4929,42 @@ msgstr "Brugere"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke administrerer."
+
+#~ msgid "Home"
+#~ msgstr "Hjem"
+
+#~ msgid "Indicator data"
+#~ msgstr "Indikatordata"
+
+#~ msgid "Observations"
+#~ msgstr "Observationer"
+
+#~ msgid "Goals"
+#~ msgstr "Mål"
+
+#~ msgid "Add row"
+#~ msgstr "Tilføj række"
+
+#~ msgid "Remove row"
+#~ msgstr "Fjern række"
+
+#~ msgid "Save changes"
+#~ msgstr "Gem ændringer"
+
+#~ msgid "Year"
+#~ msgstr "År"
+
+#~ msgid "Date"
+#~ msgstr "Dato"
+
+#~ msgid "Your changes have not been saved. Are you sure you want to exit?"
+#~ msgstr "Dine ændringer er ikke blevet gemt. Er du sikker på, at du vil afslutte?"
+
+#~ msgid "Unable to save changes"
+#~ msgstr "Ændringerne kunne ikke gemmes"
+
+#~ msgid "Changes were saved"
+#~ msgstr "Ændringer blev gemt"
 
 #~ msgid "Either SVG or image must be set"
 #~ msgstr "Enten SVG eller billede skal indstilles"
@@ -5040,9 +5068,6 @@ msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke
 
 #~ msgid "Own actions"
 #~ msgstr "Egne handlinger"
-
-#~ msgid "Show only actions with me as a contact person"
-#~ msgstr "Vis kun handlinger med mig som kontaktperson"
 
 #~ msgid "Show only actions I can modify"
 #~ msgstr "Vis kun handlinger jeg kan ændre"

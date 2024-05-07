@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 12:12+0300\n"
+"POT-Creation-Date: 2024-05-07 22:21+0200\n"
 "PO-Revision-Date: 2024-04-29 10:20+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/"
-"sv_FI/>\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv_FI/>\n"
 "Language: sv_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +73,8 @@ msgid "Name"
 msgstr ""
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 
 #: actions/apps.py actions/models/plan.py content/models.py
 #: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
-#: templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Actions"
 msgstr ""
 
@@ -308,6 +308,10 @@ msgstr ""
 
 #: actions/attribute_type_admin.py
 msgid "If format is 'Numeric', a unit must be set"
+msgstr ""
+
+#: actions/attribute_type_admin.py actions/category_admin.py
+msgid "Order"
 msgstr ""
 
 #: actions/attribute_type_admin.py
@@ -458,8 +462,7 @@ msgid "Tasks"
 msgstr ""
 
 #: actions/blocks/action_dashboard.py actions/models/plan.py indicators/apps.py
-#: indicators/blocks.py indicators/templates/indicators/edit_values.html
-#: indicators/wagtail_admin.py
+#: indicators/blocks.py indicators/wagtail_admin.py
 msgid "Indicators"
 msgstr ""
 
@@ -1452,6 +1455,14 @@ msgid "Choose which information about contact persons is visible in the public U
 msgstr ""
 
 #: actions/models/features.py
+msgid "Show organization ancestors in contact details of contact persons"
+msgstr ""
+
+#: actions/models/features.py
+msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
+msgstr ""
+
+#: actions/models/features.py
 msgid "Hide moderators from the contact persons"
 msgstr ""
 
@@ -1549,6 +1560,14 @@ msgstr ""
 
 #: actions/models/features.py
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
+msgid "Password protected"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Is this plan password protected?"
 msgstr ""
 
 #: actions/models/features.py
@@ -1866,11 +1885,11 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active action <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active actions <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
@@ -2150,6 +2169,10 @@ msgstr ""
 msgid " By %(filter_title)s "
 msgstr ""
 
+#: admin_site/templates/wagtailadmin/base.html
+msgid "Administration"
+msgstr ""
+
 #: admin_site/templates/wagtailadmin/login.html
 msgid "Sign in to Kausal Watch admin"
 msgstr ""
@@ -2325,6 +2348,10 @@ msgid "Swedish"
 msgstr ""
 
 #: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
+
+#: aplans/settings.py
 msgid "Portuguese"
 msgstr ""
 
@@ -2372,7 +2399,7 @@ msgstr ""
 msgid "Contact persons with \"moderator\" role"
 msgstr ""
 
-#: aplans/utils.py reports/spreadsheets/excel_report.py
+#: aplans/utils.py
 msgid "Visibility"
 msgstr ""
 
@@ -2383,6 +2410,10 @@ msgstr ""
 
 #: aplans/utils.py
 msgid "updated by"
+msgstr ""
+
+#: budget/wagtail_admin.py
+msgid "Budget dimensions"
 msgstr ""
 
 #: content/apps.py
@@ -3007,63 +3038,15 @@ msgstr ""
 msgid "Permission denied"
 msgstr ""
 
-#: indicators/templates/indicators/edit_values.html
-msgid "Home"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Indicator data"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Observations"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Goals"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Add row"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Remove row"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Save changes"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Year"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Date"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Your changes have not been saved. Are you sure you want to exit?"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Unable to save changes"
-msgstr ""
-
-#: indicators/templates/indicators/edit_values.html
-msgid "Changes were saved"
-msgstr ""
-
 #: indicators/templates/site_summary/indicators.html
 #, python-format
 msgid ""
 "\n"
-"        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicator <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicators <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
@@ -4511,7 +4494,7 @@ msgstr ""
 msgid "Saving…"
 msgstr ""
 
-#: templates/modeladmin/create.html templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 msgid "Save"
 msgstr ""
 

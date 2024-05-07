@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 12:12+0300\n"
+"POT-Creation-Date: 2024-05-07 22:21+0200\n"
 "PO-Revision-Date: 2024-03-23 15:39+0000\n"
 "Last-Translator: Gabriel Siqueira <gabriel.siqueira@kausal.tech>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/watch/django/pt_BR/>\n"
@@ -73,7 +73,8 @@ msgid "Name"
 msgstr "Nome"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 #, fuzzy
 msgid "Categories"
 msgstr "Categorias"
@@ -307,7 +308,7 @@ msgstr "Cancelar a moderação"
 
 #: actions/apps.py actions/models/plan.py content/models.py
 #: reports/spreadsheets/excel_report.py reports/tests/test_excel_roundtrip.py
-#: templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 #, fuzzy
 msgid "Actions"
 msgstr "Ações"
@@ -341,6 +342,11 @@ msgstr "Se o formato for \"Categoria\", um tipo de categoria deverá ser definid
 #, fuzzy
 msgid "If format is 'Numeric', a unit must be set"
 msgstr "Se o formato for \"Numérico\", uma unidade deverá ser definida"
+
+#: actions/attribute_type_admin.py actions/category_admin.py
+#, fuzzy
+msgid "Order"
+msgstr "ordem"
 
 #: actions/attribute_type_admin.py
 #, fuzzy
@@ -521,8 +527,7 @@ msgid "Tasks"
 msgstr "Tarefas"
 
 #: actions/blocks/action_dashboard.py actions/models/plan.py indicators/apps.py
-#: indicators/blocks.py indicators/templates/indicators/edit_values.html
-#: indicators/wagtail_admin.py
+#: indicators/blocks.py indicators/wagtail_admin.py
 #, fuzzy
 msgid "Indicators"
 msgstr "Indicadores"
@@ -1749,6 +1754,14 @@ msgid "Choose which information about contact persons is visible in the public U
 msgstr "Escolha quais informações sobre as pessoas de contato são visíveis na IU pública"
 
 #: actions/models/features.py
+msgid "Show organization ancestors in contact details of contact persons"
+msgstr ""
+
+#: actions/models/features.py
+msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
+msgstr ""
+
+#: actions/models/features.py
 #, fuzzy
 msgid "Hide moderators from the contact persons"
 msgstr "Ocultar moderadores das pessoas de contato"
@@ -1869,6 +1882,14 @@ msgstr ""
 
 #: actions/models/features.py
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
+msgstr ""
+
+#: actions/models/features.py
+msgid "Password protected"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Is this plan password protected?"
 msgstr ""
 
 #: actions/models/features.py
@@ -2257,17 +2278,14 @@ msgstr "monitoramento de pontos de qualidade"
 #, python-format
 msgid ""
 "\n"
-"        <span>%(n)s</span> active action <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active action <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(n)s</span> active actions <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(n)s</span> active actions <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
-"\n"
-"        <span>%(n)s</span> ações ativas <span class=\"visuallyhidden\">monitoradas em %(plan.name)s</span>\n"
-"    "
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
 #, fuzzy, python-format
@@ -2599,6 +2617,11 @@ msgstr "%(time_period)s atrás"
 msgid " By %(filter_title)s "
 msgstr " Por %(filter_title)s "
 
+#: admin_site/templates/wagtailadmin/base.html
+#, fuzzy
+msgid "Administration"
+msgstr "Pode administrar todas as ações"
+
 #: admin_site/templates/wagtailadmin/login.html
 #, fuzzy
 msgid "Sign in to Kausal Watch admin"
@@ -2810,6 +2833,10 @@ msgid "Swedish"
 msgstr "Sueco"
 
 #: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
+
+#: aplans/settings.py
 #, fuzzy
 msgid "Portuguese"
 msgstr "Português"
@@ -2869,7 +2896,7 @@ msgstr "Direitos de edição"
 msgid "Contact persons with \"moderator\" role"
 msgstr "Pessoas de contato com função de \"moderador"
 
-#: aplans/utils.py reports/spreadsheets/excel_report.py
+#: aplans/utils.py
 #, fuzzy
 msgid "Visibility"
 msgstr "Visibilidade"
@@ -2883,6 +2910,11 @@ msgstr "%(color)s não é uma cor CSS (por exemplo, \"#112233\", \"red\" ou \"rg
 #, fuzzy
 msgid "updated by"
 msgstr "atualizado por"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+msgid "Budget dimensions"
+msgstr "dimensões"
 
 #: content/apps.py
 #, fuzzy
@@ -3649,81 +3681,18 @@ msgstr "Não é permitido criar novos indicadores"
 msgid "Permission denied"
 msgstr "Permissão negada"
 
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Home"
-msgstr "Início"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Indicator data"
-msgstr "Dados do indicador"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Observations"
-msgstr "Observações"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Goals"
-msgstr "Objetivos"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Add row"
-msgstr "Adicionar linha"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Remove row"
-msgstr "Remover linha"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Save changes"
-msgstr "Salvar alterações"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Year"
-msgstr "Ano"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Date"
-msgstr "Data"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Your changes have not been saved. Are you sure you want to exit?"
-msgstr "Suas alterações não foram salvas. Tem certeza de que deseja sair?"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Unable to save changes"
-msgstr "Não é possível salvar as alterações"
-
-#: indicators/templates/indicators/edit_values.html
-#, fuzzy
-msgid "Changes were saved"
-msgstr "As alterações foram salvas"
-
 #: indicators/templates/site_summary/indicators.html
 #, python-format
 msgid ""
 "\n"
-"        <span>%(total)s</span> indicator <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicator <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgid_plural ""
 "\n"
-"        <span>%(total)s</span> indicators <span class=\"visuallyhidden\">monitored in %(plan.name)s</span>\n"
+"        <span>%(total)s</span> indicators <span class=\"w-sr-only\">monitored in %(plan)s</span>\n"
 "    "
 msgstr[0] ""
 msgstr[1] ""
-"\n"
-"        <span>%(total)s</span> indicadores <span class=\"visuallyhidden\">monitorados em %(plan.name)s</span>\n"
-"    "
 
 #: indicators/wagtail_admin.py
 #, fuzzy
@@ -5481,7 +5450,7 @@ msgstr "Esta página tem alterações não salvas."
 msgid "Saving…"
 msgstr "Salvando…"
 
-#: templates/modeladmin/create.html templates/modeladmin/edit.html
+#: templates/modeladmin/create.html
 #, fuzzy
 msgid "Save"
 msgstr "Salvar"
@@ -5505,6 +5474,54 @@ msgstr "Usuários"
 #, fuzzy
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Nenhuma permissão para remover o usuário pertencente a planos que você não está gerenciando."
+
+#, fuzzy
+#~ msgid "Home"
+#~ msgstr "Início"
+
+#, fuzzy
+#~ msgid "Indicator data"
+#~ msgstr "Dados do indicador"
+
+#, fuzzy
+#~ msgid "Observations"
+#~ msgstr "Observações"
+
+#, fuzzy
+#~ msgid "Goals"
+#~ msgstr "Objetivos"
+
+#, fuzzy
+#~ msgid "Add row"
+#~ msgstr "Adicionar linha"
+
+#, fuzzy
+#~ msgid "Remove row"
+#~ msgstr "Remover linha"
+
+#, fuzzy
+#~ msgid "Save changes"
+#~ msgstr "Salvar alterações"
+
+#, fuzzy
+#~ msgid "Year"
+#~ msgstr "Ano"
+
+#, fuzzy
+#~ msgid "Date"
+#~ msgstr "Data"
+
+#, fuzzy
+#~ msgid "Your changes have not been saved. Are you sure you want to exit?"
+#~ msgstr "Suas alterações não foram salvas. Tem certeza de que deseja sair?"
+
+#, fuzzy
+#~ msgid "Unable to save changes"
+#~ msgstr "Não é possível salvar as alterações"
+
+#, fuzzy
+#~ msgid "Changes were saved"
+#~ msgstr "As alterações foram salvas"
 
 #, fuzzy
 #~ msgid "Either SVG or image must be set"
