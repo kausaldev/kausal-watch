@@ -1447,6 +1447,11 @@ class Query:
             ),
             info
         )
+        user = info.context.user
+        if not is_authenticated(user):
+            workflow_state = WorkflowStateEnum.PUBLISHED
+        elif not user.can_access_public_site(plan=plan_obj):
+            workflow_state = WorkflowStateEnum.PUBLISHED
         if workflow_state == WorkflowStateEnum.PUBLISHED:
             return qs
         else:
