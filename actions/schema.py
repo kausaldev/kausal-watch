@@ -6,7 +6,8 @@ import logging
 import sentry_sdk
 import typing
 import uuid
-from django.db.models import Q, Prefetch
+from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q, Prefetch, prefetch_related_objects
 from django.forms import ModelForm
 from django.utils.translation import get_language
 from graphene_django import DjangoObjectType
@@ -1379,13 +1380,77 @@ class Query:
         return gql_optimizer.query(plans, info)
 
     @staticmethod
+    def _resolve_plan_action_revisions(
+            plan: Plan,
+            workflow_state: WorkflowStateEnum,
+            action_queryset: ActionQuerySet,
+            cache: PlanSpecificCache
+    ):
+        ct = ContentType.objects.get_for_model(Action)
+        revision_pks = []
+        actions_without_revision = []
+        if workflow_state == WorkflowStateEnum.DRAFT:
+            revision_pks = [pk for pk in action_queryset.values_list('latest_revision_id', flat=True) if pk is not None]
+            actions_without_revision = action_queryset.filter(latest_revision__isnull=True)
+        elif workflow_state == WorkflowStateEnum.APPROVED:
+            desired_workflow_task = plan.get_next_workflow_task(workflow_state)
+            action_pks = [str(pk) for pk in action_queryset.values_list('pk', flat=True)]
+            if desired_workflow_task is not None:
+                workflowstates = (
+                    WorkflowState.objects.active()\
+                    .filter(content_type=ct)\
+                    .filter(current_task_state__task=desired_workflow_task)\
+                    .filter(object_id__in=action_pks)
+                )
+                actions_with_revision_pks = workflowstates.values_list('object_id', flat=True)
+                actions_without_revision = action_queryset.exclude(pk__in=[int(pk) for pk in actions_with_revision_pks])
+                revision_pks = workflowstates.values_list('current_task_state__revision_id', flat=True)
+        revision_qs = Revision.objects.filter(pk__in=revision_pks).prefetch_related('content_object__plan')
+        actions = []
+        persons_queryset = Person.objects.filter(actioncontactperson__action__plan=plan)
+        cache.populate_persons(persons_queryset)
+        cache.populate_organizations(
+            Organization.objects.filter(
+                Q(responsible_actions__action__plan=plan) |
+                Q(people__in=persons_queryset)
+            )
+        )
+        for rev in revision_qs:
+            content = SerializedDictWithRelatedObjectCache(rev.content, cache=cache)
+            action = Action.from_serializable_data(content, check_fks=False, strict_fks=False)
+            if action is not None:
+                cache.enrich_action(action)
+                actions.append(action)
+        prefetch_related_objects(
+            actions,
+            'schedule',
+            'indicators__goals',
+            'categories',
+        )
+        actions.extend(actions_without_revision)
+        return sorted(actions, key=lambda o: o.order)
+
+    @staticmethod
     def resolve_plan_actions(root, info, plan, first=None, category=None, order_by=None, restrict_to_publicly_visible=True, **kwargs):
         plan_obj = get_plan_from_context(info, plan)
         if plan_obj is None:
             return None
-        qs = plans_actions_queryset([plan_obj], category, first, order_by, info.context.user, restrict_to_publicly_visible=restrict_to_publicly_visible)
-        result = gql_optimizer.query(qs, info)
-        return result
+        workflow_state = info.context.watch_cache.query_workflow_state
+        qs = gql_optimizer.query(
+            plans_actions_queryset(
+                [plan_obj],
+                category,
+                first,
+                order_by,
+                info.context.user,
+                restrict_to_publicly_visible=restrict_to_publicly_visible
+            ),
+            info
+        )
+        if workflow_state == WorkflowStateEnum.PUBLISHED:
+            return qs
+        else:
+            return Query._resolve_plan_action_revisions(plan_obj, workflow_state, qs, cache=info.context.watch_cache.for_plan(plan_obj))
 
     @staticmethod
     def resolve_related_plan_actions(root, info, plan, first=None, category=None, order_by=None, **kwargs):
