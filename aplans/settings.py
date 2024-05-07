@@ -802,11 +802,14 @@ if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
         loguru_handlers = [dict(sink=LogHandler(), format="{message}")]
     logger.configure(handlers=loguru_handlers)
 
-    def level(level: Literal['DEBUG', 'INFO', 'WARNING']) -> dict[str, list[str] | bool | str]:
-        if is_kube:
-            handlers = ['logfmt-error', 'logfmt-info']
+    def level(level: Literal['DEBUG', 'INFO', 'WARNING'], handler: str | None = None) -> dict[str, list[str] | bool | str]:
+        if not handler:
+            if is_kube:
+                handlers = ['logfmt-error', 'logfmt-info']
+            else:
+                handlers = ['rich' if DEBUG else 'console']
         else:
-            handlers = ['rich' if DEBUG else 'console']
+            handlers = [handler]
         return dict(
             handlers=handlers,
             propagate=False,
@@ -851,6 +854,10 @@ if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
                 'level': 'DEBUG',
                 'class': 'aplans.log_handler.LogFmtHandlerInfo',
             },
+            'uwsgi-req': {
+                'level': 'DEBUG',
+                'class': 'aplans.log_handler.UwsgiReqLogHandler',
+            },
         },
         'loggers': {
             'django.db': level('DEBUG' if LOG_SQL_QUERIES else 'INFO'),
@@ -870,7 +877,7 @@ if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
             'factory': level('INFO'),
             'watchfiles': level('INFO'),
             'watchdog': level('INFO'),
-            '': level('DEBUG'),
+            'uwsgi-req': level('DEBUG', handler='uwsgi-req'),
         }
     }
 
