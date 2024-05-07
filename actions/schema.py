@@ -1456,9 +1456,13 @@ class Query:
 
     @staticmethod
     def resolve_plans_for_hostname(root, info: GQLInfo, hostname: str):
-        info.context._plan_hostname = hostname
-        plans = Plan.objects.for_hostname(hostname.lower(), request=info.context)
-        return list(gql_optimizer.query(plans, info))
+        info.context._plan_hostname = hostname.lower()
+        plans = Plan.objects.for_hostname(info.context._plan_hostname, request=info.context)
+        ret = list(gql_optimizer.query(plans, info))
+        req = info.context
+        if not ret:
+            logger.info("No plans found for hostname %s (wildcard domains: %s)" % (hostname, req.wildcard_domains))
+        return ret
 
     @staticmethod
     def resolve_my_plans(root, info: GQLInfo):
