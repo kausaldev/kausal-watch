@@ -51,6 +51,9 @@ on:
       build_id:
         description: "Unique ID for the fresh build"
         value: "${{ jobs.build.outputs.build_id }}"
+      deployment_env:
+        description: "Environment in which the image should be deployed"
+        value: "${{ jobs.build.outputs.deployment_env }}"
 
 env:
   IMAGE_NAME: ${{ inputs.docker_image_name }}
@@ -77,26 +80,27 @@ jobs:
       image: ${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
       image_tag: ${{ steps.build_meta.outputs.git_image_tag }}
       build_id: ${{ steps.build_meta.outputs.build_id }}
+      deployment_env: ${{ steps.deployment.outputs.deployment_env }}
+      sentry_version: ${{ steps.build_meta.outputs.sentry_version }}
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
-      #- name: Install Cosign
-      #  uses: sigstore/cosign-installer@v3.5.0
-
       - name: Check for deployment branch
         if: startsWith(github.ref, 'refs/heads/deployment/')
         run: |
-          echo "deployment_type=$(echo ${{ github.ref }} | cut -d / -f 4)" >> $GITHUB_OUTPUT
+          echo "deployment_env=$(echo ${{ github.ref }} | cut -d / -f 4)" >> $GITHUB_OUTPUT
         id: deployment
 
       - name: Determine build env variables
         run: |
           github_run=$(printf "%04g" $GITHUB_RUN_NUMBER)
           git_sha=$(echo ${{ github.sha }} | cut -c -8)
-          echo "build_id=$(date +%Y%m%d)_${github_run}_${git_sha}" >> $GITHUB_OUTPUT
+          build_id=$(date +%Y%m%d)_${github_run}_${git_sha}
+          echo "build_id=${build_id}" >> $GITHUB_OUTPUT
           echo "git_image_tag=git-${git_sha}" >> $GITHUB_OUTPUT
+          echo "sentry_version=${{ inputs.sentry_project }}@${build_id}" >> $GITHUB_OUTPUT
         id: build_meta
 
       - name: Determine Docker tags and labels
@@ -152,10 +156,8 @@ jobs:
           file: ./docker/app/Dockerfile
           push: true
           build-args: |
-            SENTRY_ORG=${{ inputs.sentry_org }}
-            SENTRY_URL=${{ inputs.sentry_url }}
-            SENTRY_PROJECT=${{ inputs.sentry_project }}
             BUILD_ID=${{ steps.build_meta.outputs.build_id }}
+            SENTRY_RELEASE=${{ steps.build_meta.outputs.sentry_version }}
             GIT_REPO=${{ github.repository }}
             GIT_REV=${{ github.sha }}
             GIT_REPO_URL=${{ env.GIT_REPO_URL }}
@@ -171,8 +173,6 @@ jobs:
             type=image,oci-mediatypes=true,compression=zstd,compression-level=12,force-compression=true,push=true,name=${{ inputs.docker_registry }}/${{ inputs.docker_image_name }}
           cache-from: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache
           cache-to: type=registry,ref=${{ inputs.docker_registry }}/${{ inputs.docker_build_cache_image_name }}:cache,mode=max,image-manifest=true
-        env:
-          BUILDX_GIT_LABELS: full
 
       - name: Attest image
         uses: actions/attest-build-provenance@v1
@@ -194,3 +194,15 @@ jobs:
           done
           cosign sign --yes ${images}
         shell: bash
+
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        if: steps.deployment.outputs.deployment_env
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ inputs.sentry_org }}
+          SENTRY_PROJECT: ${{ inputs.sentry_project }}
+          SENTRY_URL: ${{ inputs.sentry_url }}
+        with:
+          environment: ${{ steps.deployment.outputs.deployment_env }}
+          version: ${{ steps.build_meta.outputs.sentry_version }}
