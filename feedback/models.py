@@ -31,7 +31,7 @@ class UserFeedback(models.Model):
 
     sent_notifications = GenericRelation('notifications.SentNotification', related_query_name='user_feedbacks')
 
-    public_fields: typing.ClassVar = ['id']
+    public_fields: typing.ClassVar = ['id', 'created_at']
 
     class Meta:
         verbose_name = _('user feedback')
