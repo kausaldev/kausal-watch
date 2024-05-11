@@ -1,14 +1,16 @@
 from __future__ import annotations
 from functools import cached_property
 
+from django.db.models import Q
 from django.contrib.contenttypes.models import ContentType
+from wagtail.models import Revision
 
 from aplans.graphql_types import WorkflowStateEnum
 from aplans.types import UserOrAnon
 from actions.models import (
-    ActionStatus, ActionImplementationPhase, Plan, AttributeTypeChoiceOption, AttributeType, Action, ActionSchedule,
-    Category
+    ActionStatus, ActionImplementationPhase, Plan, AttributeTypeChoiceOption, AttributeType, Action
 )
+from actions.models.action import ActionQuerySet
 from reports.models import Report
 from typing import TypeVar, Type
 import typing
@@ -146,6 +148,47 @@ class WatchObjectCache:
 
     def for_plan(self, plan: Plan) -> PlanSpecificCache:
         return self.for_plan_id(plan.id)
+
+
+class OrganizationActionCountCache:
+    plans: list[Plan]
+    data: dict[int, int]
+    action_qs: ActionQuerySet
+    organization_responsible_party_queryset_filter: Q
+
+    def __init__(self, action_qs: ActionQuerySet) -> None:
+        self.action_qs = action_qs
+        self.organization_responsible_party_queryset_filter = Q()
+        self.data = self._construct_cache_data()
+
+    def _construct_cache_data(self) -> dict[int, int]:
+        actions_without_revisions = self.action_qs.filter(
+            latest_revision__isnull=True
+        ).prefetch_related(
+            'responsible_parties__organization'
+        )
+        actions_with_revisions = self.action_qs.filter(latest_revision__isnull=False)
+        organization_pks_from_revisions = set()
+        revisions = Revision.objects.filter(pk__in=actions_with_revisions.values_list('latest_revision_id', flat=True))
+        result = {}
+        for revision in revisions:
+            for arp in revision.content.get('responsible_parties', []):
+                org_id = arp.get('organization')
+                if org_id is None:
+                    continue
+                result[org_id] = result.get(org_id, 0) + 1
+                organization_pks_from_revisions.add(org_id)
+        for action in actions_without_revisions:
+            for arp in action.responsible_parties.all():
+                result[arp.organization_id] = result.get(arp.organization_id, 0) + 1
+        self.organization_responsible_party_queryset_filter = Q(
+            Q(responsible_actions__action__in=self.action_qs) |
+            Q(id__in=organization_pks_from_revisions)
+        )
+        return result
+
+    def get_action_count_for_organization(self, org_id: int) -> int:
+        return self.data.get(org_id, 0)
 
 
 T = TypeVar('T')
