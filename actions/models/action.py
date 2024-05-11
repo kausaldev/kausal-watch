@@ -52,6 +52,7 @@ if typing.TYPE_CHECKING:
     from people.models import Person
     from .plan import Plan
     from .action_deps import ActionDependencyRelationshipQuerySet
+    from aplans.graphql_types import WorkflowStateEnum
 
 
 logger = logging.getLogger(__name__)
@@ -226,6 +227,7 @@ class Action(  # type: ignore[django-manager-missing]
                 field.serialize = True
 
     id: int
+    _actual_workflow_state: WorkflowStateEnum | None
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     plan: ParentalKey[Plan | Combinable, Plan] = ParentalKey(
         'actions.Plan', on_delete=models.CASCADE, related_name='actions',
