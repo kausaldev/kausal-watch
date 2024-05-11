@@ -1407,14 +1407,6 @@ class Query:
                 revision_pks = workflowstates.values_list('current_task_state__revision_id', flat=True)
         revision_qs = Revision.objects.filter(pk__in=revision_pks).prefetch_related('content_object__plan')
         actions = []
-        persons_queryset = Person.objects.filter(actioncontactperson__action__plan=plan)
-        cache.populate_persons(persons_queryset)
-        cache.populate_organizations(
-            Organization.objects.filter(
-                Q(responsible_actions__action__plan=plan) |
-                Q(people__in=persons_queryset)
-            )
-        )
         for rev in revision_qs:
             content = SerializedDictWithRelatedObjectCache(rev.content, cache=cache)
             action = Action.from_serializable_data(content, check_fks=False, strict_fks=False)
@@ -1448,6 +1440,15 @@ class Query:
             info
         )
         user = info.context.user
+        cache = info.context.watch_cache.for_plan(plan_obj)
+        persons_queryset = Person.objects.filter(actioncontactperson__action__plan=plan_obj)
+        cache.populate_persons(persons_queryset)
+        cache.populate_organizations(
+            Organization.objects.filter(
+                Q(responsible_actions__action__plan=plan_obj) |
+                Q(people__in=persons_queryset)
+            )
+        )
         if not is_authenticated(user):
             workflow_state = WorkflowStateEnum.PUBLISHED
         elif not user.can_access_public_site(plan=plan_obj):
@@ -1455,7 +1456,7 @@ class Query:
         if workflow_state == WorkflowStateEnum.PUBLISHED:
             return qs
         else:
-            return Query._resolve_plan_action_revisions(plan_obj, workflow_state, qs, cache=info.context.watch_cache.for_plan(plan_obj))
+            return Query._resolve_plan_action_revisions(plan_obj, workflow_state, qs, cache=cache)
 
     @staticmethod
     def resolve_related_plan_actions(root, info, plan, first=None, category=None, order_by=None, **kwargs):
