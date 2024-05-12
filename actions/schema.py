@@ -1167,11 +1167,11 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
         only=('latest_revision', 'has_unpublished_changes', 'plan', 'plan__features__moderation_workflow'),
         prefetch_related=prefetch_workflow_states
     )
-    def resolve_workflow_status(root: Action, info) -> WorkflowState:
+    def resolve_workflow_status(root: Action, info) -> WorkflowState | None:
         user = info.context.user
         plan = root.plan
-        if not user.is_authenticated or not user.can_access_admin(plan):
-            raise ErrorCode.ACCESS_DENIED.create_error('Access denied')
+        if not user.is_authenticated or not user.can_access_public_site(plan):
+            return None
         return root
 
 
@@ -1354,11 +1354,13 @@ class Query:
     )
 
     workflow_states = graphene.List(
-        WorkflowStateDescription, plan=graphene.ID(required=True)
+        WorkflowStateDescription, plan=graphene.ID(required=False)
     )
 
     @staticmethod
     def resolve_workflow_states(root, info, plan):
+        if plan is None:
+            return []
         user = info.context.user
         result = []
         plan = Plan.objects.get(identifier=plan)

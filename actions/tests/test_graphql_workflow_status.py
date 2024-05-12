@@ -75,7 +75,4 @@ def test_workflow_status_not_exposed_with_no_plan_access(
     client.force_login(user)
 
     data = graphql_client_query(query_action_workflow_status, variables={'id': action.id})
-    error =  data['errors'][0]
-    assert error['extensions']['code'] == ErrorCode.ACCESS_DENIED
     assert data['data']['action']['workflowStatus'] is None
-    assert error['path'] == ['action', 'workflowStatus']
