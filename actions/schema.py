@@ -1306,13 +1306,14 @@ def _resolve_action_revision(action: Action, desired_workflow_state: WorkflowSta
         revision_action._actual_workflow_state = match
         return revision_action
 
-    def published():
-        return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
+    def published(action: Action):
+        action._actual_workflow_state = WorkflowStateEnum.PUBLISHED
+        return action
 
     current_progress, max_progress = action.get_workflow_progress()
 
     if current_progress == max_progress:
-        return published()
+        return published(action)
 
     available_revision_state = WorkflowStateEnum.DRAFT
     if current_progress > 1:
@@ -1325,7 +1326,7 @@ def _resolve_action_revision(action: Action, desired_workflow_state: WorkflowSta
             return with_workflow_state(available_revision_state, action)
 
     # User wants published version or no other appropriate version available
-    return published()
+    return published(action)
 
 
 class Query:
@@ -1416,18 +1417,18 @@ class Query:
     @staticmethod
     def _resolve_plan_action_revisions(
             plan: Plan,
-            workflow_state: WorkflowStateEnum,
+            desired_workflow_state: WorkflowStateEnum,
             action_queryset: ActionQuerySet,
             cache: PlanSpecificCache
     ):
         ct = ContentType.objects.get_for_model(Action)
         revision_pks = []
         actions_without_revision = []
-        if workflow_state == WorkflowStateEnum.DRAFT:
-            revision_pks = [pk for pk in action_queryset.values_list('latest_revision_id', flat=True) if pk is not None]
-            actions_without_revision = action_queryset.filter(latest_revision__isnull=True)
-        elif workflow_state == WorkflowStateEnum.APPROVED:
-            desired_workflow_task = plan.get_next_workflow_task(workflow_state)
+        if desired_workflow_state == WorkflowStateEnum.DRAFT:
+            revision_pks = action_queryset.filter(has_unpublished_changes=True).values_list('latest_revision_id', flat=True)
+            actions_without_revision = action_queryset.filter(has_unpublished_changes=False)
+        elif desired_workflow_state == WorkflowStateEnum.APPROVED:
+            desired_workflow_task = plan.get_next_workflow_task(desired_workflow_state)
             action_pks = [str(pk) for pk in action_queryset.values_list('pk', flat=True)]
             if desired_workflow_task is not None:
                 workflowstates = (
