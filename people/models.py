@@ -97,7 +97,7 @@ class PersonQuerySet(models.QuerySet['Person']):
 
     def visible_for_user(self, user: UserModel | None, plan: Plan):
         if not plan.features.public_contact_persons:
-            if user is None or not user.is_authenticated or not user.can_access_admin(plan):
+            if user is None or not user.is_authenticated or not user.can_access_public_site(plan):
                 return self.none()
         return self
 
@@ -433,7 +433,7 @@ class Person(index.Indexed, ClusterableModel):
 
     def visible_for_user(self, user: UserOrAnon, plan: Plan) -> bool:
         if not plan.features.public_contact_persons:
-            if user is None or not user.is_authenticated or not user.can_access_admin(plan):
+            if user is None or not user.is_authenticated or not user.can_access_public_site(plan):
                 return False
         return True
 
