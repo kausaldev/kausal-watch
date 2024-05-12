@@ -58,6 +58,10 @@ for view in actions_api_views + indicators_api_views + insight_api_views + exten
 
 
 class KausalLogoutView(LogoutView):
+    http_method_names = ["post", "options", "get"]
+
+    def get(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
 
     def get_success_url_allowed_hosts(self):
         base = super().get_success_url_allowed_hosts()
