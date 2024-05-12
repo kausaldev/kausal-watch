@@ -955,8 +955,9 @@ class WorkflowInfoNode(graphene.ObjectType):
             "The internal Wagtail workflow state of the action. "
             "The current action data returned does not necessarily match this "
             "workflowstate."
+        )
     )
-    matching_state = graphene.Field(
+    matching_version = graphene.Field(
         WorkflowStateDescription,
         description=(
             "The actual version of the action returned "
@@ -978,7 +979,7 @@ class WorkflowInfoNode(graphene.ObjectType):
         return root.current_workflow_state
 
     @staticmethod
-    def resolve_matching_state(root: Action, info: GQLInfo) -> dict[str, str]:
+    def resolve_matching_version(root: Action, info: GQLInfo) -> dict[str, str]:
         def make_result(match: WorkflowStateEnum | None) -> dict[str, str]:
             return dict(
                 id=match.name,
@@ -1296,48 +1297,35 @@ def _resolve_published_action(
         return None
 
 
-def _resolve_draft_action(action: Action, desired_workflow_state: WorkflowStateEnum):
+def _resolve_action_revision(action: Action, desired_workflow_state: WorkflowStateEnum):
     def with_workflow_state(match: WorkflowStateEnum, action: Action) -> Action:
-        action._actual_workflow_state = match
-        return action
+        assert match != WorkflowStateEnum.PUBLISHED
+        revision = action.latest_revision
+        revision_action = revision.as_object()
+        revision_action.updated_at = revision.created_at
+        revision_action._actual_workflow_state = match
+        return revision_action
 
-    if not action.has_unpublished_changes:
+    def published():
         return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
+
+    current_progress, max_progress = action.get_workflow_progress()
+
+    if current_progress == max_progress:
+        return published()
+
+    available_revision_state = WorkflowStateEnum.DRAFT
+    if current_progress > 1:
+        available_revision_state = WorkflowStateEnum.APPROVED
 
     if desired_workflow_state == WorkflowStateEnum.DRAFT:
-        action_workflow_state = action.current_workflow_state
-        latest_revision = action.get_latest_revision_as_object()
-        if action_workflow_state is None:
-            # A draft not yet sent for moderation
-            return with_workflow_state(WorkflowStateEnum.DRAFT, latest_revision)
-
-        workflow = action_workflow_state.workflow
-        if workflow.tasks.count() < 2:
-            # For workflows with only one task, only
-            # drafts and published versions exist
-            return with_workflow_state(WorkflowStateEnum.DRAFT, latest_revision)
-
-        task = action.plan.get_next_workflow_task(WorkflowStateEnum.APPROVED)
-        if action_workflow_state.current_task_state.task_id == task.pk:
-            # If the action has proceeded already to the final moderation
-            # task, no un-APPROVED draft revision exists
-            return with_workflow_state(WorkflowStateEnum.APPROVED, latest_revision)
-        # We have unpublished changes so it's a draft
-        return with_workflow_state(WorkflowStateEnum.DRAFT, latest_revision)
-
+        return with_workflow_state(available_revision_state, action)
     if desired_workflow_state == WorkflowStateEnum.APPROVED:
-        task = action.plan.get_next_workflow_task(WorkflowStateEnum.APPROVED)
-        if not task:
-            return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
-        current_state = action.current_workflow_state
-        if current_state is None:
-            return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
-        # A draft has been APPROVED if the *next* workflow task (publishing) is in progress
-        if current_state.current_task_state.task == task:
-            return with_workflow_state(WorkflowStateEnum.APPROVED, current_state.current_task_state.revision.as_object())
-        return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
+        if available_revision_state == WorkflowStateEnum.APPROVED:
+            return with_workflow_state(available_revision_state, action)
 
-    return with_workflow_state(WorkflowStateEnum.PUBLISHED, action)
+    # User wants published version or no other appropriate version available
+    return published()
 
 
 class Query:
@@ -1556,7 +1544,7 @@ class Query:
         if workflow_state != WorkflowStateEnum.PUBLISHED:
             if action is None:
                 return None
-            action = _resolve_draft_action(action, workflow_state)
+            action = _resolve_action_revision(action, workflow_state)
 
         return action
 
