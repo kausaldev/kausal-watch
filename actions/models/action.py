@@ -478,7 +478,7 @@ class Action(  # type: ignore[django-manager-missing]
     def get_next_action(self, user: User):
         return (
             Action.objects.get_queryset()
-            .visible_for_user(user)
+            .visible_for_public()
             .filter(plan=self.plan_id, order__gt=self.order)
             .unmerged()
             .first()
