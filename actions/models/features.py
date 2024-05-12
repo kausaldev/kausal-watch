@@ -111,7 +111,9 @@ class PlanFeatures(models.Model):
 
     @property
     def public_contact_persons(self) -> bool:
-        return self.contact_persons_public_data != self.ContactPersonsPublicData.NONE
+        return self.contact_persons_public_data not in (
+            self.ContactPersonsPublicData.NONE, self.ContactPersonsPublicData.ALL_FOR_AUTHENTICATED
+        )
 
     @property
     def enable_moderation_workflow(self) -> bool:
