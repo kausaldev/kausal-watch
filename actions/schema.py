@@ -1376,7 +1376,7 @@ class Query:
                 result = [WorkflowStateEnum.PUBLISHED, WorkflowStateEnum.DRAFT]
         elif user.can_access_public_site(plan):
             if tasks.count() > 1:
-                result = [WorkflowStateEnum.PUBLISHED, WorkflowStateEnum.APPROVED]
+                result = [WorkflowStateEnum.PUBLISHED, WorkflowStateEnum.DRAFT]
             else:
                 result = [WorkflowStateEnum.PUBLISHED]
         return [{
