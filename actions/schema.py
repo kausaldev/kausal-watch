@@ -6,7 +6,8 @@ import logging
 import sentry_sdk
 import typing
 import uuid
-from django.db.models import Q, Prefetch
+from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q, Prefetch, prefetch_related_objects
 from django.forms import ModelForm
 from django.utils.translation import get_language
 from graphene_django import DjangoObjectType
@@ -40,6 +41,7 @@ from actions.models.action import ActionQuerySet
 from actions.models.action_deps import ActionDependencyRelationship, ActionDependencyRole
 from actions.models.attributes import ModelWithAttributes
 from orgs.models import Organization
+from people.models import Person
 from users.models import User
 from aplans.graphql_helpers import AdminButtonsMixin, UpdateModelInstanceMutation
 from aplans.graphql_types import (
@@ -53,6 +55,7 @@ from aplans.graphql_types import (
     register_graphene_node,
     set_active_plan
 )
+from aplans.cache import SerializedDictWithRelatedObjectCache
 from aplans.graphql_errors import ErrorCode
 from aplans.types import is_authenticated
 from aplans.utils import hyphenate_fi, public_fields
@@ -62,6 +65,7 @@ from search.backends import get_search_backend
 
 if typing.TYPE_CHECKING:
     from actions.models.attributes import Attribute
+    from aplans.cache import PlanSpecificCache
 
 
 logger = logging.getLogger(__name__)
@@ -663,6 +667,7 @@ class AttributesMixin:
 
         attributes: list[Attribute] = []
         if root.draft_attributes:
+            cache = info.context.watch_cache.for_plan(plan)
             attribute_types = root.get_visible_attribute_types(request.user)
             for attribute_type in attribute_types:
                 try:
@@ -944,7 +949,22 @@ class WorkflowStateInfoNode(DjangoNode):
 class WorkflowInfoNode(graphene.ObjectType):
     has_unpublished_changes = graphene.Boolean(default_value=False)
     latest_revision = graphene.Field('actions.schema.RevisionNode')
-    current_workflow_state = graphene.Field('actions.schema.WorkflowStateInfoNode')
+    current_workflow_state = graphene.Field(
+        'actions.schema.WorkflowStateInfoNode',
+        description=(
+            "The internal Wagtail workflow state of the action. "
+            "The current action data returned does not necessarily match this "
+            "workflowstate."
+        )
+    )
+    matching_version = graphene.Field(
+        WorkflowStateDescription,
+        description=(
+            "The actual version of the action returned "
+            "when fulfilling this query, based on both the requested workflow directive value used when querying "
+            "an action, and the available versions of the action itself."
+        )
+    )
 
     @staticmethod
     def resolve_has_unpublished_changes(root: Action, info: GQLInfo) -> bool:
@@ -955,8 +975,17 @@ class WorkflowInfoNode(graphene.ObjectType):
         return root.get_latest_revision()
 
     @staticmethod
-    def resolve_current_workflow_state(root: Action, info: GQLInfo) -> bool:
+    def resolve_current_workflow_state(root: Action, info: GQLInfo) -> WorkflowState:
         return root.current_workflow_state
+
+    @staticmethod
+    def resolve_matching_version(root: Action, info: GQLInfo) -> dict[str, str]:
+        def make_result(match: WorkflowStateEnum | None) -> dict[str, str]:
+            return dict(
+                id=match.name,
+                description=WorkflowStateEnum(match).description
+            )
+        return make_result(getattr(root, '_actual_workflow_state', WorkflowStateEnum.PUBLISHED))
 
 
 @register_django_node
@@ -1093,8 +1122,13 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     def resolve_contact_persons(root: Action, info: GQLInfo, show_all_contact_persons: bool):
         plan: Plan = get_plan_from_context(info)
         user = info.context.user
-        acps = [acp for acp in root.contact_persons.all()
-                if acp.person.visible_for_user(user=user, plan=plan)]
+        acps = []
+        cache = info.context.watch_cache.for_plan(plan)
+        for acp in root.contact_persons.all():
+            person = cache.get_person(acp.person_id) or acp.person
+            if not person.visible_for_user(user=user, plan=plan):
+                continue
+            acps.append(acp)
         if plan.features.contact_persons_hide_moderators and (
             not show_all_contact_persons or not user.is_authenticated or not user.can_access_admin(plan)):
             acps = [acp for acp in acps if not acp.is_moderator()]
@@ -1133,11 +1167,11 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
         only=('latest_revision', 'has_unpublished_changes', 'plan', 'plan__features__moderation_workflow'),
         prefetch_related=prefetch_workflow_states
     )
-    def resolve_workflow_status(root: Action, info) -> WorkflowState:
+    def resolve_workflow_status(root: Action, info) -> WorkflowState | None:
         user = info.context.user
         plan = root.plan
-        if not user.is_authenticated or not user.can_access_admin(plan):
-            raise ErrorCode.ACCESS_DENIED.create_error('Access denied')
+        if not user.is_authenticated or not user.can_access_public_site(plan):
+            return None
         return root
 
 
@@ -1164,12 +1198,26 @@ class ActionImplementationPhaseNode(DjangoNode):
 
 
 class ActionResponsiblePartyNode(DjangoNode):
+    @staticmethod
+    def resolve_organization(root: ActionResponsibleParty, info) -> Organization:
+        cache = info.context.watch_cache.for_plan_id(root.action.plan_id)
+        return cache.get_organization(root.organization_id) or root.organization
+
     class Meta:
         model = ActionResponsibleParty
         fields = public_fields(ActionResponsibleParty)
 
 
 class ActionContactPersonNode(DjangoNode):
+    @staticmethod
+    def resolve_person(root: ActionContactPerson, info) -> Person:
+        cache = info.context.watch_cache.for_plan_id(root.action.plan_id)
+        person = cache.get_person(root.person_id) or root.person
+        person_organization = cache.get_organization(person.organization_id)
+        if person_organization is not None:
+            person.organization = person_organization
+        return person
+
     class Meta:
         model = ActionContactPerson
         fields = public_fields(ActionContactPerson)
@@ -1249,25 +1297,36 @@ def _resolve_published_action(
         return None
 
 
-def _resolve_draft_action(action: Action, workflow_state: WorkflowStateEnum):
-    if not action.has_unpublished_changes:
-        return action
-    if workflow_state == WorkflowStateEnum.DRAFT:
-        return action.get_latest_revision_as_object()
-    if workflow_state == WorkflowStateEnum.APPROVED:
-        # Draft has been approved if the next workflow task
-        # (publishing) is in progress
-        task = action.plan.get_next_workflow_task(WorkflowStateEnum.APPROVED)
-        if not task:
-            return action
-        current_state = action.current_workflow_state
-        if current_state is None:
-            return action
-        if current_state.current_task_state.task == task:
-            return current_state.current_task_state.revision.as_object()
+def _resolve_action_revision(action: Action, desired_workflow_state: WorkflowStateEnum):
+    def with_workflow_state(match: WorkflowStateEnum, action: Action) -> Action:
+        assert match != WorkflowStateEnum.PUBLISHED
+        revision = action.latest_revision
+        revision_action = revision.as_object()
+        revision_action.updated_at = revision.created_at
+        revision_action._actual_workflow_state = match
+        return revision_action
+
+    def published(action: Action):
+        action._actual_workflow_state = WorkflowStateEnum.PUBLISHED
         return action
 
-    return action
+    current_progress, max_progress = action.get_workflow_progress()
+
+    if current_progress == max_progress:
+        return published(action)
+
+    available_revision_state = WorkflowStateEnum.DRAFT
+    if current_progress > 1:
+        available_revision_state = WorkflowStateEnum.APPROVED
+
+    if desired_workflow_state == WorkflowStateEnum.DRAFT:
+        return with_workflow_state(available_revision_state, action)
+    if desired_workflow_state == WorkflowStateEnum.APPROVED:
+        if available_revision_state == WorkflowStateEnum.APPROVED:
+            return with_workflow_state(available_revision_state, action)
+
+    # User wants published version or no other appropriate version available
+    return published(action)
 
 
 class Query:
@@ -1295,14 +1354,18 @@ class Query:
     )
 
     workflow_states = graphene.List(
-        WorkflowStateDescription, plan=graphene.ID(required=True)
+        WorkflowStateDescription, plan=graphene.ID(required=False)
     )
 
     @staticmethod
     def resolve_workflow_states(root, info, plan):
+        if plan is None:
+            return []
         user = info.context.user
         result = []
         plan = Plan.objects.get(identifier=plan)
+        if plan.features.moderation_workflow is None:
+            return []
         tasks = plan.get_workflow_tasks()
         if not user.is_authenticated or not user.can_access_public_site(plan):
             result = [WorkflowStateEnum.PUBLISHED]
@@ -1356,13 +1419,83 @@ class Query:
         return gql_optimizer.query(plans, info)
 
     @staticmethod
+    def _resolve_plan_action_revisions(
+            plan: Plan,
+            desired_workflow_state: WorkflowStateEnum,
+            action_queryset: ActionQuerySet,
+            cache: PlanSpecificCache
+    ):
+        ct = ContentType.objects.get_for_model(Action)
+        revision_pks = []
+        actions_without_revision = []
+        if desired_workflow_state == WorkflowStateEnum.DRAFT:
+            revision_pks = action_queryset.filter(has_unpublished_changes=True).values_list('latest_revision_id', flat=True)
+            actions_without_revision = action_queryset.filter(has_unpublished_changes=False)
+        elif desired_workflow_state == WorkflowStateEnum.APPROVED:
+            desired_workflow_task = plan.get_next_workflow_task(desired_workflow_state)
+            action_pks = [str(pk) for pk in action_queryset.values_list('pk', flat=True)]
+            if desired_workflow_task is not None:
+                workflowstates = (
+                    WorkflowState.objects.active()\
+                    .filter(content_type=ct)\
+                    .filter(current_task_state__task=desired_workflow_task)\
+                    .filter(object_id__in=action_pks)
+                )
+                actions_with_revision_pks = workflowstates.values_list('object_id', flat=True)
+                actions_without_revision = action_queryset.exclude(pk__in=[int(pk) for pk in actions_with_revision_pks])
+                revision_pks = workflowstates.values_list('current_task_state__revision_id', flat=True)
+        revision_qs = Revision.objects.filter(pk__in=revision_pks).prefetch_related('content_object__plan')
+        actions = []
+        for rev in revision_qs:
+            content = SerializedDictWithRelatedObjectCache(rev.content, cache=cache)
+            action = Action.from_serializable_data(content, check_fks=False, strict_fks=False)
+            if action is not None:
+                cache.enrich_action(action)
+                actions.append(action)
+        prefetch_related_objects(
+            actions,
+            'schedule',
+            'indicators__goals',
+            'categories',
+        )
+        actions.extend(actions_without_revision)
+        return sorted(actions, key=lambda o: o.order)
+
+    @staticmethod
     def resolve_plan_actions(root, info, plan, first=None, category=None, order_by=None, restrict_to_publicly_visible=True, **kwargs):
         plan_obj = get_plan_from_context(info, plan)
         if plan_obj is None:
             return None
-        qs = plans_actions_queryset([plan_obj], category, first, order_by, info.context.user, restrict_to_publicly_visible=restrict_to_publicly_visible)
-        result = gql_optimizer.query(qs, info)
-        return result
+        workflow_state = info.context.watch_cache.query_workflow_state
+        qs = gql_optimizer.query(
+            plans_actions_queryset(
+                [plan_obj],
+                category,
+                first,
+                order_by,
+                info.context.user,
+                restrict_to_publicly_visible=restrict_to_publicly_visible
+            ),
+            info
+        )
+        user = info.context.user
+        cache = info.context.watch_cache.for_plan(plan_obj)
+        persons_queryset = Person.objects.filter(actioncontactperson__action__plan=plan_obj)
+        cache.populate_persons(persons_queryset)
+        cache.populate_organizations(
+            Organization.objects.filter(
+                Q(responsible_actions__action__plan=plan_obj) |
+                Q(people__in=persons_queryset)
+            )
+        )
+        if not is_authenticated(user):
+            workflow_state = WorkflowStateEnum.PUBLISHED
+        elif not user.can_access_public_site(plan=plan_obj):
+            workflow_state = WorkflowStateEnum.PUBLISHED
+        if workflow_state == WorkflowStateEnum.PUBLISHED:
+            return qs
+        else:
+            return Query._resolve_plan_action_revisions(plan_obj, workflow_state, qs, cache=cache)
 
     @staticmethod
     def resolve_related_plan_actions(root, info, plan, first=None, category=None, order_by=None, **kwargs):
@@ -1416,7 +1549,7 @@ class Query:
         if workflow_state != WorkflowStateEnum.PUBLISHED:
             if action is None:
                 return None
-            action = _resolve_draft_action(action, workflow_state)
+            action = _resolve_action_revision(action, workflow_state)
 
         return action
 

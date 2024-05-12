@@ -395,11 +395,11 @@ class ModelWithAttributes(models.Model):
 
     @classmethod
     def from_serializable_data(cls, data, check_fks=True, strict_fks=False):
-        """Called by Wagtail when editing a draft."""
+        """Called by Wagtail when editing a draft, and by the GraphQL implementation when resolving attributes."""
         from actions.attributes import DraftAttributes
         serialized_attributes = data.pop('attributes', {})
         result = super().from_serializable_data(data, check_fks=check_fks, strict_fks=strict_fks)
-        result.draft_attributes = DraftAttributes.from_revision_content(serialized_attributes)
+        result.draft_attributes = DraftAttributes.from_revision_content(serialized_attributes, cache=getattr(data, 'cache', None))
         return result
 
     def _value_is_empty(self, value: dict[str, Any]):

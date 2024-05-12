@@ -282,7 +282,7 @@ class SentryGraphQLView(GraphQLView):
                     )
             # If 'invalid' is set, it's a bad request
             if result and result.errors:
-                if settings.LOG_SQL_QUERIES:
+                if settings.DEBUG:
                     from rich.traceback import Traceback
                     console = Console()
 

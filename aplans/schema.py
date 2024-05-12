@@ -17,6 +17,7 @@ from . import graphql_gis  # noqa
 
 from actions import schema as actions_schema
 from actions.models import Plan
+from aplans.cache import OrganizationActionCountCache
 from aplans.utils import public_fields
 from aplans.graphql_types import WorkflowStateGrapheneEnum
 from admin_site.wagtail import PlanRelatedPermissionHelper
@@ -85,13 +86,30 @@ class Query(
             plans = [plan_obj]
 
         visible_actions = Action.objects.visible_for_user(info.context.user).filter(plan__in=plans)
+
+        workflow_state = getattr(info.context.watch_cache, 'query_workflow_state', None)
+        some_plan_has_a_workflow = any(p.features.moderation_workflow is not None for p in plans)
+        consider_responsible_parties_within_action_revisions = (
+            workflow_state is not None and
+            workflow_state != WorkflowStateEnum.PUBLISHED and
+            some_plan_has_a_workflow
+        )
+        cache = None
+        if consider_responsible_parties_within_action_revisions:
+            info.context.organization_action_count_cache = OrganizationActionCountCache(visible_actions)
+            cache = info.context.organization_action_count_cache
+
         qs = Organization.objects.available_for_plans(plans)
         if plan is not None:
             # Note the weird behavior by Django: Q() is neither "true" nor "false".
             # For all x, Q() | x is equivalent to x, and Q() & x is also equivalent to x.
             query = Q()
             if for_responsible_parties:
-                query |= Q(responsible_actions__action__in=visible_actions)
+                if consider_responsible_parties_within_action_revisions:
+                    responsible_actions_filter = cache.organization_responsible_party_queryset_filter
+                else:
+                    responsible_actions_filter = Q(responsible_actions__action__in=visible_actions)
+                query |= responsible_actions_filter
             if for_contact_persons:
                 query |= Q(people__contact_for_actions__in=visible_actions)
             if not query and not info.context.user.is_authenticated:
@@ -106,10 +124,12 @@ class Query(
 
         selections = get_fields(info)
         if 'actionCount' in selections:
-            annotate_filter = Q(responsible_actions__action__in=visible_actions)
-            qs = qs.annotate(action_count=Count(
-                'responsible_actions__action', distinct=True, filter=annotate_filter
-            ))
+            if not consider_responsible_parties_within_action_revisions:
+                annotate_filter = Q(responsible_actions__action__in=visible_actions)
+                qs = qs.annotate(action_count=Count(
+                    'responsible_actions__action', distinct=True, filter=annotate_filter
+                ))
+
         if 'contactPersonCount' in selections and plan_obj.features.public_contact_persons:
             # FIXME: Check visibility of related plans, too
             annotate_filter = Q(people__contact_for_actions__in=visible_actions)

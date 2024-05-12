@@ -20,6 +20,7 @@ if typing.TYPE_CHECKING:
     from actions.models import Category, Plan
     from reports.utils import SerializedAttributeVersion, SerializedVersion
     from users.models import User
+    from aplans.cache import PlanSpecificCache
 
 
 class AttributeFieldPanel(FieldPanel):
@@ -57,7 +58,7 @@ class AttributeValue(ABC):
     """
     @classmethod
     @abstractmethod
-    def from_serialized_value(cls, value: Any) -> AttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> AttributeValue:
         pass
 
     @abstractmethod
@@ -84,12 +85,16 @@ class OrderedChoiceAttributeValue(AttributeValue):
     option: models.AttributeTypeChoiceOption | None
 
     @classmethod
-    def from_serialized_value(cls, value: Any) -> OrderedChoiceAttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> OrderedChoiceAttributeValue:
         if value is None:
             option = None
         else:
             assert isinstance(value, int)
-            option = models.AttributeTypeChoiceOption.objects.get(pk=value)
+            option = None
+            if cache is not None:
+                option = cache.get_choice_option(value)
+            if option is None:
+                option = models.AttributeTypeChoiceOption.objects.get(pk=value)
         return OrderedChoiceAttributeValue(option=option)
 
     def serialize(self) -> Any:
@@ -107,7 +112,7 @@ class CategoryChoiceAttributeValue(AttributeValue):
     categories: QuerySet['Category']
 
     @classmethod
-    def from_serialized_value(cls, value: Any) -> CategoryChoiceAttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> CategoryChoiceAttributeValue:
         assert isinstance(value, list)
         from actions.models import Category
         categories = Category.objects.filter(pk__in=value)
@@ -137,12 +142,16 @@ class OptionalChoiceWithTextAttributeValue(AttributeValue):
     text_vals: dict[str, str]  # dict because we might have different strings for different languages
 
     @classmethod
-    def from_serialized_value(cls, value: Any) -> OptionalChoiceWithTextAttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> OptionalChoiceWithTextAttributeValue:
         if value['choice'] is None:
             option = None
         else:
             assert isinstance(value['choice'], int)
-            option = models.AttributeTypeChoiceOption.objects.get(pk=value['choice'])
+            option = None
+            if cache is not None:
+                option = cache.get_choice_option(value['choice'])
+            if option is None:
+                option = models.AttributeTypeChoiceOption.objects.get(pk=value['choice'])
         text_vals = value['text']
         assert isinstance(text_vals, dict)
         return OptionalChoiceWithTextAttributeValue(option=option, text_vals=text_vals)
@@ -166,7 +175,7 @@ class GenericTextAttributeAttributeValue(AttributeValue):
     text_vals: dict[str, str]  # keys: "text", and zero or more "text_<language>"
 
     @classmethod
-    def from_serialized_value(cls, value: Any) -> GenericTextAttributeAttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> GenericTextAttributeAttributeValue:
         assert isinstance(value, dict)
         return GenericTextAttributeAttributeValue(text_vals=value)
 
@@ -186,7 +195,7 @@ class NumericAttributeValue(AttributeValue):
     value: float | None
 
     @classmethod
-    def from_serialized_value(cls, value: Any) -> NumericAttributeValue:
+    def from_serialized_value(cls, value: Any, cache: PlanSpecificCache | None = None) -> NumericAttributeValue:
         assert value is None or isinstance(value, float)
         return NumericAttributeValue(value=value)
 
@@ -779,14 +788,14 @@ class DraftAttributes:
         self._values = {}
 
     @classmethod
-    def from_revision_content(cls, data: dict[str, dict[str, Any]]) -> DraftAttributes:
+    def from_revision_content(cls, data: dict[str, dict[str, Any]], cache: PlanSpecificCache | None = None) -> DraftAttributes:
         draft_attributes = DraftAttributes()
         for format, id_to_serialized_value in data.items():
             # No idea anymore why we serialize the IDs as strings
             assert all(isinstance(k, str) for k in id_to_serialized_value)
             at_class = AttributeType.format_to_class(models.AttributeType.AttributeFormat(format))
             draft_attributes._values[format] = {
-                int(id): at_class.VALUE_CLASS.from_serialized_value(serialized_value)
+                int(id): at_class.VALUE_CLASS.from_serialized_value(serialized_value, cache=cache)
                 for id, serialized_value in id_to_serialized_value.items()
             }
         return draft_attributes

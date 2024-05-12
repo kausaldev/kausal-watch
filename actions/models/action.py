@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import cache
 import logging
 import reversion
 import typing
@@ -51,6 +52,7 @@ if typing.TYPE_CHECKING:
     from people.models import Person
     from .plan import Plan
     from .action_deps import ActionDependencyRelationshipQuerySet
+    from aplans.graphql_types import WorkflowStateEnum
 
 
 logger = logging.getLogger(__name__)
@@ -225,6 +227,11 @@ class Action(  # type: ignore[django-manager-missing]
                 field.serialize = True
 
     id: int
+
+    # In the GQL API, used to expose the metadata
+    # about what kind of revision this action data actually came from
+    _actual_workflow_state: WorkflowStateEnum | None
+
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     plan: ParentalKey[Plan | Combinable, Plan] = ParentalKey(
         'actions.Plan', on_delete=models.CASCADE, related_name='actions',
@@ -733,6 +740,7 @@ class Action(  # type: ignore[django-manager-missing]
         return [at for at in attribute_types if at.instance.is_instance_visible_for(user, self.plan, self)]
 
     @classmethod
+    @cache
     def get_attribute_types_for_plan(cls, plan: Plan, only_in_reporting_tab=False, unless_in_reporting_tab=False):
         action_ct = ContentType.objects.get_for_model(Action)
         plan_ct = ContentType.objects.get_for_model(plan)
@@ -857,6 +865,30 @@ class Action(  # type: ignore[django-manager-missing]
 
     def get_workflow(self):
         return self.plan.features.moderation_workflow
+
+    def get_workflow_progress(self) -> tuple[int, int]:
+        '''
+        Return a numerical digest of where in the moderation workflow the latest available action revision is,
+        from 0 to n, including the maximum n as the second element in the tuple
+
+        0         there is a draft not yet in moderation
+        1         the draft has been sent to moderation
+        2...(n-1) the action is somewhere in moderation
+                  with at least one approval
+                  (if n == 2, this state does not exist)
+        n         there is only the public live version
+        '''
+        workflow = self.get_workflow()
+        workflow_tasks = [t.specific for t in workflow.tasks.all()]
+        min_progress = 0
+        max_progress = len(workflow_tasks) + 1
+        if not self.has_unpublished_changes:
+            return (max_progress, max_progress)
+        if self.current_workflow_state is None:
+            return (min_progress, max_progress)
+        task = self.current_workflow_task
+        task_index = workflow_tasks.index(task)
+        return (task_index + 1, max_progress)
 
     def get_dependency_relationships(self, user: UserOrAnon | None, plan: Plan | None) -> ActionDependencyRelationshipQuerySet:
         from .action_deps import ActionDependencyRelationship

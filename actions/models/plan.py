@@ -782,28 +782,27 @@ class Plan(ClusterableModel, ModelWithPrimaryLanguage):
         assert tasks.count() < 3, 'Currently max. 2 task workflows supported'
         return tasks
 
-    def get_next_workflow_task(self, workflow_state: WorkflowStateEnum) -> WorkflowTask:
-        """ Returns the next workflow task that should be active after the
-        desired workflow_state has been achieved. For example, in a workflow
+    def get_next_workflow_task(self, workflow_state: WorkflowStateEnum) -> WorkflowTask | None:
+        """Returns the next workflow task that is active after the
+        desired workflow_state has been reached. For example, in a workflow
         with an approval task (1) and after that a separate publishing task (2),
         for an action to be in a "APPROVED" state, task (2) must be the current
-        active workflow state task for that action. (Once a task has been approved,
-        it is no longer active in that workflow for that action.)
+        active workflow state task for that action.
+
+        (Once a task has been approved, it is no longer active in that workflow for that action.)
 
         Returns None if no task satisfies the condition and we should use
         the published action.
+
         """
         from aplans.graphql_types import WorkflowStateEnum
         tasks = self.get_workflow_tasks()
-        if workflow_state == WorkflowStateEnum.PUBLISHED:
-            return None
+        if workflow_state == WorkflowStateEnum.PUBLISHED: return None
         if tasks.count() == 1:
-            if workflow_state == WorkflowStateEnum.APPROVED:
-                return None
+            if workflow_state == WorkflowStateEnum.APPROVED: return None
             return tasks.get().task
         elif tasks.count() == 2:
-            if workflow_state == WorkflowStateEnum.APPROVED:
-                return tasks.last().task
+            if workflow_state == WorkflowStateEnum.APPROVED: return tasks.last().task
             return None
         return None
 
