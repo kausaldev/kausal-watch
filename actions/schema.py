@@ -1362,6 +1362,8 @@ class Query:
         user = info.context.user
         result = []
         plan = Plan.objects.get(identifier=plan)
+        if plan.features.moderation_workflow is None:
+            return []
         tasks = plan.get_workflow_tasks()
         if not user.is_authenticated or not user.can_access_public_site(plan):
             result = [WorkflowStateEnum.PUBLISHED]
