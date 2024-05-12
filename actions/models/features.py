@@ -10,6 +10,7 @@ class PlanFeatures(models.Model):
         NONE = 'none', _('Do not show contact persons publicly')
         NAME = 'name', _('Show only name, role and affiliation')
         ALL = 'all', _('Show all information')
+        ALL_FOR_AUTHENTICATED = 'all_for_authenticated', _('Show all information but only for authenticated users')
 
     plan = models.OneToOneField('actions.Plan', related_name='features', on_delete=models.CASCADE)
     allow_images_for_actions = models.BooleanField(
