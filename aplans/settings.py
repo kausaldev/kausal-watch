@@ -777,6 +777,13 @@ if env('CONFIGURE_LOGGING') and 'LOGGING' not in locals():
         loguru_handlers = [dict(sink=LogFmtHandlerError(), format="{message}"), dict(sink=LogFmtHandlerInfo(), format="{message}")]
     else:
         loguru_handlers = [dict(sink=LogHandler(), format="{message}")]
+
+    # We disable showing locals in tracebacks and limit the amount of
+    # traceback when not in debug mode.
+    for handler in loguru_handlers:
+        handler['diagnose'] = bool(DEBUG)  # type: ignore
+    if not DEBUG:
+        sys.tracebacklimit = 10
     logger.configure(handlers=loguru_handlers)
 
     def level(level: Literal['DEBUG', 'INFO', 'WARNING'], handler: str | None = None) -> dict[str, list[str] | bool | str]:
@@ -866,6 +873,7 @@ REQUEST_LOG_IGNORE_PATHS = env('REQUEST_LOG_IGNORE_PATHS')
 if SENTRY_DSN:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
+    from sentry_sdk.integrations.logging import ignore_logger
 
     sentry_sdk.init(
         dsn=SENTRY_DSN,
@@ -874,6 +882,8 @@ if SENTRY_DSN:
         integrations=[DjangoIntegration()],
         environment=DEPLOYMENT_TYPE,
     )
+    ignore_logger('uwsgi-req')
+
 
 if 'DATABASES' in locals():
     if DATABASES['default']['ENGINE'] in ('django.db.backends.postgresql', 'django.contrib.gis.db.backends.postgis'):
