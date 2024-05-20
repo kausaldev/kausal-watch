@@ -2,7 +2,7 @@ django
 wagtail-orderable
 djangorestframework
 social-auth-app-django
-psycopg2-binary
+psycopg[binary]
 django-extensions
 django-environ
 markdown
