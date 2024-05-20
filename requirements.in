@@ -33,6 +33,7 @@ pytest-django
 pytest-cov
 factory-boy
 pytest-factoryboy
+pytest-html
 libvoikko
 https://github.com/kausaltech/django-modeltrans/archive/a734040c3f38c2e404a61dc0be2c017874a9ea45.zip
 wagtail
@@ -76,3 +77,4 @@ PyGithub
 django-hijack
 requests>=2.31
 logfmter
+s3cmd
