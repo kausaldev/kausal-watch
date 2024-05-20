@@ -123,5 +123,8 @@ ENV UWSGI_MODULE=aplans.wsgi DJANGO_SETTINGS_MODULE=aplans.settings
 ARG CADDY_PORT=6000
 ENV CADDY_PORT=${CADDY_PORT}
 
+# We need to have the default user as root to be able to run tests etc.
+USER root
+
 EXPOSE 8000/tcp ${CADDY_PORT}/tcp
 ENTRYPOINT ["/bin/bash", "/scripts/docker-entrypoint.sh"]
