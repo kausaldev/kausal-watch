@@ -231,6 +231,7 @@ jinja2==3.1.4
     # via
     #   -r requirements.in
     #   coreschema
+    #   pytest-html
 jsonschema==4.22.0
     # via drf-spectacular
 jsonschema-specifications==2023.12.1
@@ -324,21 +325,30 @@ pytest==8.2.1
     #   pytest-cov
     #   pytest-django
     #   pytest-factoryboy
+    #   pytest-html
+    #   pytest-metadata
 pytest-cov==5.0.0
     # via -r requirements.in
 pytest-django==4.8.0
     # via -r requirements.in
 pytest-factoryboy==2.7.0
     # via -r requirements.in
+pytest-html==4.1.1
+    # via -r requirements.in
+pytest-metadata==3.1.1
+    # via pytest-html
 python-dateutil==2.9.0.post0
     # via
     #   celery
     #   elasticsearch-dsl
     #   faker
+    #   s3cmd
 python-jose==3.3.0
     # via
     #   -r requirements.in
     #   django-helusers
+python-magic==0.4.27
+    # via s3cmd
 python3-openid==3.2.0
     # via social-auth-core
 pytz==2024.1
@@ -378,6 +388,8 @@ rpds-py==0.18.1
 rsa==4.9
     # via python-jose
 rustface==0.1.0
+    # via -r requirements.in
+s3cmd==2.4.0
     # via -r requirements.in
 sentry-sdk==2.2.0
     # via -r requirements.in
