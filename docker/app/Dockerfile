@@ -1,5 +1,7 @@
 ARG base_image=debian:testing-slim
 
+FROM caddy:2 AS caddy
+
 #
 # Invocations common for builder and final stages
 #
@@ -85,6 +87,7 @@ ENV PATH=${VENV_PATH}/bin:${PATH}
 
 COPY --from=builder /venv /venv
 COPY --from=builder ${app_path}/node_modules ${app_path}/node_modules
+
 COPY . ${app_path}/
 
 RUN mkdir /scripts
@@ -112,9 +115,13 @@ RUN ./manage.py collectstatic --no-input
 RUN ./manage.py compilemessages
 RUN pybabel compile -D notifications -d locale
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV UWSGI_MODULE aplans.wsgi
+COPY --from=caddy /usr/bin/caddy /usr/bin/caddy
+COPY ./docker/app/Caddyfile /etc/caddy/
 
-EXPOSE 8000/tcp
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+ENV UWSGI_MODULE=aplans.wsgi DJANGO_SETTINGS_MODULE=aplans.settings
+ARG CADDY_PORT=6000
+ENV CADDY_PORT=${CADDY_PORT}
+
+EXPOSE 8000/tcp ${CADDY_PORT}/tcp
 ENTRYPOINT ["/bin/bash", "/scripts/docker-entrypoint.sh"]
