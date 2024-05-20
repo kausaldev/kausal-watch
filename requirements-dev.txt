@@ -30,7 +30,6 @@ idna==3.7
     # via
     #   -c requirements-lint.txt
     #   -c requirements.txt
-    #   -r requirements-dev.in
     #   anyio
 ipdb==0.13.13
     # via -r requirements-dev.in
@@ -62,7 +61,7 @@ ptyprocess==0.7.0
     # via pexpect
 pure-eval==0.2.2
     # via stack-data
-pygments==2.17.2
+pygments==2.18.0
     # via
     #   -c requirements.txt
     #   ipython
