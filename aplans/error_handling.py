@@ -34,7 +34,7 @@ def html_server_error(request, template_name=ERROR_500_TEMPLATE_NAME):
 
     context['sentry_error_id'] = None
     if settings.SENTRY_DSN:
-        context['sentry_error_id'] = sentry_sdk.last_event_id()
+        context['sentry_error_id'] = sentry_sdk.Scope.last_event_id()
     template = loader.get_template(template_name)
     return HttpResponseServerError(template.render(context=context, request=request))
 
