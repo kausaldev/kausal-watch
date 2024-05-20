@@ -13,6 +13,7 @@ jobs:
     with:
       docker_image_repo: ${{ needs.build.outputs.image }}
       docker_image_tag: ${{ needs.build.outputs.image_tag }}
+      build_id: ${{ needs.build.outputs.build_id }}
 
   deploy:
     needs: [build]
