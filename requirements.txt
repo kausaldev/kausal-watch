@@ -139,7 +139,7 @@ django-filter==24.2
     # via
     #   -r requirements.in
     #   wagtail
-django-helusers==0.11.0
+django-helusers==0.12.0
     # via -r requirements.in
 django-hijack==3.4.5
     # via -r requirements.in
@@ -306,8 +306,10 @@ promise==2.3
     # via graphene-django
 prompt-toolkit==3.0.43
     # via click-repl
-psycopg2-binary==2.9.9
+psycopg[binary]==3.1.19
     # via -r requirements.in
+psycopg-binary==3.1.19
+    # via psycopg
 pyasn1==0.6.0
     # via
     #   python-jose
@@ -424,6 +426,7 @@ typing-extensions==4.11.0
     # via
     #   django-countries
     #   jwcrypto
+    #   psycopg
     #   pygithub
     #   pytest-factoryboy
     #   wagtail-localize
