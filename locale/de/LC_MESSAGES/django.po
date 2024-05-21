@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-07 22:21+0200\n"
-"PO-Revision-Date: 2024-05-07 20:33+0000\n"
-"Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
+"PO-Revision-Date: 2024-05-21 14:20+0000\n"
+"Last-Translator: Liliia Sviridova <liliia.sviridova@kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
 "\n"
 "Language: de\n"
@@ -2157,7 +2157,7 @@ msgstr "Feld '%(field)s' im Modell '%(model)s' des Plans '%(plan)s'"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Own indicators"
-msgstr "Eigene Indikatoren"
+msgstr "Mir zugewiesene Indikatoren"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Last modified"
