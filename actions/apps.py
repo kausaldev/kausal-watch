@@ -125,7 +125,14 @@ def get_base_snippet_action_menu_items(model):
         menu_items = []
         # WorkflowMenuItem instances are inserted with order 100
         menu_items += [
-            SaveMenuItem(order=101),  # We want "Publish" (below) or "Approve" (100) as the default action (if shown)
+            # SaveMenuItem(order=101),  # We want "Publish" (below) or "Approve" (100) as the default action (if shown)
+            # FIXME: The previous line would cause "SaveMenuItem" to be not the first item, so the first item would
+            # probably be a workflow-related item. This causes a problem because Wagtail in `workflow-action.js`
+            # only appends hidden input elements to the form if the "more actions" dropdown is expanded. That is,
+            # the default button must not be workflow-related. Otherwise Wagtail wouldn't handle the workflow
+            # action properly. This should better be fixed in the Wagtail code, but until we find a good
+            # solution, let's just live with a suboptimal menu item order.
+            SaveMenuItem(order=0),
             DeleteMenuItem(order=102),
         ]
         if issubclass(model, DraftStateMixin):
