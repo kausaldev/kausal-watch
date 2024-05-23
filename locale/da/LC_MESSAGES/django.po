@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 22:21+0200\n"
+"POT-Creation-Date: 2024-05-23 09:57+0300\n"
 "PO-Revision-Date: 2023-12-13 16:19+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
 "Language-Team: Danish <https://weblate.kausal.tech/projects/watch/django/da/>\n"
@@ -78,8 +78,7 @@ msgid "Name"
 msgstr "Navn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -404,6 +403,12 @@ msgstr ""
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
 msgid "Contact form"
 msgstr "Kontaktformular"
+
+#: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Indicator action"
+msgid "Indicator Causal Chain"
+msgstr "Indikator handling"
 
 #: actions/blocks/action_content.py
 #, fuzzy
@@ -1544,6 +1549,10 @@ msgid "Show all information"
 msgstr "Vis alle handlinger"
 
 #: actions/models/features.py
+msgid "Show all information but only for authenticated users"
+msgstr ""
+
+#: actions/models/features.py
 msgid "Allow images for actions"
 msgstr "Tillad billeder til handlinger"
 
@@ -2338,8 +2347,10 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr ""
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
-msgid "Own indicators"
-msgstr "Egne indikatorer"
+#, fuzzy
+#| msgid "Indicator list page"
+msgid "Indicators assigned to me"
+msgstr "Indikatorlisteside"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Last modified"
@@ -2627,12 +2638,6 @@ msgstr "%(color)s er ikke en CSS-farve (f.eks. \"#112233\", \"rød\" eller \"rgb
 #: aplans/utils.py
 msgid "updated by"
 msgstr "opdateret af"
-
-#: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
-msgid "Budget dimensions"
-msgstr "dimensioner"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -4930,6 +4935,14 @@ msgstr "Brugere"
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke administrerer."
 
+#~ msgid "Own indicators"
+#~ msgstr "Egne indikatorer"
+
+#, fuzzy
+#~| msgid "dimensions"
+#~ msgid "Budget dimensions"
+#~ msgstr "dimensioner"
+
 #~ msgid "Home"
 #~ msgstr "Hjem"
 
@@ -5196,9 +5209,6 @@ msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke
 
 #~ msgid "Upstream indicators"
 #~ msgstr "Opstrøms indikatorer"
-
-#~ msgid "Indicator action"
-#~ msgstr "Indikator handling"
 
 #~ msgid "Indicator actions"
 #~ msgstr "Indikator handlinger"

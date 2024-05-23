@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 22:21+0200\n"
+"POT-Creation-Date: 2024-05-23 09:57+0300\n"
 "PO-Revision-Date: 2024-05-21 14:20+0000\n"
 "Last-Translator: Liliia Sviridova <liliia.sviridova@kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
-"\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,8 +76,7 @@ msgid "Name"
 msgstr "Name"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -367,6 +365,12 @@ msgstr "Überschrift, die anstelle der Standardüberschrift angezeigt wird"
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
 msgid "Contact form"
 msgstr "Kontaktformular"
+
+#: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Indicator data"
+msgid "Indicator Causal Chain"
+msgstr "Indikatordaten"
 
 #: actions/blocks/action_content.py
 msgid "What label should be used in the public UI for the official name?"
@@ -1427,6 +1431,10 @@ msgid "Show all information"
 msgstr "Alle Informationen anzeigen"
 
 #: actions/models/features.py
+msgid "Show all information but only for authenticated users"
+msgstr ""
+
+#: actions/models/features.py
 msgid "Allow images for actions"
 msgstr "Erlaube Bilder für Maßnahmen"
 
@@ -1460,15 +1468,11 @@ msgstr "Wählen Sie aus, welche Informationen über Ansprechpersonen in der öff
 
 #: actions/models/features.py
 msgid "Show organization ancestors in contact details of contact persons"
-msgstr ""
-"Übergeordnete Organisationen in den Kontaktdetails der Ansprechpersonen "
-"anzeigen"
+msgstr "Übergeordnete Organisationen in den Kontaktdetails der Ansprechpersonen anzeigen"
 
 #: actions/models/features.py
 msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
-msgstr ""
-"Soll bei der Anzeige der Kontaktdaten einer Ansprechperson die Organisation "
-"der Ansprechperson zusammen mit allen übergeordneten angezeigt werden?"
+msgstr "Soll bei der Anzeige der Kontaktdaten einer Ansprechperson die Organisation der Ansprechperson zusammen mit allen übergeordneten angezeigt werden?"
 
 #: actions/models/features.py
 msgid "Hide moderators from the contact persons"
@@ -1901,13 +1905,11 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 "\n"
-"        <span> %(n)s </span> aktive Maßnahme <span class=\"w-sr-only\"> "
-"überwacht in %(plan)s </span>\n"
+"        <span> %(n)s </span> aktive Maßnahme <span class=\"w-sr-only\"> überwacht in %(plan)s </span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"        <span> %(n)s </span> aktive Maßnahmen <span class=\"w-sr-only\"> "
-"überwacht in %(plan)s </span>\n"
+"        <span> %(n)s </span> aktive Maßnahmen <span class=\"w-sr-only\"> überwacht in %(plan)s </span>\n"
 "    "
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
@@ -2156,8 +2158,10 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Feld '%(field)s' im Modell '%(model)s' des Plans '%(plan)s'"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
-msgid "Own indicators"
-msgstr "Mir zugewiesene Indikatoren"
+#, fuzzy
+#| msgid "Indicator list page"
+msgid "Indicators assigned to me"
+msgstr "Indikatorlistenseite"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Last modified"
@@ -2427,10 +2431,6 @@ msgstr "%(color)s ist keine CSS-Farbe (z. B. \"#112233\", \"red\" oder \"rgb(0, 
 #: aplans/utils.py
 msgid "updated by"
 msgstr "aktualisiert von"
-
-#: budget/wagtail_admin.py
-msgid "Budget dimensions"
-msgstr "Budget-Dimensionen"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -3066,13 +3066,11 @@ msgid_plural ""
 "    "
 msgstr[0] ""
 "\n"
-"        <span>%(total)s</span> Indikator <span class=\"w-sr-only\">überwacht "
-"in %(plan)s</span>\n"
+"        <span>%(total)s</span> Indikator <span class=\"w-sr-only\">überwacht in %(plan)s</span>\n"
 "    "
 msgstr[1] ""
 "\n"
-"        <span>%(total)s</span> Indikatoren <span class=\"w-sr-only\""
-">überwacht in %(plan)s</span>\n"
+"        <span>%(total)s</span> Indikatoren <span class=\"w-sr-only\">überwacht in %(plan)s</span>\n"
 "    "
 
 #: indicators/wagtail_admin.py
@@ -4544,11 +4542,14 @@ msgstr "Benutzer"
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Keine Berechtigung zum Entfernen von Benutzern, die zu Plänen gehören, die Sie nicht verwalten."
 
+#~ msgid "Own indicators"
+#~ msgstr "Mir zugewiesene Indikatoren"
+
+#~ msgid "Budget dimensions"
+#~ msgstr "Budget-Dimensionen"
+
 #~ msgid "Home"
 #~ msgstr "Startseite"
-
-#~ msgid "Indicator data"
-#~ msgstr "Indikatordaten"
 
 #~ msgid "Observations"
 #~ msgstr "Beobachtungen"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 22:21+0200\n"
+"POT-Creation-Date: 2024-05-23 09:57+0300\n"
 "PO-Revision-Date: 2024-03-08 13:14+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
 "Language-Team: German (Switzerland) <https://weblate.kausal.tech/projects/watch/django/de_CH/>\n"
@@ -76,8 +76,7 @@ msgid "Name"
 msgstr ""
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr ""
 
@@ -368,6 +367,12 @@ msgstr ""
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
 msgid "Contact form"
 msgstr ""
+
+#: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Indicator for actions"
+msgid "Indicator Causal Chain"
+msgstr "Indikator für Massnahmen"
 
 #: actions/blocks/action_content.py
 msgid "What label should be used in the public UI for the official name?"
@@ -1438,6 +1443,10 @@ msgid "Show all information"
 msgstr ""
 
 #: actions/models/features.py
+msgid "Show all information but only for authenticated users"
+msgstr ""
+
+#: actions/models/features.py
 msgid "Allow images for actions"
 msgstr "Erlaube Bilder für Massnahmen"
 
@@ -2179,7 +2188,7 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr ""
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
-msgid "Own indicators"
+msgid "Indicators assigned to me"
 msgstr ""
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
@@ -2451,10 +2460,6 @@ msgstr ""
 
 #: aplans/utils.py
 msgid "updated by"
-msgstr ""
-
-#: budget/wagtail_admin.py
-msgid "Budget dimensions"
 msgstr ""
 
 #: content/apps.py

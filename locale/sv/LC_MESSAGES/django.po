@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 22:21+0200\n"
+"POT-Creation-Date: 2024-05-23 09:57+0300\n"
 "PO-Revision-Date: 2024-05-21 14:20+0000\n"
 "Last-Translator: Liliia Sviridova <liliia.sviridova@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
-">\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,8 +76,7 @@ msgid "Name"
 msgstr "Namn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -371,6 +369,12 @@ msgstr "Rubrik som ska visas istället för standardrubriken"
 #: actions/blocks/action_content.py actions/blocks/category_page_layout.py
 msgid "Contact form"
 msgstr "Kontaktformulär"
+
+#: actions/blocks/action_content.py
+#, fuzzy
+#| msgid "Indicator action"
+msgid "Indicator Causal Chain"
+msgstr "Indikatoråtgärd"
 
 #: actions/blocks/action_content.py
 msgid "What label should be used in the public UI for the official name?"
@@ -1457,6 +1461,10 @@ msgid "Show all information"
 msgstr "Grundläggande information"
 
 #: actions/models/features.py
+msgid "Show all information but only for authenticated users"
+msgstr ""
+
+#: actions/models/features.py
 #, fuzzy
 msgid "Allow images for actions"
 msgstr "tillåta bilder för åtgärder"
@@ -2234,8 +2242,9 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Fält '%(field)s' i modell '%(model)s' av plan '%(plan)s'"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
-msgid "Own indicators"
-msgstr "Indikatorer tilldelade mig"
+#, fuzzy
+msgid "Indicators assigned to me"
+msgstr "Indikatordata"
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Last modified"
@@ -2521,12 +2530,6 @@ msgstr "%(color)s är inte en CSS -färg (t.ex. \"#112233\", \"röd\" eller \"rg
 #, fuzzy
 msgid "updated by"
 msgstr "uppdaterad kl"
-
-#: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
-msgid "Budget dimensions"
-msgstr "mått"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -4749,6 +4752,14 @@ msgstr "Användare"
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte hanterar."
 
+#~ msgid "Own indicators"
+#~ msgstr "Indikatorer tilldelade mig"
+
+#, fuzzy
+#~| msgid "dimensions"
+#~ msgid "Budget dimensions"
+#~ msgstr "mått"
+
 #~ msgid "Home"
 #~ msgstr "Hem"
 
@@ -5037,9 +5048,6 @@ msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte
 
 #~ msgid "Upstream indicators"
 #~ msgstr "Uppströms indikatorer"
-
-#~ msgid "Indicator action"
-#~ msgstr "Indikatoråtgärd"
 
 #~ msgid "Indicator actions"
 #~ msgstr "Indikatoråtgärder"
