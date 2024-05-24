@@ -413,6 +413,7 @@ class Action(  # type: ignore[django-manager-missing]
         'related_actions', 'related_indicators', 'impact', 'status_updates', 'merged_with', 'merged_actions',
         'impact_groups', 'monitoring_quality_points', 'implementation_phase', 'manual_status_reason', 'links',
         'primary_org', 'order', 'superseded_by', 'superseded_actions', 'dependent_relationships', 'dependency_role',
+        'visibility'
     ]
 
     # type annotations for related objects
