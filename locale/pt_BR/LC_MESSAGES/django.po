@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 09:57+0300\n"
+"POT-Creation-Date: 2024-05-27 12:22+0300\n"
 "PO-Revision-Date: 2024-03-23 15:39+0000\n"
 "Last-Translator: Gabriel Siqueira <gabriel.siqueira@kausal.tech>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/watch/django/pt_BR/>\n"
@@ -5287,6 +5287,10 @@ msgstr "instantâneos de ação"
 
 #: reports/spreadsheets/action_print_layout.py
 msgid "Profiles"
+msgstr ""
+
+#: reports/spreadsheets/action_print_layout.py
+msgid "Prepare for printing"
 msgstr ""
 
 #: reports/spreadsheets/excel_report.py

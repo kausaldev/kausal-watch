@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 09:57+0300\n"
+"POT-Creation-Date: 2024-05-27 12:22+0300\n"
 "PO-Revision-Date: 2020-09-07 15:50+0000\n"
 "Language-Team: English (Australia) (https://www.transifex.com/kausal-tech/teams/113123/en_AU/)\n"
 "Language: en_AU\n"
@@ -4404,6 +4404,10 @@ msgstr ""
 
 #: reports/spreadsheets/action_print_layout.py
 msgid "Profiles"
+msgstr ""
+
+#: reports/spreadsheets/action_print_layout.py
+msgid "Prepare for printing"
 msgstr ""
 
 #: reports/spreadsheets/excel_report.py

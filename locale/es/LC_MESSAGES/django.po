@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 09:57+0300\n"
+"POT-Creation-Date: 2024-05-27 12:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -4350,6 +4350,10 @@ msgstr ""
 
 #: reports/spreadsheets/action_print_layout.py
 msgid "Profiles"
+msgstr ""
+
+#: reports/spreadsheets/action_print_layout.py
+msgid "Prepare for printing"
 msgstr ""
 
 #: reports/spreadsheets/excel_report.py
