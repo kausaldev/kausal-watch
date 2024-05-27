@@ -11,9 +11,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-27 12:22+0300\n"
-"PO-Revision-Date: 2024-05-23 10:20+0000\n"
-"Last-Translator: Liliia Sviridova <liliia.sviridova@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
+"PO-Revision-Date: 2024-05-27 09:31+0000\n"
+"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4583,7 +4584,7 @@ msgstr ""
 
 #: reports/spreadsheets/action_print_layout.py
 msgid "Prepare for printing"
-msgstr ""
+msgstr "Förbered för utskrift"
 
 #: reports/spreadsheets/excel_report.py
 msgid "Exported from Kausal Watch"
