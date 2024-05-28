@@ -264,6 +264,19 @@ class CreateEditViewOptionalFeaturesMixin:
         if self.action == "cancel-workflow":
             message = _("Workflow on %(model_name)s '%(object)s' has been cancelled.")
 
+        # Kausal customization: When clicking "approve and publish", don't show "Action updated" but something more
+        # informative
+        if (
+            self.action == 'workflow-action'
+            and self.workflow_action == 'approve'
+            and self.workflow_state
+            and self.workflow_state.is_at_final_task
+            and not getattr(settings, 'WAGTAIL_WORKFLOW_REQUIRE_REAPPROVAL_ON_EDIT', False)
+        ):
+            message = _("%(model_name)s '%(object)s' approved and published.")
+
+
+
         return message % {
             "model_name": capfirst(self.model._meta.verbose_name),
             "object": get_latest_str(object),
