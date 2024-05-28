@@ -11,11 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 12:22+0300\n"
+"POT-Creation-Date: 2024-05-28 14:52+0200\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
-"Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/"
-">\n"
+"Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +77,8 @@ msgid "Name"
 msgstr "Nimi"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Luokat"
 
@@ -179,6 +179,12 @@ msgstr "Työnkulku kohteelle %(model_name)s '%(object)s' on käynnistetty uudell
 #, python-format
 msgid "Workflow on %(model_name)s '%(object)s' has been cancelled."
 msgstr "Työnkulku kohteelle %(model_name)s '%(object)s' on peruutettu."
+
+#: actions/action_admin_mixins.py
+#, fuzzy, python-format
+#| msgid "%(model_name)s '%(object)s' updated and published."
+msgid "%(model_name)s '%(object)s' approved and published."
+msgstr "%(model_name)s '%(object)s' on päivitetty ja julkaistu."
 
 #: actions/action_admin_mixins.py
 msgid "Unlock"
@@ -2511,6 +2517,12 @@ msgstr "%(color)s ei ole oikeassa muodossa (esim. \"#112233\", \"red\" or \"rgb(
 msgid "updated by"
 msgstr "viimeksi päivittänyt"
 
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "mittarin dimensiot"
+
 #: content/apps.py
 msgid "According to the action plan"
 msgstr "Toimenpideohjelman mukaisesti"
@@ -4713,11 +4725,6 @@ msgstr "Ei oikeuksia poistaa käyttäjä joka kuuluu toimenpideohjelmiin, joita 
 
 #~ msgid "Own indicators"
 #~ msgstr "Minulle osoitetut mittarit"
-
-#, fuzzy
-#~| msgid "dimensions"
-#~ msgid "Budget dimensions"
-#~ msgstr "mittarin dimensiot"
 
 #~ msgid "Home"
 #~ msgstr "Etusivu"

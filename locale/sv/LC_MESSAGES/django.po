@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 12:22+0300\n"
+"POT-Creation-Date: 2024-05-28 14:52+0200\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
-">\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,7 +76,8 @@ msgid "Name"
 msgstr "Namn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -177,6 +177,12 @@ msgstr "Arbetsflödet på %(model_name)s '%(object)s' har startats om."
 #, python-format
 msgid "Workflow on %(model_name)s '%(object)s' has been cancelled."
 msgstr "Arbetsflödet för %(model_name)s '%(object)s' har avbrutits."
+
+#: actions/action_admin_mixins.py
+#, fuzzy, python-format
+#| msgid "%(model_name)s '%(object)s' updated and published."
+msgid "%(model_name)s '%(object)s' approved and published."
+msgstr "%(model_name)s '%(object)s' uppdaterad och publicerad."
 
 #: actions/action_admin_mixins.py
 msgid "Unlock"
@@ -2531,6 +2537,12 @@ msgstr "%(color)s är inte en CSS -färg (t.ex. \"#112233\", \"röd\" eller \"rg
 msgid "updated by"
 msgstr "uppdaterad kl"
 
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "mått"
+
 #: content/apps.py
 msgid "According to the action plan"
 msgstr "Enligt handlingsplanen"
@@ -4758,11 +4770,6 @@ msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte
 
 #~ msgid "Own indicators"
 #~ msgstr "Indikatorer tilldelade mig"
-
-#, fuzzy
-#~| msgid "dimensions"
-#~ msgid "Budget dimensions"
-#~ msgstr "mått"
 
 #~ msgid "Home"
 #~ msgstr "Hem"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 12:22+0300\n"
+"POT-Creation-Date: 2024-05-28 14:52+0200\n"
 "PO-Revision-Date: 2020-09-07 15:50+0000\n"
 "Language-Team: English (Australia) (https://www.transifex.com/kausal-tech/teams/113123/en_AU/)\n"
 "Language: en_AU\n"
@@ -72,7 +72,8 @@ msgid "Name"
 msgstr ""
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr ""
 
@@ -169,6 +170,11 @@ msgstr ""
 #: actions/action_admin_mixins.py
 #, python-format
 msgid "Workflow on %(model_name)s '%(object)s' has been cancelled."
+msgstr ""
+
+#: actions/action_admin_mixins.py
+#, python-format
+msgid "%(model_name)s '%(object)s' approved and published."
 msgstr ""
 
 #: actions/action_admin_mixins.py
@@ -2440,6 +2446,10 @@ msgstr "%(color)s is not a CSS colour (e.g., \"#112233\", \"red\" or \"rgb(0, 25
 
 #: aplans/utils.py
 msgid "updated by"
+msgstr ""
+
+#: budget/wagtail_admin.py
+msgid "Budget dimensions"
 msgstr ""
 
 #: content/apps.py
