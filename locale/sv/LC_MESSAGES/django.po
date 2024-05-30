@@ -11,9 +11,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-30 10:29+0300\n"
-"PO-Revision-Date: 2024-05-27 09:31+0000\n"
-"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
+"PO-Revision-Date: 2024-05-30 12:20+0000\n"
+"Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -114,8 +115,9 @@ msgid "Dependent actions"
 msgstr "Senaste åtgärder"
 
 #: actions/action_admin.py
+#, fuzzy
 msgid "Dependencies"
-msgstr ""
+msgstr "Beroenden"
 
 #: actions/action_admin_mixins.py
 #, python-format
@@ -181,7 +183,7 @@ msgstr "Arbetsflödet för %(model_name)s '%(object)s' har avbrutits."
 #, fuzzy, python-format
 #| msgid "%(model_name)s '%(object)s' updated and published."
 msgid "%(model_name)s '%(object)s' approved and published."
-msgstr "%(model_name)s '%(object)s' uppdaterad och publicerad."
+msgstr "%(model_name)s '%(object)s' godkänd och publicerad."
 
 #: actions/action_admin_mixins.py
 msgid "Unlock"
@@ -403,8 +405,9 @@ msgid "Official name"
 msgstr "Officiellt namn"
 
 #: actions/blocks/action_content.py
+#, fuzzy
 msgid "Help text for the field to be shown in the UI"
-msgstr ""
+msgstr "Hjälptext för fältet som ska visas i användargränssnittet"
 
 #: actions/blocks/action_content.py
 msgid "Help text"
@@ -880,8 +883,12 @@ msgid "Date format"
 msgstr "Kontaktformulär"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Format of action start and end dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
+"Format för åtgärdens start- och slutdatum som visas i det publika "
+"användargränssnittet.             Standardinställningen för alla åtgärder "
+"kan anges på sidan för åtgärder."
 
 #: actions/models/action.py
 msgctxt "action"
@@ -893,8 +900,9 @@ msgid "Set if this action is superseded by another action"
 msgstr "Ange om denna åtgärd ersätts av en annan åtgärd"
 
 #: actions/models/action.py
+#, fuzzy
 msgid "Role in dependencies"
-msgstr ""
+msgstr "Roll i beroenden"
 
 #: actions/models/action.py
 #, fuzzy
@@ -1085,6 +1093,9 @@ msgstr "uppdaterad kl"
 #: actions/models/action.py
 msgid "Format of action task due dates shown in the public UI.             The default for all actions can be specified on the actions page."
 msgstr ""
+"Format för åtgärdens förfallodatum som visas i det offentliga "
+"användargränssnittet.             Standardinställningen för alla åtgärder "
+"kan anges på sidan för åtgärder."
 
 #: actions/models/action.py
 msgid "completion date"
@@ -1205,8 +1216,9 @@ msgid "Dependent action"
 msgstr "Senaste åtgärder"
 
 #: actions/models/action_deps.py
+#, fuzzy
 msgid "Maximum dependency chain length exceeded."
-msgstr ""
+msgstr "Maximal längd på beroendekedjan överskriden."
 
 #: actions/models/attributes.py
 msgid "Ordered choice"
@@ -1467,8 +1479,9 @@ msgid "Show all information"
 msgstr "Grundläggande information"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show all information but only for authenticated users"
-msgstr ""
+msgstr "Visa all information, men endast för autentiserade användare"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1489,12 +1502,16 @@ msgid "Should the public website contain a link to the admin login?"
 msgstr "Bör den offentliga webbplatsen innehålla en länk till admin -inloggningen?"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Allow logging in to the public website"
-msgstr ""
+msgstr "Tillåt inloggning på den offentliga webbplatsen"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Should users be able to have authenticated sessions in the public UI?"
 msgstr ""
+"Ska användare kunna ha autentiserade sessioner i det publika "
+"användargränssnittet?"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1507,12 +1524,16 @@ msgid "Choose which information about contact persons is visible in the public U
 msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Show organization ancestors in contact details of contact persons"
-msgstr ""
+msgstr "Visa organisationsanfäder i kontaktuppgifter till kontaktpersoner"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
 msgstr ""
+"När en kontaktpersons kontaktuppgifter visas, ska kontaktpersonens "
+"organisation visas tillsammans med alla dess anor?"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1619,20 +1640,26 @@ msgid "For plans which have field-specific visibility restrictions, show to user
 msgstr "För planer som har fältspecifika synlighetsbegränsningar, visa användarna vilka fält som är offentliga och vilka som är begränsade."
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Include action print layout in reports"
-msgstr ""
+msgstr "Inkludera utskriftslayout för åtgärder i rapporter"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
 msgstr ""
+"I rapportens kalkylblad ska du inkludera ett ark med alla åtgärder i en "
+"layout som är optimerad för utskrift."
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Password protected"
-msgstr ""
+msgstr "Lösenordsskyddad"
 
 #: actions/models/features.py
+#, fuzzy
 msgid "Is this plan password protected?"
-msgstr ""
+msgstr "Är den här planen lösenordsskyddad?"
 
 #: actions/models/features.py
 msgid "plan feature"
@@ -1648,15 +1675,18 @@ msgstr "Om du lämnar detta tomt kommer programmet att använda standardvärdet"
 
 #: actions/models/plan.py
 msgid "Customer use"
-msgstr ""
+msgstr "Används av kunder"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Sales and demos"
-msgstr ""
+msgstr "Försäljning och demonstrationer"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Internal testing, training, development or other non-public use"
 msgstr ""
+"Intern testning, utbildning, utveckling eller annan icke-offentlig användning"
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1665,12 +1695,14 @@ msgid "Offboarding in progress"
 msgstr "pågående"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Inactive, not in use currently"
-msgstr ""
+msgstr "Inaktiv, används inte för närvarande"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "Deprecated, should be deleted"
-msgstr ""
+msgstr "Föråldrad, bör tas bort"
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1715,8 +1747,13 @@ msgid "Usage status"
 msgstr "status"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "If unsure, use the default value representing customer use. For statistical purposes specify what the plan will be used for in order to differentiate between plans actually in use by customers and those created for some other reason."
 msgstr ""
+"Om du är osäker, använd standardvärdet som representerar kundanvändning. För "
+"statistiska ändamål ange vad planen kommer att användas till för att skilja "
+"mellan planer som faktiskt används av kunder och de som skapats av någon "
+"annan anledning."
 
 #: actions/models/plan.py
 msgid "site URL"
@@ -1872,12 +1909,13 @@ msgid "general plan admins"
 msgstr "allmänna administratörer"
 
 #: actions/models/plan.py
+#, fuzzy
 msgid "public site viewer"
-msgstr ""
+msgstr "visning av offentliga webbplatser"
 
 #: actions/models/plan.py
 msgid "public site viewers"
-msgstr ""
+msgstr "besökare av offentliga webbplatser"
 
 #: actions/models/plan.py
 msgid "host name"
@@ -1991,27 +2029,32 @@ msgid "The page \"%(title)s\" has been submitted for approval to moderation stag
 msgstr "%(model_name)s '%(object)s' har skickats in för moderering."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
+#, fuzzy
 msgid "You can preview the page here:"
-msgstr ""
+msgstr "Du kan förhandsgranska sidan här:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
+#, fuzzy
 msgid "You can edit the page here:"
-msgstr ""
+msgstr "Du kan redigera sidan här:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "The %(model_name)s \"%(title)s\" has been withdrawn from the moderation stage \"%(task)s\". It does not require approval until it has been resubmitted for moderation again."
 msgstr ""
+"%(model_name)s \"%(title)s\" har dragits tillbaka från modereringsstadiet \""
+"%(task)s\". Den behöver inte godkännas förrän den har skickats in för "
+"moderering igen."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "You can preview the %(model_name)s here:"
-msgstr ""
+msgstr "Du kan förhandsgranska %(model_name)s här:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
-#, python-format
+#, fuzzy, python-format
 msgid "You can edit the %(model_name)s here:"
-msgstr ""
+msgstr "Du kan redigera %(model_name)s här:"
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled_subject.txt
 #, fuzzy, python-format
@@ -2466,8 +2509,9 @@ msgid "Swedish"
 msgstr "svenska"
 
 #: aplans/settings.py
+#, fuzzy
 msgid "Swedish (Finland)"
-msgstr ""
+msgstr "Svenska (Finland)"
 
 #: aplans/settings.py
 msgid "Portuguese"
@@ -2478,16 +2522,19 @@ msgid "Portuguese (Brazil)"
 msgstr "Portugisiska (Brasilien)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Day, month and year (31.12.2020)"
-msgstr ""
+msgstr "Dag, månad och år (31.12.2020)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Month and year (12.2020)"
-msgstr ""
+msgstr "Månad och år (12.2020)"
 
 #: aplans/utils.py
+#, fuzzy
 msgid "Year (2020)"
-msgstr ""
+msgstr "År (2020)"
 
 #: aplans/utils.py
 msgid "order"
@@ -2679,8 +2726,9 @@ msgid "CSS style"
 msgstr "Stil"
 
 #: documentation/models.py
+#, fuzzy
 msgid "CSS style to be applied to the container of the body"
-msgstr ""
+msgstr "CSS-stil som ska tillämpas på behållaren i kroppen"
 
 #: documentation/models.py
 #, fuzzy
@@ -3015,12 +3063,14 @@ msgid "updated values due at"
 msgstr "uppdaterade värden betalas kl"
 
 #: indicators/models.py
+#, fuzzy
 msgid "reference"
-msgstr ""
+msgstr "referens"
 
 #: indicators/models.py
+#, fuzzy
 msgid "What is the reference or source for this indicator?"
-msgstr ""
+msgstr "Vilken är referensen eller källan för denna indikator?"
 
 #: indicators/models.py
 msgid "indicator"
@@ -3421,8 +3471,9 @@ msgid "User feedback received"
 msgstr "Feedback från användarna"
 
 #: notifications/models.py
+#, fuzzy
 msgid "Manually scheduled notification"
-msgstr ""
+msgstr "Manuellt schemalagd avisering"
 
 #: notifications/models.py
 #, fuzzy
@@ -3570,43 +3621,36 @@ msgid "notification templates"
 msgstr "anmälningsmallar"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "The local time of day when notifications are sent"
 msgid "The content of the notification"
-msgstr "Den lokala tiden på dagen när aviseringar skickas"
+msgstr "Innehållet i aviseringen"
 
 #: notifications/models.py
-#, fuzzy
 msgid "send to action contact persons"
-msgstr "kontaktpersoner"
+msgstr "skicka till åtgärdskontaktpersoner"
 
 #: notifications/models.py
 #, fuzzy
 #| msgid "indicator contact persons"
 msgid "send to indicator contact persons"
-msgstr "indikator kontaktpersoner"
+msgstr "skicka till indikator kontaktpersoner"
 
 #: notifications/models.py
 #, fuzzy
 msgid "send to organization admins"
-msgstr "planera domäner"
+msgstr "skicka till organisationsadministratörer"
 
 #: notifications/models.py
-#, python-format
+#, fuzzy, python-format
 msgid "The type must be \"%(t)s\"."
-msgstr ""
+msgstr "Typen måste vara \"%(t)s\"."
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "Should notifications be sent?"
 msgid "scheduled notification"
-msgstr "Bör meddelanden skickas?"
+msgstr "schemalagd avisering"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "Should notifications be sent?"
 msgid "scheduled notifications"
-msgstr "Bör meddelanden skickas?"
+msgstr "schemalagda aviseringar"
 
 #: notifications/models.py
 msgid "HTML content for the block"
@@ -3660,21 +3704,17 @@ msgid "Recipients"
 msgstr "Mottagare"
 
 #: notifications/wagtail_admin.py
-#, python-format
+#, fuzzy, python-format
 msgid "The email message will be sent on the specified day at %(time)s."
-msgstr ""
+msgstr "E-postmeddelandet skickas på den angivna dagen på %(time)s."
 
 #: notifications/wagtail_admin.py
-#, fuzzy
-#| msgid "Notifications"
 msgid "Single notifications"
-msgstr "Meddelanden"
+msgstr "Enstaka aviseringar"
 
 #: notifications/wagtail_admin.py
-#, fuzzy
-#| msgid "Subject for email notifications"
 msgid "Automatic notifications"
-msgstr "Ämne för e-postaviseringar"
+msgstr "Automatiska aviseringar"
 
 #: notifications/wagtail_admin.py
 #, fuzzy
@@ -4057,8 +4097,9 @@ msgid "show link in child plans"
 msgstr "visa administratörslänk"
 
 #: pages/models.py
+#, fuzzy
 msgid "Should this additional link be displayed in child plans?"
-msgstr ""
+msgstr "Bör denna ytterligare länk visas i barnplaner?"
 
 #: pages/models.py
 msgid "children use secondary navigation"
@@ -4208,8 +4249,9 @@ msgid "Default format of action start and end dates shown in the public UI."
 msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: pages/models.py
+#, fuzzy
 msgid "Task due date format"
-msgstr ""
+msgstr "Format för uppgiftsdatum"
 
 #: pages/models.py
 #, fuzzy
@@ -4486,11 +4528,11 @@ msgstr "Inte en kontaktperson"
 
 #: people/wagtail_admin.py
 msgid "Access to public site only"
-msgstr ""
+msgstr "Endast tillgång till offentlig webbplats"
 
 #: people/wagtail_admin.py
 msgid "Access to admin site and public site"
-msgstr ""
+msgstr "Tillgång till administratörswebbplats och offentlig webbplats"
 
 #: people/wagtail_admin.py
 #, fuzzy
@@ -4499,7 +4541,7 @@ msgstr "plandomän"
 
 #: people/wagtail_admin.py
 msgid "Site access"
-msgstr ""
+msgstr "Tillträde till webbplatsen"
 
 #: people/wagtail_admin.py
 #, fuzzy
@@ -4639,10 +4681,12 @@ msgid "action snapshots"
 msgstr "ögonblicksbild av åtgärder"
 
 #: reports/spreadsheets/action_print_layout.py
+#, fuzzy
 msgid "Profiles"
-msgstr ""
+msgstr "Profiler"
 
 #: reports/spreadsheets/action_print_layout.py
+#, fuzzy
 msgid "Prepare for printing"
 msgstr "Förbered för utskrift"
 
@@ -4661,8 +4705,9 @@ msgid "Marked as complete at"
 msgstr "är klart"
 
 #: reports/spreadsheets/excel_report.py
+#, fuzzy
 msgid "Summary"
-msgstr ""
+msgstr "Sammanfattning"
 
 #: reports/templates/reports/mark_report_as_complete_confirmation.html
 #, python-format
