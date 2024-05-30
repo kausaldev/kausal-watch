@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 14:52+0200\n"
+"POT-Creation-Date: 2024-05-30 10:29+0300\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Danish <https://weblate.kausal.tech/projects/watch/django/da/>\n"
@@ -78,8 +78,7 @@ msgid "Name"
 msgstr "Navn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -2646,12 +2645,6 @@ msgstr "%(color)s er ikke en CSS-farve (f.eks. \"#112233\", \"rød\" eller \"rgb
 msgid "updated by"
 msgstr "opdateret af"
 
-#: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
-msgid "Budget dimensions"
-msgstr "dimensioner"
-
 #: content/apps.py
 msgid "According to the action plan"
 msgstr "Ifølge handlingsplanen"
@@ -3552,6 +3545,10 @@ msgid "User feedback received"
 msgstr "Brugerfeedback modtaget"
 
 #: notifications/models.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/models.py
 #, fuzzy
 #| msgid "notification template"
 msgid "notifications enabled"
@@ -3664,6 +3661,14 @@ msgid "send to custom email address"
 msgstr "Indtast din e-mailadresse"
 
 #: notifications/models.py
+msgid "This can only be set if a custom email address is defined"
+msgstr "Dette kan kun indstilles, hvis der er defineret en brugerdefineret e-mailadresse"
+
+#: notifications/models.py
+msgid "If a custom email address is defined, this must be set"
+msgstr "Hvis der er defineret en brugerdefineret e-mailadresse, skal denne angives"
+
+#: notifications/models.py
 #, fuzzy
 #| msgid "indicator contact persons"
 msgid "Do not send to contact persons"
@@ -3690,6 +3695,10 @@ msgid "send to contact persons"
 msgstr "indikator kontaktpersoner"
 
 #: notifications/models.py
+msgid "Notifications of this type cannot be sent to contact persons"
+msgstr "Notifikationer af denne type kan ikke sendes til kontaktpersoner"
+
+#: notifications/models.py
 msgid "notification template"
 msgstr "meddelelsesskabelon"
 
@@ -3698,16 +3707,45 @@ msgid "notification templates"
 msgstr "meddelelsesskabeloner"
 
 #: notifications/models.py
-msgid "This can only be set if a custom email address is defined"
-msgstr "Dette kan kun indstilles, hvis der er defineret en brugerdefineret e-mailadresse"
+#, fuzzy
+#| msgid "The local time of day when notifications are sent"
+msgid "The content of the notification"
+msgstr "Det lokale tidspunkt på dagen, hvor notifikationer sendes"
 
 #: notifications/models.py
-msgid "If a custom email address is defined, this must be set"
-msgstr "Hvis der er defineret en brugerdefineret e-mailadresse, skal denne angives"
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "send to action contact persons"
+msgstr "indikator kontaktpersoner"
 
 #: notifications/models.py
-msgid "Notifications of this type cannot be sent to contact persons"
-msgstr "Notifikationer af denne type kan ikke sendes til kontaktpersoner"
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "send to indicator contact persons"
+msgstr "indikator kontaktpersoner"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "is plan admin"
+msgid "send to organization admins"
+msgstr "er planadministrator"
+
+#: notifications/models.py
+#, python-format
+msgid "The type must be \"%(t)s\"."
+msgstr ""
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "notification settings"
+msgid "scheduled notification"
+msgstr "meddelelsesindstillinger"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "notification settings"
+msgid "scheduled notifications"
+msgstr "meddelelsesindstillinger"
 
 #: notifications/models.py
 msgid "HTML content for the block"
@@ -3758,8 +3796,21 @@ msgid "Recipients"
 msgstr "Modtagere"
 
 #: notifications/wagtail_admin.py
-msgid "Notification types"
-msgstr "Underretningstyper"
+#, python-format
+msgid "The email message will be sent on the specified day at %(time)s."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Notifications"
+msgid "Single notifications"
+msgstr "Meddelelser"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Subject for email notifications"
+msgid "Automatic notifications"
+msgstr "Emne for e-mail notifikationer"
 
 #: notifications/wagtail_admin.py
 msgid "Notification contents"
@@ -4951,6 +5002,14 @@ msgstr "Brugere"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ingen tilladelse til at fjerne den bruger, der tilhører planer, du ikke administrerer."
+
+#, fuzzy
+#~| msgid "dimensions"
+#~ msgid "Budget dimensions"
+#~ msgstr "dimensioner"
+
+#~ msgid "Notification types"
+#~ msgstr "Underretningstyper"
 
 #~ msgid "Own indicators"
 #~ msgstr "Egne indikatorer"

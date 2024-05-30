@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 14:52+0200\n"
+"POT-Creation-Date: 2024-05-30 10:29+0300\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/>\n"
@@ -77,8 +77,7 @@ msgid "Name"
 msgstr "Nimi"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Luokat"
 
@@ -2517,12 +2516,6 @@ msgstr "%(color)s ei ole oikeassa muodossa (esim. \"#112233\", \"red\" or \"rgb(
 msgid "updated by"
 msgstr "viimeksi päivittänyt"
 
-#: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
-msgid "Budget dimensions"
-msgstr "mittarin dimensiot"
-
 #: content/apps.py
 msgid "According to the action plan"
 msgstr "Toimenpideohjelman mukaisesti"
@@ -3443,6 +3436,10 @@ msgid "User feedback received"
 msgstr "Palautetta vastaanotettu"
 
 #: notifications/models.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/models.py
 msgid "notifications enabled"
 msgstr "herätteet käytössä"
 
@@ -3537,6 +3534,14 @@ msgid "send to custom email address"
 msgstr "lähetä erilliseen sähköpostiosoitteeseen"
 
 #: notifications/models.py
+msgid "This can only be set if a custom email address is defined"
+msgstr "Tämän voi valita vain jos erillinen sähköpostiosoite on määritetty"
+
+#: notifications/models.py
+msgid "If a custom email address is defined, this must be set"
+msgstr "Jos erillinen sähköpostiosoite on määritetty, tämä valinta on pakollinen"
+
+#: notifications/models.py
 msgid "Do not send to contact persons"
 msgstr "Älä lähetä yhteyshenkilöille"
 
@@ -3557,6 +3562,10 @@ msgid "send to contact persons"
 msgstr "lähetä yhteyshenkilöille"
 
 #: notifications/models.py
+msgid "Notifications of this type cannot be sent to contact persons"
+msgstr "Näitä herätteitä ei voi lähettää yhteyshenkilöille"
+
+#: notifications/models.py
 msgid "notification template"
 msgstr "herätteen mallinne"
 
@@ -3565,16 +3574,45 @@ msgid "notification templates"
 msgstr "herätteiden mallinteet"
 
 #: notifications/models.py
-msgid "This can only be set if a custom email address is defined"
-msgstr "Tämän voi valita vain jos erillinen sähköpostiosoite on määritetty"
+#, fuzzy
+#| msgid "The local time of day when notifications are sent"
+msgid "The content of the notification"
+msgstr "Paikallinen kellonaika jolloin herätteet lähetetään"
 
 #: notifications/models.py
-msgid "If a custom email address is defined, this must be set"
-msgstr "Jos erillinen sähköpostiosoite on määritetty, tämä valinta on pakollinen"
+#, fuzzy
+#| msgid "send to contact persons"
+msgid "send to action contact persons"
+msgstr "lähetä yhteyshenkilöille"
 
 #: notifications/models.py
-msgid "Notifications of this type cannot be sent to contact persons"
-msgstr "Näitä herätteitä ei voi lähettää yhteyshenkilöille"
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "send to indicator contact persons"
+msgstr "mittarin yhteyshenkilöt"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "send to plan admins"
+msgid "send to organization admins"
+msgstr "lähetä pääkäyttäjille"
+
+#: notifications/models.py
+#, python-format
+msgid "The type must be \"%(t)s\"."
+msgstr ""
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "scheduled notification"
+msgstr "Pitääkö heräteviestejä lähettää?"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "scheduled notifications"
+msgstr "Pitääkö heräteviestejä lähettää?"
 
 #: notifications/models.py
 msgid "HTML content for the block"
@@ -3625,8 +3663,21 @@ msgid "Recipients"
 msgstr "Vastaanottajat"
 
 #: notifications/wagtail_admin.py
-msgid "Notification types"
-msgstr "Herätetyypit"
+#, python-format
+msgid "The email message will be sent on the specified day at %(time)s."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Notifications"
+msgid "Single notifications"
+msgstr "Herätteet"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Subject for email notifications"
+msgid "Automatic notifications"
+msgstr "Sähköpostiherätteen otsikko"
 
 #: notifications/wagtail_admin.py
 msgid "Notification contents"
@@ -4722,6 +4773,14 @@ msgstr "Käyttäjät"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ei oikeuksia poistaa käyttäjä joka kuuluu toimenpideohjelmiin, joita et hallinnoi."
+
+#, fuzzy
+#~| msgid "dimensions"
+#~ msgid "Budget dimensions"
+#~ msgstr "mittarin dimensiot"
+
+#~ msgid "Notification types"
+#~ msgstr "Herätetyypit"
 
 #~ msgid "Own indicators"
 #~ msgstr "Minulle osoitetut mittarit"

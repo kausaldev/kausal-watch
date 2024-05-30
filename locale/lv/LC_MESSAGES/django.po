@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 14:52+0200\n"
+"POT-Creation-Date: 2024-05-30 10:29+0300\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Latvian <https://weblate.kausal.tech/projects/watch/django/lv/>\n"
@@ -73,8 +73,7 @@ msgid "Name"
 msgstr "Nosaukums"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorijas"
 
@@ -2478,12 +2477,6 @@ msgstr "%(color)s nav CSS krāsa (piemēram, \"#112233\", \"sarkana\" vai \"rgb(
 msgid "updated by"
 msgstr "atjaunināja"
 
-#: budget/wagtail_admin.py
-#, fuzzy
-#| msgid "dimensions"
-msgid "Budget dimensions"
-msgstr "izmēri"
-
 #: content/apps.py
 msgid "According to the action plan"
 msgstr "Saskaņā ar rīcības plānu"
@@ -3349,6 +3342,10 @@ msgid "User feedback received"
 msgstr "Saņemtās lietotāju atsauksmes"
 
 #: notifications/models.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/models.py
 msgid "notifications enabled"
 msgstr "iespējoti paziņojumi"
 
@@ -3443,6 +3440,14 @@ msgid "send to custom email address"
 msgstr "nosūtīt uz pielāgotu e-pasta adresi"
 
 #: notifications/models.py
+msgid "This can only be set if a custom email address is defined"
+msgstr "To var iestatīt tikai tad, ja ir definēta pielāgota e-pasta adrese"
+
+#: notifications/models.py
+msgid "If a custom email address is defined, this must be set"
+msgstr "Ja ir definēta pielāgota e-pasta adrese, tā ir jāiestata"
+
+#: notifications/models.py
 msgid "Do not send to contact persons"
 msgstr "Nesūtīt kontaktpersonām"
 
@@ -3463,6 +3468,10 @@ msgid "send to contact persons"
 msgstr "nosūtīt kontaktpersonām"
 
 #: notifications/models.py
+msgid "Notifications of this type cannot be sent to contact persons"
+msgstr "Šāda veida paziņojumus nevar nosūtīt kontaktpersonām"
+
+#: notifications/models.py
 msgid "notification template"
 msgstr "paziņojuma veidne"
 
@@ -3471,16 +3480,45 @@ msgid "notification templates"
 msgstr "paziņojumu veidnes"
 
 #: notifications/models.py
-msgid "This can only be set if a custom email address is defined"
-msgstr "To var iestatīt tikai tad, ja ir definēta pielāgota e-pasta adrese"
+#, fuzzy
+#| msgid "The local time of day when notifications are sent"
+msgid "The content of the notification"
+msgstr "Vietējais diennakts laiks, kad tiek nosūtīti paziņojumi"
 
 #: notifications/models.py
-msgid "If a custom email address is defined, this must be set"
-msgstr "Ja ir definēta pielāgota e-pasta adrese, tā ir jāiestata"
+#, fuzzy
+#| msgid "send to contact persons"
+msgid "send to action contact persons"
+msgstr "nosūtīt kontaktpersonām"
 
 #: notifications/models.py
-msgid "Notifications of this type cannot be sent to contact persons"
-msgstr "Šāda veida paziņojumus nevar nosūtīt kontaktpersonām"
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "send to indicator contact persons"
+msgstr "rādītāju kontaktpersonas"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "send to plan admins"
+msgid "send to organization admins"
+msgstr "nosūtīt plāna administratoriem"
+
+#: notifications/models.py
+#, python-format
+msgid "The type must be \"%(t)s\"."
+msgstr ""
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "scheduled notification"
+msgstr "Vai ir jānosūta paziņojumi?"
+
+#: notifications/models.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "scheduled notifications"
+msgstr "Vai ir jānosūta paziņojumi?"
 
 #: notifications/models.py
 msgid "HTML content for the block"
@@ -3531,8 +3569,21 @@ msgid "Recipients"
 msgstr "Saņēmēji"
 
 #: notifications/wagtail_admin.py
-msgid "Notification types"
-msgstr "Paziņojumu veidi"
+#, python-format
+msgid "The email message will be sent on the specified day at %(time)s."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Notifications"
+msgid "Single notifications"
+msgstr "Paziņojumi"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Subject for email notifications"
+msgid "Automatic notifications"
+msgstr "E-pasta paziņojumu temats"
 
 #: notifications/wagtail_admin.py
 msgid "Notification contents"
@@ -4609,6 +4660,14 @@ msgstr "Lietotāji"
 #: users/models.py
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Nav atļauts noņemt lietotājus, kas pieder pie plāniem, kurus jūs neapsaimniekojat."
+
+#, fuzzy
+#~| msgid "dimensions"
+#~ msgid "Budget dimensions"
+#~ msgstr "izmēri"
+
+#~ msgid "Notification types"
+#~ msgstr "Paziņojumu veidi"
 
 #~ msgid "Own indicators"
 #~ msgstr "Man piešķirtie rādītāji"

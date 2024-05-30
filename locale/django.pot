@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 14:52+0200\n"
+"POT-Creation-Date: 2024-05-30 10:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,8 +73,7 @@ msgid "Name"
 msgstr ""
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 msgid "Categories"
 msgstr ""
 
@@ -2425,10 +2424,6 @@ msgstr ""
 msgid "updated by"
 msgstr ""
 
-#: budget/wagtail_admin.py
-msgid "Budget dimensions"
-msgstr ""
-
 #: content/apps.py
 msgid "According to the action plan"
 msgstr ""
@@ -3280,6 +3275,10 @@ msgid "User feedback received"
 msgstr ""
 
 #: notifications/models.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/models.py
 msgid "notifications enabled"
 msgstr ""
 
@@ -3374,6 +3373,14 @@ msgid "send to custom email address"
 msgstr ""
 
 #: notifications/models.py
+msgid "This can only be set if a custom email address is defined"
+msgstr ""
+
+#: notifications/models.py
+msgid "If a custom email address is defined, this must be set"
+msgstr ""
+
+#: notifications/models.py
 msgid "Do not send to contact persons"
 msgstr ""
 
@@ -3394,6 +3401,10 @@ msgid "send to contact persons"
 msgstr ""
 
 #: notifications/models.py
+msgid "Notifications of this type cannot be sent to contact persons"
+msgstr ""
+
+#: notifications/models.py
 msgid "notification template"
 msgstr ""
 
@@ -3402,15 +3413,32 @@ msgid "notification templates"
 msgstr ""
 
 #: notifications/models.py
-msgid "This can only be set if a custom email address is defined"
+msgid "The content of the notification"
 msgstr ""
 
 #: notifications/models.py
-msgid "If a custom email address is defined, this must be set"
+msgid "send to action contact persons"
 msgstr ""
 
 #: notifications/models.py
-msgid "Notifications of this type cannot be sent to contact persons"
+msgid "send to indicator contact persons"
+msgstr ""
+
+#: notifications/models.py
+msgid "send to organization admins"
+msgstr ""
+
+#: notifications/models.py
+#, python-format
+msgid "The type must be \"%(t)s\"."
+msgstr ""
+
+#: notifications/models.py
+msgid "scheduled notification"
+msgstr ""
+
+#: notifications/models.py
+msgid "scheduled notifications"
 msgstr ""
 
 #: notifications/models.py
@@ -3462,7 +3490,16 @@ msgid "Recipients"
 msgstr ""
 
 #: notifications/wagtail_admin.py
-msgid "Notification types"
+#, python-format
+msgid "The email message will be sent on the specified day at %(time)s."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Single notifications"
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Automatic notifications"
 msgstr ""
 
 #: notifications/wagtail_admin.py

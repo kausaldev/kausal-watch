@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 14:52+0200\n"
+"POT-Creation-Date: 2024-05-30 10:29+0300\n"
 "PO-Revision-Date: 2024-05-28 07:20+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/watch/django/pt_BR/>\n"
@@ -73,8 +73,7 @@ msgid "Name"
 msgstr "Nome"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
-#: indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
 #, fuzzy
 msgid "Categories"
 msgstr "Categorias"
@@ -2925,11 +2924,6 @@ msgstr "%(color)s não é uma cor CSS (por exemplo, \"#112233\", \"red\" ou \"rg
 msgid "updated by"
 msgstr "atualizado por"
 
-#: budget/wagtail_admin.py
-#, fuzzy
-msgid "Budget dimensions"
-msgstr "dimensões"
-
 #: content/apps.py
 #, fuzzy
 msgid "According to the action plan"
@@ -3972,6 +3966,10 @@ msgid "User feedback received"
 msgstr "Feedback do usuário recebido"
 
 #: notifications/models.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/models.py
 #, fuzzy
 msgid "notifications enabled"
 msgstr "notificações ativadas"
@@ -4090,6 +4088,16 @@ msgstr "enviar para um endereço de e-mail personalizado"
 
 #: notifications/models.py
 #, fuzzy
+msgid "This can only be set if a custom email address is defined"
+msgstr "Isso só pode ser definido se um endereço de e-mail personalizado for definido"
+
+#: notifications/models.py
+#, fuzzy
+msgid "If a custom email address is defined, this must be set"
+msgstr "Se for definido um endereço de e-mail personalizado, ele deverá ser definido"
+
+#: notifications/models.py
+#, fuzzy
 msgid "Do not send to contact persons"
 msgstr "Não enviar para pessoas de contato"
 
@@ -4115,6 +4123,11 @@ msgstr "enviar para pessoas de contato"
 
 #: notifications/models.py
 #, fuzzy
+msgid "Notifications of this type cannot be sent to contact persons"
+msgstr "As notificações desse tipo não podem ser enviadas para pessoas de contato"
+
+#: notifications/models.py
+#, fuzzy
 msgid "notification template"
 msgstr "modelo de notificação"
 
@@ -4125,18 +4138,38 @@ msgstr "modelos de notificação"
 
 #: notifications/models.py
 #, fuzzy
-msgid "This can only be set if a custom email address is defined"
-msgstr "Isso só pode ser definido se um endereço de e-mail personalizado for definido"
+msgid "The content of the notification"
+msgstr "A hora local do dia em que as notificações são enviadas"
 
 #: notifications/models.py
 #, fuzzy
-msgid "If a custom email address is defined, this must be set"
-msgstr "Se for definido um endereço de e-mail personalizado, ele deverá ser definido"
+msgid "send to action contact persons"
+msgstr "enviar para pessoas de contato"
 
 #: notifications/models.py
 #, fuzzy
-msgid "Notifications of this type cannot be sent to contact persons"
-msgstr "As notificações desse tipo não podem ser enviadas para pessoas de contato"
+msgid "send to indicator contact persons"
+msgstr "pessoas de contato do indicador"
+
+#: notifications/models.py
+#, fuzzy
+msgid "send to organization admins"
+msgstr "enviar para os administradores do plano"
+
+#: notifications/models.py
+#, python-format
+msgid "The type must be \"%(t)s\"."
+msgstr ""
+
+#: notifications/models.py
+#, fuzzy
+msgid "scheduled notification"
+msgstr "As notificações devem ser enviadas?"
+
+#: notifications/models.py
+#, fuzzy
+msgid "scheduled notifications"
+msgstr "As notificações devem ser enviadas?"
 
 #: notifications/models.py
 #, fuzzy
@@ -4199,9 +4232,19 @@ msgid "Recipients"
 msgstr "Beneficiários"
 
 #: notifications/wagtail_admin.py
+#, python-format
+msgid "The email message will be sent on the specified day at %(time)s."
+msgstr ""
+
+#: notifications/wagtail_admin.py
 #, fuzzy
-msgid "Notification types"
-msgstr "Tipos de notificação"
+msgid "Single notifications"
+msgstr "Notificações"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+msgid "Automatic notifications"
+msgstr "Assunto para notificações por e-mail"
 
 #: notifications/wagtail_admin.py
 #, fuzzy
@@ -5492,6 +5535,14 @@ msgstr "Usuários"
 #, fuzzy
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Nenhuma permissão para remover o usuário pertencente a planos que você não está gerenciando."
+
+#, fuzzy
+#~ msgid "Budget dimensions"
+#~ msgstr "dimensões"
+
+#, fuzzy
+#~ msgid "Notification types"
+#~ msgstr "Tipos de notificação"
 
 #, fuzzy
 #~ msgid "Own indicators"
