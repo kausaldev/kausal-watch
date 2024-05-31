@@ -11,9 +11,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-30 10:29+0300\n"
-"PO-Revision-Date: 2024-05-28 12:56+0000\n"
+"PO-Revision-Date: 2024-05-31 09:27+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3297,7 +3298,7 @@ msgstr "Benutzer-Feedback erhalten"
 
 #: notifications/models.py
 msgid "Manually scheduled notification"
-msgstr ""
+msgstr "Manuell geplante Benachrichtigung"
 
 #: notifications/models.py
 msgid "notifications enabled"
@@ -3434,45 +3435,33 @@ msgid "notification templates"
 msgstr "Benachrichtigungsvorlagen"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "The local time of day when notifications are sent"
 msgid "The content of the notification"
-msgstr "Die lokale Tageszeit, zu der Benachrichtigungen gesendet werden"
+msgstr "Der Inhalt der Benachrichtigung"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "send to contact persons"
 msgid "send to action contact persons"
-msgstr "an Ansprechpersonen senden"
+msgstr "an Maßnahmen-Ansprechpersonen senden"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "indicator contact persons"
 msgid "send to indicator contact persons"
-msgstr "Indikatoransprechpersonen"
+msgstr "an Indikator-Ansprechpersonen senden"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "send to plan admins"
 msgid "send to organization admins"
-msgstr "an Plan-Admins senden"
+msgstr "an Organisations-Admins senden"
 
 #: notifications/models.py
 #, python-format
 msgid "The type must be \"%(t)s\"."
-msgstr ""
+msgstr "Der Typ muss \"%(t)s\" sein."
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "Should notifications be sent?"
 msgid "scheduled notification"
-msgstr "Sollen Benachrichtigungen gesendet werden?"
+msgstr "geplante Benachrichtigung"
 
 #: notifications/models.py
-#, fuzzy
-#| msgid "Should notifications be sent?"
 msgid "scheduled notifications"
-msgstr "Sollen Benachrichtigungen gesendet werden?"
+msgstr "geplante Benachrichtigungen"
 
 #: notifications/models.py
 msgid "HTML content for the block"
@@ -3525,19 +3514,15 @@ msgstr "Empfänger"
 #: notifications/wagtail_admin.py
 #, python-format
 msgid "The email message will be sent on the specified day at %(time)s."
-msgstr ""
+msgstr "Die E-Mail-Nachricht wird am angegebenen Tag um %(time)s gesendet."
 
 #: notifications/wagtail_admin.py
-#, fuzzy
-#| msgid "Notifications"
 msgid "Single notifications"
-msgstr "Benachrichtigungen"
+msgstr "Einzelbenachrichtigungen"
 
 #: notifications/wagtail_admin.py
-#, fuzzy
-#| msgid "Subject for email notifications"
 msgid "Automatic notifications"
-msgstr "Betreff für E-Mail-Benachrichtigungen"
+msgstr "Automatische Benachrichtigungen"
 
 #: notifications/wagtail_admin.py
 msgid "Notification contents"
