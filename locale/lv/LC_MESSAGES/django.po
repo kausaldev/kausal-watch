@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 10:29+0300\n"
+"POT-Creation-Date: 2024-06-04 15:43+0300\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Latvian <https://weblate.kausal.tech/projects/watch/django/lv/>\n"
@@ -721,20 +721,6 @@ msgstr "citi rādītāji"
 msgid "contact persons"
 msgstr "kontaktpersonas"
 
-#: actions/models/action.py
-#, fuzzy
-#| msgid "internal notes"
-msgid "Internal"
-msgstr "iekšējās piezīmes"
-
-#: actions/models/action.py aplans/utils.py
-msgid "Public"
-msgstr "Publiski"
-
-#: actions/models/action.py
-msgid "visibility"
-msgstr "redzamība"
-
 #: actions/models/action.py actions/models/plan.py content/models.py
 #: feedback/models.py indicators/models.py notifications/models.py
 #: orgs/models.py pages/models.py
@@ -1446,6 +1432,18 @@ msgid "Subcategories"
 msgstr "Apakškategorijas"
 
 #: actions/models/features.py
+#, fuzzy
+#| msgid "order"
+msgid "No ordering"
+msgstr "pasūtījums"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "verbose name"
+msgid "Order by name"
+msgstr "verbose nosaukums"
+
+#: actions/models/features.py
 msgid "Do not show contact persons publicly"
 msgstr "Kontaktinformāciju publiski neparādiet"
 
@@ -1584,6 +1582,18 @@ msgstr "Iespējot rādītāju salīdzināšanu"
 #: actions/models/features.py
 msgid "Set to enable comparing indicators between organizations"
 msgstr "Iestatīts, lai varētu salīdzināt rādītājus starp organizācijām"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "Indicator"
+msgid "Indicator order"
+msgstr "Indikators"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "Choose how to order indicators in the action pages"
+msgstr "rādītāju kontaktpersonas"
 
 #: actions/models/features.py
 #, fuzzy
@@ -2439,6 +2449,20 @@ msgstr ""
 #: aplans/utils.py
 msgid "order"
 msgstr "pasūtījums"
+
+#: aplans/utils.py
+#, fuzzy
+#| msgid "internal notes"
+msgid "Internal"
+msgstr "iekšējās piezīmes"
+
+#: aplans/utils.py
+msgid "Public"
+msgstr "Publiski"
+
+#: aplans/utils.py
+msgid "visibility"
+msgstr "redzamība"
 
 #: aplans/utils.py
 msgid "Authenticated users"
@@ -3569,8 +3593,7 @@ msgid "Recipients"
 msgstr "Saņēmēji"
 
 #: notifications/wagtail_admin.py
-#, python-format
-msgid "The email message will be sent on the specified day at %(time)s."
+msgid "The email message will be sent on the specified day at"
 msgstr ""
 
 #: notifications/wagtail_admin.py

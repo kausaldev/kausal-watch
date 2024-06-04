@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 10:29+0300\n"
+"POT-Creation-Date: 2024-06-04 15:43+0300\n"
 "PO-Revision-Date: 2024-05-31 09:27+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
-"\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -709,18 +708,6 @@ msgstr "Andere Indikatoren"
 #: actions/export.py actions/models/action.py indicators/models.py
 msgid "contact persons"
 msgstr "Ansprechpersonen"
-
-#: actions/models/action.py
-msgid "Internal"
-msgstr "Intern"
-
-#: actions/models/action.py aplans/utils.py
-msgid "Public"
-msgstr "Öffentlich"
-
-#: actions/models/action.py
-msgid "visibility"
-msgstr "Sichtbarkeit"
 
 #: actions/models/action.py actions/models/plan.py content/models.py
 #: feedback/models.py indicators/models.py notifications/models.py
@@ -1423,6 +1410,18 @@ msgid "Subcategories"
 msgstr "Unterkategorien"
 
 #: actions/models/features.py
+#, fuzzy
+#| msgid "order"
+msgid "No ordering"
+msgstr "Sortierung"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "verbose name"
+msgid "Order by name"
+msgstr "ausführlicher Name"
+
+#: actions/models/features.py
 msgid "Do not show contact persons publicly"
 msgstr "Ansprechpersonen nicht öffentlich anzeigen"
 
@@ -1557,6 +1556,18 @@ msgstr "Indikatorenvergleich ermöglichen"
 #: actions/models/features.py
 msgid "Set to enable comparing indicators between organizations"
 msgstr "Setzen, um den Vergleich von Indikatoren zwischen Organisationen zu ermöglichen"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "Indicator"
+msgid "Indicator order"
+msgstr "Indikator"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "send to indicator contact persons"
+msgid "Choose how to order indicators in the action pages"
+msgstr "an Indikator-Ansprechpersonen senden"
 
 #: actions/models/features.py
 msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
@@ -2396,6 +2407,18 @@ msgstr "Jahr (2020)"
 #: aplans/utils.py
 msgid "order"
 msgstr "Sortierung"
+
+#: aplans/utils.py
+msgid "Internal"
+msgstr "Intern"
+
+#: aplans/utils.py
+msgid "Public"
+msgstr "Öffentlich"
+
+#: aplans/utils.py
+msgid "visibility"
+msgstr "Sichtbarkeit"
 
 #: aplans/utils.py
 msgid "Authenticated users"
@@ -3512,8 +3535,9 @@ msgid "Recipients"
 msgstr "Empfänger"
 
 #: notifications/wagtail_admin.py
-#, python-format
-msgid "The email message will be sent on the specified day at %(time)s."
+#, fuzzy
+#| msgid "The email message will be sent on the specified day at %(time)s."
+msgid "The email message will be sent on the specified day at"
 msgstr "Die E-Mail-Nachricht wird am angegebenen Tag um %(time)s gesendet."
 
 #: notifications/wagtail_admin.py

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 10:29+0300\n"
+"POT-Creation-Date: 2024-06-04 15:43+0300\n"
 "PO-Revision-Date: 2024-03-08 13:14+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
 "Language-Team: German (Switzerland) <https://weblate.kausal.tech/projects/watch/django/de_CH/>\n"
@@ -715,18 +715,6 @@ msgstr ""
 
 #: actions/export.py actions/models/action.py indicators/models.py
 msgid "contact persons"
-msgstr ""
-
-#: actions/models/action.py
-msgid "Internal"
-msgstr ""
-
-#: actions/models/action.py aplans/utils.py
-msgid "Public"
-msgstr ""
-
-#: actions/models/action.py
-msgid "visibility"
 msgstr ""
 
 #: actions/models/action.py actions/models/plan.py content/models.py
@@ -1436,6 +1424,14 @@ msgid "Subcategories"
 msgstr ""
 
 #: actions/models/features.py
+msgid "No ordering"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Order by name"
+msgstr ""
+
+#: actions/models/features.py
 msgid "Do not show contact persons publicly"
 msgstr ""
 
@@ -1572,6 +1568,18 @@ msgstr ""
 #: actions/models/features.py
 msgid "Set to enable comparing indicators between organizations"
 msgstr ""
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "Indicator for actions"
+msgid "Indicator order"
+msgstr "Indikator für Massnahmen"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "action contact persons"
+msgid "Choose how to order indicators in the action pages"
+msgstr "Massnahmenansprechpersonen"
 
 #: actions/models/features.py
 msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
@@ -2428,6 +2436,18 @@ msgstr ""
 
 #: aplans/utils.py
 msgid "order"
+msgstr ""
+
+#: aplans/utils.py
+msgid "Internal"
+msgstr ""
+
+#: aplans/utils.py
+msgid "Public"
+msgstr ""
+
+#: aplans/utils.py
+msgid "visibility"
 msgstr ""
 
 #: aplans/utils.py
@@ -3567,8 +3587,7 @@ msgid "Recipients"
 msgstr ""
 
 #: notifications/wagtail_admin.py
-#, python-format
-msgid "The email message will be sent on the specified day at %(time)s."
+msgid "The email message will be sent on the specified day at"
 msgstr ""
 
 #: notifications/wagtail_admin.py

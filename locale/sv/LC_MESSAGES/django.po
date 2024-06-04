@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 10:29+0300\n"
+"POT-Creation-Date: 2024-06-04 15:43+0300\n"
 "PO-Revision-Date: 2024-05-30 12:20+0000\n"
 "Last-Translator: Ida Sihvonen <ida.sihvonen@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
-">\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -723,19 +722,6 @@ msgstr "andra indikatorer"
 msgid "contact persons"
 msgstr "kontaktpersoner"
 
-#: actions/models/action.py
-#, fuzzy
-msgid "Internal"
-msgstr "Interna anteckningar"
-
-#: actions/models/action.py aplans/utils.py
-msgid "Public"
-msgstr "Offentlig"
-
-#: actions/models/action.py
-msgid "visibility"
-msgstr "synlighet"
-
 #: actions/models/action.py actions/models/plan.py content/models.py
 #: feedback/models.py indicators/models.py notifications/models.py
 #: orgs/models.py pages/models.py
@@ -885,10 +871,7 @@ msgstr "Kontaktformulär"
 #: actions/models/action.py
 #, fuzzy
 msgid "Format of action start and end dates shown in the public UI.             The default for all actions can be specified on the actions page."
-msgstr ""
-"Format för åtgärdens start- och slutdatum som visas i det publika "
-"användargränssnittet.             Standardinställningen för alla åtgärder "
-"kan anges på sidan för åtgärder."
+msgstr "Format för åtgärdens start- och slutdatum som visas i det publika användargränssnittet.             Standardinställningen för alla åtgärder kan anges på sidan för åtgärder."
 
 #: actions/models/action.py
 msgctxt "action"
@@ -1092,10 +1075,7 @@ msgstr "uppdaterad kl"
 
 #: actions/models/action.py
 msgid "Format of action task due dates shown in the public UI.             The default for all actions can be specified on the actions page."
-msgstr ""
-"Format för åtgärdens förfallodatum som visas i det offentliga "
-"användargränssnittet.             Standardinställningen för alla åtgärder "
-"kan anges på sidan för åtgärder."
+msgstr "Format för åtgärdens förfallodatum som visas i det offentliga användargränssnittet.             Standardinställningen för alla åtgärder kan anges på sidan för åtgärder."
 
 #: actions/models/action.py
 msgid "completion date"
@@ -1465,6 +1445,18 @@ msgstr "kategorier"
 
 #: actions/models/features.py
 #, fuzzy
+#| msgid "No filtering"
+msgid "No ordering"
+msgstr "Ingen filtrering"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "verbose name"
+msgid "Order by name"
+msgstr "detaljerat namn"
+
+#: actions/models/features.py
+#, fuzzy
 msgid "Do not show contact persons publicly"
 msgstr "kontaktpersoner"
 
@@ -1509,9 +1501,7 @@ msgstr "Tillåt inloggning på den offentliga webbplatsen"
 #: actions/models/features.py
 #, fuzzy
 msgid "Should users be able to have authenticated sessions in the public UI?"
-msgstr ""
-"Ska användare kunna ha autentiserade sessioner i det publika "
-"användargränssnittet?"
+msgstr "Ska användare kunna ha autentiserade sessioner i det publika användargränssnittet?"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1531,9 +1521,7 @@ msgstr "Visa organisationsanfäder i kontaktuppgifter till kontaktpersoner"
 #: actions/models/features.py
 #, fuzzy
 msgid "When displaying a contact person's contact details, should the contact person's organization be displayed along with all its ancestors?"
-msgstr ""
-"När en kontaktpersons kontaktuppgifter visas, ska kontaktpersonens "
-"organisation visas tillsammans med alla dess anor?"
+msgstr "När en kontaktpersons kontaktuppgifter visas, ska kontaktpersonens organisation visas tillsammans med alla dess anor?"
 
 #: actions/models/features.py
 #, fuzzy
@@ -1628,6 +1616,18 @@ msgstr "användbar för kategorisering av indikatorer"
 
 #: actions/models/features.py
 #, fuzzy
+#| msgid "Indicator data"
+msgid "Indicator order"
+msgstr "Indikatordata"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "Choose how to order indicators in the action pages"
+msgstr "skicka till indikator kontaktpersoner"
+
+#: actions/models/features.py
+#, fuzzy
 msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
 msgstr "Ställ in för att aktivera utkast- och granskningsfunktionalitet"
 
@@ -1647,9 +1647,7 @@ msgstr "Inkludera utskriftslayout för åtgärder i rapporter"
 #: actions/models/features.py
 #, fuzzy
 msgid "In the report spreadsheet output, include a sheet with all actions in a layout optimized for printing."
-msgstr ""
-"I rapportens kalkylblad ska du inkludera ett ark med alla åtgärder i en "
-"layout som är optimerad för utskrift."
+msgstr "I rapportens kalkylblad ska du inkludera ett ark med alla åtgärder i en layout som är optimerad för utskrift."
 
 #: actions/models/features.py
 #, fuzzy
@@ -1685,8 +1683,7 @@ msgstr "Försäljning och demonstrationer"
 #: actions/models/plan.py
 #, fuzzy
 msgid "Internal testing, training, development or other non-public use"
-msgstr ""
-"Intern testning, utbildning, utveckling eller annan icke-offentlig användning"
+msgstr "Intern testning, utbildning, utveckling eller annan icke-offentlig användning"
 
 #: actions/models/plan.py
 #, fuzzy
@@ -1749,11 +1746,7 @@ msgstr "status"
 #: actions/models/plan.py
 #, fuzzy
 msgid "If unsure, use the default value representing customer use. For statistical purposes specify what the plan will be used for in order to differentiate between plans actually in use by customers and those created for some other reason."
-msgstr ""
-"Om du är osäker, använd standardvärdet som representerar kundanvändning. För "
-"statistiska ändamål ange vad planen kommer att användas till för att skilja "
-"mellan planer som faktiskt används av kunder och de som skapats av någon "
-"annan anledning."
+msgstr "Om du är osäker, använd standardvärdet som representerar kundanvändning. För statistiska ändamål ange vad planen kommer att användas till för att skilja mellan planer som faktiskt används av kunder och de som skapats av någon annan anledning."
 
 #: actions/models/plan.py
 msgid "site URL"
@@ -2041,10 +2034,7 @@ msgstr "Du kan redigera sidan här:"
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
 #, fuzzy, python-format
 msgid "The %(model_name)s \"%(title)s\" has been withdrawn from the moderation stage \"%(task)s\". It does not require approval until it has been resubmitted for moderation again."
-msgstr ""
-"%(model_name)s \"%(title)s\" har dragits tillbaka från modereringsstadiet \""
-"%(task)s\". Den behöver inte godkännas förrän den har skickats in för "
-"moderering igen."
+msgstr "%(model_name)s \"%(title)s\" har dragits tillbaka från modereringsstadiet \"%(task)s\". Den behöver inte godkännas förrän den har skickats in för moderering igen."
 
 #: actions/templates/wagtailadmin/notifications/task_state_cancelled.txt
 #, fuzzy, python-format
@@ -2539,6 +2529,19 @@ msgstr "År (2020)"
 #: aplans/utils.py
 msgid "order"
 msgstr "ordning"
+
+#: aplans/utils.py
+#, fuzzy
+msgid "Internal"
+msgstr "Interna anteckningar"
+
+#: aplans/utils.py
+msgid "Public"
+msgstr "Offentlig"
+
+#: aplans/utils.py
+msgid "visibility"
+msgstr "synlighet"
 
 #: aplans/utils.py
 msgid "Authenticated users"
@@ -3704,8 +3707,8 @@ msgid "Recipients"
 msgstr "Mottagare"
 
 #: notifications/wagtail_admin.py
-#, fuzzy, python-format
-msgid "The email message will be sent on the specified day at %(time)s."
+#, fuzzy
+msgid "The email message will be sent on the specified day at"
 msgstr "E-postmeddelandet skickas på den angivna dagen på %(time)s."
 
 #: notifications/wagtail_admin.py
@@ -4876,9 +4879,6 @@ msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte
 #~ msgid "Home"
 #~ msgstr "Hem"
 
-#~ msgid "Indicator data"
-#~ msgstr "Indikatordata"
-
 #~ msgid "Observations"
 #~ msgstr "Observationer"
 
@@ -5024,9 +5024,6 @@ msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte
 
 #~ msgid "By last updated"
 #~ msgstr "Senast uppdaterad"
-
-#~ msgid "No filtering"
-#~ msgstr "Ingen filtrering"
 
 #~ msgid "In the last 7 days"
 #~ msgstr "Under de senaste 7 dagarna"
