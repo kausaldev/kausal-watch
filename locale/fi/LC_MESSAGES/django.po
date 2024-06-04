@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-04 15:43+0300\n"
-"PO-Revision-Date: 2024-06-04 13:08+0000\n"
-"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
+"PO-Revision-Date: 2024-06-04 14:20+0000\n"
+"Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
 "Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/"
 ">\n"
 "Language: fi\n"
@@ -1446,16 +1446,12 @@ msgid "Subcategories"
 msgstr "Alaluokat"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "No filtering"
 msgid "No ordering"
-msgstr "Ei suodatusta"
+msgstr "Ei järjestystä"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "verbose name"
 msgid "Order by name"
-msgstr "selite"
+msgstr "Järjestä nimen mukaan"
 
 #: actions/models/features.py
 msgid "Do not show contact persons publicly"
@@ -1601,16 +1597,12 @@ msgid "Set to enable comparing indicators between organizations"
 msgstr "Mahdollistaa mittareiden vertailun eri organisaatioiden kesken"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "Indicator data"
 msgid "Indicator order"
-msgstr "Mittarin data"
+msgstr "Mittareiden järjestys"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "send to indicator contact persons"
 msgid "Choose how to order indicators in the action pages"
-msgstr "lähetä mittareiden yhteyshenkilöille"
+msgstr "Valitse kuinka mittarit järjestetään toimenpiteiden sivuilla"
 
 #: actions/models/features.py
 #, fuzzy
