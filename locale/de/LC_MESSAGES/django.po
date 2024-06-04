@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-04 15:43+0300\n"
-"PO-Revision-Date: 2024-06-04 13:08+0000\n"
-"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
+"PO-Revision-Date: 2024-06-04 14:20+0000\n"
+"Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
 "\n"
 "Language: de\n"
@@ -1555,16 +1555,14 @@ msgid "Set to enable comparing indicators between organizations"
 msgstr "Setzen, um den Vergleich von Indikatoren zwischen Organisationen zu ermöglichen"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "Indicator"
 msgid "Indicator order"
-msgstr "Indikator"
+msgstr "Indikatorensortierung"
 
 #: actions/models/features.py
-#, fuzzy
-#| msgid "send to indicator contact persons"
 msgid "Choose how to order indicators in the action pages"
-msgstr "an Indikator-Ansprechpersonen senden"
+msgstr ""
+"Wählen Sie, wie die Indikatoren auf den Maßnahmenseiten sortiert werden "
+"sollen"
 
 #: actions/models/features.py
 msgid "Set to enable drafting and reviewing functionality and choose the desired workflow for reviewing"
