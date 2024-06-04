@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-04 15:43+0300\n"
 "PO-Revision-Date: 2024-06-04 13:08+0000\n"
-"Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
+"Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
 "\n"
 "Language: de\n"
@@ -3532,10 +3532,8 @@ msgid "Recipients"
 msgstr "Empfänger"
 
 #: notifications/wagtail_admin.py
-#, fuzzy
-#| msgid "The email message will be sent on the specified day at %(time)s."
 msgid "The email message will be sent on the specified day at"
-msgstr "Die E-Mail-Nachricht wird am angegebenen Tag um %(time)s gesendet."
+msgstr "Die E-Mail-Nachricht wird am angegebenen Tag gesendet, um"
 
 #: notifications/wagtail_admin.py
 msgid "Single notifications"
