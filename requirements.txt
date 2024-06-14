@@ -48,6 +48,7 @@ cffi==1.16.0
     # via
     #   cryptography
     #   milksnake
+    #   pynacl
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
@@ -72,6 +73,7 @@ cryptography==42.0.5
     # via
     #   -r requirements.in
     #   jwcrypto
+    #   pyjwt
     #   social-auth-core
 dal-admin-filters==1.1.0
     # via -r requirements.in
@@ -82,7 +84,9 @@ defusedxml==0.8.0rc2
     #   social-auth-core
     #   willow
 deprecated==1.2.14
-    # via redis
+    # via
+    #   pygithub
+    #   redis
 deprecation==2.1.0
     # via django-helusers
 diff-match-patch==20230430
@@ -173,6 +177,8 @@ djangorestframework==3.15.1
     #   drf-nested-routers
     #   drf-spectacular
     #   wagtail
+dnspython==2.6.1
+    # via -r requirements.in
 draftjs-exporter==5.0.0
     # via wagtail
 drf-nested-routers==0.93.5
@@ -322,14 +328,20 @@ pycparser==2.22
     # via cffi
 pycryptodome==3.19.0
     # via -r requirements.in
+pygithub==2.3.0
+    # via -r requirements.in
 pygments==2.17.2
     # via
     #   pygments-graphql
     #   rich
 pygments-graphql==1.0.0
     # via -r requirements.in
-pyjwt==2.8.0
-    # via social-auth-core
+pyjwt[crypto]==2.8.0
+    # via
+    #   pygithub
+    #   social-auth-core
+pynacl==1.5.0
+    # via pygithub
 pytest==8.1.1
     # via
     #   pytest-cov
@@ -374,6 +386,7 @@ requests==2.31.0
     #   django-anymail
     #   django-helusers
     #   django-oauth-toolkit
+    #   pygithub
     #   requests-oauthlib
     #   social-auth-core
     #   wagtail
@@ -424,6 +437,7 @@ typing-extensions==4.11.0
     # via
     #   django-countries
     #   jwcrypto
+    #   pygithub
     #   pytest-factoryboy
     #   wagtail-localize
 tzdata==2024.1
@@ -442,6 +456,7 @@ urllib3==1.26.18
     #   botocore
     #   django-anymail
     #   elasticsearch
+    #   pygithub
     #   requests
     #   sentry-sdk
 vine==5.1.0

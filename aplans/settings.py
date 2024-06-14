@@ -74,6 +74,10 @@ env = environ.FileAwareEnv(
     REQUEST_LOG_MAX_DAYS=(int, 90),
     REQUEST_LOG_METHODS=(list, ['POST', 'PUT', 'PATCH', 'DELETE']),
     REQUEST_LOG_IGNORE_PATHS=(list, ['/v1/graphql/']),
+    GITHUB_APP_ID=(str, ''),
+    GITHUB_APP_PRIVATE_KEY_FILE=(str, ''),
+    GITHUB_APP_PRIVATE_KEY=(str, ''),
+    DEPLOY_ALLOWED_CNAMES=(str, ''),
 )
 
 BASE_DIR = root()
@@ -121,6 +125,19 @@ DEFAULT_FROM_NAME = env('DEFAULT_FROM_NAME')
 ADMIN_BASE_URL = env('ADMIN_BASE_URL')
 WAGTAILADMIN_BASE_URL = ADMIN_BASE_URL
 WAGTAILADMIN_COMMENTS_ENABLED = True
+
+# Information needed to authentiacte as a GitHub App
+GITHUB_APP_ID = env('GITHUB_APP_ID')
+
+github_private_key_file_path = env('GITHUB_APP_PRIVATE_KEY_FILE')
+if github_private_key_file_path:
+    with open(github_private_key_file_path, 'r') as key_file:
+        GITHUB_APP_PRIVATE_KEY = key_file.read()
+else:
+    GITHUB_APP_PRIVATE_KEY = env('GITHUB_APP_PRIVATE_KEY')
+
+
+DEPLOY_ALLOWED_CNAMES = env('DEPLOY_ALLOWED_CNAMES')
 
 SITE_ID = 1
 
