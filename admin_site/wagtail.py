@@ -440,7 +440,7 @@ class AplansEditView(
             messages.validation_error(self.request, self.get_error_message(), form)
             return self.render_to_response(self.get_context_data(form=form))
 
-        execute_admin_post_save_tasks(form.instance, self.request.user, self.get_success_message(self.instance))
+        execute_admin_post_save_tasks(form.instance, self.request.user)
         return form_valid_return
 
     def get_error_message(self):
