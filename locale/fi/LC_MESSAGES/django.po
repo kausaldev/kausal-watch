@@ -11,11 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 15:43+0300\n"
+"POT-Creation-Date: 2024-07-04 18:25+0200\n"
 "PO-Revision-Date: 2024-06-04 14:20+0000\n"
 "Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
-"Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/"
-">\n"
+"Language-Team: Finnish <https://weblate.kausal.tech/projects/watch/django/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +77,8 @@ msgid "Name"
 msgstr "Nimi"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Luokat"
 
@@ -125,7 +125,7 @@ msgstr "Riippuvuudet"
 msgid "The %(model_name)s could not be saved as it is locked"
 msgstr "Kohdetta %(model_name)s ei voitu tallentaa, koska se on lukittu"
 
-#: actions/action_admin_mixins.py
+#: actions/action_admin_mixins.py admin_site/wagtail.py
 #, python-format
 msgid "%(model_name)s '%(object)s' updated."
 msgstr "%(model_name)s '%(object)s' päivitetty."
@@ -362,8 +362,9 @@ msgstr "%(attribute_type)s (teksti)"
 msgid "Related plans"
 msgstr "Liittyvät toimenpideohjelmat"
 
-#: actions/blocks/action_content.py actions/blocks/category_page_layout.py
-#: actions/blocks/choosers.py actions/blocks/filters.py
+#: actions/blocks/action_content.py actions/blocks/action_dashboard.py
+#: actions/blocks/category_page_layout.py actions/blocks/choosers.py
+#: actions/blocks/filters.py
 msgid "Field"
 msgstr "kentät"
 
@@ -705,8 +706,8 @@ msgstr "tunniste"
 
 #: actions/export.py actions/models/action.py actions/models/action_deps.py
 #: actions/models/attributes.py actions/models/category.py
-#: actions/models/plan.py feedback/models.py indicators/models.py
-#: orgs/models.py reports/models.py
+#: actions/models/plan.py budget/models.py feedback/models.py
+#: indicators/models.py orgs/models.py reports/models.py
 msgid "name"
 msgstr "nimi"
 
@@ -1150,7 +1151,7 @@ msgstr "ulkopuolinen linkki"
 msgid "action links"
 msgstr "ulkopuoliset linkit"
 
-#: actions/models/action.py indicators/models.py
+#: actions/models/action.py budget/models.py indicators/models.py
 msgid "date"
 msgstr "päivämäärä"
 
@@ -1500,6 +1501,17 @@ msgstr "Julkisesti näkyvät tiedot yhteyshenkilöistä"
 #: actions/models/features.py
 #, fuzzy
 msgid "Choose which information about contact persons is visible in the public UI"
+msgstr "Aseta jos yhteyshenkilöt näkyvät julkisessa käyttöliittymässä"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "Show profile pictures for contact persons"
+msgstr "mittarin yhteyshenkilöt"
+
+#: actions/models/features.py
+#, fuzzy
+msgid "Should profile pictures be shown for contact persons in the public UI?"
 msgstr "Aseta jos yhteyshenkilöt näkyvät julkisessa käyttöliittymässä"
 
 #: actions/models/features.py
@@ -1870,6 +1882,18 @@ msgid "public site viewers"
 msgstr ""
 
 #: actions/models/plan.py
+#, fuzzy
+#| msgid "Location"
+msgid "Production"
+msgstr "Sijainti"
+
+#: actions/models/plan.py
+#, fuzzy
+#| msgid "Question"
+msgid "Testing"
+msgstr "Kysymys"
+
+#: actions/models/plan.py
 msgid "host name"
 msgstr "domain-osoite"
 
@@ -1888,6 +1912,10 @@ msgstr "Täytä tämä usean toimenpideohjelman sivustolle, jos tämä toimenpid
 #: actions/models/plan.py
 msgid "Base path must begin with a '/' and not end with '/'"
 msgstr "Peruspolun täytyy alkaa '/'-merkillä ja loppua johonkin muuhun merkkiin"
+
+#: actions/models/plan.py
+msgid "deployment environment"
+msgstr ""
 
 #: actions/models/plan.py
 msgid "Immediate override of publishing status"
@@ -2225,7 +2253,7 @@ msgstr "kirjautumismenetelmä"
 msgid "Login method that will be used for users that don't have a password set"
 msgstr "Kirjautumismenetelmä käyttäjille joille ei ole asetettu salasanaa"
 
-#: admin_site/models.py
+#: admin_site/models.py budget/models.py
 #, fuzzy
 msgid "label"
 msgstr "kentät"
@@ -2423,6 +2451,10 @@ msgid "German (Switzerland)"
 msgstr "saksa (Sveitsi)"
 
 #: aplans/settings.py
+msgid "Greek"
+msgstr ""
+
+#: aplans/settings.py
 msgid "English (United States)"
 msgstr "englanti (Yhdysvallat)"
 
@@ -2451,20 +2483,20 @@ msgid "Latvian"
 msgstr "latvia"
 
 #: aplans/settings.py
-msgid "Swedish"
-msgstr "ruotsi"
-
-#: aplans/settings.py
-msgid "Swedish (Finland)"
-msgstr ""
-
-#: aplans/settings.py
 msgid "Portuguese"
 msgstr "portugali"
 
 #: aplans/settings.py
 msgid "Portuguese (Brazil)"
 msgstr "portugali (Brasilia)"
+
+#: aplans/settings.py
+msgid "Swedish"
+msgstr "ruotsi"
+
+#: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
 
 #: aplans/utils.py
 msgid "Day, month and year (31.12.2020)"
@@ -2532,6 +2564,74 @@ msgstr "%(color)s ei ole oikeassa muodossa (esim. \"#112233\", \"red\" or \"rgb(
 #: aplans/utils.py
 msgid "updated by"
 msgstr "viimeksi päivittänyt"
+
+#: budget/models.py indicators/models.py
+msgid "dimension"
+msgstr "dimensio"
+
+#: budget/models.py indicators/models.py
+msgid "dimensions"
+msgstr "mittarin dimensiot"
+
+#: budget/models.py indicators/models.py
+msgid "dimension category"
+msgstr "dimension luokka"
+
+#: budget/models.py indicators/models.py
+msgid "dimension categories"
+msgstr "dimension luokat"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Year"
+msgid "Yearly"
+msgstr "Vuosi"
+
+#: budget/models.py
+msgid "Time resolution of the time stamps of data points in this dataset"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "unit"
+msgstr "yksikkö"
+
+#: budget/models.py
+msgid "schema"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dataset"
+msgstr "tietoaineisto"
+
+#: budget/models.py indicators/models.py
+msgid "datasets"
+msgstr "tietoaineistot"
+
+#: budget/models.py
+msgid "Date of this data point in context of the dataset's time resolution"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "value"
+msgstr "arvo"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data point"
+msgstr "Viimeisin datapiste"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data points"
+msgstr "Viimeisin datapiste"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "mittarin dimensiot"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -2851,10 +2951,6 @@ msgid "verbose name plural"
 msgstr "selite (monikko)"
 
 #: indicators/models.py
-msgid "unit"
-msgstr "yksikkö"
-
-#: indicators/models.py
 msgid "units"
 msgstr "yksiköt"
 
@@ -2885,14 +2981,6 @@ msgstr "Aseta jos omistajaorganisaatiota ei löydy"
 #: indicators/models.py
 msgid "license"
 msgstr "lisenssi"
-
-#: indicators/models.py
-msgid "dataset"
-msgstr "tietoaineisto"
-
-#: indicators/models.py
-msgid "datasets"
-msgstr "tietoaineistot"
 
 #: indicators/models.py
 msgid "framework"
@@ -3049,22 +3137,6 @@ msgid "Unit must be the same as in common indicator (%s)"
 msgstr "Yksikön on oltava sama kuin yleisellä mittarilla (%s)"
 
 #: indicators/models.py
-msgid "dimension"
-msgstr "dimensio"
-
-#: indicators/models.py
-msgid "dimensions"
-msgstr "mittarin dimensiot"
-
-#: indicators/models.py
-msgid "dimension category"
-msgstr "dimension luokka"
-
-#: indicators/models.py
-msgid "dimension categories"
-msgstr "dimension luokat"
-
-#: indicators/models.py
 msgid "indicator dimension"
 msgstr "mittarin dimensio"
 
@@ -3087,10 +3159,6 @@ msgstr "taso"
 #: indicators/models.py
 msgid "indicator levels"
 msgstr "mittarin tasot"
-
-#: indicators/models.py
-msgid "value"
-msgstr "arvo"
 
 #: indicators/models.py
 msgid "indicator value"
@@ -3329,77 +3397,6 @@ msgid "These are sent when a visitor has left feedback for this plan."
 msgstr "Näitä lähetetään kun sivuston vierailija on jättänyt palautetta toimenpideohjelmasta."
 
 #: notifications/management/commands/initialize_notifications.py
-msgctxt "action_not_updated"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
-"tietojen päivittämisestä. Ohjelmavahdissa näytetään, mitä\n"
-"toimenpiteissä on jo tehty ja mitä aiotaan jatkossa\n"
-"tehdä. Edellisestä kerrasta, kun muokkasit toimenpiteen\n"
-"kuvausta, on vierähtänyt jo kuusi kuukautta. Käythän\n"
-"täydentämässä toimenpiteen kuvausta ja kirjoittamassa\n"
-"siihen viimeisimmät kuulumiset. Voit samalla lisätä\n"
-"toimenpiteelle myös seuraavan tehtävän."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "not_enough_tasks"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
-"tietojen päivittämisestä. Ohjelmavahdissa näytetään, mitä\n"
-"toimenpiteissä on jo tehty ja mitä aiotaan jatkossa\n"
-"tehdä. Tämän vuoksi jokaisella toimenpiteellä on hyvä olla\n"
-"aina sovittuna vähintään yksi seuraava tehtävä, joka\n"
-"tapahtuu vuoden sisällä. Merkitsethän toimenpiteelle\n"
-"tehtävät, joista näkee, mitä toimenpiteessä seuraavaksi on\n"
-"suunniteltu tehtävän."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_due_soon"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelmaan\n"
-"kirjaamistasi tehtävistä. Toimenpideohjelmassa on tehtävä,\n"
-"jonka tavoitepäivämäärä (deadline) lähestyy. Muistathan\n"
-"käydä merkitsemässä tehtävän valmiiksi heti, kun se on\n"
-"valmistunut. Kun deadline on mennyt, toimenpide merkitään\n"
-"myöhässä olevaksi. Voit muokata tehtävän tietoja\n"
-"allaolevasta linkistä."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_late"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelmaan\n"
-"kirjaamistasi tehtävistä. Toimenpideohjelmassa on tehtävä,\n"
-"jonka deadline on mennyt. Toimenpide näytetään myöhässä\n"
-"olevana, kunnes merkitset tehtävän valmistuneeksi ja\n"
-"täydennät siihen lisätietoja."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_due_soon"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
-"mittaritietojen päivittämisestä. Mittaritietojen\n"
-"tavoitepäivämäärä lähestyy.  Käythän päivittämässä\n"
-"mittariin uusimmat arvot."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_late"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
-msgstr ""
-"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
-"mittaritietojen päivittämisestä. Mittaritietojen\n"
-"tavoitepäivämäärä on mennyt. Käythän päivittämässä\n"
-"mittariin uusimmat arvot."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "user_feedback_received"
-msgid "A user has submitted feedback."
-msgstr "Käyttäjä on antanut palautetta."
-
-#: notifications/management/commands/initialize_notifications.py
 msgctxt "motivation"
 msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
 msgstr ""
@@ -3423,38 +3420,6 @@ msgstr ""
 "Kiitos, että olet mukana toteuttamassa toimenpideohjelmaa!\n"
 "\n"
 "Ystävällisin terveisin toimenpideohjelman ylläpitäjät"
-
-#: notifications/models.py
-msgid "Task is late"
-msgstr "Tehtävä on myöhässä"
-
-#: notifications/models.py
-msgid "Task is due soon"
-msgstr "Tehtävän tavoitepäivämäärä lähestyy"
-
-#: notifications/models.py
-msgid "Action metadata has not been updated recently"
-msgstr "Toimenpiteen tietoja ei ole päivitetty viime aikoina"
-
-#: notifications/models.py
-msgid "Action doesn't have enough in-progress tasks"
-msgstr "Toimenpiteellä ei ole tarpeeksi käynnissä olevia tehtäviä"
-
-#: notifications/models.py
-msgid "Updated indicator values are late"
-msgstr "Mittarin päivitys on myöhässä"
-
-#: notifications/models.py
-msgid "Updated indicator values are due soon"
-msgstr "Mittarin päivitys on pian edessä"
-
-#: notifications/models.py
-msgid "User feedback received"
-msgstr "Palautetta vastaanotettu"
-
-#: notifications/models.py
-msgid "Manually scheduled notification"
-msgstr "Manuaalisesti ajastettu ilmoitus"
 
 #: notifications/models.py
 msgid "notifications enabled"
@@ -3662,6 +3627,133 @@ msgstr "vastaanota yleisiä herätteitä toimenpiteestä"
 #: notifications/models.py
 msgid "receive action feedback notifications"
 msgstr "vastaanota herätteitä toimenpiteen palautteista"
+
+#: notifications/notifications.py
+msgctxt "task_late"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelmaan\n"
+"kirjaamistasi tehtävistä. Toimenpideohjelmassa on tehtävä,\n"
+"jonka deadline on mennyt. Toimenpide näytetään myöhässä\n"
+"olevana, kunnes merkitset tehtävän valmistuneeksi ja\n"
+"täydennät siihen lisätietoja."
+
+#: notifications/notifications.py
+msgid "Task is late"
+msgstr "Tehtävä on myöhässä"
+
+#: notifications/notifications.py
+msgid "Updated indicator values are late"
+msgstr "Mittarin päivitys on myöhässä"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_late"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
+"mittaritietojen päivittämisestä. Mittaritietojen\n"
+"tavoitepäivämäärä on mennyt. Käythän päivittämässä\n"
+"mittariin uusimmat arvot."
+
+#: notifications/notifications.py
+msgid "Task is due soon"
+msgstr "Tehtävän tavoitepäivämäärä lähestyy"
+
+#: notifications/notifications.py
+msgctxt "task_due_soon"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelmaan\n"
+"kirjaamistasi tehtävistä. Toimenpideohjelmassa on tehtävä,\n"
+"jonka tavoitepäivämäärä (deadline) lähestyy. Muistathan\n"
+"käydä merkitsemässä tehtävän valmiiksi heti, kun se on\n"
+"valmistunut. Kun deadline on mennyt, toimenpide merkitään\n"
+"myöhässä olevaksi. Voit muokata tehtävän tietoja\n"
+"allaolevasta linkistä."
+
+#: notifications/notifications.py
+msgid "Updated indicator values are due soon"
+msgstr "Mittarin päivitys on pian edessä"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_due_soon"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
+"mittaritietojen päivittämisestä. Mittaritietojen\n"
+"tavoitepäivämäärä lähestyy.  Käythän päivittämässä\n"
+"mittariin uusimmat arvot."
+
+#: notifications/notifications.py
+msgid "Action doesn't have enough in-progress tasks"
+msgstr "Toimenpiteellä ei ole tarpeeksi käynnissä olevia tehtäviä"
+
+#: notifications/notifications.py
+msgctxt "not_enough_tasks"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
+"tietojen päivittämisestä. Ohjelmavahdissa näytetään, mitä\n"
+"toimenpiteissä on jo tehty ja mitä aiotaan jatkossa\n"
+"tehdä. Tämän vuoksi jokaisella toimenpiteellä on hyvä olla\n"
+"aina sovittuna vähintään yksi seuraava tehtävä, joka\n"
+"tapahtuu vuoden sisällä. Merkitsethän toimenpiteelle\n"
+"tehtävät, joista näkee, mitä toimenpiteessä seuraavaksi on\n"
+"suunniteltu tehtävän."
+
+#: notifications/notifications.py
+msgid "Action metadata has not been updated recently"
+msgstr "Toimenpiteen tietoja ei ole päivitetty viime aikoina"
+
+#: notifications/notifications.py
+msgctxt "action_not_updated"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
+msgstr ""
+"Tämä on automaattinen muistutusviesti toimenpideohjelman\n"
+"tietojen päivittämisestä. Ohjelmavahdissa näytetään, mitä\n"
+"toimenpiteissä on jo tehty ja mitä aiotaan jatkossa\n"
+"tehdä. Edellisestä kerrasta, kun muokkasit toimenpiteen\n"
+"kuvausta, on vierähtänyt jo kuusi kuukautta. Käythän\n"
+"täydentämässä toimenpiteen kuvausta ja kirjoittamassa\n"
+"siihen viimeisimmät kuulumiset. Voit samalla lisätä\n"
+"toimenpiteelle myös seuraavan tehtävän."
+
+#: notifications/notifications.py
+msgid "User feedback received"
+msgstr "Palautetta vastaanotettu"
+
+#: notifications/notifications.py
+msgctxt "user_feedback_received"
+msgid "A user has submitted feedback."
+msgstr "Käyttäjä on antanut palautetta."
+
+#: notifications/notifications.py
+msgid "Manually scheduled notification"
+msgstr "Manuaalisesti ajastettu ilmoitus"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be modified due to errors."
+msgstr "%s ei voitu tallentaa virheiden takia."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be set up due to errors."
+msgstr "%s ei voitu tallentaa virheiden takia."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "scheduled notifications"
+msgid "Cannot schedule a notification for the past"
+msgstr "ajastetut ilmoitukset"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "scheduled notifications"
+msgid "Cannot reschedule a notification for the past"
+msgstr "ajastetut ilmoitukset"
 
 #: notifications/wagtail_admin.py
 msgid "Recipients"
@@ -4774,11 +4866,6 @@ msgstr "Käyttäjät"
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Ei oikeuksia poistaa käyttäjä joka kuuluu toimenpideohjelmiin, joita et hallinnoi."
 
-#, fuzzy
-#~| msgid "dimensions"
-#~ msgid "Budget dimensions"
-#~ msgstr "mittarin dimensiot"
-
 #~ msgid "Notification types"
 #~ msgstr "Herätetyypit"
 
@@ -4802,9 +4889,6 @@ msgstr "Ei oikeuksia poistaa käyttäjä joka kuuluu toimenpideohjelmiin, joita 
 
 #~ msgid "Save changes"
 #~ msgstr "Tallenna muutokset"
-
-#~ msgid "Year"
-#~ msgstr "Vuosi"
 
 #~ msgid "Date"
 #~ msgstr "Pvm"

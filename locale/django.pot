@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 15:43+0300\n"
+"POT-Creation-Date: 2024-07-04 18:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,8 @@ msgid "Name"
 msgstr ""
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr ""
 
@@ -117,7 +118,7 @@ msgstr ""
 msgid "The %(model_name)s could not be saved as it is locked"
 msgstr ""
 
-#: actions/action_admin_mixins.py
+#: actions/action_admin_mixins.py admin_site/wagtail.py
 #, python-format
 msgid "%(model_name)s '%(object)s' updated."
 msgstr ""
@@ -350,8 +351,9 @@ msgstr ""
 msgid "Related plans"
 msgstr ""
 
-#: actions/blocks/action_content.py actions/blocks/category_page_layout.py
-#: actions/blocks/choosers.py actions/blocks/filters.py
+#: actions/blocks/action_content.py actions/blocks/action_dashboard.py
+#: actions/blocks/category_page_layout.py actions/blocks/choosers.py
+#: actions/blocks/filters.py
 msgid "Field"
 msgstr ""
 
@@ -680,8 +682,8 @@ msgstr ""
 
 #: actions/export.py actions/models/action.py actions/models/action_deps.py
 #: actions/models/attributes.py actions/models/category.py
-#: actions/models/plan.py feedback/models.py indicators/models.py
-#: orgs/models.py reports/models.py
+#: actions/models/plan.py budget/models.py feedback/models.py
+#: indicators/models.py orgs/models.py reports/models.py
 msgid "name"
 msgstr ""
 
@@ -1121,7 +1123,7 @@ msgstr ""
 msgid "action links"
 msgstr ""
 
-#: actions/models/action.py indicators/models.py
+#: actions/models/action.py budget/models.py indicators/models.py
 msgid "date"
 msgstr ""
 
@@ -1460,6 +1462,14 @@ msgstr ""
 
 #: actions/models/features.py
 msgid "Choose which information about contact persons is visible in the public UI"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Show profile pictures for contact persons"
+msgstr ""
+
+#: actions/models/features.py
+msgid "Should profile pictures be shown for contact persons in the public UI?"
 msgstr ""
 
 #: actions/models/features.py
@@ -1813,6 +1823,14 @@ msgid "public site viewers"
 msgstr ""
 
 #: actions/models/plan.py
+msgid "Production"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "Testing"
+msgstr ""
+
+#: actions/models/plan.py
 msgid "host name"
 msgstr ""
 
@@ -1830,6 +1848,10 @@ msgstr ""
 
 #: actions/models/plan.py
 msgid "Base path must begin with a '/' and not end with '/'"
+msgstr ""
+
+#: actions/models/plan.py
+msgid "deployment environment"
 msgstr ""
 
 #: actions/models/plan.py
@@ -2141,7 +2163,7 @@ msgstr ""
 msgid "Login method that will be used for users that don't have a password set"
 msgstr ""
 
-#: admin_site/models.py
+#: admin_site/models.py budget/models.py
 msgid "label"
 msgstr ""
 
@@ -2332,6 +2354,10 @@ msgid "German (Switzerland)"
 msgstr ""
 
 #: aplans/settings.py
+msgid "Greek"
+msgstr ""
+
+#: aplans/settings.py
 msgid "English (United States)"
 msgstr ""
 
@@ -2360,19 +2386,19 @@ msgid "Latvian"
 msgstr ""
 
 #: aplans/settings.py
-msgid "Swedish"
-msgstr ""
-
-#: aplans/settings.py
-msgid "Swedish (Finland)"
-msgstr ""
-
-#: aplans/settings.py
 msgid "Portuguese"
 msgstr ""
 
 #: aplans/settings.py
 msgid "Portuguese (Brazil)"
+msgstr ""
+
+#: aplans/settings.py
+msgid "Swedish"
+msgstr ""
+
+#: aplans/settings.py
+msgid "Swedish (Finland)"
 msgstr ""
 
 #: aplans/utils.py
@@ -2438,6 +2464,66 @@ msgstr ""
 
 #: aplans/utils.py
 msgid "updated by"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dimension"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dimensions"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dimension category"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dimension categories"
+msgstr ""
+
+#: budget/models.py
+msgid "Yearly"
+msgstr ""
+
+#: budget/models.py
+msgid "Time resolution of the time stamps of data points in this dataset"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "unit"
+msgstr ""
+
+#: budget/models.py
+msgid "schema"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dataset"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "datasets"
+msgstr ""
+
+#: budget/models.py
+msgid "Date of this data point in context of the dataset's time resolution"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "value"
+msgstr ""
+
+#: budget/models.py
+msgid "data point"
+msgstr ""
+
+#: budget/models.py
+msgid "data points"
+msgstr ""
+
+#: budget/wagtail_admin.py
+msgid "Budget dimensions"
 msgstr ""
 
 #: content/apps.py
@@ -2749,10 +2835,6 @@ msgid "verbose name plural"
 msgstr ""
 
 #: indicators/models.py
-msgid "unit"
-msgstr ""
-
-#: indicators/models.py
 msgid "units"
 msgstr ""
 
@@ -2782,14 +2864,6 @@ msgstr ""
 
 #: indicators/models.py
 msgid "license"
-msgstr ""
-
-#: indicators/models.py
-msgid "dataset"
-msgstr ""
-
-#: indicators/models.py
-msgid "datasets"
 msgstr ""
 
 #: indicators/models.py
@@ -2947,22 +3021,6 @@ msgid "Unit must be the same as in common indicator (%s)"
 msgstr ""
 
 #: indicators/models.py
-msgid "dimension"
-msgstr ""
-
-#: indicators/models.py
-msgid "dimensions"
-msgstr ""
-
-#: indicators/models.py
-msgid "dimension category"
-msgstr ""
-
-#: indicators/models.py
-msgid "dimension categories"
-msgstr ""
-
-#: indicators/models.py
 msgid "indicator dimension"
 msgstr ""
 
@@ -2984,10 +3042,6 @@ msgstr ""
 
 #: indicators/models.py
 msgid "indicator levels"
-msgstr ""
-
-#: indicators/models.py
-msgid "value"
 msgstr ""
 
 #: indicators/models.py
@@ -3212,41 +3266,6 @@ msgid "These are sent when a visitor has left feedback for this plan."
 msgstr ""
 
 #: notifications/management/commands/initialize_notifications.py
-msgctxt "action_not_updated"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "not_enough_tasks"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_due_soon"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_late"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_due_soon"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_late"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "user_feedback_received"
-msgid "A user has submitted feedback."
-msgstr ""
-
-#: notifications/management/commands/initialize_notifications.py
 msgctxt "motivation"
 msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
 msgstr ""
@@ -3260,38 +3279,6 @@ msgid ""
 "\n"
 "Kind regards,\n"
 "the action plan administrators"
-msgstr ""
-
-#: notifications/models.py
-msgid "Task is late"
-msgstr ""
-
-#: notifications/models.py
-msgid "Task is due soon"
-msgstr ""
-
-#: notifications/models.py
-msgid "Action metadata has not been updated recently"
-msgstr ""
-
-#: notifications/models.py
-msgid "Action doesn't have enough in-progress tasks"
-msgstr ""
-
-#: notifications/models.py
-msgid "Updated indicator values are late"
-msgstr ""
-
-#: notifications/models.py
-msgid "Updated indicator values are due soon"
-msgstr ""
-
-#: notifications/models.py
-msgid "User feedback received"
-msgstr ""
-
-#: notifications/models.py
-msgid "Manually scheduled notification"
 msgstr ""
 
 #: notifications/models.py
@@ -3499,6 +3486,89 @@ msgstr ""
 
 #: notifications/models.py
 msgid "receive action feedback notifications"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "task_late"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Task is late"
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Updated indicator values are late"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_late"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Task is due soon"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "task_due_soon"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Updated indicator values are due soon"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_due_soon"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Action doesn't have enough in-progress tasks"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "not_enough_tasks"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Action metadata has not been updated recently"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "action_not_updated"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "User feedback received"
+msgstr ""
+
+#: notifications/notifications.py
+msgctxt "user_feedback_received"
+msgid "A user has submitted feedback."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Notifications could not be modified due to errors."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Notifications could not be set up due to errors."
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Cannot schedule a notification for the past"
+msgstr ""
+
+#: notifications/wagtail_admin.py
+msgid "Cannot reschedule a notification for the past"
 msgstr ""
 
 #: notifications/wagtail_admin.py

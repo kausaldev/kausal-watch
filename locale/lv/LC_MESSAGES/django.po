@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 15:43+0300\n"
+"POT-Creation-Date: 2024-07-04 18:25+0200\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Latvian <https://weblate.kausal.tech/projects/watch/django/lv/>\n"
@@ -73,7 +73,8 @@ msgid "Name"
 msgstr "Nosaukums"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorijas"
 
@@ -123,7 +124,7 @@ msgstr ""
 msgid "The %(model_name)s could not be saved as it is locked"
 msgstr "Portālu %(model_name)s nevarēja saglabāt, jo tas ir bloķēts"
 
-#: actions/action_admin_mixins.py
+#: actions/action_admin_mixins.py admin_site/wagtail.py
 #, python-format
 msgid "%(model_name)s '%(object)s' updated."
 msgstr "%(model_name)s '%(object)s' atjaunināts."
@@ -359,8 +360,9 @@ msgstr "%(attribute_type)s (teksts)"
 msgid "Related plans"
 msgstr "Saistītie plāni"
 
-#: actions/blocks/action_content.py actions/blocks/category_page_layout.py
-#: actions/blocks/choosers.py actions/blocks/filters.py
+#: actions/blocks/action_content.py actions/blocks/action_dashboard.py
+#: actions/blocks/category_page_layout.py actions/blocks/choosers.py
+#: actions/blocks/filters.py
 msgid "Field"
 msgstr "Laukums"
 
@@ -695,8 +697,8 @@ msgstr "identifikators"
 
 #: actions/export.py actions/models/action.py actions/models/action_deps.py
 #: actions/models/attributes.py actions/models/category.py
-#: actions/models/plan.py feedback/models.py indicators/models.py
-#: orgs/models.py reports/models.py
+#: actions/models/plan.py budget/models.py feedback/models.py
+#: indicators/models.py orgs/models.py reports/models.py
 msgid "name"
 msgstr "nosaukums"
 
@@ -1142,7 +1144,7 @@ msgstr "rīcības saite"
 msgid "action links"
 msgstr "rīcības saites"
 
-#: actions/models/action.py indicators/models.py
+#: actions/models/action.py budget/models.py indicators/models.py
 msgid "date"
 msgstr "datums"
 
@@ -1489,6 +1491,18 @@ msgstr "Publiski redzami dati par kontaktpersonām"
 
 #: actions/models/features.py
 msgid "Choose which information about contact persons is visible in the public UI"
+msgstr "Izvēlieties, kura informācija par kontaktpersonām ir redzama publiskajā lietotāja saskarnē"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "Show profile pictures for contact persons"
+msgstr "rādītāju kontaktpersonas"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "Choose which information about contact persons is visible in the public UI"
+msgid "Should profile pictures be shown for contact persons in the public UI?"
 msgstr "Izvēlieties, kura informācija par kontaktpersonām ir redzama publiskajā lietotāja saskarnē"
 
 #: actions/models/features.py
@@ -1860,6 +1874,18 @@ msgid "public site viewers"
 msgstr ""
 
 #: actions/models/plan.py
+#, fuzzy
+#| msgid "Location"
+msgid "Production"
+msgstr "Atrašanās vieta"
+
+#: actions/models/plan.py
+#, fuzzy
+#| msgid "Question"
+msgid "Testing"
+msgstr "Jautājums"
+
+#: actions/models/plan.py
 msgid "host name"
 msgstr "saimnieka nosaukums"
 
@@ -1878,6 +1904,10 @@ msgstr "Aizpildiet to vairāku plānu vietnei, ja plāns neatrodas domēna sakn�
 #: actions/models/plan.py
 msgid "Base path must begin with a '/' and not end with '/'"
 msgstr "Bāzes ceļam jāsākas ar '/' un jābeidzas ar '/'"
+
+#: actions/models/plan.py
+msgid "deployment environment"
+msgstr ""
 
 #: actions/models/plan.py
 msgid "Immediate override of publishing status"
@@ -2194,7 +2224,7 @@ msgstr "pieteikšanās metode"
 msgid "Login method that will be used for users that don't have a password set"
 msgstr "Pieslēgšanās metode, kas tiks izmantota lietotājiem, kuriem nav iestatīta parole"
 
-#: admin_site/models.py
+#: admin_site/models.py budget/models.py
 msgid "label"
 msgstr "etiķete"
 
@@ -2391,6 +2421,10 @@ msgid "German (Switzerland)"
 msgstr "Vācu (Šveice)"
 
 #: aplans/settings.py
+msgid "Greek"
+msgstr ""
+
+#: aplans/settings.py
 msgid "English (United States)"
 msgstr "angļu (Amerikas Savienotās Valstis)"
 
@@ -2419,20 +2453,20 @@ msgid "Latvian"
 msgstr "Latviešu"
 
 #: aplans/settings.py
-msgid "Swedish"
-msgstr "Zviedru"
-
-#: aplans/settings.py
-msgid "Swedish (Finland)"
-msgstr ""
-
-#: aplans/settings.py
 msgid "Portuguese"
 msgstr "Portugāļu"
 
 #: aplans/settings.py
 msgid "Portuguese (Brazil)"
 msgstr "portugāļu (Brazīlija)"
+
+#: aplans/settings.py
+msgid "Swedish"
+msgstr "Zviedru"
+
+#: aplans/settings.py
+msgid "Swedish (Finland)"
+msgstr ""
 
 #: aplans/utils.py
 msgid "Day, month and year (31.12.2020)"
@@ -2500,6 +2534,74 @@ msgstr "%(color)s nav CSS krāsa (piemēram, \"#112233\", \"sarkana\" vai \"rgb(
 #: aplans/utils.py
 msgid "updated by"
 msgstr "atjaunināja"
+
+#: budget/models.py indicators/models.py
+msgid "dimension"
+msgstr "dimensija"
+
+#: budget/models.py indicators/models.py
+msgid "dimensions"
+msgstr "izmēri"
+
+#: budget/models.py indicators/models.py
+msgid "dimension category"
+msgstr "dimensiju kategorija"
+
+#: budget/models.py indicators/models.py
+msgid "dimension categories"
+msgstr "dimensiju kategorijas"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Year"
+msgid "Yearly"
+msgstr "Gads"
+
+#: budget/models.py
+msgid "Time resolution of the time stamps of data points in this dataset"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "unit"
+msgstr "vienība"
+
+#: budget/models.py
+msgid "schema"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dataset"
+msgstr "datu kopa"
+
+#: budget/models.py indicators/models.py
+msgid "datasets"
+msgstr "datu kopas"
+
+#: budget/models.py
+msgid "Date of this data point in context of the dataset's time resolution"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "value"
+msgstr "vērtība"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data point"
+msgstr "Pēdējais datu punkts"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data points"
+msgstr "Pēdējais datu punkts"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "izmēri"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -2816,10 +2918,6 @@ msgid "verbose name plural"
 msgstr "daudzskaitļa vārds daudzskaitlī"
 
 #: indicators/models.py
-msgid "unit"
-msgstr "vienība"
-
-#: indicators/models.py
 msgid "units"
 msgstr "vienības"
 
@@ -2850,14 +2948,6 @@ msgstr "Iestatīts, ja īpašnieka organizācija nav pieejama"
 #: indicators/models.py
 msgid "license"
 msgstr "licence"
-
-#: indicators/models.py
-msgid "dataset"
-msgstr "datu kopa"
-
-#: indicators/models.py
-msgid "datasets"
-msgstr "datu kopas"
 
 #: indicators/models.py
 msgid "framework"
@@ -3014,22 +3104,6 @@ msgid "Unit must be the same as in common indicator (%s)"
 msgstr "Vienībai jābūt tādai pašai kā kopīgajā rādītājā (%s)"
 
 #: indicators/models.py
-msgid "dimension"
-msgstr "dimensija"
-
-#: indicators/models.py
-msgid "dimensions"
-msgstr "izmēri"
-
-#: indicators/models.py
-msgid "dimension category"
-msgstr "dimensiju kategorija"
-
-#: indicators/models.py
-msgid "dimension categories"
-msgstr "dimensiju kategorijas"
-
-#: indicators/models.py
 msgid "indicator dimension"
 msgstr "indikatora dimensija"
 
@@ -3052,10 +3126,6 @@ msgstr "līmenis"
 #: indicators/models.py
 msgid "indicator levels"
 msgstr "rādītāju līmeņi"
-
-#: indicators/models.py
-msgid "value"
-msgstr "vērtība"
 
 #: indicators/models.py
 msgid "indicator value"
@@ -3281,41 +3351,6 @@ msgid "These are sent when a visitor has left feedback for this plan."
 msgstr "Tie tiek nosūtīti, ja apmeklētājs ir atstājis atsauksmi par šo plānu."
 
 #: notifications/management/commands/initialize_notifications.py
-msgctxt "action_not_updated"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
-msgstr "Tas ir automātisks atgādinājums par rīcības plāna informācijas atjaunināšanu. Rīcības plāna skatīšanās vietnē varat redzēt, kas jau ir paveikts, lai turpinātu rīcību, un kas ir plānots nākotnē. Ir pagājuši jau seši mēneši kopš pēdējās rīcības atjaunināšanas. Lūdzu, apmeklējiet un atjauniniet rīcību, iekļaujot tajā jaunāko informāciju. Vienlaikus varat pievienot rīcībai kādu gaidāmo uzdevumu."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "not_enough_tasks"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
-msgstr "Tas ir automātisks atgādinājums par rīcības plāna informācijas atjaunināšanu. Rīcības plāna skatīšanās vietnē varat redzēt, kas jau ir paveikts, lai turpinātu rīcību, un kas ir plānots nākotnē. Tas nozīmē, ka būtu vēlams, lai katrai rīcībai būtu vismaz viens nākamā gada laikā veicams uzdevums. Lūdzu, ejiet un pievienojiet rīcībai uzdevumus, kas parāda, kādi ir nākamie plānotie pasākumi saistībā ar rīcību."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_due_soon"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
-msgstr "Tas ir automātisks atgādinājums par jūsu rīcības uzdevuma informācijas atjaunināšanu rīcības plānā. Rīcības plānā ir rīcība, kuras termiņš tuvojas. Lūdzu, atcerieties atzīmēt uzdevumu kā izpildītu, tiklīdz tas ir pabeigts. Pēc termiņa beigām rīcība tiks atzīmēta kā novēlota. Uzdevuma informāciju varat rediģēt, izmantojot tālāk norādīto saiti."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_late"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
-msgstr "Tas ir automātisks atgādinājums par jūsu rīcības uzdevuma informācijas atjaunināšanu rīcības plānā. Ir rīcība, kuras termiņš ir beidzies. Rīcība tiek rādīta kā novēlota, līdz jūs to atzīmējat kā izpildītu un aizpildāt kādu informāciju."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_due_soon"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
-msgstr "Tas ir automātisks atgādinājums par rādītāju informācijas atjaunināšanu rīcības plānā.  Tuvojas rādītāju vērtību atjaunināšanas termiņš. Lūdzu, apmeklējiet un atjauniniet rādītāju ar jaunākajām vērtībām."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_late"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
-msgstr "Tas ir automātisks atgādinājums par rādītāju informācijas atjaunināšanu rīcības plānā.  Rādītāju vērtību atjaunināšanas termiņš ir beidzies. Lūdzu, ejiet un atjauniniet rādītāju ar jaunākajām vērtībām."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "user_feedback_received"
-msgid "A user has submitted feedback."
-msgstr "Lietotājs ir iesniedzis atsauksmi."
-
-#: notifications/management/commands/initialize_notifications.py
 msgctxt "motivation"
 msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
 msgstr "Paldies par rīcības plāna atjaunināšanu. Aktuāla informācija par pasākumiem ir būtiska, lai mēs varētu sasniegt savus mērķus."
@@ -3336,38 +3371,6 @@ msgstr ""
 "\n"
 "Ar cieņu,\n"
 "rīcības plāna administratori"
-
-#: notifications/models.py
-msgid "Task is late"
-msgstr "Uzdevums kavējas"
-
-#: notifications/models.py
-msgid "Task is due soon"
-msgstr "Uzdevums drīzumā ir jāizpilda"
-
-#: notifications/models.py
-msgid "Action metadata has not been updated recently"
-msgstr "Rīcības metadati pēdējā laikā nav atjaunināti"
-
-#: notifications/models.py
-msgid "Action doesn't have enough in-progress tasks"
-msgstr "Rīcībā nav pietiekami daudz nepabeigtu uzdevumu"
-
-#: notifications/models.py
-msgid "Updated indicator values are late"
-msgstr "Atjauninātās rādītāju vērtības ir vēlu"
-
-#: notifications/models.py
-msgid "Updated indicator values are due soon"
-msgstr "Drīzumā tiks atjauninātas rādītāju vērtības"
-
-#: notifications/models.py
-msgid "User feedback received"
-msgstr "Saņemtās lietotāju atsauksmes"
-
-#: notifications/models.py
-msgid "Manually scheduled notification"
-msgstr ""
 
 #: notifications/models.py
 msgid "notifications enabled"
@@ -3587,6 +3590,97 @@ msgstr "saņemt vispārīgus rīcības paziņojumus"
 #: notifications/models.py
 msgid "receive action feedback notifications"
 msgstr "saņemt rīcības atgriezeniskās saites paziņojumus"
+
+#: notifications/notifications.py
+msgctxt "task_late"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
+msgstr "Tas ir automātisks atgādinājums par jūsu rīcības uzdevuma informācijas atjaunināšanu rīcības plānā. Ir rīcība, kuras termiņš ir beidzies. Rīcība tiek rādīta kā novēlota, līdz jūs to atzīmējat kā izpildītu un aizpildāt kādu informāciju."
+
+#: notifications/notifications.py
+msgid "Task is late"
+msgstr "Uzdevums kavējas"
+
+#: notifications/notifications.py
+msgid "Updated indicator values are late"
+msgstr "Atjauninātās rādītāju vērtības ir vēlu"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_late"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
+msgstr "Tas ir automātisks atgādinājums par rādītāju informācijas atjaunināšanu rīcības plānā.  Rādītāju vērtību atjaunināšanas termiņš ir beidzies. Lūdzu, ejiet un atjauniniet rādītāju ar jaunākajām vērtībām."
+
+#: notifications/notifications.py
+msgid "Task is due soon"
+msgstr "Uzdevums drīzumā ir jāizpilda"
+
+#: notifications/notifications.py
+msgctxt "task_due_soon"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
+msgstr "Tas ir automātisks atgādinājums par jūsu rīcības uzdevuma informācijas atjaunināšanu rīcības plānā. Rīcības plānā ir rīcība, kuras termiņš tuvojas. Lūdzu, atcerieties atzīmēt uzdevumu kā izpildītu, tiklīdz tas ir pabeigts. Pēc termiņa beigām rīcība tiks atzīmēta kā novēlota. Uzdevuma informāciju varat rediģēt, izmantojot tālāk norādīto saiti."
+
+#: notifications/notifications.py
+msgid "Updated indicator values are due soon"
+msgstr "Drīzumā tiks atjauninātas rādītāju vērtības"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_due_soon"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
+msgstr "Tas ir automātisks atgādinājums par rādītāju informācijas atjaunināšanu rīcības plānā.  Tuvojas rādītāju vērtību atjaunināšanas termiņš. Lūdzu, apmeklējiet un atjauniniet rādītāju ar jaunākajām vērtībām."
+
+#: notifications/notifications.py
+msgid "Action doesn't have enough in-progress tasks"
+msgstr "Rīcībā nav pietiekami daudz nepabeigtu uzdevumu"
+
+#: notifications/notifications.py
+msgctxt "not_enough_tasks"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
+msgstr "Tas ir automātisks atgādinājums par rīcības plāna informācijas atjaunināšanu. Rīcības plāna skatīšanās vietnē varat redzēt, kas jau ir paveikts, lai turpinātu rīcību, un kas ir plānots nākotnē. Tas nozīmē, ka būtu vēlams, lai katrai rīcībai būtu vismaz viens nākamā gada laikā veicams uzdevums. Lūdzu, ejiet un pievienojiet rīcībai uzdevumus, kas parāda, kādi ir nākamie plānotie pasākumi saistībā ar rīcību."
+
+#: notifications/notifications.py
+msgid "Action metadata has not been updated recently"
+msgstr "Rīcības metadati pēdējā laikā nav atjaunināti"
+
+#: notifications/notifications.py
+msgctxt "action_not_updated"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
+msgstr "Tas ir automātisks atgādinājums par rīcības plāna informācijas atjaunināšanu. Rīcības plāna skatīšanās vietnē varat redzēt, kas jau ir paveikts, lai turpinātu rīcību, un kas ir plānots nākotnē. Ir pagājuši jau seši mēneši kopš pēdējās rīcības atjaunināšanas. Lūdzu, apmeklējiet un atjauniniet rīcību, iekļaujot tajā jaunāko informāciju. Vienlaikus varat pievienot rīcībai kādu gaidāmo uzdevumu."
+
+#: notifications/notifications.py
+msgid "User feedback received"
+msgstr "Saņemtās lietotāju atsauksmes"
+
+#: notifications/notifications.py
+msgctxt "user_feedback_received"
+msgid "A user has submitted feedback."
+msgstr "Lietotājs ir iesniedzis atsauksmi."
+
+#: notifications/notifications.py
+msgid "Manually scheduled notification"
+msgstr ""
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be modified due to errors."
+msgstr "%s nevarēja izveidot kļūdu dēļ."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be set up due to errors."
+msgstr "%s nevarēja izveidot kļūdu dēļ."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "Cannot schedule a notification for the past"
+msgstr "Vai ir jānosūta paziņojumi?"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "Should notifications be sent?"
+msgid "Cannot reschedule a notification for the past"
+msgstr "Vai ir jānosūta paziņojumi?"
 
 #: notifications/wagtail_admin.py
 msgid "Recipients"
@@ -4684,11 +4778,6 @@ msgstr "Lietotāji"
 msgid "No permission to remove the user belonging to plans you are not managing."
 msgstr "Nav atļauts noņemt lietotājus, kas pieder pie plāniem, kurus jūs neapsaimniekojat."
 
-#, fuzzy
-#~| msgid "dimensions"
-#~ msgid "Budget dimensions"
-#~ msgstr "izmēri"
-
 #~ msgid "Notification types"
 #~ msgstr "Paziņojumu veidi"
 
@@ -4712,9 +4801,6 @@ msgstr "Nav atļauts noņemt lietotājus, kas pieder pie plāniem, kurus jūs ne
 
 #~ msgid "Save changes"
 #~ msgstr "Izmaiņu saglabāšana"
-
-#~ msgid "Year"
-#~ msgstr "Gads"
 
 #~ msgid "Date"
 #~ msgstr "Datums"

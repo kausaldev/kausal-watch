@@ -10,11 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 15:43+0300\n"
+"POT-Creation-Date: 2024-07-04 18:25+0200\n"
 "PO-Revision-Date: 2024-06-04 14:20+0000\n"
 "Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
-"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/"
-">\n"
+"Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,7 +76,8 @@ msgid "Name"
 msgstr "Namn"
 
 #: actions/action_admin.py actions/category_admin.py
-#: admin_site/wagtail_hooks.py indicators/wagtail_admin.py
+#: admin_site/wagtail_hooks.py budget/wagtail_admin.py
+#: indicators/wagtail_admin.py
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -124,7 +124,7 @@ msgstr "Beroenden"
 msgid "The %(model_name)s could not be saved as it is locked"
 msgstr "%(model_name)s kunde inte sparas eftersom den är låst"
 
-#: actions/action_admin_mixins.py
+#: actions/action_admin_mixins.py admin_site/wagtail.py
 #, python-format
 msgid "%(model_name)s '%(object)s' updated."
 msgstr "%(model_name)s '%(object)s' uppdaterad."
@@ -360,8 +360,9 @@ msgstr "%(attribute_type)s (text)"
 msgid "Related plans"
 msgstr "Relaterade planer"
 
-#: actions/blocks/action_content.py actions/blocks/category_page_layout.py
-#: actions/blocks/choosers.py actions/blocks/filters.py
+#: actions/blocks/action_content.py actions/blocks/action_dashboard.py
+#: actions/blocks/category_page_layout.py actions/blocks/choosers.py
+#: actions/blocks/filters.py
 msgid "Field"
 msgstr "Fält"
 
@@ -697,8 +698,8 @@ msgstr "identifierare"
 
 #: actions/export.py actions/models/action.py actions/models/action_deps.py
 #: actions/models/attributes.py actions/models/category.py
-#: actions/models/plan.py feedback/models.py indicators/models.py
-#: orgs/models.py reports/models.py
+#: actions/models/plan.py budget/models.py feedback/models.py
+#: indicators/models.py orgs/models.py reports/models.py
 msgid "name"
 msgstr "namn"
 
@@ -1144,7 +1145,7 @@ msgstr "åtgärdslänk"
 msgid "action links"
 msgstr "åtgärdslänkar"
 
-#: actions/models/action.py indicators/models.py
+#: actions/models/action.py budget/models.py indicators/models.py
 msgid "date"
 msgstr "datum"
 
@@ -1508,6 +1509,17 @@ msgstr "kontaktpersoner"
 #: actions/models/features.py
 #, fuzzy
 msgid "Choose which information about contact persons is visible in the public UI"
+msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
+
+#: actions/models/features.py
+#, fuzzy
+#| msgid "indicator contact persons"
+msgid "Show profile pictures for contact persons"
+msgstr "indikator kontaktpersoner"
+
+#: actions/models/features.py
+#, fuzzy
+msgid "Should profile pictures be shown for contact persons in the public UI?"
 msgstr "Ange om kontaktpersonerna inte ska vara synliga i det offentliga användargränssnittet"
 
 #: actions/models/features.py
@@ -1904,6 +1916,17 @@ msgid "public site viewers"
 msgstr "besökare av offentliga webbplatser"
 
 #: actions/models/plan.py
+#, fuzzy
+msgid "Production"
+msgstr "åtgärd"
+
+#: actions/models/plan.py
+#, fuzzy
+#| msgid "Question"
+msgid "Testing"
+msgstr "Fråga"
+
+#: actions/models/plan.py
 msgid "host name"
 msgstr "värdnamn"
 
@@ -1923,6 +1946,10 @@ msgstr "Fyll i detta för en webbplats med flera planer när planen inte finns i
 #: actions/models/plan.py
 msgid "Base path must begin with a '/' and not end with '/'"
 msgstr "Basens sökväg måste börja med '/' och får inte sluta med '/'"
+
+#: actions/models/plan.py
+msgid "deployment environment"
+msgstr ""
 
 #: actions/models/plan.py
 msgid "Immediate override of publishing status"
@@ -2258,7 +2285,7 @@ msgstr "inloggningsmetod"
 msgid "Login method that will be used for users that don't have a password set"
 msgstr "Inloggningsmetod som ska användas för användare som inte har ett lösenord"
 
-#: admin_site/models.py
+#: admin_site/models.py budget/models.py
 #, fuzzy
 msgid "label"
 msgstr "Fält"
@@ -2460,6 +2487,10 @@ msgid "German (Switzerland)"
 msgstr "Tyska (Schweiz)"
 
 #: aplans/settings.py
+msgid "Greek"
+msgstr ""
+
+#: aplans/settings.py
 msgid "English (United States)"
 msgstr "Engelska (Förenta staterna)"
 
@@ -2488,6 +2519,14 @@ msgid "Latvian"
 msgstr "Lettiska"
 
 #: aplans/settings.py
+msgid "Portuguese"
+msgstr "Portugisiska"
+
+#: aplans/settings.py
+msgid "Portuguese (Brazil)"
+msgstr "Portugisiska (Brasilien)"
+
+#: aplans/settings.py
 msgid "Swedish"
 msgstr "svenska"
 
@@ -2495,14 +2534,6 @@ msgstr "svenska"
 #, fuzzy
 msgid "Swedish (Finland)"
 msgstr "Svenska (Finland)"
-
-#: aplans/settings.py
-msgid "Portuguese"
-msgstr "Portugisiska"
-
-#: aplans/settings.py
-msgid "Portuguese (Brazil)"
-msgstr "Portugisiska (Brasilien)"
 
 #: aplans/utils.py
 #, fuzzy
@@ -2578,6 +2609,74 @@ msgstr "%(color)s är inte en CSS -färg (t.ex. \"#112233\", \"röd\" eller \"rg
 #, fuzzy
 msgid "updated by"
 msgstr "uppdaterad kl"
+
+#: budget/models.py indicators/models.py
+msgid "dimension"
+msgstr "dimensionera"
+
+#: budget/models.py indicators/models.py
+msgid "dimensions"
+msgstr "mått"
+
+#: budget/models.py indicators/models.py
+msgid "dimension category"
+msgstr "dimensionskategori"
+
+#: budget/models.py indicators/models.py
+msgid "dimension categories"
+msgstr "dimensionskategorier"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Year"
+msgid "Yearly"
+msgstr "År"
+
+#: budget/models.py
+msgid "Time resolution of the time stamps of data points in this dataset"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "unit"
+msgstr "enhet"
+
+#: budget/models.py
+msgid "schema"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "dataset"
+msgstr "dataset"
+
+#: budget/models.py indicators/models.py
+msgid "datasets"
+msgstr "datauppsättningar"
+
+#: budget/models.py
+msgid "Date of this data point in context of the dataset's time resolution"
+msgstr ""
+
+#: budget/models.py indicators/models.py
+msgid "value"
+msgstr "värde"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data point"
+msgstr "Sista datapunkten"
+
+#: budget/models.py
+#, fuzzy
+#| msgid "Last data point"
+msgid "data points"
+msgstr "Sista datapunkten"
+
+#: budget/wagtail_admin.py
+#, fuzzy
+#| msgid "dimensions"
+msgid "Budget dimensions"
+msgstr "mått"
 
 #: content/apps.py
 msgid "According to the action plan"
@@ -2903,10 +3002,6 @@ msgid "verbose name plural"
 msgstr "omfattande namn plural"
 
 #: indicators/models.py
-msgid "unit"
-msgstr "enhet"
-
-#: indicators/models.py
 msgid "units"
 msgstr "enheter"
 
@@ -2937,14 +3032,6 @@ msgstr "Ange om ägareorganisation inte är tillgänglig"
 #: indicators/models.py
 msgid "license"
 msgstr "licens"
-
-#: indicators/models.py
-msgid "dataset"
-msgstr "dataset"
-
-#: indicators/models.py
-msgid "datasets"
-msgstr "datauppsättningar"
 
 #: indicators/models.py
 msgid "framework"
@@ -3103,22 +3190,6 @@ msgid "Unit must be the same as in common indicator (%s)"
 msgstr "Enheten måste vara densamma som i den gemensamma indikatorn (%s)"
 
 #: indicators/models.py
-msgid "dimension"
-msgstr "dimensionera"
-
-#: indicators/models.py
-msgid "dimensions"
-msgstr "mått"
-
-#: indicators/models.py
-msgid "dimension category"
-msgstr "dimensionskategori"
-
-#: indicators/models.py
-msgid "dimension categories"
-msgstr "dimensionskategorier"
-
-#: indicators/models.py
 msgid "indicator dimension"
 msgstr "indikator dimension"
 
@@ -3143,10 +3214,6 @@ msgstr "nivå"
 #: indicators/models.py
 msgid "indicator levels"
 msgstr "indikatornivåer"
-
-#: indicators/models.py
-msgid "value"
-msgstr "värde"
 
 #: indicators/models.py
 msgid "indicator value"
@@ -3382,41 +3449,6 @@ msgid "These are sent when a visitor has left feedback for this plan."
 msgstr "Dessa skickas när en besökare har lämnat feedback för denna plan."
 
 #: notifications/management/commands/initialize_notifications.py
-msgctxt "action_not_updated"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
-msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Det har redan gått sex månader sedan du senast uppdaterade en åtgärd. Gå och uppdatera åtgärden med den senaste informationen. Du kan samtidigt lägga till en kommande uppgift till åtgärden."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "not_enough_tasks"
-msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
-msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Detta innebär att det skulle vara att föredra om varje åtgärd hade minst en kommande uppgift inom det närmaste året. Var vänlig och lägg till uppgifter för åtgärden som visar vad de nästa planerade stegen för åtgärden är."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_due_soon"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
-msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i handlingsplanen.  Det finns en åtgärd i handlingsplanen med en deadline som närmar sig. Kom ihåg att markera uppgiften som utförd så snart den har slutförts. När tidsfristen har löpt ut kommer åtgärden att markeras som sen. Du kan redigera uppgiftsinformationen från länken nedan."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "task_late"
-msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
-msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i åtgärdsplanen. Det finns en åtgärd vars deadline har passerats. Åtgärden visas som sen tills du markerar den som utförd och fyller i några detaljer."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_due_soon"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
-msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för uppdatering av indikatorvärdena närmar sig. Gå och uppdatera indikatorn med de senaste värdena."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "updated_indicator_values_late"
-msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
-msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för att uppdatera indikatorvärdena har passerat. Gå och uppdatera indikatorn med de senaste värdena."
-
-#: notifications/management/commands/initialize_notifications.py
-msgctxt "user_feedback_received"
-msgid "A user has submitted feedback."
-msgstr "En användare har lämnat feedback."
-
-#: notifications/management/commands/initialize_notifications.py
 msgctxt "motivation"
 msgid "Thank you for keeping the action plan updated. Up-to-date information about the actions is essential for us to achieve our goals."
 msgstr "Tack för att ni håller handlingsplanen uppdaterad. Aktuell information om åtgärderna är avgörande för att vi ska kunna uppnå våra mål."
@@ -3437,39 +3469,6 @@ msgstr ""
 "\n"
 "Med vänliga hälsningar,\n"
 "Handlingsplanens administratörer"
-
-#: notifications/models.py
-msgid "Task is late"
-msgstr "Uppgiften är sen"
-
-#: notifications/models.py
-msgid "Task is due soon"
-msgstr "Uppgiften beror snart"
-
-#: notifications/models.py
-msgid "Action metadata has not been updated recently"
-msgstr "Åtgärdens metadata har inte uppdaterats nyligen"
-
-#: notifications/models.py
-msgid "Action doesn't have enough in-progress tasks"
-msgstr "Åtgärd har inte tillräckligt med pågående uppgifter"
-
-#: notifications/models.py
-msgid "Updated indicator values are late"
-msgstr "Uppdaterade indikatorvärden är sent"
-
-#: notifications/models.py
-msgid "Updated indicator values are due soon"
-msgstr "Uppdaterade indikatorvärden kommer snart"
-
-#: notifications/models.py
-msgid "User feedback received"
-msgstr "Feedback från användarna"
-
-#: notifications/models.py
-#, fuzzy
-msgid "Manually scheduled notification"
-msgstr "Manuellt schemalagd avisering"
 
 #: notifications/models.py
 #, fuzzy
@@ -3694,6 +3693,98 @@ msgstr "Ämne för e-postaviseringar"
 #, fuzzy
 msgid "receive action feedback notifications"
 msgstr "Ämne för e-postaviseringar"
+
+#: notifications/notifications.py
+msgctxt "task_late"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan. There is an action whose deadline has passed. The action is shown to be late until you mark it as done and fill in some details."
+msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i åtgärdsplanen. Det finns en åtgärd vars deadline har passerats. Åtgärden visas som sen tills du markerar den som utförd och fyller i några detaljer."
+
+#: notifications/notifications.py
+msgid "Task is late"
+msgstr "Uppgiften är sen"
+
+#: notifications/notifications.py
+msgid "Updated indicator values are late"
+msgstr "Uppdaterade indikatorvärden är sent"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_late"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values has passed. Please go and update the indicator with the latest values."
+msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för att uppdatera indikatorvärdena har passerat. Gå och uppdatera indikatorn med de senaste värdena."
+
+#: notifications/notifications.py
+msgid "Task is due soon"
+msgstr "Uppgiften beror snart"
+
+#: notifications/notifications.py
+msgctxt "task_due_soon"
+msgid "This is an automatic reminder about updating the task information of your action in the action plan.  There is an action in the action plan with a deadline approaching. Please remember to mark the task as done as soon as it has been completed. After the deadline has gone, the action will be marked as late. You can edit the task details from the link below."
+msgstr "Detta är en automatisk påminnelse om att uppdatera uppgiftsinformationen för din åtgärd i handlingsplanen.  Det finns en åtgärd i handlingsplanen med en deadline som närmar sig. Kom ihåg att markera uppgiften som utförd så snart den har slutförts. När tidsfristen har löpt ut kommer åtgärden att markeras som sen. Du kan redigera uppgiftsinformationen från länken nedan."
+
+#: notifications/notifications.py
+msgid "Updated indicator values are due soon"
+msgstr "Uppdaterade indikatorvärden kommer snart"
+
+#: notifications/notifications.py
+msgctxt "updated_indicator_values_due_soon"
+msgid "This is an automatic reminder about updating indicator details in the action plan.  The deadline for updating the indicator values is approaching. Please go and update the indicator with the latest values."
+msgstr "Detta är en automatisk påminnelse om att uppdatera indikatoruppgifterna i handlingsplanen.  Tidsfristen för uppdatering av indikatorvärdena närmar sig. Gå och uppdatera indikatorn med de senaste värdena."
+
+#: notifications/notifications.py
+msgid "Action doesn't have enough in-progress tasks"
+msgstr "Åtgärd har inte tillräckligt med pågående uppgifter"
+
+#: notifications/notifications.py
+msgctxt "not_enough_tasks"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  This means that it would be preferrable for each action to have at least one upcoming task within the next year. Please go and add tasks for the action which show what the next planned steps for the action are."
+msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Detta innebär att det skulle vara att föredra om varje åtgärd hade minst en kommande uppgift inom det närmaste året. Var vänlig och lägg till uppgifter för åtgärden som visar vad de nästa planerade stegen för åtgärden är."
+
+#: notifications/notifications.py
+msgid "Action metadata has not been updated recently"
+msgstr "Åtgärdens metadata har inte uppdaterats nyligen"
+
+#: notifications/notifications.py
+msgctxt "action_not_updated"
+msgid "This is an automatic reminder about updating the action details in the action plan.  You can see on the action plan watch site what has already been done to further the actions and what has been planned for the future.  It's already six months since you last updated an action. Please go and update the action with the latest information. You can add an upcoming task to the action at the same time."
+msgstr "Detta är en automatisk påminnelse om att uppdatera åtgärdsuppgifterna i handlingsplanen.  På handlingsplanens bevakningssida kan du se vad som redan har gjorts för att främja åtgärderna och vad som har planerats för framtiden.  Det har redan gått sex månader sedan du senast uppdaterade en åtgärd. Gå och uppdatera åtgärden med den senaste informationen. Du kan samtidigt lägga till en kommande uppgift till åtgärden."
+
+#: notifications/notifications.py
+msgid "User feedback received"
+msgstr "Feedback från användarna"
+
+#: notifications/notifications.py
+msgctxt "user_feedback_received"
+msgid "A user has submitted feedback."
+msgstr "En användare har lämnat feedback."
+
+#: notifications/notifications.py
+#, fuzzy
+msgid "Manually scheduled notification"
+msgstr "Manuellt schemalagd avisering"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be modified due to errors."
+msgstr "%s kunde inte skapas på grund av fel."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "%s could not be created due to errors."
+msgid "Notifications could not be set up due to errors."
+msgstr "%s kunde inte skapas på grund av fel."
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "scheduled notifications"
+msgid "Cannot schedule a notification for the past"
+msgstr "schemalagda aviseringar"
+
+#: notifications/wagtail_admin.py
+#, fuzzy
+#| msgid "scheduled notifications"
+msgid "Cannot reschedule a notification for the past"
+msgstr "schemalagda aviseringar"
 
 #: notifications/wagtail_admin.py
 msgid "Recipients"
@@ -4857,11 +4948,6 @@ msgid "No permission to remove the user belonging to plans you are not managing.
 msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte hanterar."
 
 #, fuzzy
-#~| msgid "dimensions"
-#~ msgid "Budget dimensions"
-#~ msgstr "mått"
-
-#, fuzzy
 #~ msgid "Notification types"
 #~ msgstr "Meddelanden"
 
@@ -4885,9 +4971,6 @@ msgstr "Inget tillstånd att ta bort användaren som tillhör planer som du inte
 
 #~ msgid "Save changes"
 #~ msgstr "Spara ändringar"
-
-#~ msgid "Year"
-#~ msgstr "År"
 
 #~ msgid "Date"
 #~ msgstr "Datum"
