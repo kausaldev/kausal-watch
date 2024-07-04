@@ -2,6 +2,7 @@ from modeltrans.conf import get_available_languages
 from modeltrans.translator import get_i18n_field
 from modeltrans.utils import build_localized_fieldname
 from rest_framework import serializers, viewsets, permissions
+from rest_framework.fields import Field
 from rest_framework_nested import routers
 
 from aplans.api_router import router
@@ -46,7 +47,7 @@ class DimensionCategorySerializer(I18nFieldSerializerMixin, serializers.ModelSer
 
 class DataPointSerializer(serializers.ModelSerializer):
     # Reference dataset by UUID instead of PK
-    dataset = serializers.SlugRelatedField(slug_field='uuid', read_only=True)
+    dataset: Field = serializers.SlugRelatedField(slug_field='uuid', read_only=True)
     dimension_categories = serializers.SlugRelatedField(
         # FIXME: Restrict queryset to dimension categories available to the dataset
         slug_field='uuid', many=True, queryset=DimensionCategory.objects.all(),
@@ -105,7 +106,7 @@ class DatasetSchemaViewSet(viewsets.ModelViewSet):
 
 
 class DatasetSerializer(I18nFieldSerializerMixin, serializers.ModelSerializer):
-    data_points = serializers.SlugRelatedField(slug_field='uuid', read_only=True, many=True)
+    data_points: Field = serializers.SlugRelatedField(slug_field='uuid', read_only=True, many=True)
     schema = serializers.SlugRelatedField(slug_field='uuid', queryset=DatasetSchema.objects.all())
 
     class Meta:
