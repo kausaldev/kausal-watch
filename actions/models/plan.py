@@ -877,6 +877,9 @@ def is_valid_hostname(hostname):
 
 class PlanDomain(models.Model):
     """A domain (hostname) where an UI for a Plan might live."""
+    class DeploymentEnvironment(models.TextChoices):
+        PRODUCTION = 'production', _('Production')
+        TESTING = 'testing', _('Testing')
 
     plan = ParentalKey(
         Plan, on_delete=models.CASCADE, related_name='domains', verbose_name=_('plan')
@@ -893,6 +896,9 @@ class PlanDomain(models.Model):
             regex=r'^\/[a-z0-9_-]+',
             message=_("Base path must begin with a '/' and not end with '/'")
         )],
+    )
+    deployment_environment = models.CharField(
+        max_length=30, choices=DeploymentEnvironment.choices, verbose_name=_('deployment environment'), blank=True,
     )
     google_site_verification_tag = models.CharField(max_length=50, null=True, blank=True)
     matomo_analytics_url = models.CharField(max_length=100, null=True, blank=True)

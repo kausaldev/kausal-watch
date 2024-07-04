@@ -215,6 +215,7 @@ class PlanAdmin(AplansModelAdmin):
             panels.append(InlinePanel('domains', panels=[
                 FieldPanel('hostname'),
                 FieldPanel('base_path'),
+                FieldPanel('deployment_environment'),
                 FieldPanel('google_site_verification_tag'),
                 FieldPanel('matomo_analytics_url'),
             ], heading=_('Domains')))
