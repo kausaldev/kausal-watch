@@ -564,6 +564,7 @@ CKEDITOR_CONFIGS = {
 }
 
 WAGTAILDOCS_DOCUMENT_MODEL = 'documents.AplansDocument'
+WAGTAILDOCS_SERVE_METHOD = 'serve_view'
 WAGTAILIMAGES_IMAGE_MODEL = 'images.AplansImage'
 WAGTAILIMAGES_EXTENSIONS = ['gif', 'jpg', 'jpeg', 'png', 'webp', 'svg']
 WAGTAILEMBEDS_FINDERS = [
