@@ -216,6 +216,7 @@ class PlanAdmin(AplansModelAdmin):
                 FieldPanel('hostname'),
                 FieldPanel('base_path'),
                 FieldPanel('deployment_environment'),
+                FieldPanel('redirect_aliases'),
                 FieldPanel('google_site_verification_tag'),
                 FieldPanel('matomo_analytics_url'),
             ], heading=_('Domains')))

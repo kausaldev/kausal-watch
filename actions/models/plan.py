@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from django.conf import settings
 from django.contrib.auth.models import Group
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.fields import ArrayField
 from django.core import management
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator, RegexValidator, MaxValueValidator, MinValueValidator
@@ -899,6 +900,15 @@ class PlanDomain(models.Model):
     )
     deployment_environment = models.CharField(
         max_length=30, choices=DeploymentEnvironment.choices, verbose_name=_('deployment environment'), blank=True,
+    )
+    redirect_aliases = ArrayField(
+        models.CharField(max_length=80),
+        blank=True,
+        default=[],
+        verbose_name='redirect aliases',
+        help_text=_(
+            "Domain names that will we used to redirect to the main hostname. Multiple domains are separated by commas."
+        ),
     )
     google_site_verification_tag = models.CharField(max_length=50, null=True, blank=True)
     matomo_analytics_url = models.CharField(max_length=100, null=True, blank=True)
