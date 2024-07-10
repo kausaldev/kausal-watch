@@ -17,6 +17,7 @@ import importlib
 from urllib.parse import urlparse
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.contenttypes.models import ContentType
 from django.urls import include, path, re_path
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
@@ -26,6 +27,7 @@ from django.contrib.auth.views import LogoutView
 from wagtailautocomplete.urls.admin import urlpatterns as autocomplete_admin_urls
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from wagtail.admin.views.pages import search
+from wagtail.models import Page
 
 from .graphene_views import SentryGraphQLView
 from .api_router import router as api_router
@@ -85,20 +87,44 @@ class PageSearchFilterByPlanMixin:
         return restrict_chooser_pages_to_plan(pages, self.request)
 
     def get_queryset(self):
-        pages = super().get_queryset()
-        # The type annotation for search.SearchView.get_queryset() is wrong. The result is not a queryset but a
-        # PostgresSearchResults object.
-        pages = pages.get_queryset()  # pyright:ignore
-        return self.restrict_pages_to_plan(pages)
+        # FIXME: Most of this method is copied from Wagtail's admin/views/pages/search.py. So if this changes in
+        # Wagtail, we need to update this method.
+        # It's also not as easy as just calling super().get_queryset() and doing the filtering afterwards because the
+        # result of super().get_queryset() may be of different types, depending on the search backend, and it's not
+        # necessarily a QuerySet, despite the name of the method and the type annotation. For example, it could be a
+        # PostgresSearchResults or WatchSearchResults object.
+        pages = self.all_pages = (
+            Page.objects.all().prefetch_related("content_type").specific()
+        )
+        if self.show_locale_labels:
+            pages = pages.select_related("locale")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        all_pages = context.get('all_pages')
-        if all_pages:
-            # It's a PostgresSearchResults object
-            all_pages_qs = all_pages.get_queryset()
-            context['all_pages'] = self.restrict_pages_to_plan(all_pages_qs)
-        return context
+        if self.ordering:
+            pages = pages.order_by(self.ordering)
+
+        if self.selected_content_type:
+            pages = pages.filter(content_type=self.selected_content_type)
+
+        # BEGIN KAUSAL HACK
+        pages = self.restrict_pages_to_plan(pages)
+        self.all_pages = self.restrict_pages_to_plan(self.all_pages)
+        # END KAUSAL HACK
+
+        # Parse query and filter
+        pages, self.all_pages = search.page_filter_search(
+            self.q, pages, self.all_pages, self.ordering
+        )
+
+        # Facets
+        if pages.supports_facet:
+            self.content_types = [
+                (ContentType.objects.get(id=content_type_id), count)
+                for content_type_id, count in self.all_pages.facet(
+                    "content_type_id"
+                ).items()
+            ]
+
+        return pages
 
 
 class PageSearchView(PageSearchFilterByPlanMixin, search.SearchView):
