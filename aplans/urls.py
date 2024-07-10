@@ -25,6 +25,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from django.contrib.auth.views import LogoutView
 from wagtailautocomplete.urls.admin import urlpatterns as autocomplete_admin_urls
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from wagtail.admin.views.pages import search
 
 from .graphene_views import SentryGraphQLView
 from .api_router import router as api_router
@@ -34,6 +35,7 @@ from actions.autocomplete import (
     ActionAutocomplete, CategoryAutocomplete, CommonCategoryTypeAutocomplete,
 )
 from admin_site.views import account, RootRedirectView, WadminRedirectView
+from admin_site.wagtail_hooks import restrict_chooser_pages_to_plan
 from indicators.autocomplete import (
     QuantityAutocomplete, UnitAutocomplete, CommonIndicatorAutocomplete, IndicatorAutocomplete
 )
@@ -76,6 +78,39 @@ class KausalLogoutView(LogoutView):
         return base
 
 
+class PageSearchFilterByPlanMixin:
+    def restrict_pages_to_plan(self, pages):
+        # FIXME: We abuse restrict_chooser_pages_to_plan here, but we should ideally put its functionality somewhere
+        # else.
+        return restrict_chooser_pages_to_plan(pages, self.request)
+
+    def get_queryset(self):
+        pages = super().get_queryset()
+        # The type annotation for search.SearchView.get_queryset() is wrong. The result is not a queryset but a
+        # PostgresSearchResults object.
+        pages = pages.get_queryset()  # pyright:ignore
+        return self.restrict_pages_to_plan(pages)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_pages = context.get('all_pages')
+        if all_pages:
+            # It's a PostgresSearchResults object
+            all_pages_qs = all_pages.get_queryset()
+            context['all_pages'] = self.restrict_pages_to_plan(all_pages_qs)
+        return context
+
+
+class PageSearchView(PageSearchFilterByPlanMixin, search.SearchView):
+    """Override Wagtail's SearchView in order to filter the search results by plan."""
+    pass
+
+
+
+class PageSearchResultsView(PageSearchFilterByPlanMixin, search.SearchResultsView):
+    """Override Wagtail's SearchResultsView in order to filter the search results by plan."""
+    pass
+
 
 api_urls = []
 for router in [api_router] + actions_api_routers + budget_api_routers:
@@ -102,7 +137,10 @@ urlpatterns = [
     ), name='graphql-voyager'),
 
     re_path(r'^admin/autocomplete/', include(autocomplete_admin_urls)),
-    # FIXME: This overrides the URL in Wagtail's admin.urls/__init__.py to disable dark mode until we fix CSS issues
+    # FIXME: This overrides the URLs in Wagtail's admin/urls/pages.py to allow filtering the queryset
+    path("admin/pages/search/", PageSearchView.as_view(), name="search"),
+    path("admin/pages/search/results/", PageSearchResultsView.as_view(), name="search_results"),
+    # FIXME: This overrides the URL in Wagtail's admin/urls/__init__.py to disable dark mode until we fix CSS issues
     re_path("^admin/account/", account, name="wagtailadmin_account"),
     re_path(r'^admin/', include(wagtailadmin_urls)),
     re_path(r'^wadmin', WadminRedirectView.as_view(), name='wadmin-redirect'),
