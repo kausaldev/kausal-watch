@@ -81,6 +81,11 @@ class KausalLogoutView(LogoutView):
 
 
 class PageSearchFilterByPlanMixin:
+    show_locale_labels: bool
+    ordering: str
+    selected_content_type: ContentType
+    q: str
+
     def restrict_pages_to_plan(self, pages):
         # FIXME: We abuse restrict_chooser_pages_to_plan here, but we should ideally put its functionality somewhere
         # else.
