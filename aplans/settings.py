@@ -77,7 +77,8 @@ env = environ.FileAwareEnv(
     GITHUB_APP_ID=(str, ''),
     GITHUB_APP_PRIVATE_KEY_FILE=(str, ''),
     GITHUB_APP_PRIVATE_KEY=(str, ''),
-    DEPLOY_ALLOWED_CNAMES=(str, ''),
+    DEPLOY_ALLOWED_CNAMES=(list, []),
+    DEPLOY_TASK_GITOPS_REPO=(str, ''),
 )
 
 BASE_DIR = root()
@@ -138,6 +139,7 @@ else:
 
 
 DEPLOY_ALLOWED_CNAMES = env('DEPLOY_ALLOWED_CNAMES')
+DEPLOY_TASK_GITOPS_REPO = env('DEPLOY_TASK_GITOPS_REPO')
 
 SITE_ID = 1
 
