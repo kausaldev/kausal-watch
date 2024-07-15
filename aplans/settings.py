@@ -64,7 +64,6 @@ env = environ.FileAwareEnv(
     SENDGRID_API_KEY=(str, ''),
     HOSTNAME_PLAN_DOMAINS=(list, ['localhost']),
     ELASTICSEARCH_URL=(str, ''),
-    ADMIN_WILDCARD_DOMAIN=(str, ''),
     CELERY_BROKER_URL=(str, 'redis://localhost:6379'),
     CELERY_RESULT_BACKEND=(str, 'redis://localhost:6379'),
     GOOGLE_MAPS_V3_APIKEY=(str, ''),
@@ -729,7 +728,6 @@ RUNSERVER_PLUS_PRINT_SQL_TRUNCATE = None
 
 
 HOSTNAME_PLAN_DOMAINS = env('HOSTNAME_PLAN_DOMAINS')
-ADMIN_WILDCARD_DOMAIN = env('ADMIN_WILDCARD_DOMAIN')
 
 GOOGLE_MAPS_V3_APIKEY = env('GOOGLE_MAPS_V3_APIKEY')
 
