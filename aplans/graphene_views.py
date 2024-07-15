@@ -215,9 +215,6 @@ class SentryGraphQLView(GraphQLView):
     def caching_execute_graphql_request(
             self, span, request: WatchAPIRequest, data, query, variables, operation_name, *args, **kwargs
         ) -> ExecutionResult:
-        wildcard_domains = request.headers.get(WILDCARD_DOMAIN_HEADER)
-        request.wildcard_domains = [d.lower() for d in wildcard_domains.split(',')] if wildcard_domains else None
-
         key = self.get_cache_key(request, data, query, variables)
         span.set_tag('cache_key', key)
         if key:
@@ -273,6 +270,8 @@ class SentryGraphQLView(GraphQLView):
                 span = sentry_tracing.Span()
 
             with span:
+                wildcard_domains = request.headers.get(WILDCARD_DOMAIN_HEADER)
+                request.wildcard_domains = [d.lower() for d in wildcard_domains.split(',')] if wildcard_domains else None
                 if request.user and request.user.is_authenticated:
                     # Uncached execution for authenticated requests
                     result = super().execute_graphql_request(request, data, query, variables, operation_name, *args, **kwargs)
