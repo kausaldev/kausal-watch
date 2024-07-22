@@ -14,7 +14,8 @@ from wagtailgeowidget import __version__ as WAGTAILGEOWIDGET_VERSION
 from .forms import NodeForm
 from .models import Organization, OrganizationMetadataAdmin
 from .views import (
-    OrganizationCreateView, OrganizationEditView, SetOrganizationRelatedToActivePlanView, CreateChildNodeView,
+    OrganizationCreateView, OrganizationDeleteView, OrganizationEditView, SetOrganizationRelatedToActivePlanView,
+    CreateChildNodeView,
 )
 from admin_site.wagtail import CondensedInlinePanel, get_translation_tabs
 from aplans.context_vars import ctx_instance, ctx_request
@@ -298,6 +299,7 @@ class OrganizationAdmin(ThumbnailMixin, NodeAdmin):
     permission_helper_class = OrganizationPermissionHelper
     create_view_class = OrganizationCreateView
     edit_view_class = OrganizationEditView
+    delete_view_class = OrganizationDeleteView
     search_fields = ('name', 'abbreviation')
     list_display = ('admin_thumb',) + NodeAdmin.list_display + ('abbreviation',)
     list_display_add_buttons = NodeAdmin.list_display[0]

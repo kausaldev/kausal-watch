@@ -1,12 +1,14 @@
+from django.apps import apps
 from django.contrib.admin.utils import unquote
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext as _
-from django.utils.translation import gettext_lazy
+from django.utils.translation import gettext_lazy, ngettext_lazy
 from wagtail.admin import messages
-from wagtail_modeladmin.views import EditView, WMABaseView
+from wagtail_modeladmin.views import DeleteView, EditView, WMABaseView
 
 from admin_site.wagtail import SetInstanceModelAdminMixin
 from admin_site.wagtail import AplansCreateView
@@ -57,6 +59,37 @@ class OrganizationCreateView(OrganizationViewMixin, AplansCreateView):
 
 class OrganizationEditView(OrganizationViewMixin, SetInstanceModelAdminMixin, EditView):
     pass
+
+
+class Rollback(Exception):
+    pass
+
+
+class OrganizationDeleteView(OrganizationViewMixin, SetInstanceModelAdminMixin, DeleteView):
+    def confirmation_message(self):
+        message = super().confirmation_message()
+        if not self.instance:
+            return message
+        message += '\n' + _("This will delete the following objects:") + '\n'
+        num_deleted_by_model = {}
+        try:
+            with transaction.atomic():
+                num_deleted_by_model = self.instance.delete()[1]
+                raise Rollback()
+        except Rollback:
+            pass
+        items = []
+        for model_identifier, num_deleted in num_deleted_by_model.items():
+            model = apps.get_model(model_identifier)
+            singular_str = "%(num_instances)d %(model_name_singular)s"
+            plural_str = "%(num_instances)d %(model_name_plural)s"
+            items.append(ngettext_lazy(singular_str, plural_str, num_deleted) % {
+                'num_instances': num_deleted,
+                'model_name_singular': model._meta.verbose_name,
+                'model_name_plural': model._meta.verbose_name_plural,
+            })
+        message += ';\n'.join(items)
+        return message
 
 
 class SetOrganizationRelatedToActivePlanView(WMABaseView):
