@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-22 20:00+0200\n"
-"PO-Revision-Date: 2024-07-04 18:20+0000\n"
+"PO-Revision-Date: 2024-07-22 18:04+0000\n"
 "Last-Translator: Weblate Admin <noreply@mj.kausal.tech>\n"
-"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/"
-">\n"
+"Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2415,11 +2415,9 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Feld '%(field)s' im Modell '%(model)s' des Plans '%(plan)s'"
 
 #: admin_site/signals.py
-#, fuzzy, python-format
+#, python-format
 msgid "You are now viewing the site as %(user)s."
-msgstr ""
-"Möchten Sie wirklich einen Link zum Zurücksetzen des Passworts an %(person)s "
-"senden?"
+msgstr "Sie sehen die Website jetzt als %(user)s."
 
 #: admin_site/signals.py
 #, python-format
@@ -2427,6 +2425,8 @@ msgid ""
 "You have stopped viewing the site as %(user)s and have returned to your "
 "original account."
 msgstr ""
+"Sie haben aufgehört, die Website als %(user)s zu betrachten und sind zu "
+"Ihrem ursprünglichen Konto zurückgekehrt."
 
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Indicators assigned to me"
@@ -2455,7 +2455,7 @@ msgstr "vor %(time_period)s"
 
 #: admin_site/templates/admin_site/release_impersonation.html
 msgid "Back to own user"
-msgstr ""
+msgstr "Zurück zum eigenen Benutzer"
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
 #, python-format
@@ -4128,9 +4128,8 @@ msgid "metadata admins"
 msgstr "Metadaten-Admins"
 
 #: orgs/views.py
-#, fuzzy
 msgid "This will delete the following objects:"
-msgstr "Dadurch werden die folgenden Maßnahmen als abgeschlossen markiert:"
+msgstr "Dadurch werden die folgenden Objekte gelöscht:"
 
 #: orgs/views.py
 msgid "Add organization to active plan"
@@ -4812,21 +4811,18 @@ msgstr ""
 "%(days_until_expiration)s Tagen ablaufen."
 
 #: people/views.py people/wagtail_admin.py
-#, fuzzy
 msgid "View as user"
-msgstr "%s live ansehen"
+msgstr "Als Benutzer ansehen"
 
 #: people/views.py
-#, fuzzy, python-format
+#, python-format
 msgid "Confirm viewing the site as user %(person)s"
-msgstr "Bestätige Senden des Passwort-Rücksetz-Links an %(person)s"
+msgstr "Bestätige Anzeigen der Website als Benutzer %(person)s"
 
 #: people/views.py
-#, fuzzy, python-format
+#, python-format
 msgid "Do you really want to view the site as %(person)s?"
-msgstr ""
-"Möchten Sie wirklich einen Link zum Zurücksetzen des Passworts an %(person)s "
-"senden?"
+msgstr "Wollen Sie die Website wirklich als %(person)s betrachten?"
 
 #: people/wagtail_admin.py
 msgid "Is contact person"
@@ -4883,7 +4879,7 @@ msgstr "Einen Link zum Zurücksetzen des Passworts erstellen"
 
 #: people/wagtail_admin.py
 msgid "View site as it looks for this user"
-msgstr ""
+msgstr "Website anzeigen, wie sie für diesen Benutzer aussieht"
 
 #: people/wagtail_admin.py
 msgid "Are you sure you want to deactivate this person?"
