@@ -3,6 +3,7 @@ from django.contrib.admin.utils import unquote
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
+from django.db.models import ProtectedError
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext as _
@@ -78,6 +79,9 @@ class OrganizationDeleteView(OrganizationViewMixin, SetInstanceModelAdminMixin, 
                 raise Rollback()
         except Rollback:
             pass
+        except ProtectedError:
+            # After confirming, the user will get an explanation why deletion didn't work
+            return message
         items = []
         for model_identifier, num_deleted in num_deleted_by_model.items():
             model = apps.get_model(model_identifier)
