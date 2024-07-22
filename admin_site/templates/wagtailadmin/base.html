@@ -41,7 +41,7 @@
       });
     </script>
     {# Set role alert for notifications for accessibility #}
-    
+
     {% if request.user.is_hijacked %}
         {% include "admin_site/release_impersonation.html" %}
     {% endif %}

@@ -336,7 +336,7 @@ class PersonButtonHelper(ButtonHelper):
                 )
             buttons.append(impersonation_button)
         return buttons
-    
+
 
 class PersonDeleteView(ActivatePermissionHelperPlanContextModelAdminMixin, DeleteView):
     instance: Person

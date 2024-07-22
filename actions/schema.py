@@ -1064,7 +1064,7 @@ class ActionNode(AdminButtonsMixin, AttributesMixin, DjangoNode):
     @staticmethod
     def resolve_previous_action(root: Action, info):
         return root.get_previous_action(info.context.user)
-    
+
     @gql_optimizer.resolver_hints(
         model_field='related_indicators',
     )

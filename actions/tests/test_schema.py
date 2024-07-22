@@ -1384,7 +1384,7 @@ def test_action_node_next_previous(graphql_client_query_data):
 @pytest.mark.parametrize('ordering',
   [
     OrderBy.NONE,
-    OrderBy.NAME    
+    OrderBy.NAME
   ])
 def test_action_node_related_indicators_ordering(graphql_client_query_data, ordering):
     plan = PlanFactory()

@@ -24,7 +24,7 @@ def test_regular_user_cannot_impersonate(client):
     regular_user = UserFactory(username='regular_user')
     another_user = UserFactory(username='another')
     client.force_login(regular_user)
-    
+
     url = reverse('hijack:acquire')
     response = client.post(url, {'user_pk': another_user.pk})
     assert response.status_code == 403  # Forbidden
@@ -34,7 +34,7 @@ def test_regular_user_cannot_impersonate(client):
 def test_superuser_cannot_impersonate_themselves(client):
     superuser = UserFactory(username='superuser', is_superuser=True)
     client.force_login(superuser)
-    
+
     url = reverse('hijack:acquire')
     response = client.post(url, {'user_pk': superuser.pk})
     assert response.status_code == 403  # Forbidden
@@ -44,7 +44,7 @@ def test_impersonated_cannot_impersonate(client):
     another_superuser = UserFactory(username='another_superuser', is_superuser=True)
     regular_user = UserFactory(username='regular_user')
     client.force_login(superuser)
-    
+
     url = reverse('hijack:acquire')
     response = client.post(url, {'user_pk': another_superuser.pk})
     assert response.status_code == 302  # Redirect on success
