@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 18:25+0200\n"
+"POT-Creation-Date: 2024-07-22 19:46+0200\n"
 "PO-Revision-Date: 2023-10-25 12:21+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Spanish (American) <https://weblate.kausal.tech/projects/watch/django/es_US/>\n"
@@ -1855,6 +1855,10 @@ msgid "deployment environment"
 msgstr ""
 
 #: actions/models/plan.py
+msgid "Domain names that will we used to redirect to the main hostname. Multiple domains are separated by commas."
+msgstr ""
+
+#: actions/models/plan.py
 msgid "Immediate override of publishing status"
 msgstr ""
 
@@ -2177,6 +2181,16 @@ msgstr ""
 msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr ""
 
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You are now viewing the site as {hijacked}"
+msgstr ""
+
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+msgstr ""
+
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Indicators assigned to me"
 msgstr ""
@@ -2200,6 +2214,10 @@ msgstr ""
 #: admin_site/templates/admin_site/own_indicators_panel.html
 #, python-format
 msgid "%(time_period)s ago"
+msgstr ""
+
+#: admin_site/templates/admin_site/release_impersonation.html
+msgid "Back to own user"
 msgstr ""
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
@@ -2231,6 +2249,21 @@ msgstr ""
 msgid "Your account settings have been changed successfully!"
 msgstr ""
 
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "Error deleting items. Try first deleting any %(name)s that are in use."
+msgstr ""
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "In use: \"%(instance)s\"."
+msgstr ""
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "%s could not be created due to errors."
+msgstr ""
+
 #: admin_site/wagtail.py
 msgid "View live"
 msgstr ""
@@ -2238,21 +2271,6 @@ msgstr ""
 #: admin_site/wagtail.py
 #, python-format
 msgid "View %s live"
-msgstr ""
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "Error deleting items. Try first deleting any %(name)s that are in use."
-msgstr ""
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "In use: \"%(instance)s\"."
-msgstr ""
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "%s could not be created due to errors."
 msgstr ""
 
 #: admin_site/wagtail.py
@@ -3689,6 +3707,10 @@ msgid "metadata admins"
 msgstr ""
 
 #: orgs/views.py
+msgid "This will delete the following objects:"
+msgstr ""
+
+#: orgs/views.py
 msgid "Add organization to active plan"
 msgstr ""
 
@@ -4285,6 +4307,14 @@ msgstr ""
 msgid "No, don't delete"
 msgstr ""
 
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "Yes"
+msgstr ""
+
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "No"
+msgstr ""
+
 #: people/views.py people/wagtail_admin.py
 msgid "Reset password"
 msgstr ""
@@ -4312,6 +4342,20 @@ msgstr ""
 #: people/views.py
 #, python-format
 msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
+msgstr ""
+
+#: people/views.py people/wagtail_admin.py
+msgid "View as user"
+msgstr ""
+
+#: people/views.py
+#, python-format
+msgid "Confirm viewing the site as user %(person)s"
+msgstr ""
+
+#: people/views.py
+#, python-format
+msgid "Do you really want to view the site as %(person)s?"
 msgstr ""
 
 #: people/wagtail_admin.py
@@ -4365,6 +4409,10 @@ msgstr ""
 
 #: people/wagtail_admin.py
 msgid "Create a password reset link"
+msgstr ""
+
+#: people/wagtail_admin.py
+msgid "View site as it looks for this user"
 msgstr ""
 
 #: people/wagtail_admin.py
@@ -4615,14 +4663,6 @@ msgstr ""
 
 #: reports/wagtail_admin.py
 msgid "Report types"
-msgstr ""
-
-#: templates/aplans/confirmation.html
-msgid "Yes"
-msgstr ""
-
-#: templates/aplans/confirmation.html
-msgid "No"
 msgstr ""
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html

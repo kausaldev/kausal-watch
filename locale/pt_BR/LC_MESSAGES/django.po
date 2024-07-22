@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 18:25+0200\n"
+"POT-Creation-Date: 2024-07-22 19:46+0200\n"
 "PO-Revision-Date: 2024-05-28 07:20+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.kausal.tech/projects/watch/django/pt_BR/>\n"
@@ -2238,6 +2238,10 @@ msgid "deployment environment"
 msgstr ""
 
 #: actions/models/plan.py
+msgid "Domain names that will we used to redirect to the main hostname. Multiple domains are separated by commas."
+msgstr ""
+
+#: actions/models/plan.py
 #, fuzzy
 msgid "Immediate override of publishing status"
 msgstr "Substituição imediata do status de publicação"
@@ -2626,6 +2630,16 @@ msgstr "%(field)s não é um campo válido no modelo '%(model)s'"
 msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Campo '%(field)s' no modelo '%(model)s' do plano '%(plan)s'"
 
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You are now viewing the site as {hijacked}"
+msgstr ""
+
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+msgstr ""
+
 #: admin_site/templates/admin_site/own_indicators_panel.html
 #, fuzzy
 msgid "Indicators assigned to me"
@@ -2655,6 +2669,10 @@ msgstr "Editar dados"
 #, fuzzy, python-format
 msgid "%(time_period)s ago"
 msgstr "%(time_period)s atrás"
+
+#: admin_site/templates/admin_site/release_impersonation.html
+msgid "Back to own user"
+msgstr ""
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
 #, fuzzy, python-format
@@ -2691,6 +2709,21 @@ msgstr "Campo não público"
 msgid "Your account settings have been changed successfully!"
 msgstr "As configurações de sua conta foram alteradas com sucesso!"
 
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, fuzzy, python-format
+msgid "Error deleting items. Try first deleting any %(name)s that are in use."
+msgstr "Erro ao excluir itens. Tente primeiro excluir qualquer %(name)s que esteja em uso."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, fuzzy, python-format
+msgid "In use: \"%(instance)s\"."
+msgstr "Em uso: \"%(instance)s\"."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, fuzzy, python-format
+msgid "%s could not be created due to errors."
+msgstr "%s não pôde ser criado devido a erros."
+
 #: admin_site/wagtail.py
 #, fuzzy
 msgid "View live"
@@ -2700,21 +2733,6 @@ msgstr "Ver ao vivo"
 #, fuzzy, python-format
 msgid "View %s live"
 msgstr "Veja %s ao vivo"
-
-#: admin_site/wagtail.py
-#, fuzzy, python-format
-msgid "Error deleting items. Try first deleting any %(name)s that are in use."
-msgstr "Erro ao excluir itens. Tente primeiro excluir qualquer %(name)s que esteja em uso."
-
-#: admin_site/wagtail.py
-#, fuzzy, python-format
-msgid "In use: \"%(instance)s\"."
-msgstr "Em uso: \"%(instance)s\"."
-
-#: admin_site/wagtail.py
-#, fuzzy, python-format
-msgid "%s could not be created due to errors."
-msgstr "%s não pôde ser criado devido a erros."
 
 #: admin_site/wagtail.py
 #, fuzzy, python-brace-format
@@ -4475,6 +4493,11 @@ msgstr "administradores de metadados"
 
 #: orgs/views.py
 #, fuzzy
+msgid "This will delete the following objects:"
+msgstr "Isso marcará as seguintes ações como concluídas:"
+
+#: orgs/views.py
+#, fuzzy
 msgid "Add organization to active plan"
 msgstr "Adicionar organização ao plano ativo"
 
@@ -5205,6 +5228,16 @@ msgstr "Sim, excluir"
 msgid "No, don't delete"
 msgstr "Não, não exclua"
 
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+#, fuzzy
+msgid "Yes"
+msgstr "Sim"
+
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+#, fuzzy
+msgid "No"
+msgstr "Não"
+
 #: people/views.py people/wagtail_admin.py
 #, fuzzy
 msgid "Reset password"
@@ -5234,6 +5267,21 @@ msgstr "Se o e-mail não chegar, você pode enviar o seguinte link: %(url)s"
 #, fuzzy, python-format
 msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
 msgstr "Tome muito cuidado para que ninguém, exceto %(person)s, tenha acesso ao link. Para maior segurança, o link expirará em %(days_until_expiration)s dias."
+
+#: people/views.py people/wagtail_admin.py
+#, fuzzy
+msgid "View as user"
+msgstr "Veja %s ao vivo"
+
+#: people/views.py
+#, fuzzy, python-format
+msgid "Confirm viewing the site as user %(person)s"
+msgstr "Confirme o envio do link de redefinição de senha para %(person)s"
+
+#: people/views.py
+#, fuzzy, python-format
+msgid "Do you really want to view the site as %(person)s?"
+msgstr "Você realmente deseja enviar um link de redefinição de senha para %(person)s?"
 
 #: people/wagtail_admin.py
 #, fuzzy
@@ -5299,6 +5347,10 @@ msgstr "Desativar"
 #, fuzzy
 msgid "Create a password reset link"
 msgstr "Criar um link de redefinição de senha"
+
+#: people/wagtail_admin.py
+msgid "View site as it looks for this user"
+msgstr ""
 
 #: people/wagtail_admin.py
 #, fuzzy
@@ -5591,16 +5643,6 @@ msgstr "Desfazer a marcação deste relatório como concluído"
 #, fuzzy
 msgid "Report types"
 msgstr "Tipos de relatório"
-
-#: templates/aplans/confirmation.html
-#, fuzzy
-msgid "Yes"
-msgstr "Sim"
-
-#: templates/aplans/confirmation.html
-#, fuzzy
-msgid "No"
-msgstr "Não"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
 #, fuzzy

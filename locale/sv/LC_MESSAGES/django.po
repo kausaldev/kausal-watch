@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 18:25+0200\n"
+"POT-Creation-Date: 2024-07-22 19:46+0200\n"
 "PO-Revision-Date: 2024-06-04 14:20+0000\n"
 "Last-Translator: Jan-Erik Sundman <jan-erik.sundman@kausal.tech>\n"
 "Language-Team: Swedish <https://weblate.kausal.tech/projects/watch/django/sv/>\n"
@@ -1952,6 +1952,10 @@ msgid "deployment environment"
 msgstr ""
 
 #: actions/models/plan.py
+msgid "Domain names that will we used to redirect to the main hostname. Multiple domains are separated by commas."
+msgstr ""
+
+#: actions/models/plan.py
 msgid "Immediate override of publishing status"
 msgstr "Omedelbart upphävande av publiceringsstatus"
 
@@ -2300,6 +2304,16 @@ msgstr "%(field)s är inte ett giltigt fält i modellen '%(model)s'"
 msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Fält '%(field)s' i modell '%(model)s' av plan '%(plan)s'"
 
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You are now viewing the site as {hijacked}"
+msgstr ""
+
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+msgstr ""
+
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Indicators assigned to me"
 msgstr "Indikatorer tilldelade mig"
@@ -2324,6 +2338,10 @@ msgstr "Redigera data"
 #, python-format
 msgid "%(time_period)s ago"
 msgstr "%(time_period)s sedan"
+
+#: admin_site/templates/admin_site/release_impersonation.html
+msgid "Back to own user"
+msgstr ""
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
 #, python-format
@@ -2359,6 +2377,21 @@ msgstr "Offentlig"
 msgid "Your account settings have been changed successfully!"
 msgstr "Dina kontoinställningar har ändrats framgångsrikt!"
 
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "Error deleting items. Try first deleting any %(name)s that are in use."
+msgstr "Fel vid radering av objekt. Försök först ta bort alla %(name)s som används."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "In use: \"%(instance)s\"."
+msgstr "I bruk: \"%(instance)s\"."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "%s could not be created due to errors."
+msgstr "%s kunde inte skapas på grund av fel."
+
 #: admin_site/wagtail.py
 msgid "View live"
 msgstr "Visa live"
@@ -2367,21 +2400,6 @@ msgstr "Visa live"
 #, python-format
 msgid "View %s live"
 msgstr "Visa %s live"
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "Error deleting items. Try first deleting any %(name)s that are in use."
-msgstr "Fel vid radering av objekt. Försök först ta bort alla %(name)s som används."
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "In use: \"%(instance)s\"."
-msgstr "I bruk: \"%(instance)s\"."
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "%s could not be created due to errors."
-msgstr "%s kunde inte skapas på grund av fel."
 
 #: admin_site/wagtail.py
 #, python-brace-format
@@ -3921,6 +3939,12 @@ msgid "metadata admins"
 msgstr "metadata_choices"
 
 #: orgs/views.py
+#, fuzzy
+#| msgid "This will mark the following actions as complete:"
+msgid "This will delete the following objects:"
+msgstr "Detta kommer att markera följande åtgärder som slutförda:"
+
+#: orgs/views.py
 msgid "Add organization to active plan"
 msgstr "Lägg till organisation i aktiv plan"
 
@@ -4556,6 +4580,14 @@ msgstr "Ja, radera"
 msgid "No, don't delete"
 msgstr "Nej, radera inte"
 
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "Yes"
+msgstr "Ja"
+
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "No"
+msgstr "Nej"
+
 #: people/views.py people/wagtail_admin.py
 #, fuzzy
 msgid "Reset password"
@@ -4585,6 +4617,22 @@ msgstr "Om e-postmeddelandet inte kommer fram kan du skicka följande länk till
 #, python-format
 msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
 msgstr "Vänligen se till att ingen annan än %(person)s får tillgång till länken. För ytterligare säkerhet kommer länken att upphöra att gälla om %(days_until_expiration)s dagar."
+
+#: people/views.py people/wagtail_admin.py
+#, fuzzy
+#| msgid "View %s live"
+msgid "View as user"
+msgstr "Visa %s live"
+
+#: people/views.py
+#, fuzzy, python-format
+msgid "Confirm viewing the site as user %(person)s"
+msgstr "Bekräfta att %(org)s ingår i planen %(plan)s"
+
+#: people/views.py
+#, fuzzy, python-format
+msgid "Do you really want to view the site as %(person)s?"
+msgstr "Vill du verkligen inkludera organisationen '%(org)s' i planen '%(plan)s'?"
 
 #: people/wagtail_admin.py
 msgid "Is contact person"
@@ -4641,6 +4689,10 @@ msgstr "Avaktivera"
 #: people/wagtail_admin.py
 msgid "Create a password reset link"
 msgstr "Skapa en länk för återställning av lösenord"
+
+#: people/wagtail_admin.py
+msgid "View site as it looks for this user"
+msgstr ""
 
 #: people/wagtail_admin.py
 msgid "Are you sure you want to deactivate this person?"
@@ -4910,14 +4962,6 @@ msgstr "Ångra markeringen av denna rapport som fullständig"
 #, fuzzy
 msgid "Report types"
 msgstr "Kategorityper"
-
-#: templates/aplans/confirmation.html
-msgid "Yes"
-msgstr "Ja"
-
-#: templates/aplans/confirmation.html
-msgid "No"
-msgstr "Nej"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
 msgid "This page has unsaved changes."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 18:25+0200\n"
+"POT-Creation-Date: 2024-07-22 19:46+0200\n"
 "PO-Revision-Date: 2024-05-27 09:31+0000\n"
 "Last-Translator: Timo Tuominen <timo.tuominen@kausal.tech>\n"
 "Language-Team: Latvian <https://weblate.kausal.tech/projects/watch/django/lv/>\n"
@@ -1910,6 +1910,10 @@ msgid "deployment environment"
 msgstr ""
 
 #: actions/models/plan.py
+msgid "Domain names that will we used to redirect to the main hostname. Multiple domains are separated by commas."
+msgstr ""
+
+#: actions/models/plan.py
 msgid "Immediate override of publishing status"
 msgstr "Tūlītēja publicēšanas statusa atcelšana"
 
@@ -2238,6 +2242,16 @@ msgstr "%(field)s nav derīgs lauks modelī '%(model)s'"
 msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Lauks '%(field)s' plāna '%(plan)s' modelī '%(model)s'"
 
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You are now viewing the site as {hijacked}"
+msgstr ""
+
+#: admin_site/signals.py
+#, python-brace-format
+msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+msgstr ""
+
 #: admin_site/templates/admin_site/own_indicators_panel.html
 msgid "Indicators assigned to me"
 msgstr "Man piešķirtie rādītāji"
@@ -2262,6 +2276,10 @@ msgstr "Rediģēt datus"
 #, python-format
 msgid "%(time_period)s ago"
 msgstr "%(time_period)s pirms"
+
+#: admin_site/templates/admin_site/release_impersonation.html
+msgid "Back to own user"
+msgstr ""
 
 #: admin_site/templates/dal_admin_filters/autocomplete-filter.html
 #, python-format
@@ -2296,6 +2314,21 @@ msgstr ""
 msgid "Your account settings have been changed successfully!"
 msgstr "Jūsu konta iestatījumi ir veiksmīgi mainīti!"
 
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "Error deleting items. Try first deleting any %(name)s that are in use."
+msgstr "Kļūda dzēšot vienumus. Vispirms mēģiniet izdzēst visus %(name)s, kas tiek izmantoti."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "In use: \"%(instance)s\"."
+msgstr "Lietošanā: \"%(instance)s\"."
+
+#: admin_site/viewsets.py admin_site/wagtail.py
+#, python-format
+msgid "%s could not be created due to errors."
+msgstr "%s nevarēja izveidot kļūdu dēļ."
+
 #: admin_site/wagtail.py
 msgid "View live"
 msgstr "Skatīt tiešraidē"
@@ -2304,21 +2337,6 @@ msgstr "Skatīt tiešraidē"
 #, python-format
 msgid "View %s live"
 msgstr "Skatīt %s tiešraidē"
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "Error deleting items. Try first deleting any %(name)s that are in use."
-msgstr "Kļūda dzēšot vienumus. Vispirms mēģiniet izdzēst visus %(name)s, kas tiek izmantoti."
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "In use: \"%(instance)s\"."
-msgstr "Lietošanā: \"%(instance)s\"."
-
-#: admin_site/wagtail.py
-#, python-format
-msgid "%s could not be created due to errors."
-msgstr "%s nevarēja izveidot kļūdu dēļ."
 
 #: admin_site/wagtail.py
 #, python-brace-format
@@ -3806,6 +3824,12 @@ msgid "metadata admins"
 msgstr "metadatu administratori"
 
 #: orgs/views.py
+#, fuzzy
+#| msgid "This will mark the following actions as complete:"
+msgid "This will delete the following objects:"
+msgstr "Šādas rīcības tiks atzīmētas kā pabeigtas:"
+
+#: orgs/views.py
 msgid "Add organization to active plan"
 msgstr "Organizācijas pievienošana aktīvajam plānam"
 
@@ -4410,6 +4434,14 @@ msgstr "Jā, dzēst"
 msgid "No, don't delete"
 msgstr "Nē, neizdzēst"
 
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "Yes"
+msgstr "Jā"
+
+#: people/templates/people/view_as_user.html templates/aplans/confirmation.html
+msgid "No"
+msgstr "Nē"
+
 #: people/views.py people/wagtail_admin.py
 msgid "Reset password"
 msgstr "Paroles atiestatīšana"
@@ -4438,6 +4470,24 @@ msgstr "Ja e-pasta vēstule netiek saņemta, varat nosūtīt viņiem šādu sait
 #, python-format
 msgid "Please take great care that nobody except %(person)s gets access to the link. For additional security, the link will expire in %(days_until_expiration)s days."
 msgstr "Lūdzu, ļoti uzmaniet, lai saitei piekļūtu tikai %(person)s. Papildu drošības labad saites derīguma termiņš beigsies pēc %(days_until_expiration)s dienām."
+
+#: people/views.py people/wagtail_admin.py
+#, fuzzy
+#| msgid "View %s live"
+msgid "View as user"
+msgstr "Skatīt %s tiešraidē"
+
+#: people/views.py
+#, fuzzy, python-format
+#| msgid "Confirm sending password reset link to %(person)s"
+msgid "Confirm viewing the site as user %(person)s"
+msgstr "Apstipriniet paroles atiestatīšanas saites nosūtīšanu uz %(person)s"
+
+#: people/views.py
+#, fuzzy, python-format
+#| msgid "Do you really want to send a password reset link to %(person)s?"
+msgid "Do you really want to view the site as %(person)s?"
+msgstr "Vai tiešām vēlaties sūtīt paroles atiestatīšanas saiti uz %(person)s?"
 
 #: people/wagtail_admin.py
 msgid "Is contact person"
@@ -4491,6 +4541,10 @@ msgstr "Deaktivizēt"
 #: people/wagtail_admin.py
 msgid "Create a password reset link"
 msgstr "Izveidot paroles atiestatīšanas saiti"
+
+#: people/wagtail_admin.py
+msgid "View site as it looks for this user"
+msgstr ""
 
 #: people/wagtail_admin.py
 msgid "Are you sure you want to deactivate this person?"
@@ -4741,14 +4795,6 @@ msgstr "Atcelt šī ziņojuma atzīšanu par pabeigtu"
 #: reports/wagtail_admin.py
 msgid "Report types"
 msgstr "Pārskatu veidi"
-
-#: templates/aplans/confirmation.html
-msgid "Yes"
-msgstr "Jā"
-
-#: templates/aplans/confirmation.html
-msgid "No"
-msgstr "Nē"
 
 #: templates/modeladmin/create.html templates/modeladmin/edit.html
 msgid "This page has unsaved changes."
