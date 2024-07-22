@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 19:46+0200\n"
+"POT-Creation-Date: 2024-07-22 20:00+0200\n"
 "PO-Revision-Date: 2024-07-04 18:20+0000\n"
 "Last-Translator: Weblate Admin <noreply@mj.kausal.tech>\n"
 "Language-Team: German <https://weblate.kausal.tech/projects/watch/django/de/>\n"
@@ -2191,13 +2191,14 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr "Feld '%(field)s' im Modell '%(model)s' des Plans '%(plan)s'"
 
 #: admin_site/signals.py
-#, python-brace-format
-msgid "You are now viewing the site as {hijacked}"
-msgstr ""
+#, fuzzy, python-format
+#| msgid "Do you really want to send a password reset link to %(person)s?"
+msgid "You are now viewing the site as %(user)s."
+msgstr "Möchten Sie wirklich einen Link zum Zurücksetzen des Passworts an %(person)s senden?"
 
 #: admin_site/signals.py
-#, python-brace-format
-msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+#, python-format
+msgid "You have stopped viewing the site as %(user)s and have returned to your original account."
 msgstr ""
 
 #: admin_site/templates/admin_site/own_indicators_panel.html

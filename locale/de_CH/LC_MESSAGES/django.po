@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 19:46+0200\n"
+"POT-Creation-Date: 2024-07-22 20:00+0200\n"
 "PO-Revision-Date: 2024-03-08 13:14+0000\n"
 "Last-Translator: Bernhard Bliem <bernhard.bliem@kausal.tech>\n"
 "Language-Team: German (Switzerland) <https://weblate.kausal.tech/projects/watch/django/de_CH/>\n"
@@ -2231,13 +2231,14 @@ msgid "Field '%(field)s' in model '%(model)s' of plan '%(plan)s'"
 msgstr ""
 
 #: admin_site/signals.py
-#, python-brace-format
-msgid "You are now viewing the site as {hijacked}"
-msgstr ""
+#, fuzzy, python-format
+#| msgid "Do you really want to exclude the organization '%(org)s' from the plan '%(plan)s'?"
+msgid "You are now viewing the site as %(user)s."
+msgstr "Wollen Sie die Organisation '%(org)s' wirklich aus dem Plan '%(plan)s' ausschliessen?"
 
 #: admin_site/signals.py
-#, python-brace-format
-msgid "You have stopped viewing the site as {hijacked} and have returned to your original account."
+#, python-format
+msgid "You have stopped viewing the site as %(user)s and have returned to your original account."
 msgstr ""
 
 #: admin_site/templates/admin_site/own_indicators_panel.html

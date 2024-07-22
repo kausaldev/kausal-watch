@@ -13,10 +13,13 @@ hijack_log = logger.bind(impersonation=True)
 def on_hijack_started(sender, hijacker: User, hijacked: User, request: WatchAdminRequest, **kwargs):
     hijack_log.bind(impersonation_actor=hijacker.email, impersonation_target=hijacked.email).info(
         f"{hijacker} has started impersonation for user {hijacked}")
-    messages.warning(request, _(f"You are now viewing the site as {hijacked}"))
+    messages.warning(request, _("You are now viewing the site as %(user)s.") % {'user': hijacked})
 
 @receiver(hijack_ended)
 def on_hijack_ended(sender, hijacker: User, hijacked: User, request: WatchAdminRequest, **kwargs):
     hijack_log.bind(impersonation_actor=hijacker.email, impersonation_target=hijacked.email).info(
         f"{hijacker} has ended impersonation for user {hijacked}")
-    messages.success(request, _(f"You have stopped viewing the site as {hijacked} and have returned to your original account."))
+    message = _(f"You have stopped viewing the site as %(user)s and have returned to your original account.") % {
+        'user': hijacked,
+    }
+    messages.success(request, message)
