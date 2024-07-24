@@ -1,9 +1,11 @@
+from django.conf import settings
 from django.core.files import File
 from django.core.files.storage import Storage
 from django.core.files.storage import FileSystemStorage
 from django.utils.deconstruct import deconstructible
 from storages.backends.s3boto3 import S3Boto3Storage
 from storages.utils import setting
+from urllib.parse import ParseResult, parse_qs
 
 
 class MediaFilesS3Storage(S3Boto3Storage):
@@ -76,3 +78,27 @@ class LocalMediaStorageWithS3Fallback(Storage):
         if self.fs_storage.exists(name):
             return self.fs_storage.url(name)
         return self.s3_storage.url(name)
+
+
+def storage_settings_from_s3_url(url: ParseResult):
+    assert url.scheme == 's3'
+    opts = {
+        'bucket_name': url.path.lstrip('/'),
+    }
+    if url.hostname:
+        opts['endpoint_url'] = f'https://{url.hostname}'
+    if url.username:
+        opts['access_key'] = url.username
+    if url.password:
+        opts['secret_key'] = url.password
+    for key, val in parse_qs(url.query).items():
+        assert len(val) == 1
+        opts[key] = val[0]
+    if settings.DEPLOYMENT_TYPE == 'production':
+        backend = 'aplans.storage.MediaFilesS3Storage'
+    else:
+        backend = 'aplans.storage.LocalMediaStorageWithS3Fallback'
+    return {
+        'BACKEND': backend,
+        'OPTIONS': opts,
+    }

@@ -19,7 +19,9 @@ from corsheaders.defaults import default_headers as default_cors_headers  # noqa
 from django.utils.translation import gettext_lazy as _
 from environ.environ import ImproperlyConfigured
 from typing import Any, Literal
-from urllib.parse import parse_qs, ParseResult
+from urllib.parse import ParseResult
+
+from aplans.storage import storage_settings_from_s3_url
 
 root = environ.Path(__file__) - 2  # two folders back
 env = environ.FileAwareEnv(
@@ -273,29 +275,9 @@ STORAGES: dict[str, dict[str, Any]] = {
 
 media_storage_url: ParseResult = env.url('S3_MEDIA_STORAGE_URL')
 if media_storage_url.scheme:
-    url = media_storage_url
-    if url.scheme != 's3':
+    if media_storage_url.scheme != 's3':
         raise ImproperlyConfigured('S3_MEDIA_STORAGE_URL only supports s3 scheme')
-    opts = {
-        'bucket_name': url.path.lstrip('/'),
-    }
-    if url.hostname:
-        opts['endpoint_url'] = f'https://{url.hostname}'
-    if url.username:
-        opts['access_key'] = url.username
-    if url.password:
-        opts['secret_key'] = url.password
-    for key, val in parse_qs(url.query).items():
-        assert len(val) == 1
-        opts[key] = val[0]
-    if DEPLOYMENT_TYPE == 'production':
-        backend = 'aplans.storage.MediaFilesS3Storage'
-    else:
-        backend = 'aplans.storage.LocalMediaStorageWithS3Fallback'
-    STORAGES['default'] = {
-        'BACKEND': backend,
-        'OPTIONS': opts,
-    }
+    STORAGES['default'] = storage_settings_from_s3_url(media_storage_url)
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
