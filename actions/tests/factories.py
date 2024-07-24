@@ -56,6 +56,7 @@ class PlanFeaturesFactory(ModelFactory[PlanFeatures]):
     plan = SubFactory(PlanFactory, features=None)
 
 
+@factory.django.mute_signals(post_save)
 class PlanDomainFactory(ModelFactory[PlanDomain]):
     plan = SubFactory(PlanFactory, _domain=None)
     hostname = Sequence(lambda i: f'plandomain{i}.example.org')
