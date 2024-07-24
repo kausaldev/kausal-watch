@@ -277,7 +277,7 @@ media_storage_url: ParseResult = env.url('S3_MEDIA_STORAGE_URL')
 if media_storage_url.scheme:
     if media_storage_url.scheme != 's3':
         raise ImproperlyConfigured('S3_MEDIA_STORAGE_URL only supports s3 scheme')
-    STORAGES['default'] = storage_settings_from_s3_url(media_storage_url)
+    STORAGES['default'] = storage_settings_from_s3_url(media_storage_url, DEPLOYMENT_TYPE)
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

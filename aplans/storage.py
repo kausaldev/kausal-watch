@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.core.files import File
 from django.core.files.storage import Storage
 from django.core.files.storage import FileSystemStorage
@@ -80,8 +79,12 @@ class LocalMediaStorageWithS3Fallback(Storage):
         return self.s3_storage.url(name)
 
 
-def storage_settings_from_s3_url(url: ParseResult):
+def storage_settings_from_s3_url(url: ParseResult, deployment_type: str | None = None):
     assert url.scheme == 's3'
+    if deployment_type is None:
+        from django.conf import settings
+        deployment_type = settings.DEPLOYMENT_TYPE
+
     opts = {
         'bucket_name': url.path.lstrip('/'),
     }
@@ -94,7 +97,7 @@ def storage_settings_from_s3_url(url: ParseResult):
     for key, val in parse_qs(url.query).items():
         assert len(val) == 1
         opts[key] = val[0]
-    if settings.DEPLOYMENT_TYPE == 'production':
+    if deployment_type == 'production':
         backend = 'aplans.storage.MediaFilesS3Storage'
     else:
         backend = 'aplans.storage.LocalMediaStorageWithS3Fallback'
