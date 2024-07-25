@@ -321,8 +321,6 @@ pycryptodome==3.20.0
     # via -r requirements.in
 pygithub==2.3.0
     # via -r requirements.in
-pygithub==2.3.0
-    # via -r requirements.in
 pygments==2.18.0
     # via
     #   pygments-graphql
@@ -405,10 +403,10 @@ rsa==4.9
     # via python-jose
 rustface==0.1.0
     # via -r requirements.in
-s3transfer==0.10.1
-    # via boto3
 s3cmd==2.4.0
     # via -r requirements.in
+s3transfer==0.10.1
+    # via boto3
 sentry-sdk==2.2.0
     # via -r requirements.in
 six==1.16.0
@@ -497,7 +495,9 @@ wcwidth==0.2.13
 webencodings==0.5.1
     # via tinycss2
 willow[heif]==1.8.0
-    # via wagtail
+    # via
+    #   wagtail
+    #   willow
 wrapt==1.16.0
     # via deprecated
 xlsx2csv==0.8.2
